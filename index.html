@@ -1,0 +1,411 @@
+<title>ロルカナ環境相性表</title>
+<meta name="description" content="ディズニー・ロルカナ第13弾「ヴァインズ・アタック！」環境の主要デッキ、使用率、相性表">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#EEF1F6; --surface:#FFFFFF; --surface-2:#F6F8FB; --line:#D5DBE6; --line-strong:#AEB8C9;
+  --ink:#18203A; --ink-2:#4A5570; --ink-3:#737E97;
+  --gold:#A87712; --gold-soft:#F3E6C4;
+  --fav:#1E7A68; --fav-bg:#D7EFE8; --even:#6B7385; --even-bg:#E7EAF0; --unf:#B0482F; --unf-bg:#F6DDD5;
+  --amber:#E0A10F; --amethyst:#7B4FA0; --emerald:#2E8B57; --ruby:#C2283B; --sapphire:#1F6FB5; --steel:#8A94A3;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11152A; --surface:#181D36; --surface-2:#1E2440; --line:#2C3456; --line-strong:#46507A;
+    --ink:#E8ECF6; --ink-2:#B3BBD2; --ink-3:#8791AE;
+    --gold:#E2B24C; --gold-soft:#3A3120;
+    --fav:#5CC7AE; --fav-bg:#173A36; --even:#A3AAC0; --even-bg:#262C48; --unf:#EE8A70; --unf-bg:#43262A;
+    --steel:#A9B2C0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11152A; --surface:#181D36; --surface-2:#1E2440; --line:#2C3456; --line-strong:#46507A;
+  --ink:#E8ECF6; --ink-2:#B3BBD2; --ink-3:#8791AE;
+  --gold:#E2B24C; --gold-soft:#3A3120;
+  --fav:#5CC7AE; --fav-bg:#173A36; --even:#A3AAC0; --even-bg:#262C48; --unf:#EE8A70; --unf-bg:#43262A;
+  --steel:#A9B2C0;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.7;margin:0;padding-inline:16px;padding-block:0 64px}
+.wrap{max-width:1080px;margin:0 auto;display:flex;flex-direction:column;gap:56px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.3}
+h2{font-size:clamp(22px,3.2vw,28px)}
+h3{font-size:18px}
+p{margin:0}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.muted{color:var(--ink-2)}
+.small{font-size:13px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:18px}
+.sec-head{display:flex;flex-direction:column;gap:6px;max-width:68ch}
+
+/* header */
+header.hero{padding-top:40px;display:flex;flex-direction:column;gap:18px;border-bottom:1px solid var(--line);padding-bottom:28px}
+header.hero h1{font-size:clamp(30px,5.4vw,48px);font-weight:800;letter-spacing:.02em}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--ink-2)}
+.hero-meta b{color:var(--ink);font-weight:700}
+.lede{max-width:66ch;color:var(--ink-2)}
+.inkbar{display:flex;gap:6px}
+.inkbar span{width:22px;height:6px;border-radius:3px}
+
+/* ink pips */
+.pips{display:inline-flex;gap:3px;vertical-align:middle}
+.pip{width:11px;height:11px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.i-amber{background:var(--amber)} .i-amethyst{background:var(--amethyst)} .i-emerald{background:var(--emerald)}
+.i-ruby{background:var(--ruby)} .i-sapphire{background:var(--sapphire)} .i-steel{background:var(--steel)}
+
+/* tables */
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%}
+th,td{padding:10px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-size:12px;letter-spacing:.06em;color:var(--ink-3);font-weight:700;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+.deckname{display:flex;align-items:center;gap:8px;font-weight:700;white-space:nowrap}
+.deckname small{font-weight:400;color:var(--ink-3);font-size:12px}
+.tier{display:inline-block;font-family:var(--mono);font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line-strong);white-space:nowrap}
+.tier.t1{background:var(--gold-soft);border-color:var(--gold);color:var(--gold)}
+.results{font-size:13px;color:var(--ink-2);min-width:220px}
+
+/* matrix */
+.matrix-grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:20px;align-items:start}
+@media (max-width:860px){.matrix-grid{grid-template-columns:1fr}}
+table.mx{width:auto;min-width:100%}
+table.mx th,table.mx td{border:1px solid var(--line);text-align:center;padding:0}
+table.mx thead th{padding:8px 6px;vertical-align:bottom}
+table.mx thead th.corner{text-align:left;font-weight:400;font-size:11px;color:var(--ink-3);padding:8px 10px;line-height:1.4}
+table.mx tbody th{background:var(--surface-2);padding:8px 10px;text-align:left}
+.mx-label{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--ink);white-space:nowrap}
+tbody .mx-label{flex-direction:row;gap:8px}
+.cell{appearance:none;border:0;margin:0;width:100%;min-width:64px;height:56px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;cursor:pointer;font:inherit;color:inherit;background:transparent;position:relative}
+.cell .sym{font-size:20px;line-height:1;font-weight:700}
+.cell .cf{font-size:10px;letter-spacing:.04em;margin-top:3px;opacity:.85}
+.cell.v1{background:var(--fav-bg);color:var(--fav)}
+.cell.v0{background:var(--even-bg);color:var(--even)}
+.cell.vm1{background:var(--unf-bg);color:var(--unf)}
+.cell.low{background-image:repeating-linear-gradient(135deg,transparent 0 6px,rgba(127,127,127,.10) 6px 8px)}
+.cell.mirror{cursor:default;color:var(--ink-3);background:var(--surface-2)}
+.cell:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+.cell.sel{box-shadow:inset 0 0 0 3px var(--gold)}
+th.hl{background:var(--gold-soft)!important}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:18px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+.sw.v1{background:var(--fav-bg);color:var(--fav)} .sw.v0{background:var(--even-bg);color:var(--even)} .sw.vm1{background:var(--unf-bg);color:var(--unf)}
+.sw.low{background:var(--surface-2);background-image:repeating-linear-gradient(135deg,transparent 0 5px,rgba(127,127,127,.25) 5px 7px);border:1px solid var(--line)}
+
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 12px)}
+.detail .vs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700}
+.detail .vs .x{color:var(--ink-3);font-weight:400;font-size:13px}
+.verdict{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;padding:4px 10px;border-radius:6px;align-self:flex-start}
+.verdict.v1{background:var(--fav-bg);color:var(--fav)} .verdict.v0{background:var(--even-bg);color:var(--even)} .verdict.vm1{background:var(--unf-bg);color:var(--unf)}
+.detail dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font-size:13px}
+.detail dt{color:var(--ink-3)} .detail dd{margin:0}
+.detail .why{font-size:14px;line-height:1.75}
+.detail .tip{font-size:13px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:10px}
+
+/* cycle + chart */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.cycle svg{width:100%;height:auto;max-width:420px;align-self:center}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:118px 1fr 92px;align-items:center;gap:10px;font-size:13px}
+.bar .lab{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.bar .track{height:14px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.bar .fill{height:100%;background:var(--ink-2);border-radius:3px}
+.bar.top .fill{background:var(--gold)}
+.bar .val{text-align:right;color:var(--ink-2)}
+@media (max-width:420px){.bar{grid-template-columns:96px 1fr 70px}}
+
+/* deck profiles */
+.decks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+@media (max-width:760px){.decks{grid-template-columns:1fr}}
+.deck{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.deck-top{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.deck-top h3{display:flex;align-items:center;gap:8px}
+.arch{font-size:12px;color:var(--ink-3)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;padding:2px 8px;border-radius:5px;background:var(--surface-2);border:1px solid var(--line);color:var(--ink-2)}
+.deck ul{margin:0;padding-left:1.1em;font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:3px}
+.deck .sample{font-size:12px;color:var(--ink-3)}
+.deck .sample a{color:var(--ink-2)}
+
+.notes{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:18px;font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:8px}
+.notes ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
+a{color:var(--sapphire);text-underline-offset:2px}
+:root[data-theme="dark"] a{color:#7FB2E5}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) a{color:#7FB2E5}}
+@media (prefers-reduced-motion:no-preference){.cell{transition:box-shadow .12s}}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="inkbar" aria-hidden="true"><span class="i-amber"></span><span class="i-amethyst"></span><span class="i-emerald"></span><span class="i-ruby"></span><span class="i-sapphire"></span><span class="i-steel"></span></div>
+    <span class="eyebrow">DISNEY LORCANA · 第13弾環境</span>
+    <h1>ロルカナ環境相性表</h1>
+    <p class="lede">「ヴァインズ・アタック！」環境（2026/07/17〜10/15）の主要6デッキについて、使用率・大会結果・相性をまとめました。相性は大会結果と環境記事の記述から読み取った推定で、実測の勝率ではありません。</p>
+    <div class="hero-meta">
+      <span>集計日 <b class="num">2026-09-25</b></span>
+      <span>対象 <b>ヴァインズ・アタック！</b> シーズン</span>
+      <span>次弾 <b>第14弾「ハイペリアシティ」</b> <span class="num">10/16</span> 発売予定</span>
+    </div>
+  </header>
+
+  <section id="tier">
+    <div class="sec-head">
+      <span class="eyebrow">META SNAPSHOT</span>
+      <h2>いまの環境：三つ巴＋α</h2>
+      <p class="muted">大会の形式で評価が入れ替わる環境です。日本一決定戦は事前にインク色を申告する特殊ルールで、対面ごとの回答を持つ緑鋼・赤青に有利でした。通常のBO1では黄緑の速度が効きやすくなります。</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr>
+          <th>デッキ</th><th>評価</th><th class="r">掲載構成比</th><th class="r">日本一 使用率</th><th class="r">日本一 TOP8</th><th class="r">初週SCS 優勝分布</th><th>主な戦績</th>
+        </tr></thead>
+        <tbody id="tierBody"></tbody>
+      </table>
+    </div>
+    <p class="small muted">掲載構成比：disneylorcana.jp に掲載された同シーズンのレシピ80件の内訳。日本一決定戦2026：参加57名。初週SCS：7/18〜20のセットチャンピオンシップ優勝デッキの割合。いずれも全プレイヤーの使用率・勝率ではありません。</p>
+  </section>
+
+  <section id="matrix">
+    <div class="sec-head">
+      <span class="eyebrow">MATCHUP CHART</span>
+      <h2>相性表</h2>
+      <p class="muted">行が自分のデッキ、列が相手のデッキです。マスを押すと理由と立ち回りが表示されます。</p>
+    </div>
+    <div class="legend">
+      <span><i class="sw v1">○</i>有利寄り</span>
+      <span><i class="sw v0">△</i>五分</span>
+      <span><i class="sw vm1">▲</i>不利寄り</span>
+      <span><i class="sw low"></i>斜線＝確度低（構造からの推測）</span>
+    </div>
+    <div class="matrix-grid">
+      <div class="scroll">
+        <table class="mx" id="mx"></table>
+      </div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="cycle">
+    <div class="two">
+      <div class="panel cycle">
+        <div class="sec-head">
+          <span class="eyebrow">META CYCLE</span>
+          <h3>環境の三すくみ</h3>
+          <p class="small muted">矢印の先の相手に有利。緑鋼が黄緑を手札破壊で止め、赤青が緑鋼との長期戦に適応し、黄緑が赤青の準備が整う前に走り切る、という循環で環境が回っています。</p>
+        </div>
+        <svg viewBox="0 0 420 300" role="img" aria-label="緑鋼は黄緑に有利、黄緑は赤青に有利、赤青は緑鋼に有利">
+          <defs>
+            <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+              <path d="M0,0 L10,5 L0,10 z" style="fill:var(--gold)"/>
+            </marker>
+          </defs>
+          <g style="stroke:var(--gold);stroke-width:2.5;fill:none" marker-end="url(#ah)">
+            <path d="M188,78 L96,196" marker-end="url(#ah)"/>
+            <path d="M118,236 L302,236" marker-end="url(#ah)"/>
+            <path d="M324,196 L232,78" marker-end="url(#ah)"/>
+          </g>
+          <g font-family="Zen Kaku Gothic New, sans-serif" font-size="12" style="fill:var(--ink-2)">
+            <text x="96" y="130" text-anchor="middle">手札破壊で</text>
+            <text x="96" y="146" text-anchor="middle">展開を止める</text>
+            <text x="210" y="262" text-anchor="middle">全体除去の前に走り切る</text>
+            <text x="326" y="130" text-anchor="middle">手札を維持し</text>
+            <text x="326" y="146" text-anchor="middle">長期戦で上回る</text>
+          </g>
+          <g font-family="Shippori Mincho B1, serif" font-weight="800" font-size="20" text-anchor="middle">
+            <circle cx="210" cy="50" r="30" style="fill:var(--surface-2);stroke:var(--line-strong)"/>
+            <circle cx="198" cy="28" r="5" style="fill:var(--emerald)"/><circle cx="222" cy="28" r="5" style="fill:var(--steel)"/>
+            <text x="210" y="58" style="fill:var(--ink)">緑鋼</text>
+            <circle cx="86" cy="226" r="30" style="fill:var(--surface-2);stroke:var(--line-strong)"/>
+            <circle cx="74" cy="204" r="5" style="fill:var(--amber)"/><circle cx="98" cy="204" r="5" style="fill:var(--emerald)"/>
+            <text x="86" y="234" style="fill:var(--ink)">黄緑</text>
+            <circle cx="334" cy="226" r="30" style="fill:var(--surface-2);stroke:var(--line-strong)"/>
+            <circle cx="322" cy="204" r="5" style="fill:var(--ruby)"/><circle cx="346" cy="204" r="5" style="fill:var(--sapphire)"/>
+            <text x="334" y="234" style="fill:var(--ink)">赤青</text>
+          </g>
+        </svg>
+      </div>
+      <div class="panel">
+        <div class="sec-head">
+          <span class="eyebrow">INK SHARE</span>
+          <h3>インク構成別の掲載数</h3>
+          <p class="small muted">disneylorcana.jp 掲載レシピ（ヴァインズ・アタック！期、計80件）。</p>
+        </div>
+        <div class="bars" id="bars"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="decks">
+    <div class="sec-head">
+      <span class="eyebrow">DECK PROFILES</span>
+      <h2>主要デッキの中身</h2>
+      <p class="muted">キーカードは上位入賞レシピで4枚採用が多いカードから選んでいます。</p>
+    </div>
+    <div class="decks" id="deckCards"></div>
+  </section>
+
+  <section id="others">
+    <div class="sec-head">
+      <span class="eyebrow">ON THE RADAR</span>
+      <h2>その他の注目デッキ</h2>
+    </div>
+    <div class="decks">
+      <article class="deck">
+        <div class="deck-top"><h3><span class="pips"><i class="pip i-emerald"></i><i class="pip i-ruby"></i></span>緑赤 コントロール</h3><span class="arch">掲載 7件（8.8%）</span></div>
+        <p class="small">神戸TOP4（けちゃまる選手）。催眠術・縁組次第・背すじがゾクッ！で手札を攻め、レヴィアタン、ヘラクレスの帰還で盤面を取る構成。緑鋼と同じく手札破壊軸で、黄緑・赤青への回答を持つ第4の選択肢です。</p>
+      </article>
+      <article class="deck">
+        <div class="deck-top"><h3><span class="pips"><i class="pip i-emerald"></i><i class="pip i-sapphire"></i></span>緑青 ミキミニ</h3><span class="arch">掲載 4件（5.0%）</span></div>
+        <p class="small">神戸出場（ぬん選手）。ミッキーマウス＆ミニーマウス – 大冒険カップルを最速2ターン目に着地させ、5ロアクエストを繰り返すコンボ寄りデッキ。対スティールは魔除持ちを押し付け、散り散りの家族で盤面を崩します。</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="notes">
+      <b style="color:var(--ink)">この表の読み方と出典</b>
+      <ul>
+        <li>相性は「確度 中」が環境記事に明記された関係、「確度 低」が採用カードの構造からの推測です。公式データや実測の勝率ではありません。</li>
+        <li>第14弾「ハイペリアシティ」（10/16発売）で環境は大きく動く見込みです。発売後に更新してください。</li>
+        <li>出典：<a href="https://disneylorcana.jp/deck/" target="_blank" rel="noopener">disneylorcana.jp デッキ一覧</a> ／ <a href="https://disneylorcana.jp/deckrecipe/900232/" target="_blank" rel="noopener">第13弾トップ環境デッキまとめ</a> ／ <a href="https://www.takaratomy.co.jp/products/disneylorcana/" target="_blank" rel="noopener">タカラトミー公式</a> ／ <a href="https://www.takaratomy.co.jp/products/disneylorcana/news/column/94413/" target="_blank" rel="noopener">公式コラム「ヴァインズ・アタック！で強化される3デッキ」</a></li>
+        <li>disneylorcana.jp は非公式ファンサイトです。Disney Lorcana の名称・商標は各権利者に帰属します。</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script>
+const INK = {amber:"アンバー",amethyst:"アメジスト",emerald:"エメラルド",ruby:"ルビー",sapphire:"サファイア",steel:"スティール"};
+const DECKS = [
+  {id:"AE", short:"黄緑", name:"アンバー／エメラルド", inks:["amber","emerald"], arch:"アグロ（ロイヤルドッグ）", tier:"Tier 1", t1:true,
+   share:"23.8%", jnc:"28.1%（16人）", top8:"1人（6.3%）", scs:"32%",
+   results:"LGCS2 優勝・BEST4／神戸 TOP4・TOP8／9/6 SCS優勝",
+   keys:["柳の木のおばあさん – 古き善き相談相手","エリノア – 名高い外交家","トランプ – 切れ者の犬","レディ – 凛々しいお嬢さん","マイク・ワゾウスキ – トップを目指すヒーロー","リロ – 抜け出し名人","キット・クラウドキッカー – タフガイ"],
+   plan:["1〜2ターン目に軽量キャラを並べ、柳の木のおばあさんで3ターン目に4コスト帯へ","マイク・ワゾウスキ、ナニで後続を確保し息切れしにくい","全体除去後はリロで即座に盤面を戻す","対緑鋼用にキットを3〜4枚採用するのが最新トレンド"],
+   sample:{label:"神戸TOP4 hakumai選手",url:"https://disneylorcana.jp/deck/900283/"}},
+  {id:"AS", short:"黄鋼", name:"アンバー／スティール", inks:["amber","steel"], arch:"ミッドレンジ／テンポ（ソング）", tier:"Tier 1.5",
+   share:"20.0%", jnc:"21.1%（12人）", top8:"0人（0%）", scs:"26%",
+   results:"神戸 TOP8／9/6 SCS優勝／LGCS2 TOP8",
+   keys:["アリエル – 麗しい歌姫","シンデレラ – 舞踏会の花形","風よ吹け","持つんだ熱い心","そこに登場、ゼウス！","ホール・ニュー・ワールド","昔ながらのこの営み"],
+   plan:["歌い手を場に残し、歌でキャラ展開と除去を同じターンに行う","ナヴィーン王子 – ウクレレ奏者で歌い手不在からでも歌を使える","昔ながらのこの営みで赤青のアイテム・アクションの山場を止める","構築が未収束で、使用者間の差が大きい"],
+   sample:{label:"9/6 SCS優勝 キク選手",url:"https://disneylorcana.jp/deck/900256/"}},
+  {id:"ES", short:"緑鋼", name:"エメラルド／スティール", inks:["emerald","steel"], arch:"ミッドレンジ（手札破壊・ロケーション型）", tier:"Tier 1", t1:true,
+   share:"18.8%", jnc:"19.3%（11人）", top8:"5人（45.5%）", scs:"6%",
+   results:"神戸 優勝／日本一 準優勝／LGCS2 準優勝",
+   keys:["アースラ – 騙し屋","背すじがゾクッ！","ディアブロ – 忠実なる使い魔","ピート – リングのレフェリー","ミューズ – アートとヒーローの専門家","風よ吹け","昔ながらのこの営み"],
+   plan:["アースラ、背すじがゾクッ！で相手の選択肢を削り、ディアブロで手札差を広げる","ピートと昔ながらのこの営みでアクション・アイテムのタイミングを縛る","ロケーション型はパラダイスの滝＋タッチ・ザ・スカイで長期戦の息切れを解消","神戸優勝型はロケーションを抜き、ファーガスとマックス・グーフでテンポ寄り"],
+   sample:{label:"神戸優勝 みどり_K3064選手",url:"https://disneylorcana.jp/deck/900286/"}},
+  {id:"RS", short:"赤青", name:"ルビー／サファイア", inks:["ruby","sapphire"], arch:"コントロール／ランプ（アイテムズ）", tier:"Tier 1", t1:true,
+   share:"12.5%", jnc:"12.3%（7人）", top8:"2人（28.6%）", scs:"14%",
+   results:"日本一 優勝／神戸 準優勝",
+   keys:["魚の骨ペン","モーリスの工房","アイスポー","生命の宝球","バジルの虫眼鏡","準備をしておけ","タマトア – ゴージャス！"],
+   plan:["対アンバー系はクッキー、リキッデーター、乱闘で序盤のロア差を抑える","盤面が広がったら準備をしておけ、シスーでリセット","対緑鋼はバジルの虫眼鏡で手札を3枚前後維持しながらインクを伸ばす","モーリスの工房が定着したらリソース差で押し切り、タマトアやラッキーダイムで締める"],
+   sample:{label:"日本一優勝 むっしーマウス選手",url:"https://disneylorcana.jp/deck/900058/"}},
+  {id:"AmR", short:"紫赤", name:"アメジスト／ルビー", inks:["amethyst","ruby"], arch:"ミッドレンジ（対アグロのメタ）", tier:"Tier 2",
+   share:"2.5%", jnc:"1.8%（1人）", top8:"0人", scs:"10%",
+   results:"LGCS2 BEST4／7/29 SCS優勝",
+   keys:["ピーター・パン – 影の追跡者","エルサ – 第5の精霊","ダンボ – 世界の七不思議","ルイーサ・マドリガル – 自信家の登山家","マダム・ミム – キツネ","マーリン – カニ"],
+   plan:["クッキーやルイーサで序盤の盤面を受け止め、有利なチャレンジを重ねる","ミムとマーリンのバウンスでカードを再利用","ダンボで回避キャラをドローとロアに変換","アンバー系が増えるほど立ち位置が良くなる"],
+   sample:{label:"7/29 SCS優勝 セイ選手",url:"https://disneylorcana.jp/deck/11541/"}},
+  {id:"AR", short:"黄赤", name:"アンバー／ルビー", inks:["amber","ruby"], arch:"ミッドレンジ（ロケーション）", tier:"Tier 2",
+   share:"3.8%", jnc:"—", top8:"—", scs:"—",
+   results:"9/6 SCS優勝",
+   keys:["シュガーラッシュスピードウェイ – ゴールライン","カールの家 – 空中家屋","エルサ – 心配する姉","ミニーマウス – 海賊の見張り番","タフィタ・マトンファッジ – スッパイ・スピードスター","島があるのも俺のおかげ"],
+   plan:["カールの家から無料で移動し、ゴールラインでロアを稼ぐ","ミニーマウス – 海賊の見張り番でゴールラインを再利用","島があるのも俺のおかげでキーのロケーションを探す","相手への干渉が少なく、盤面を放置しすぎない判断が必要"],
+   sample:{label:"9/6 SCS優勝 てつてつ選手",url:"https://disneylorcana.jp/deck/900257/"}}
+];
+
+// 行デッキ視点の相性。v: 1=有利寄り 0=五分 -1=不利寄り / c: "中" or "低"
+const MU = {
+  "AE|AS":{v:-1,c:"低",why:"黄鋼の風よ吹け・持つんだ熱い心は低コストのキャラをまとめて処理でき、展開と除去を同じターンに行われる。",tip:"歌い手（アリエル、シンデレラ）を優先して処理し、リロやマイクで除去後の再展開を残す。"},
+  "AE|ES":{v:-1,c:"中",why:"環境記事で黄緑の最大の課題とされる対面。背すじがゾクッ！やアースラで展開札を抜かれ、ピートでテンポも奪われる。",tip:"キット・クラウドキッカーを重視し、手札破壊を受ける前に盤面へ価値を移す。"},
+  "AE|RS":{v:1,c:"中",why:"赤青の主な課題は黄緑の高速展開。モーリスの工房などの準備が整う前に20ロアへ届きやすい。",tip:"準備をしておけ・乱闘のターンを読み、除去後に再展開できるカードを手札に残す。"},
+  "AE|AmR":{v:-1,c:"中",why:"紫赤はアンバー系の盤面を狙うメタデッキ。クッキーやルイーサで序盤を受け止められ、チャレンジで有利交換を重ねられる。",tip:"回避持ちや意志力の高いキャラで交換を避け、クエストを優先する。"},
+  "AE|AR":{v:1,c:"低",why:"黄赤は相手への直接干渉が少ないロケーションデッキ。ロアレースになれば展開速度で上回りやすい。",tip:"野獣 – 雪原のトラブルメーカーの突進に注意し、ロケーションが揃う前にロアを先行する。"},
+  "AS|ES":{v:-1,c:"中",why:"歌カードを手札に抱えるほど手札破壊の被害が大きい。緑鋼も同じ歌（風よ吹け、持つんだ熱い心）と昔ながらのこの営みを使う。",tip:"歌を溜め込まず、早めに盤面へ価値を移す。"},
+  "AS|RS":{v:1,c:"中",why:"公式コラムで昔ながらのこの営みが赤青アイテム対策とされている。アイテムとアクションの山場を止められる。",tip:"昔ながらのこの営みを、赤青がアイテムを連打するターンや全体除去のターンに合わせる。"},
+  "AS|AmR":{v:-1,c:"低",why:"紫赤はチャレンジと除去で歌い手を場に残させず、歌の効率を落としてくる。",tip:"歌い手を複数並べ、1体を処理されても歌える状態を作る。"},
+  "AS|AR":{v:0,c:"低",why:"歌の除去でキャラは処理できるが、ロケーション自体がロア源のため止めきれない。データが少ない対面。",tip:"ロケーションに移動したキャラを優先して除去し、ゴールラインの再利用を遅らせる。"},
+  "ES|RS":{v:-1,c:"中",why:"緑鋼の主な課題は赤青との長期リソース戦。日本一優勝型はバジルの虫眼鏡で手札を維持し、手札破壊をかわしながらインクを伸ばす。",tip:"ロケーション型ならロケーションをロア源として押し付け、キャラの少ない赤青に時間を与えない。"},
+  "ES|AmR":{v:0,c:"低",why:"紫赤はキャラ主体でアクション・アイテム依存が小さく、ピートや昔ながらのこの営みが刺さりにくい。直接のデータはない。",tip:"ディアブロで手札差を作り、エルサ – 第5の精霊の着地を遅らせる。"},
+  "ES|AR":{v:1,c:"低",why:"黄赤はゴールラインなどキーカードへの依存度が高く、手札破壊で抜かれると勝ち筋が細くなる。",tip:"背すじがゾクッ！で島があるのも俺のおかげやゴールラインを優先して抜く。"},
+  "RS|AmR":{v:1,c:"中",why:"紫赤はキャラ以外から継続的にリソースを得るデッキに長期戦で差を付けられやすい。モーリスの工房が定着すれば押し切れる。",tip:"序盤は除去を温存しすぎず、アイテム展開でリソース差を広げる。"},
+  "RS|AR":{v:0,c:"低",why:"全体除去でキャラは流せるが、ロケーションが残りロアを稼がれ続ける。データが少ない対面。",tip:"ロケーション上のキャラを優先して除去し、ミニーマウスによる再利用を止める。"},
+  "AmR|AR":{v:0,c:"低",why:"紫赤のチャレンジは黄赤のキャラに通るが、野獣 – 雪原のトラブルメーカーはロケーション上でダメージを受けない。データが少ない対面。",tip:"ロケーションへ移動する前のキャラに有利交換を仕掛ける。"}
+};
+function mu(a,b){
+  if(a===b) return null;
+  const k=a+"|"+b; if(MU[k]) return MU[k];
+  const r=MU[b+"|"+a]; if(!r) return null;
+  return {v:-r.v,c:r.c,why:r.why,tip:"（相手側の立ち回り）"+r.tip,inv:true};
+}
+const SYM={"1":"○","0":"△","-1":"▲"}, CLS={"1":"v1","0":"v0","-1":"vm1"}, LAB={"1":"有利寄り","0":"五分","-1":"不利寄り"};
+const pips=inks=>`<span class="pips">${inks.map(i=>`<i class="pip i-${i}" title="${INK[i]}"></i>`).join("")}</span>`;
+const byId=Object.fromEntries(DECKS.map(d=>[d.id,d]));
+
+// tier table
+document.getElementById("tierBody").innerHTML=DECKS.map(d=>`<tr>
+  <td><div class="deckname">${pips(d.inks)}${d.short}<small>${d.name}</small></div><div class="small muted">${d.arch}</div></td>
+  <td><span class="tier ${d.t1?"t1":""}">${d.tier}</span></td>
+  <td class="r num">${d.share}</td><td class="r num">${d.jnc}</td><td class="r num">${d.top8}</td><td class="r num">${d.scs}</td>
+  <td class="results">${d.results}</td></tr>`).join("");
+
+// matrix
+const mx=document.getElementById("mx");
+let head=`<thead><tr><th class="corner">自分 ↓ ／ 相手 →</th>${DECKS.map(d=>`<th data-col="${d.id}"><div class="mx-label">${pips(d.inks)}${d.short}</div></th>`).join("")}</tr></thead><tbody>`;
+head+=DECKS.map(r=>`<tr><th data-row="${r.id}"><div class="mx-label">${pips(r.inks)}${r.short}</div></th>${DECKS.map(c=>{
+  const m=mu(r.id,c.id);
+  if(!m) return `<td><div class="cell mirror" aria-label="ミラー"><span class="sym">—</span></div></td>`;
+  return `<td><button type="button" class="cell ${CLS[m.v]} ${m.c==="低"?"low":""}" data-r="${r.id}" data-c="${c.id}" aria-label="${r.short}対${c.short}：${LAB[m.v]}、確度${m.c}"><span class="sym">${SYM[m.v]}</span><span class="cf">確度${m.c}</span></button></td>`;
+}).join("")}</tr>`).join("")+"</tbody>";
+mx.innerHTML=head;
+
+function select(r,c){
+  mx.querySelectorAll(".sel").forEach(e=>e.classList.remove("sel"));
+  mx.querySelectorAll(".hl").forEach(e=>e.classList.remove("hl"));
+  const btn=mx.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`); if(btn) btn.classList.add("sel");
+  mx.querySelector(`th[data-row="${r}"]`)?.classList.add("hl");
+  mx.querySelector(`th[data-col="${c}"]`)?.classList.add("hl");
+  const m=mu(r,c), R=byId[r], C=byId[c];
+  document.getElementById("detail").innerHTML=`
+    <span class="eyebrow">選択中の対面</span>
+    <div class="vs">${pips(R.inks)}${R.short}<span class="x">（自分）vs</span>${pips(C.inks)}${C.short}<span class="x">（相手）</span></div>
+    <span class="verdict ${CLS[m.v]}">${SYM[m.v]} ${LAB[m.v]}</span>
+    <dl><dt>確度</dt><dd>${m.c==="中"?"中：環境記事に明記された関係":"低：採用カードの構造からの推測"}</dd></dl>
+    <p class="why">${m.why}</p>
+    <p class="tip"><b>立ち回り</b>　${m.tip}</p>`;
+  try{localStorage.setItem("lorcana-mu",r+"|"+c)}catch(e){}
+}
+mx.addEventListener("click",e=>{const b=e.target.closest("button.cell"); if(b) select(b.dataset.r,b.dataset.c);});
+let init=["AE","ES"]; try{const s=localStorage.getItem("lorcana-mu"); if(s){const p=s.split("|"); if(mu(p[0],p[1])) init=p;}}catch(e){}
+select(init[0],init[1]);
+
+// bars
+const SHARE=[["amber","emerald",19],["amber","steel",16],["emerald","steel",15],["ruby","sapphire",10],["emerald","ruby",7],["emerald","sapphire",4],["amber","ruby",3],["amethyst","ruby",2],["amethyst","sapphire",2],["amber","sapphire",1],["amethyst","emerald",1]];
+const SHORT={amber:"黄",amethyst:"紫",emerald:"緑",ruby:"赤",sapphire:"青",steel:"鋼"};
+const max=19;
+document.getElementById("bars").innerHTML=SHARE.map(([a,b,n],i)=>`<div class="bar ${i<4?"top":""}">
+  <span class="lab">${pips([a,b])}${SHORT[a]}${SHORT[b]}</span>
+  <span class="track"><span class="fill" style="width:${(n/max*100).toFixed(1)}%;display:block"></span></span>
+  <span class="val num">${n}件 ${(n/80*100).toFixed(1)}%</span></div>`).join("");
+
+// deck cards
+document.getElementById("deckCards").innerHTML=DECKS.map(d=>`<article class="deck">
+  <div class="deck-top"><h3>${pips(d.inks)}${d.short}　<span class="small muted" style="font-family:var(--body)">${d.name}</span></h3><span class="tier ${d.t1?"t1":""}">${d.tier}</span></div>
+  <span class="arch">${d.arch}</span>
+  <div class="chips">${d.keys.map(k=>`<span class="chip">${k}</span>`).join("")}</div>
+  <ul>${d.plan.map(p=>`<li>${p}</li>`).join("")}</ul>
+  <span class="sample">参考レシピ：<a href="${d.sample.url}" target="_blank" rel="noopener">${d.sample.label}</a></span>
+</article>`).join("");
+</script>
