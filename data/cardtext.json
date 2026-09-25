@@ -1,0 +1,5779 @@
+{
+"アンダー・ザ・シー — Under the Sea": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4165/",
+"en": "Under the Sea",
+"score": "97.44",
+"cost": 8,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 8 (Any number of your or your teammates’ characters with total cost 8 or more may {E} to sing this song for free.)\nPut all opposing characters with 2 {S} or less on the bottom of their players’ decks in any order.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アークーデテムーティ": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9757/",
+"en": "Akood Et Emuti",
+"score": "84.86",
+"cost": 3,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nYou pay 2 {I} less for the next character you play this turn. Draw a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ウッディ — おもちゃのリーダー": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9471/",
+"en": "Woody - Leader of the Toys",
+"score": "6.67",
+"cost": 4,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "LET'S GO HOME When you play this character, look at the top 4 cards of your deck. You may reveal a Toy character card or a location card named Andy's Room and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": 3,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Toy"
+],
+"verified": true
+},
+"ウッディ — ジャングルの案内人": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9465/",
+"en": "Woody - Jungle Guide",
+"score": "16.35",
+"cost": 5,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Woody.)\nLET'S GET MOVIN' Whenever this character quests, draw a card. Then, you may play a character with cost 2 or less for free.\nEVERYONE GATHER 'ROUND Your other Toy characters get +1 {W}.",
+"strength": 1,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Toy"
+],
+"verified": true
+},
+"ウッディ — 友を待ちながら": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9453/",
+"en": "Woody - Waiting for a Friend",
+"score": "12.83",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Toy"
+],
+"verified": true
+},
+"ウッディ＆バズ・ライトイヤー — 最高の相棒": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10774/",
+"en": "Woody & Buzz Lightyear - Best Buddies",
+"score": "28.45",
+"cost": 7,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Shift 5 {I} (You may pay 5 {I} to play this on top of one of your characters named Woody or Buzz Lightyear.)\r\nTO INFINITY... When you play this character, if chosen opponent has more cards in their hand than you, draw cards until you have the same number.\r\n...AND BEYOND! Whenever this character quests, you may play a card with cost 2 or less for free.",
+"strength": 4,
+"willpower": 4,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Team",
+"Hero",
+"Toy",
+"Captain"
+],
+"verified": true
+},
+"シンデレラ — 舞踏会の花形": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2203/",
+"en": "Cinderella - Ballroom Sensation",
+"score": "94.56",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Singer 3 (This character counts as cost 3 to sing songs.)",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"ジェシー — じゃじゃ馬カウガール": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9470/",
+"en": "Jessie - Lively Cowgirl",
+"score": "13.52",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "PART OF A FAMILY Whenever this character quests, if you have 2 or more other Toy characters in play, you may draw a card.\nYODEL-AY-HEE-HOO! Whenever you pay 2 {I} or less to play a card, chosen opposing character gets -1 {S} until the start of your next turn.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Toy"
+],
+"verified": true
+},
+"バズ・ライトイヤー — スペース・レンジャー": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9526/",
+"en": "Buzz Lightyear - Space Ranger",
+"score": "20.42",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Toy",
+"Captain"
+],
+"verified": true
+},
+"バズ・ライトイヤー — 不時着・レンジャー": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10822/",
+"en": "Buzz Lightyear - Grounded",
+"score": "6.76",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "NOT A FLYING TOY This character can't gain Evasive.",
+"strength": 4,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Toy",
+"Captain"
+],
+"verified": true
+},
+"ブルズアイ — 忠実なる愛馬": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9467/",
+"en": "Bullseye - Loyal Horse",
+"score": "5.14",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "LET'S RIDE If you have a character named Woody or Jessie in play, you pay 1 {I} less to play this character.",
+"strength": 4,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Toy"
+],
+"verified": true
+},
+"リトル・グリーン・メン — ココロカラシンジルモノ": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9533/",
+"en": "Alien - True Believer",
+"score": "17.39",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "WE ARE ONE This character gets +1 {S} for each other Toy character you have in play.\nHE HAS BEEN CHOSEN During your turn, when this character is banished, return another character card named Alien from your discard to your hand.",
+"strength": 1,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Alien",
+"Toy"
+],
+"verified": true
+},
+"レックス — カバウノサウルス": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9460/",
+"en": "Rex - Protective Dinosaur",
+"score": "55.00",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.)\nRUN AWAY! During an opponent's turn, when this character is banished, gain 1 lore.",
+"strength": 3,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Dinosaur",
+"Toy"
+],
+"verified": true
+},
+"レニー — おもちゃの双眼鏡": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9529/",
+"en": "Lenny - Toy Binoculars",
+"score": "95.45",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "TAKE A GOOD LOOK When you play this character, chosen opponent reveals their hand and discards an action card of your choice.\nCOMIN' UP FAST Once during your turn, whenever you play an action, you may ready this character.",
+"strength": 0,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Toy"
+],
+"verified": true
+},
+"柳の木のおばあさん — 古き善き相談相手": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/11334/",
+"en": "Grandmother Willow - Ancient Advisor",
+"score": "89.72",
+"cost": 2,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "SMOOTH THE WAY Once during your turn, you pay 1 {I} less for the next character you play this turn.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor"
+],
+"verified": true
+},
+"アースラ — 騙し屋": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3136/",
+"en": "Ursula - Deceiver",
+"score": "99.62",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "YOU'LL NEVER EVEN MISS IT When you play this character, chosen opponent reveals their hand and discards a song card of your choice.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Sorcerer"
+],
+"verified": true
+},
+"エリノア — 名高い外交家": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9536/",
+"en": "Elinor - Renowned Diplomat",
+"score": "97.05",
+"cost": 4,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "COORDINATED EFFORTS At the end of your turn, if you have 3 or more exerted characters in play, deal 1 damage to chosen opposing character, gain 1 lore, and draw a card.",
+"strength": 3,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor",
+"Queen"
+],
+"verified": true
+},
+"オーロラ — 姫のお披露目": {
+"url": "https://disneylorcana.jp/cardlist/fabled/7234/",
+"en": "Aurora - Holding Court",
+"score": "85.06",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "ROYAL WELCOME Whenever this character quests, you pay 1 {I} less for the next Princess or Queen character you play this turn.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"キーダ — アトランティスの守護者": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3053/",
+"en": "Kida - Protector of Atlantis",
+"score": "92.78",
+"cost": 5,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Kida.)\nPERHAPS WE CAN SAVE OUR FUTURE When you play this character, all characters get -3 {S} until the start of your next turn.",
+"strength": 3,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"キーダ — アトランティス人": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3052/",
+"en": "Kida - Atlantean",
+"score": "78.27",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"ゴー・ゴー・トマゴ — ダイナミック・ダイナモ": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6073/",
+"en": "Go Go Tomago - Darting Dynamo",
+"score": "26.56",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nSTOP WHINING, WOMAN UP When you play this character, you may pay 2 {I} to gain lore equal to the damage on chosen opposing character.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Inventor"
+],
+"verified": true
+},
+"トランプ — 切れ者の犬": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7073/",
+"en": "Tramp - Enterprising Dog",
+"score": "84.66",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "HEY, PIDGE If you have a character named Lady in play, you pay 1 {I} less to play this character.\nNO TIME FOR WISECRACKS When you play this character, chosen character of yours gets +1 {S} this turn for each other character you have in play.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"トランプ — 裏路地暮らしの犬": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/6973/",
+"en": "Tramp - Street-Smart Dog",
+"score": "89.47",
+"cost": 7,
+"inkwell": true,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "NOW IT'S A PARTY For each character you have in play, you pay 1 {I} less to play this character.\nHOW'S PICKINGS? When you play this character, you may draw a card for each other character you have in play, then choose and discard that many cards.",
+"strength": 2,
+"willpower": 6,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ナニ — ステージマネージャー": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9753/",
+"en": "Nani - Stage Manager",
+"score": "91.38",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "THAT'S YOUR CUE When you play this character, look at the top 4 cards of your deck. You may reveal a character card with cost 2 or less and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"ボビー・ジムルースキー — スプレーチーズ小僧": {
+"url": "https://disneylorcana.jp/cardlist/fabled/8255/",
+"en": "Bobby Zimuruski - Spray Cheese Kid",
+"score": "83.97",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "SO CHEESY When you play this character, you may draw a card, then choose and discard a card.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"マイク・ワゾウスキ — トップを目指すヒーロー": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10764/",
+"en": "Mike Wazowski - Heroic Climber",
+"score": "93.14",
+"cost": 2,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "FIND A FRIEND When you play this character and whenever he quests, each player reveals the top card of their deck. If it's a character card, they may put it into their hand. Otherwise, put it on the bottom of their deck.",
+"strength": 0,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Monster"
+],
+"verified": true
+},
+"リロ — 抜け出し名人": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6002/",
+"en": "Lilo - Escape Artist",
+"score": "87.49",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "NO PLACE I’D RATHER BE At the start of your turn, if this card is in your discard, you may play her and she enters play exerted.",
+"strength": 1,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"レディ — ミス・ニューヨーク": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/6991/",
+"en": "Lady - Miss Park Avenue",
+"score": "77.24",
+"cost": 5,
+"inkwell": false,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Lady.)\nSOMETHING WONDERFUL When you play this character, you may return up to 2 character cards with cost 2 or less each from your discard to your hand.",
+"strength": 4,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero"
+],
+"verified": true
+},
+"レディ — 凛々しいお嬢さん": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/7988/",
+"en": "Lady - Decisive Dog",
+"score": "90.91",
+"cost": 1,
+"inkwell": true,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "PACK OF HER OWN Whenever you play a character, this character gets +1 {S} this turn.\nTAKE THE LEAD While this character has 3 {S} or more, she gets +2 {L}.",
+"strength": 0,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"女王 — 欺きの姿": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9540/",
+"en": "The Queen - Devious Disguise",
+"score": "72.61",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "EVIL SCHEME When you play this character, you may draw a card. If you do, each opponent gains 2 lore.\nJEALOUS HEART While an opponent has more lore than you, this character gets +2 {L}.",
+"strength": 5,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"デール — スパイク大作戦": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9472/",
+"en": "Dale - Ready for His Shot",
+"score": "73.25",
+"cost": 4,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "SPIKE SUIT During challenges, your characters deal damage with their {W} instead of their {S}.",
+"strength": 0,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"ナラ — いたずら仔ライオン": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4697/",
+"en": "Nala - Mischievous Cub",
+"score": "55.75",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "",
+"strength": 0,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ライノ — 16分の1はオオカミ": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/7970/",
+"en": "Rhino - One-Sixteenth Wolf",
+"score": "57.69",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "TINY HOWL When you play this character, chosen opposing character gets -1 {S} until the start of your next turn.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally"
+],
+"verified": true
+},
+"プルート — 人なつっこいわんこ": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3064/",
+"en": "Pluto - Friendly Pooch",
+"score": "5.18",
+"cost": 1,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "GOOD DOG {E} — You pay 1 {I} less for the next character you play this turn.",
+"strength": 0,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ホーンド・キング — 無慈悲なる支配者": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10768/",
+"en": "The Horned King - Merciless Master",
+"score": "11.19",
+"cost": 5,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "CAULDRON'S POWER While this character is exerted, you may play characters from your discard. If you do, they enter play exerted. (You pay all costs.)",
+"strength": 5,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"King",
+"Sorcerer"
+],
+"verified": true
+},
+"ムーシュー — 姑息な龍": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10843/",
+"en": "Mushu - Stealthy Dragon",
+"score": "36.19",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nTIP THE SCALES Whenever this character quests, if an opponent has more cards in their hand than you, you may draw a card.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Dragon"
+],
+"verified": true
+},
+"ラプンツェル — いやしの賜物": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1359/",
+"en": "Rapunzel - Gifted with Healing",
+"score": "92.68",
+"cost": 4,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "GLEAM AND GLOW When you play this character, remove up to 3 damage from one of your characters. Draw a card for each 1 damage removed this way.",
+"strength": 1,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"キット・クラウドキッカー — タフガイ": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3123/",
+"en": "Kit Cloudkicker - Tough Guy",
+"score": "78.16",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "SKYSURFING When you play this character, you may return chosen opposing character with 2 {S} or less to their player's hand.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"チェルナボーグ — 邪悪の化身": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3045/",
+"en": "Chernabog - Evildoer",
+"score": "64.08",
+"cost": 10,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "THE POWER OF EVIL For each character card in your discard, you pay 1 {I} less to play this character.\nSUMMON THE SPIRITS When you play this character, shuffle all character cards from your discard into your deck.",
+"strength": 9,
+"willpower": 9,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"メイ・リー — リード・ボーカリスト": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10753/",
+"en": "Meilin Lee - Lead Vocalist",
+"score": "83.81",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Singer 3 (This character counts as cost 3 to sing songs.)\nBAND LOYALTY This character can't sing songs without Sing Together.",
+"strength": 0,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Red Panda"
+],
+"verified": true
+},
+"ラプンツェル — 塔の番人": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10826/",
+"en": "Rapunzel - Tower Defender",
+"score": "18.58",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "THE FATES' DESIGN When you play this character, you may choose and discard a card. If you do, return chosen character to their player's hand.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"つるの貫き": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10848/",
+"en": "Piercing Attack",
+"score": "70.16",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Deal 2 damage to chosen character. This damage can't be reduced by Resist.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"デイジーダック — ドナルドの彼女": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4711/",
+"en": "Daisy Duck - Donald's Date",
+"score": "56.09",
+"cost": 1,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "BIG PRIZE Whenever this character quests, each opponent reveals the top card of their deck. If it's a character card, they may put it into their hand. Otherwise, they put it on the bottom of their deck.",
+"strength": 1,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"トランプ — ちょいワル犬": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/7977/",
+"en": "Tramp - Dapper Rascal",
+"score": "55.50",
+"cost": 6,
+"inkwell": true,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "Shift 4 (You may pay 4 {I} to play this on top of one of your characters named Tramp.)\nPLAY IT COOL During an opponent’s turn, whenever one of your characters is banished, you may draw a card.",
+"strength": 2,
+"willpower": 8,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero"
+],
+"verified": true
+},
+"トーマス — 目を丸くする新入り": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/11330/",
+"en": "Thomas - Wide-Eyed Recruit",
+"score": "46.43",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 0,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ポカホンタス — 部族の導き手": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10758/",
+"en": "Pocahontas - Guiding the Tribe",
+"score": "5.14",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "STAY CLOSE When you play this character, you may play a character with cost 1 for free.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"リトル・ジョン — キャンプのコック": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4766/",
+"en": "Little John - Camp Cook",
+"score": "25.33",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "",
+"strength": 0,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"アラジン — これが俺の役目だ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10831/",
+"en": "Aladdin - Doing His Part",
+"score": "25.33",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "CLEAR IT OUT When you play this character, you may pay 1 {I} to banish chosen item.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"エメラルドのクロミコン": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4795/",
+"en": "Emerald Chromicon",
+"score": "53.02",
+"cost": 3,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Item"
+],
+"text": "EMERALD LIGHT During opponents' turns, whenever one of your characters is banished, you may return chosen character to their player's hand.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"パウアタン首長 — 堅守の指導者": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/11333/",
+"en": "Chief Powhatan - Protective Leader",
+"score": "28.90",
+"cost": 4,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.)\nSTANDS HIS GROUND This character can’t challenge.",
+"strength": 5,
+"willpower": 5,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor",
+"King"
+],
+"verified": true
+},
+"ミニーマウス — くるくるスケーター": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9769/",
+"en": "Minnie Mouse - Spinning Skater",
+"score": "28.95",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"首無し騎士の剛速球！": {
+"url": "https://disneylorcana.jp/cardlist/whispers-in-the-well/9703/",
+"en": "The Horseman Strikes!",
+"score": "28.10",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action"
+],
+"text": "Draw a card. You may banish chosen character with Evasive.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ティモン — 雪玉ドロボー": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9749/",
+"en": "Timon - Snowball Swiper",
+"score": "26.31",
+"cost": 3,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "GET RID OF THAT When you play this character, chosen opponent reveals their hand and discards a non-character card of your choice.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"そこに登場、ゼウス！": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3241/",
+"en": "And Then Along Came Zeus",
+"score": "91.79",
+"cost": 4,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 4 or more can {E} to sing this song for free.)\nDeal 5 damage to chosen character or location.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アリエル — 音響の戦士": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4245/",
+"en": "Ariel - Sonic Warrior",
+"score": "79.18",
+"cost": 6,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Shift 4 {I} (You may pay 4 {I} to play this on top of one of your characters named Ariel.)\nAMPLIFIED VOICE Whenever you play a song, you may pay 2 {I} to deal 3 damage to chosen character.",
+"strength": 3,
+"willpower": 8,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"アリエル — 麗しい歌姫": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1343/",
+"en": "Ariel - Spectacular Singer",
+"score": "89.85",
+"cost": 0,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "(You can have up to 4 copies of Ariel - Spectacular Singer in your deck)\r\nWhenever a Princess character of yours sings a song, gain lore equal to her {L}.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アースラ — ヴァネッサ": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4095/",
+"en": "Ursula - Vanessa",
+"score": "84.96",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Singer 4 (This character counts as cost 4 to sing songs.)",
+"strength": 1,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Sorcerer"
+],
+"verified": true
+},
+"エンジェル — 魔性の歌姫": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9755/",
+"en": "Angel - Siren Singer",
+"score": "73.53",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "UNDERDOG If this is your first turn and you're not the first player, you pay 1 {I} less to play this character.\nSinger 3 (This character counts as cost 3 to sing songs.)",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Alien"
+],
+"verified": true
+},
+"シンデレラ — 剛胆なる姫君": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2380/",
+"en": "Cinderella - Stouthearted",
+"score": "82.29",
+"cost": 7,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Shift 5 (You may pay 5 {I} to play this on top of one of your characters named Cinderella.)\nResist +2 (Damage dealt to this character is reduced by 2.)\nTHE SINGING SWORD Whenever you play a song, this character may challenge ready characters this turn.",
+"strength": 5,
+"willpower": 5,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Princess",
+"Knight"
+],
+"verified": true
+},
+"ピート — リングのレフェリー": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4890/",
+"en": "Pete - Games Referee",
+"score": "95.50",
+"cost": 3,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "BLOW THE WHISTLE When you play this character, opponents can't play actions until the start of your next turn.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain"
+],
+"verified": true
+},
+"ホール・ニュー・ワールド — A WHOLE NEW WORLD": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1537/",
+"en": "A Whole New World",
+"score": "73.98",
+"cost": 5,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 5 or more can {E} to sing this song for free.)\nEach player discards their hand and draws 7 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ロビン・フッド — シャーウッドの英雄": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3236/",
+"en": "Robin Hood - Champion of Sherwood",
+"score": "16.35",
+"cost": 5,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Robin Hood.)\nSKILLED COMBATANT During your turn, whenever this character banishes another character in a challenge, gain 2 lore.\nTHE GOOD OF OTHERS When this character is banished in a challenge, you may draw a card.",
+"strength": 3,
+"willpower": 6,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero"
+],
+"verified": true
+},
+"ロビン・フッド — 人気の無法者": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3235/",
+"en": "Robin Hood - Beloved Outlaw",
+"score": "5.89",
+"cost": 1,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"持つんだ熱い心": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2404/",
+"en": "Strength of a Raging Fire",
+"score": "97.44",
+"cost": 3,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nDeal damage to chosen character equal to the number of characters you have in play.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"昔ながらのこの営み": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/11375/",
+"en": "Keep the Ancient Ways",
+"score": "98.14",
+"cost": 2,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nOpponents can't play actions or items until the start of your next turn.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"風よ吹け": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2402/",
+"en": "Let the Storm Rage On",
+"score": "96.89",
+"cost": 3,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nDeal 2 damage to chosen character. Draw a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"トルバドール — ミュージカル・ナレーター": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/6974/",
+"en": "The Troubadour - Musical Narrator",
+"score": "84.95",
+"cost": 2,
+"inkwell": true,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "Resist +1 (Damage dealt to this character is reduced by 1.)\nSinger 4 (This character counts as cost 4 to sing songs.)",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ナマーリ — 一本気な宿敵": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8153/",
+"en": "Namaari - Single-Minded Rival",
+"score": "64.79",
+"cost": 5,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "STRATEGIC EDGE When you play this character and at the start of your turn, you may draw a card, then choose and discard a card.\nEXTREME FOCUS This character gets +1 {S} for each card in your discard.",
+"strength": 0,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Princess"
+],
+"verified": true
+},
+"ベア・ネセシティ — THE BARE NECESSITIES": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3074/",
+"en": "The Bare Necessities",
+"score": "55.45",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nChosen opponent reveals their hand and discards a non-character card of your choice.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ミスター・スミー — マヌケなお仲間": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3230/",
+"en": "Mr. Smee - Bumbling Mate",
+"score": "29.44",
+"cost": 2,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "OH DEAR, DEAR, DEAR At the end of your turn, if this character is exerted and you don't have a Captain character in play, deal 1 damage to this character.",
+"strength": 3,
+"willpower": 3,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Pirate"
+],
+"verified": true
+},
+"野獣 — 悲劇の主人公": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2376/",
+"en": "Beast - Tragic Hero",
+"score": "88.23",
+"cost": 5,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Beast.)\nIT'S BETTER THIS WAY At the start of your turn, if this character has no damage, draw a card. Otherwise, he gets +4 {S} this turn.",
+"strength": 3,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Prince"
+],
+"verified": true
+},
+"ガントゥ — 歴戦の執行官": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7162/",
+"en": "Gantu - Experienced Enforcer",
+"score": "21.16",
+"cost": 4,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "CLOSE ALL CHANNELS When you play this character, characters can't exert to sing songs until the start of your next turn.\nDON'T GET ANY IDEAS Each player pays 2 {I} more to play actions or items. (This doesn’t apply to singing songs.)",
+"strength": 2,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Alien",
+"Captain"
+],
+"verified": true
+},
+"ダイヤ プラチナ ペシャンコに！": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4266/",
+"en": "I Find 'em, I Flatten 'em",
+"score": "67.91",
+"cost": 4,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 4 or more can {E} to sing this song for free.)\nBanish all items.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"チェン・ポー — 皇軍兵士": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4248/",
+"en": "Chien-Po - Imperial Soldier",
+"score": "14.86",
+"cost": 5,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.)",
+"strength": 4,
+"willpower": 7,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ナヴィーン王子 — ウクレレ奏者": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4698/",
+"en": "Prince Naveen - Ukulele Player",
+"score": "60.95",
+"cost": 4,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Singer 6 (This character counts as cost 6 to sing songs.)\nIT'S BEAUTIFUL, NO? When you play this character, you may play a song with cost 6 or less for free.",
+"strength": 3,
+"willpower": 3,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Prince"
+],
+"verified": true
+},
+"ビヨンド・ザ・ホライズン": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8157/",
+"en": "Beyond the Horizon",
+"score": "67.63",
+"cost": 7,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 7 (Any number of your or your teammates’ characters with total cost 7 or more may {E} to sing this song for free.)\nChoose any number of players. They discard their hands and draw 3 cards each.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"メイ・リー — コントロール不能": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10762/",
+"en": "Meilin Lee - Losing Control",
+"score": "86.88",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "RED PANDA POWER When you play this character, look at the top 4 cards of your deck. You may reveal a Red Panda character card or a song card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Red Panda"
+],
+"verified": true
+},
+"スティッチ — カエルの守護者": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10926/",
+"en": "Stitch - Protector of Frogs",
+"score": "59.22",
+"cost": 1,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Alien"
+],
+"verified": true
+},
+"リロ＆スティッチ — わんぱくなかよしオハナ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10777/",
+"en": "Lilo & Stitch - Fun-Loving Friends",
+"score": "77.07",
+"cost": 5,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Lilo or Stitch.)\nResist +1 (Damage dealt to this character is reduced by 1.)\nSupport (Whenever this character quests, you may add their {S} to another chosen character's {S} this turn.)",
+"strength": 3,
+"willpower": 5,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Team",
+"Hero",
+"Alien"
+],
+"verified": true
+},
+"剣をふるえ！": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1540/",
+"en": "Grab Your Sword",
+"score": "65.27",
+"cost": 5,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 5 or more can {E} to sing this song for free.)\nDeal 2 damage to each opposing character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"私を忘れたのか": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1372/",
+"en": "You Have Forgotten Me",
+"score": "50.84",
+"cost": 4,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action"
+],
+"text": "Each opponent chooses and discards 2 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"大丈夫、家族がいる": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4098/",
+"en": "Look at this Family",
+"score": "55.56",
+"cost": 7,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 7 (Any number of your or your teammates’ characters with total cost 7 or more may {E} to sing this song for free.)\nLook at the top 5 cards of your deck. You may reveal up to 2 character cards and put them into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"世界一の大悪党 — World's Greatest Criminal Mind": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2233/",
+"en": "World's Greatest Criminal Mind",
+"score": "13.42",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nBanish chosen character with 5 {S} or more.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"かっこわるすぎィ…": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10947/",
+"en": "You Broke My Smolder",
+"score": "5.72",
+"cost": 1,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action"
+],
+"text": "Discard your hand. Draw 2 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"カルホーン — 海兵隊軍曹": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6191/",
+"en": "Calhoun - Marine Sergeant",
+"score": "13.62",
+"cost": 2,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Resist +1 (Damage dealt to this character is reduced by 1.)\nLEVEL UP During your turn, whenever this character banishes another character in a challenge, gain 2 lore.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"スティッチ — あたしの犬": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1363/",
+"en": "Stitch - New Dog",
+"score": "5.27",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Alien"
+],
+"verified": true
+},
+"パッジ — 嵐を起こす魚": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9744/",
+"en": "Pudge - Controls the Weather",
+"score": "7.27",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "GOOD FRIEND If you have a character named Lilo in play, you can play this character for free.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Deity"
+],
+"verified": true
+},
+"ピグレット — プー海賊団の船長": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3062/",
+"en": "Piglet - Pooh Pirate Captain",
+"score": "11.29",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "AND I'M THE CAPTAIN! While you have 2 or more other characters in play, this character gets +2 {L}.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Pirate",
+"Captain"
+],
+"verified": true
+},
+"リロ — 寒さ対策バッチリ": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9796/",
+"en": "Lilo - Bundled Up",
+"score": "8.81",
+"cost": 2,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "EXTRA LAYERS During each opponent's turn, the first time this character would take damage, she takes no damage instead.",
+"strength": 1,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"リロ — 雪の芸術家": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9743/",
+"en": "Lilo - Snow Artist",
+"score": "8.25",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "CREATIVE INSPIRATION While you have a character named Stitch in play, this character gets +1 {L}.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"先生 — 剛胆なる騎士": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4888/",
+"en": "Doc - Bold Knight",
+"score": "68.96",
+"cost": 2,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "DRASTIC MEASURES When you play this character, you may discard your hand to draw 2 cards.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally",
+"Knight",
+"Seven Dwarfs"
+],
+"verified": true
+},
+"メリダ — おそろしの射手": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9641/",
+"en": "Merida - Formidable Archer",
+"score": "26.91",
+"cost": 5,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "FULL QUIVER When you play this character, you may return an action card named Three Arrows from your discard to your hand.\nSTEADY AIM Whenever one of your actions deals damage to an opposing character, deal 2 damage to that character.",
+"strength": 3,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"アースラ — 七つの海の騙し屋": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3137/",
+"en": "Ursula - Deceiver of All",
+"score": "93.87",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "WHAT A DEAL Whenever this character sings a song, you may play that song again from your discard for free, then put it on the bottom of your deck.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain",
+"Sorcerer"
+],
+"verified": true
+},
+"ディアブロ — マレフィセントのスパイ": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4141/",
+"en": "Diablo - Maleficent's Spy",
+"score": "83.20",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "SCOUT AHEAD When you play this character, you may look at each opponent's hand.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ディアブロ — 忠実なる使い魔": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4140/",
+"en": "Diablo - Devoted Herald",
+"score": "94.07",
+"cost": 3,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Shift: Discard an action card (You may discard an action card to play this on top of one of your characters named Diablo.)\nEvasive (Only characters with Evasive can challenge this character.)\nCIRCLE FAR AND WIDE During each opponent's turn, whenever they draw a card while this character is exerted, you may draw a card.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Ally"
+],
+"verified": true
+},
+"ディアブロ — 石使いの召使い": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9646/",
+"en": "Diablo - Stone Servant",
+"score": "88.43",
+"cost": 2,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "CRUEL INTENT While you have a Villain character in play, this character gets +2 {S} and +1 {L}.\nVILLAINOUS BOND While this character is exerted, your Villain characters can't be challenged.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally"
+],
+"verified": true
+},
+"プリンス・ジョン — 強欲王": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2291/",
+"en": "Prince John - Greediest of All",
+"score": "80.15",
+"cost": 3,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)\nI SENTENCE YOU Whenever your opponent discards 1 or more cards, you may draw a card for each card discarded.",
+"strength": 1,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain",
+"Prince"
+],
+"verified": true
+},
+"マックス・グーフ — 反抗期のティーン": {
+"url": "https://disneylorcana.jp/cardlist/fabled/8253/",
+"en": "Max Goof - Rebellious Teen",
+"score": "90.52",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "PERSONAL SOUNDTRACK When you play this character, you may pay 1 {I} to return a song card with cost 3 or less from your discard to your hand.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ミューズ — アートとヒーローの専門家": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4160/",
+"en": "The Muses - Proclaimers of Heroes",
+"score": "90.02",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)\nTHE GOSPEL TRUTH Whenever you play a song, you may return chosen character with 2 {S} or less to their player's hand.",
+"strength": 2,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ラプンツェル — 塔を棄てよラプンツェル": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10841/",
+"en": "Rapunzel - Escaping the Tower",
+"score": "5.18",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "THE CALL OF ADVENTURE Once during your turn, you may discard a card to give this character +1 {L} and Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)",
+"strength": 2,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"秘密のブルーノ — We Don’t Talk About Bruno": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4167/",
+"en": "We Don't Talk About Bruno",
+"score": "69.00",
+"cost": 5,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 5 or more can {E} to sing this song for free.)\nReturn chosen character to their player's hand, then that player discards a card at random.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"背すじがゾクッ！": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1439/",
+"en": "Sudden Chill",
+"score": "95.12",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nEach opponent chooses and discards a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"花も枯れるぅ！ヘッヘッヘ！": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10847/",
+"en": "To Wither a Flower",
+"score": "4.72",
+"cost": 4,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 4 or more can {E} to sing this song for free.) \nDeal 2 damage to each opposing damaged character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アイム・スティル・ヒア — I'm Still Here": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6196/",
+"en": "I'm Still Here",
+"score": "66.06",
+"cost": 3,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nChosen character gains Resist +2 until the start of your next turn. Draw a card. (Damage dealt to them is reduced by 2.)",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ファーガス — ダンブロッホの王": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9625/",
+"en": "Fergus - King of DunBroch",
+"score": "72.16",
+"cost": 2,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.)",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor",
+"King"
+],
+"verified": true
+},
+"フック船長 — 強引な決闘者": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1516/",
+"en": "Captain Hook - Forceful Duelist",
+"score": "60.36",
+"cost": 1,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Character"
+],
+"text": "Challenger +2 (While challenging, this character gets +2 {S}.)",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain",
+"Pirate",
+"Captain"
+],
+"verified": true
+},
+"俺は悪党！意地悪！下品！": {
+"url": "https://disneylorcana.jp/cardlist/whispers-in-the-well/9717/",
+"en": "Malicious, Mean, and Scary",
+"score": "81.80",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nPut 1 damage counter on each opposing character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"タッチ・ザ・スカイ — TOUCH THE SKY": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9649/",
+"en": "Touch the Sky",
+"score": "49.78",
+"cost": 2,
+"inkwell": true,
+"ink": "Steel",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nMove a character of yours to a location for free. Then, draw cards equal to that location's {L}.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"パラダイスの滝 — エキゾチックな目的地": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10854/",
+"en": "Paradise Falls - Exotic Destination",
+"score": "70.44",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Location"
+],
+"text": "QUITE A SIGHT While you have a character here, this location gets +3 {L}.",
+"strength": null,
+"willpower": 7,
+"lore": 1,
+"move_cost": 2,
+"classifications": null,
+"verified": true
+},
+"お母様はあなたの味方 — MOTHER KNOWS BEST": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1436/",
+"en": "Mother Knows Best",
+"score": "12.43",
+"cost": 3,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nReturn chosen character to their player's hand.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"催眠術": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2300/",
+"en": "Hypnotize",
+"score": "68.92",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Each opponent chooses and discards a card. Draw a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"大砲発射！": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1539/",
+"en": "Fire the Cannons!",
+"score": "34.75",
+"cost": 1,
+"inkwell": false,
+"ink": "Steel",
+"type": [
+"Action"
+],
+"text": "Deal 2 damage to chosen character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"恋しちゃぁぁぁったわ！": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3140/",
+"en": "Has Set My Heaaaaaaart . . .",
+"score": "14.86",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nBanish chosen item.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ピート — 宇宙海賊": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7077/",
+"en": "Pete - Space Pirate",
+"score": "68.54",
+"cost": 6,
+"inkwell": true,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "Shift 4 (You may pay 4 {I} to play this on top of one of your characters named Pete.)\nFRIGHTFUL SCHEME While this character is exerted, opposing characters can't exert to sing songs and your Pirate characters gain Resist +1. (Damage dealt to them is reduced by 1.)",
+"strength": 5,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Villain",
+"Pirate"
+],
+"verified": true
+},
+"ウィニフレッド — もうたくさんだゾウ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10830/",
+"en": "Winifred - Exasperated Elephant",
+"score": "5.27",
+"cost": 6,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)",
+"strength": 6,
+"willpower": 6,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"プリンス・ジョンの鏡": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4793/",
+"en": "Prince John's Mirror",
+"score": "6.05",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Item"
+],
+"text": "YOU LOOK REGAL If you have a character named Prince John in play, you pay 1 {I} less to play this item.\nA FEELING OF POWER At the end of each opponent's turn, if they have more than 3 cards in their hand, they discard until they have 3 cards in their hand.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"チップ — 機転の利くリス": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8052/",
+"en": "Chip - Quick Thinker",
+"score": "39.38",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "I’LL HANDLE THIS When you play this character, chosen opponent chooses and discards a card.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ルシファー — ずるがしこい猫": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2287/",
+"en": "Lucifer - Cunning Cat",
+"score": "6.05",
+"cost": 5,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "MOUSE CATCHER When you play this character, each opponent chooses and discards either 2 cards or 1 action card.",
+"strength": 2,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"縁組次第": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3142/",
+"en": "Strike A Good Match",
+"score": "70.64",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nDraw 2 cards, then choose and discard a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"兵士 — 女王の命令のままに": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9544/",
+"en": "The Huntsman - On the Queen's Orders",
+"score": "4.68",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)",
+"strength": 4,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"アイスポー": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2372/",
+"en": "Pawpsicle",
+"score": "88.17",
+"cost": 1,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "JUMBO POP When you play this item, you may draw a card.\nTHAT'S REDWOOD Banish this item — Remove up to 2 damage from chosen character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アズライト航海記": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6163/",
+"en": "Sail the Azurite Sea",
+"score": "89.60",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "This turn, you may put an additional card from your hand into your inkwell facedown. Draw a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"インクランナー": {
+"url": "https://disneylorcana.jp/cardlist/whispers-in-the-well/11319/",
+"en": "Inkrunner",
+"score": "63.09",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "PREFLIGHT CHECK When you play this item, draw a card.\nREADY TO RIDE {E}, 1 {I} - Chosen character gains Alert this turn. (They can challenge as if they had Evasive.)",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"サファイア・コイル": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7142/",
+"en": "Sapphire Coil",
+"score": "84.02",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "BRILLIANT SHINE During your turn, whenever a card is put into your inkwell, you may give chosen character -2 {S} this turn.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"シスー — 兄弟姉妹の希望": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4195/",
+"en": "Sisu - Empowered Sibling",
+"score": "88.05",
+"cost": 8,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Shift 6 (You may pay 6 {I} to play this on top of one of your characters named Sisu.)\nI GOT THIS! When you play this character, banish all opposing characters with 2 {S} or less.",
+"strength": 5,
+"willpower": 4,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Deity",
+"Dragon"
+],
+"verified": true
+},
+"スカットル — 人間の専門家": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4224/",
+"en": "Scuttle - Expert on Humans",
+"score": "6.69",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "LET ME SEE When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"スクルージ・マクダック — 抜け目ない守銭奴": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7117/",
+"en": "Scrooge McDuck - Resourceful Miser",
+"score": "82.33",
+"cost": 4,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "PUT IT TO GOOD USE You may exert 4 items of yours to play this character for free.\nFORTUNE HUNTER When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": 4,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"タマトア — ゴージャス！": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7125/",
+"en": "Tamatoa - Happy as a Clam",
+"score": "88.85",
+"cost": 6,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "COOLEST COLLECTION When you play this character, return up to 2 item cards from your discard to your hand.\nI'M BEAUTIFUL, BABY! Whenever this character quests, you may play an item for free.",
+"strength": 4,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"タマトア — シャイニー！": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1501/",
+"en": "Tamatoa - So Shiny!",
+"score": "81.93",
+"cost": 8,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "WHAT HAVE WE HERE? When you play this character and whenever he quests, you may return an item card from your discard to your hand.\nGLAM This character gets +1 {L} for each item you have in play.",
+"strength": 5,
+"willpower": 8,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"マウイ — みんなの英雄": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1455/",
+"en": "Maui - Hero to All",
+"score": "35.49",
+"cost": 5,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)\nReckless (This character can't quest and must challenge each turn if able.)",
+"strength": 6,
+"willpower": 5,
+"lore": 0,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Deity"
+],
+"verified": true
+},
+"モーリスの工房": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2371/",
+"en": "Maurice's Workshop",
+"score": "82.73",
+"cost": 3,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "LOOKING FOR THIS? Whenever you play another item, you may pay 1 {I} to draw a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ラッキーダイム": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3211/",
+"en": "Lucky Dime",
+"score": "83.78",
+"cost": 7,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "NUMBER ONE {E}, 2 {I} — Choose a character of yours and gain lore equal to their {L}.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"リキッデーター — こおりゃ結構！": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9772/",
+"en": "Liquidator - Iced Over",
+"score": "89.50",
+"cost": 2,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "UNDERDOG If this is your first turn and you're not the first player, you pay 1 {I} less to play this character.\nReckless (This character can't quest and must challenge each turn if able.)",
+"strength": 4,
+"willpower": 2,
+"lore": 0,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Super",
+"Villain"
+],
+"verified": true
+},
+"乱闘": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4200/",
+"en": "Brawl",
+"score": "89.40",
+"cost": 3,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Action"
+],
+"text": "Banish chosen character with 2 {S} or less.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"準備をしておけ — BE PREPARED": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1469/",
+"en": "Be Prepared",
+"score": "87.45",
+"cost": 7,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 7 or more can {E} to sing this song for free.)\nBanish all characters.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"生命の宝球": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4204/",
+"en": "Vitalisphere",
+"score": "82.65",
+"cost": 1,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Item"
+],
+"text": "EXTRACT OF RUBY 1 {I}, Banish this item — Chosen character gains Rush and gets +2 {S} this turn. (They can challenge the turn they're played.)",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"隠すなら森の中": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4858/",
+"en": "Hide Away",
+"score": "77.67",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "Put chosen item or location into its player's inkwell facedown and exerted.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"魚の骨ペン": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1510/",
+"en": "Fishbone Quill",
+"score": "82.48",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "GO AHEAD AND SIGN {E} — Put any card from your hand into your inkwell facedown.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"みな残らずやっつけろ！": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9779/",
+"en": "Grab Your Bow",
+"score": "35.64",
+"cost": 5,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 5 or more can {E} to sing this song for free.)\nBanish up to 2 chosen characters with 2 {S} or less.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ジェデダイア・ファーンズワース — クッキー": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9567/",
+"en": "Jebidiah Farnsworth - Cookie",
+"score": "95.60",
+"cost": 2,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nReckless (This character can't quest and must challenge each turn if able.)",
+"strength": 3,
+"willpower": 3,
+"lore": 0,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally"
+],
+"verified": true
+},
+"バジルの虫眼鏡": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4861/",
+"en": "Basil's Magnifying Glass",
+"score": "75.34",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "FIND WHAT'S HIDDEN {E}, 2 {I} — Look at the top 3 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"シスー — 大胆不敵な来訪者": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4193/",
+"en": "Sisu - Daring Visitor",
+"score": "60.47",
+"cost": 3,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nBRING ON THE HEAT! When you play this character, banish chosen opposing character with 1 {S} or less.",
+"strength": 1,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Deity",
+"Dragon"
+],
+"verified": true
+},
+"スカー — 凶悪な謀り屋": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2328/",
+"en": "Scar - Vicious Cheater",
+"score": "66.72",
+"cost": 7,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)\nDADDY ISN'T HERE TO SAVE YOU During your turn, whenever this character banishes another character in a challenge, you may ready this character. He can't quest for the rest of this turn.",
+"strength": 6,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"女王 — 占術師": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4226/",
+"en": "The Queen - Diviner",
+"score": "12.13",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "CONSULT THE SPELLBOOK {E} — Look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. If that item costs 3 or less, you may play it for free instead and it enters play exerted. Put the rest on the bottom of your deck in any order.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"非常事態発生！": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10881/",
+"en": "Red Alert",
+"score": "61.51",
+"cost": 4,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Action"
+],
+"text": "Banish chosen character with 3 {S} or less. If you have a Monster character in play, chosen opponent loses 1 lore.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"エネルギー急上昇": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10912/",
+"en": "Power Surge",
+"score": "25.02",
+"cost": 4,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "Each player puts the top 2 cards of their deck into their inkwell facedown and exerted.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"未来の幻視": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4855/",
+"en": "Vision of the Future",
+"score": "71.53",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "Look at the top 5 cards of your deck. Put one into your hand and the rest on the bottom of your deck in any order.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"どこまでも — How Far I'll Go": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3207/",
+"en": "How Far I'll Go",
+"score": "33.61",
+"cost": 4,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 4 or more can {E} to sing this song for free.)\nLook at the top 2 cards of your deck. Put one into your hand and the other into your inkwell facedown and exerted.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ティポ — 育ち盛りの息子": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4852/",
+"en": "Tipo - Growing Son",
+"score": "64.77",
+"cost": 2,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "MEASURE ME AGAIN When you play this character, you may put a card from your hand into your inkwell facedown and exerted.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"マウイ — オレって半サメだろ？": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6124/",
+"en": "Maui - Half-Shark",
+"score": "74.45",
+"cost": 6,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nCHEEEEOHOOOO! Whenever this character challenges another character, you may return an action card from your discard to your hand.\nWAYFINDING Whenever you play an action, gain 1 lore.",
+"strength": 7,
+"willpower": 5,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Deity"
+],
+"verified": true
+},
+"マクダック邸 — スクルージの屋敷": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3215/",
+"en": "McDuck Manor - Scrooge's Mansion",
+"score": "32.42",
+"cost": 4,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Location"
+],
+"text": null,
+"strength": null,
+"willpower": 9,
+"lore": 2,
+"move_cost": 1,
+"classifications": null,
+"verified": true
+},
+"マダム・メデューサ — ザ・ボス": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3158/",
+"en": "Madame Medusa - The Boss",
+"score": "32.91",
+"cost": 6,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "THAT TERRIBLE WOMAN When you play this character, banish chosen opposing character with 3 {S} or less.",
+"strength": 4,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"マレフィセント — 怪物ドラゴン": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1454/",
+"en": "Maleficent - Monstrous Dragon",
+"score": "14.27",
+"cost": 9,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "DRAGON FIRE When you play this character, you may banish chosen character.",
+"strength": 7,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Dragon"
+],
+"verified": true
+},
+"マーリンのカーペットバッグ": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4862/",
+"en": "Merlin's Carpetbag",
+"score": "10.50",
+"cost": 5,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Item"
+],
+"text": "HOCKETY POCKETY {E}, 1 {I} — Return an item card from your discard to your hand.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"本を読みたまえ": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1503/",
+"en": "Develop Your Brain",
+"score": "34.05",
+"cost": 1,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "Look at the top 2 cards of your deck. Put one into your hand and the other on the bottom of your deck.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"海賊の暮らし — A Pirate’s Life": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4198/",
+"en": "A Pirate's Life",
+"score": "62.60",
+"cost": 6,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 6 (Any number of your or your teammates’ characters with total cost 6 or more may {E} to sing this song for free.)\nEach opponent loses 2 lore. You gain 2 lore.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ベル — 見習い発明家": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7122/",
+"en": "Belle - Apprentice Inventor",
+"score": "62.00",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "WHAT A MESS During your turn, you may banish chosen item of yours to play this character for free.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess",
+"Inventor"
+],
+"verified": true
+},
+"アマズのインクキャスター": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9584/",
+"en": "Amazu's Inkcaster",
+"score": "5.84",
+"cost": 2,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Item"
+],
+"text": "ON THE HORIZON {E}, 1 {I} — Look at the top 4 cards of your deck. You may reveal a location card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"エリー･フレドリクセン — 愛する妻": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10821/",
+"en": "Ellie Fredricksen - Loving Wife",
+"score": "5.18",
+"cost": 2,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "ADVENTUROUS HEART Whenever you play a location, gain 1 lore.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"カールの家 — 空中家屋": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10888/",
+"en": "Carl's House - Flying High",
+"score": "57.59",
+"cost": 2,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Location"
+],
+"text": "MOVING DAY Once during your turn, you may move chosen character from here to another location for free. If you do, gain 1 lore.",
+"strength": null,
+"willpower": 6,
+"lore": 0,
+"move_cost": 0,
+"classifications": null,
+"verified": true
+},
+"カール･フレドリクセン — 愛する夫": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10820/",
+"en": "Carl Fredricksen - Loving Husband",
+"score": "8.15",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "TAKE MY HAND When you play this character, you pay 2 {I} less for the next character named Ellie Fredricksen you play this turn.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"カール･フレドリクセン — 空飛ぶじいさん": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10859/",
+"en": "Carl Fredricksen - On the Move",
+"score": "6.03",
+"cost": 4,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "MOVING PARTNER Whenever you play a location, you may move this character and up to 1 of your other characters to that location for free. \nADVENTURE AWAITS Whenever this character quests while at a location, draw cards equal to that location's {L}.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"カール･フレドリクセン＆ラッセル — 勇気ある冒険家たち": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10844/",
+"en": "Carl Fredricksen & Russell - Intrepid Explorers",
+"score": "11.04",
+"cost": 6,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Shift 4 {I} (You may pay 4 {I} to play this on top of one of your characters named Carl Fredricksen or Russell.)\nOUTDOOR SKILLS While this character is at a location, all characters at that location get +1 {L} and gain Evasive. (Only characters with Evasive can challenge them.)",
+"strength": 6,
+"willpower": 6,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Team",
+"Hero"
+],
+"verified": true
+},
+"グーフィー — 冒険の始まりだ！": {
+"url": "https://disneylorcana.jp/cardlist/fabled/8252/",
+"en": "Goofy - Set for Adventure",
+"score": "5.96",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "FAMILY VACATION Once during your turn, whenever this character moves to a location, you may move one of your other characters to that location for free. If you do, draw a card.",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ジム・ホーキンス — 宇宙の旅人": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3155/",
+"en": "Jim Hawkins - Space Traveler",
+"score": "8.82",
+"cost": 5,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "THIS IS IT! When you play this character, you may play a location with cost 4 or less for free.\nTAKE THE HELM Whenever you play a location, this character may move there for free.",
+"strength": 4,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ピーター・パン — ロスト・ボーイズのリーダー": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3128/",
+"en": "Peter Pan - Lost Boy Leader",
+"score": "6.03",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "I CAME TO LISTEN TO THE STORIES Once per turn, when this character moves to a location, gain lore equal to that location's {L}.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"ラッセル — ジュニア自然探険隊員": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10828/",
+"en": "Russell - Junior Wilderness Explorer",
+"score": "4.74",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "ASSISTING THE ELDERLY BADGE Whenever this character quests, you may move him and one of your other characters to the same location for free.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"レヴィアタンの巣 — 危険な海域": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9586/",
+"en": "Leviathan's Lair - Dangerous Ground",
+"score": "6.62",
+"cost": 4,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Location"
+],
+"text": "LOST TO THE DUNES When this location is banished, each opponent chooses and banishes one of their characters.",
+"strength": null,
+"willpower": 4,
+"lore": 2,
+"move_cost": 1,
+"classifications": null,
+"verified": true
+},
+"無数の風船": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10886/",
+"en": "Bunch of Balloons",
+"score": "25.33",
+"cost": 1,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Item"
+],
+"text": "FLOAT AWAY When you play this item, choose a location of yours. While this item is in play, that location gains Evasive. (Only characters with Evasive can challenge it.)\nOUT OF SIGHT 3 {I} — Return this item to your hand.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"野獣 — 雪原のトラブルメーカー": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9775/",
+"en": "Beast - Snowfield Troublemaker",
+"score": "59.62",
+"cost": 2,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)\nDYNAMIC MANEUVER Whenever this character challenges, if he’s at a location, he takes no damage from the challenge.",
+"strength": 3,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Prince"
+],
+"verified": true
+},
+"野獣の城 — 冬の庭園": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9780/",
+"en": "Beast's Castle - Winter Gardens",
+"score": "5.32",
+"cost": 1,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Location"
+],
+"text": "SNOWBALL STANDOFF Whenever a character here challenges another character, gain 1 lore.",
+"strength": null,
+"willpower": 6,
+"lore": 0,
+"move_cost": 1,
+"classifications": null,
+"verified": true
+},
+"隠された入り江 — 静かな隠れ家": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4171/",
+"en": "Hidden Cove - Tranquil Haven",
+"score": "6.62",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Location"
+],
+"text": "REVITALIZING WATERS Characters get +1 {S} and +1 {W} while here.",
+"strength": null,
+"willpower": 6,
+"lore": 0,
+"move_cost": 1,
+"classifications": null,
+"verified": true
+},
+"ガエタン・モリエール — 穴掘り名人": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9530/",
+"en": "Gaetan Moliere - Clever Burrower",
+"score": "72.07",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nUNEARTH Whenever this character quests, you may draw 2 cards, then choose and discard 2 cards.",
+"strength": 2,
+"willpower": 5,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ズオウとヒイタチ — Heffalumps and Woozles": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6095/",
+"en": "Heffalumps and Woozles",
+"score": "67.80",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nChosen opposing character can't quest during their next turn. Draw a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ヘラクレスの帰還": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7081/",
+"en": "The Return of Hercules",
+"score": "65.72",
+"cost": 5,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Each player may reveal a character card from their hand and play it for free.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ホタルの大群": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9580/",
+"en": "Firefly Swarm",
+"score": "14.71",
+"cost": 3,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Action"
+],
+"text": "Choose one:\n• Banish chosen character with 2 {S} or less.\n• If 2 or more other cards were put into your discard this turn, banish chosen character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"マイロ・サッチ — 現場主義": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9532/",
+"en": "Milo Thatch - Getting His Hands Dirty",
+"score": "80.40",
+"cost": 7,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward\nSCHOLAR'S GAMBIT When you play this character, you may choose and discard a card to return chosen character to their player's hand.\nPRACTICAL KNOWLEDGE At the end of your turn, if 2 or more cards were put into your discard this turn, draw a card.",
+"strength": 5,
+"willpower": 5,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"マキシマス — 本命チーム": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4800/",
+"en": "Maximus - Team Champion",
+"score": "59.41",
+"cost": 6,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "ROYALLY BIG REWARDS At the end of your turn, if you have any characters in play with 5 {S} or more, gain 2 lore. If you have any in play with 10 {S} or more, gain 5 lore instead.",
+"strength": 3,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"レヴィアタン — アトランティスの守護怪獣": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9575/",
+"en": "The Leviathan - Guardian of Atlantis",
+"score": "77.28",
+"cost": 10,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "IT'S A MACHINE! When you play this character, if 2 or more cards were put into your discard this turn, you may banish any number of chosen opposing characters with total {S} 10 or less.",
+"strength": 10,
+"willpower": 10,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Monster",
+"Robot"
+],
+"verified": true
+},
+"妨害小細工": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8072/",
+"en": "Undermine",
+"score": "71.83",
+"cost": 2,
+"inkwell": true,
+"ink": null,
+"type": [
+"Action"
+],
+"text": "Chosen opponent chooses and discards a card. Chosen character gets +2 {S} this turn.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"破壊工作": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9546/",
+"en": "Sabotage",
+"score": "53.38",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Banish chosen item or location and all other items or locations with the same name.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"リロ — あばれる大かいじゅう": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8092/",
+"en": "Lilo - Causing an Uproar",
+"score": "20.91",
+"cost": 5,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "STOMPIN' TIME! During your turn, if you've played 3 or more actions this turn, you may play this character for free.\nRAAAWR! When you play this character, ready chosen character. They can't quest for the rest of this turn.",
+"strength": 4,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"おったまげ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10915/",
+"en": "Startle",
+"score": "5.18",
+"cost": 1,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "Chosen character gets -3 {S} this turn.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"クララベル — おっちょこちょい": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4781/",
+"en": "Clarabelle - Clumsy Guest",
+"score": "55.00",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "BUTTERFINGERS When you play this character, you may pay 2 {I} to banish chosen item.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"クララベル — 軽やかなひづめの持ち主": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4779/",
+"en": "Clarabelle - Light on Her Hooves",
+"score": "65.47",
+"cost": 7,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Shift 5 (You may pay 5 {I} to play this on top of one of your characters named Clarabelle.)\nKEEP IN STEP At the end of your turn, if chosen opponent has more cards in their hand than you, you may draw cards until you have the same number.",
+"strength": 5,
+"willpower": 6,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Ally"
+],
+"verified": true
+},
+"ケヴィン — 飛べない鳥": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10834/",
+"en": "Kevin - Flightless Bird",
+"score": "8.27",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "BACK TO THE NEST Whenever this character quests, put this card on the top of your deck.",
+"strength": 1,
+"willpower": 3,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"シンデレラ — 夢をかなえたプリンセス": {
+"url": "https://disneylorcana.jp/cardlist/whispers-in-the-well/9727/",
+"en": "Cinderella - Dream Come True",
+"score": "30.68",
+"cost": 4,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "WHATEVER YOU WISH FOR At the end of your turn, if you played a Princess character this turn, you may put a card from your hand into your inkwell facedown to draw a card.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Princess"
+],
+"verified": true
+},
+"ダグ — お前はわしの犬": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10890/",
+"en": "Dug - Good Boy",
+"score": "6.27",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "FETCH! When you play this character, if you have an item in play, draw a card.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"チャールズ・マンツ — 鳥憑かれた冒険家": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10908/",
+"en": "Charles Muntz - Obsessive Explorer",
+"score": "5.18",
+"cost": 4,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "USEFUL GEAR Whenever you play an item, look at the top card of your deck. Put it on either the top or the bottom of your deck.\nFIND THAT BIRD! Whenever this character quests, look at the top card of your deck. If it's a character card named Kevin, you may reveal it and put it into your hand to gain 3 lore. Otherwise, put it on either the top or the bottom of your deck.",
+"strength": 3,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Inventor"
+],
+"verified": true
+},
+"バジル — 探偵二十面相": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6091/",
+"en": "Basil - Disguised Detective",
+"score": "8.25",
+"cost": 6,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Shift 4 (You may pay 4 {I} to play this on top of one of your characters named Basil.)\nTWISTS AND TURNS During your turn, whenever a card is put into your inkwell, you may pay 1 {I} to have chosen opponent choose and discard a card.",
+"strength": 4,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Detective"
+],
+"verified": true
+},
+"バジル — 熟練の探偵": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4848/",
+"en": "Basil - Practiced Detective",
+"score": "13.30",
+"cost": 1,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "Support (Whenever this character quests, you may add their {S} to another chosen character's {S} this turn.)",
+"strength": 2,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Detective"
+],
+"verified": true
+},
+"フィリップ王子 — 敵を打ち破る者": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4157/",
+"en": "Prince Phillip - Vanquisher of Foes",
+"score": "21.46",
+"cost": 9,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Shift 6 {I} (You may pay 6 {I} to play this on top of one of your characters named Prince Phillip.)\nEvasive (Only characters with Evasive can challenge this character.)\nSWIFT AND SURE When you play this character, banish all opposing damaged characters.",
+"strength": 6,
+"willpower": 6,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Prince"
+],
+"verified": true
+},
+"フィリップ王子 — 高貴なる探検家": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6083/",
+"en": "Prince Phillip - Royal Explorer",
+"score": "7.30",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)",
+"strength": 3,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Prince"
+],
+"verified": true
+},
+"俺のおかげさ — You're Welcome": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4791/",
+"en": "You're Welcome",
+"score": "31.23",
+"cost": 4,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 4 or more can {E} to sing this song for free.)\nShuffle chosen character, item, or location into their player's deck. That player draws 2 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ドクター・ブッシュルート — 悪の植物学者": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10838/",
+"en": "Dr. Bushroot - Evil Botanist",
+"score": "44.02",
+"cost": 5,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)\nFAIR IS FAIR Whenever this character is challenged, chosen opponent chooses and discards a card.",
+"strength": 4,
+"willpower": 3,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Super",
+"Villain"
+],
+"verified": true
+},
+"ハデス — 緻密な策謀家": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10902/",
+"en": "Hades - Meticulous Schemer",
+"score": "70.08",
+"cost": 6,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)",
+"strength": 5,
+"willpower": 5,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"ミッキーマウス — 名探偵": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1496/",
+"en": "Mickey Mouse - Detective",
+"score": "34.75",
+"cost": 3,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "GET A CLUE When you play this character, you may put the top card of your deck into your inkwell facedown and exerted.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Detective"
+],
+"verified": true
+},
+"ミッキーマウス — 蒸気船の操舵手": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1430/",
+"en": "Mickey Mouse - Steamboat Pilot",
+"score": "15.65",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 3,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Captain"
+],
+"verified": true
+},
+"ミッキーマウス＆ミニーマウス — 大冒険カップル": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10845/",
+"en": "Mickey Mouse & Minnie Mouse - Adventuring Duo",
+"score": "45.51",
+"cost": 7,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "Duo Shift 0 {I} (You may pay 0 {I} to play this on top of two of your characters, one named Mickey Mouse and one named Minnie Mouse.)\nTHINKING OF YOU If this character would be banished, put them into your inkwell facedown and exerted instead.",
+"strength": 5,
+"willpower": 5,
+"lore": 5,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Team",
+"Hero"
+],
+"verified": true
+},
+"ミニーマウス — 堅実な旅人": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9609/",
+"en": "Minnie Mouse - Practical Traveler",
+"score": "36.44",
+"cost": 1,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "DISCERNING EYE Whenever this character quests, if you played another character this turn, gain 1 lore.",
+"strength": 1,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"ミニーマウス — 調べたがりの冒険家": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10833/",
+"en": "Minnie Mouse - Curious Adventurer",
+"score": "28.35",
+"cost": 1,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "",
+"strength": 2,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero"
+],
+"verified": true
+},
+"モーフ — 宇宙スライム": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3127/",
+"en": "Morph - Space Goo",
+"score": "37.58",
+"cost": 2,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "MIMICRY You may play any character with Shift on this character as if this character had any name.",
+"strength": 2,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Alien"
+],
+"verified": true
+},
+"インクガイザー": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7082/",
+"en": "Ink Geyser",
+"score": "13.30",
+"cost": 3,
+"inkwell": false,
+"ink": null,
+"type": [
+"Action"
+],
+"text": "Each player exerts all the cards in their inkwell. Then each player with more than 3 cards in their inkwell returns cards at random from their inkwell to their hand until they have 3 cards in their inkwell.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"コワすぎる光景": {
+"url": "https://disneylorcana.jp/cardlist/whispers-in-the-well/9731/",
+"en": "Spooky Sight",
+"score": "22.30",
+"cost": 6,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Action"
+],
+"text": "Put all characters with cost 3 or less into their players' inkwells facedown and exerted.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ジョン・シルバー — 宇宙海賊": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1423/",
+"en": "John Silver - Alien Pirate",
+"score": "13.30",
+"cost": 6,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "PICK YOUR FIGHTS When you play this character and whenever he quests, chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)",
+"strength": 5,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Alien",
+"Pirate",
+"Captain"
+],
+"verified": true
+},
+"我が意志に屈せよ": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6093/",
+"en": "Bend to My Will",
+"score": "8.71",
+"cost": 7,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Each opponent discards all cards in their hand.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"用事はどっさり！": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10914/",
+"en": "We've Got a Lot to Do!",
+"score": "11.29",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.) \nPut chosen item or location into its player's inkwell facedown and exerted.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ウォーターヌース — 最高経営責任者": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10909/",
+"en": "Henry J. Waternoose III - Chief Executive Officer",
+"score": "33.41",
+"cost": 6,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "THE BOTTOM LINE While you have more cards in your inkwell than each opposing player, this character gets +2 {L} and gains Ward. (Opponents can't choose them except to challenge.)",
+"strength": 5,
+"willpower": 5,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Monster"
+],
+"verified": true
+},
+"ハデス — 冥府の策謀家": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1489/",
+"en": "Hades - Infernal Schemer",
+"score": "67.46",
+"cost": 7,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "IS THERE A DOWNSIDE TO THIS? When you play this character, you may put chosen opposing character into their player's inkwell facedown.",
+"strength": 3,
+"willpower": 6,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain",
+"Deity"
+],
+"verified": true
+},
+"ムファサ — プライドロックの統治者": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4845/",
+"en": "Mufasa - Ruler of Pride Rock",
+"score": "22.60",
+"cost": 8,
+"inkwell": false,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "A DELICATE BALANCE When you play this character, exert all cards in your inkwell, then return 2 cards at random from your inkwell to your hand.\nEVERYTHING THE LIGHT TOUCHES Whenever this character quests, ready all cards in your inkwell.",
+"strength": 4,
+"willpower": 9,
+"lore": 4,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor",
+"King"
+],
+"verified": true
+},
+"ランドール・ボッグス — 怖いほど狡猾": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10899/",
+"en": "Randall Boggs - Scary Smart",
+"score": "33.22",
+"cost": 4,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "GET OUTTA HERE! When you play this character, put chosen character of yours into your inkwell facedown and exerted.\nDEVIOUS PLAN At the end of your turn, if all cards in your inkwell are exerted, gain 1 lore.",
+"strength": 3,
+"willpower": 3,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Villain",
+"Monster"
+],
+"verified": true
+},
+"散り散りの家族": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9547/",
+"en": "The Family Scattered",
+"score": "11.19",
+"cost": 8,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Chosen opponent chooses 3 of their characters and returns one of those cards to their hand, puts one on the bottom of their deck, and puts one on the top of their deck.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"来てくれたの？": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6097/",
+"en": "You Came Back",
+"score": "22.05",
+"cost": 3,
+"inkwell": false,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Ready chosen character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"NOBODY LIKE U": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10781/",
+"en": "NOBODY LIKE U",
+"score": "4.76",
+"cost": 5,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 5 (Any number of your or your teammates' characters with total cost 5 or more may {E} to sing this song for free.)\nPlay a character with cost 4 or less for free.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"Red Moon Ritual": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10880/",
+"en": "Red Moon Ritual",
+"score": "4.70",
+"cost": 7,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 7 (Any number of your or your teammates' characters with total cost 7 or more may {E} to sing this song for free.)\nBanish chosen character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アイ・トゥ・アイ — I 2 I（アイ・トゥ・アイ）": {
+"url": "https://disneylorcana.jp/cardlist/fabled/8259/",
+"en": "I2I",
+"score": "16.35",
+"cost": 9,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 9 (Any number of your or your teammates’ characters with total cost 9 or more may {E} to sing this song for free.)\nEach player draws 2 cards and gains 2 lore. If 2 or more characters sang this song, ready them. They can’t quest for the rest of this turn.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"アラナデール — 義理堅い吟遊詩人": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9457/",
+"en": "Alan-a-Dale - Loyal Bard",
+"score": "4.68",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Singer 4 (This character counts as cost 4 to sing songs.)",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"メイ・リー — 超有名レッサーパンダ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10871/",
+"en": "Meilin Lee - Popular Red Panda",
+"score": "14.61",
+"cost": 6,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Temporary Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Meilin Lee. At the end of your turn, remove all damage from this character and return only this card to your hand.)\nKARAOKE QUEEN Once during your turn, whenever this character sings a song, gain 3 lore.",
+"strength": 4,
+"willpower": 5,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Red Panda"
+],
+"verified": true
+},
+"何でもするよ 友達のため": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8102/",
+"en": "Nothing We Won't Do",
+"score": "6.93",
+"cost": 8,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 8 (Any number of your or your teammates’ characters with total cost 8 or more may {E} to sing this song for free.)\nReady all your characters. For the rest of this turn, they take no damage from challenges and can't quest.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"本当の自分を隠さないで": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10779/",
+"en": "I'm Never Not by Your Side",
+"score": "5.98",
+"cost": 5,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "Sing Together 5 (Any number of your or your teammates' characters with total cost 5 or more may {E} to sing this song for free.)\nRemove up to 4 damage total from any number of your characters. You gain 1 lore for each 1 damage removed this way.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"親友たち、アッセンブル！": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10780/",
+"en": "Besties, Assemble!",
+"score": "8.30",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action"
+],
+"text": "Look at the top 4 cards of your deck. You may reveal a character card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"４★TOWN — 今年一番ホットなグループ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10763/",
+"en": "4*Town - Hottest Band of the Year",
+"score": "4.72",
+"cost": 4,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Singer 5 (This character counts as cost 5 to sing songs.)\nSTAR PERFORMANCE Whenever this character sings a song with Sing Together, draw a card.",
+"strength": 5,
+"willpower": 5,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn"
+],
+"verified": true
+},
+"エルサ — 心配する姉": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9777/",
+"en": "Elsa - Concerned Sister",
+"score": "44.42",
+"cost": 3,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "CLEAR THE WAY When you play this character, you pay 2 {I} less for the next location you play this turn.",
+"strength": 2,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"シュガーラッシュスピードウェイ — ゴールライン": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6035/",
+"en": "Sugar Rush Speedway - Finish Line",
+"score": "47.10",
+"cost": 2,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Location"
+],
+"text": "BRING IT HOME, LITTLE ONE! When you move a character here from another location, you may banish this location to gain 3 lore and draw 3 cards.",
+"strength": null,
+"willpower": 7,
+"lore": 0,
+"move_cost": 6,
+"classifications": null,
+"verified": true
+},
+"シュガーラッシュスピードウェイ — スタートライン": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4830/",
+"en": "Sugar Rush Speedway - Starting Line",
+"score": "43.53",
+"cost": 1,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Location"
+],
+"text": "ON YOUR MARKS! Once per turn, you may {E} chosen character here and deal them 1 damage to move them to another location for free.",
+"strength": null,
+"willpower": 5,
+"lore": 0,
+"move_cost": 0,
+"classifications": null,
+"verified": true
+},
+"タフィタ・マトンファッジ — スッパイ・スピードスター": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4812/",
+"en": "Taffyta Muttonfudge - Sour Speedster",
+"score": "33.91",
+"cost": 4,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Shift 2 (You may pay 2 {I} to play this on top of one of your characters named Taffyta Muttonfudge.)\nNEW ROSTER Once per turn, when this character moves to a location, gain 2 lore.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Ally",
+"Racer"
+],
+"verified": true
+},
+"タフィタ・マトンファッジ — 大人気レーサー": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4809/",
+"en": "Taffyta Muttonfudge - Crowd Favorite",
+"score": "28.76",
+"cost": 1,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "SHOWSTOPPER When you play this character, if you have a location in play, each opponent loses 1 lore.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Racer"
+],
+"verified": true
+},
+"フィックス・イット・フェリックス JR. — 浮かれた観光客": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4712/",
+"en": "Fix-It Felix, Jr. - Delighted Sightseer",
+"score": "38.17",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "OH, MY LAND! When you play this character, if you have a location in play, draw a card.",
+"strength": 1,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"マザー・ゴーテル — しわしわで性悪": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2319/",
+"en": "Mother Gothel - Withered and Wicked",
+"score": "42.64",
+"cost": 2,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "WHAT HAVE YOU DONE?! This character enters play with 3 damage.",
+"strength": 3,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"ミニーマウス — 海賊の見張り番": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6120/",
+"en": "Minnie Mouse - Pirate Lookout",
+"score": "39.71",
+"cost": 3,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "LAND, HO! Once during your turn, whenever a card is put into your inkwell, you may return a location card from your discard to your hand.",
+"strength": 3,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Pirate"
+],
+"verified": true
+},
+"島があるのも俺のおかげ": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6130/",
+"en": "The Islands I Pulled From The Sea",
+"score": "42.73",
+"cost": 3,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nSearch your deck for a location card, reveal that card to all players, and put it into your hand. Then, shuffle your deck.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"野心と牙": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2333/",
+"en": "Teeth and Ambitions",
+"score": "43.63",
+"cost": 2,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 2 or more can {E} to sing this song for free.)\nDeal 2 damage to chosen character of yours to deal 2 damage to another chosen character.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ティガー — はちみつのバーバリアン": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10872/",
+"en": "Tigger - Hunny Barbarian",
+"score": "45.02",
+"cost": 4,
+"inkwell": true,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Reckless (This character can't quest and must challenge each turn if able.)\nPROTECTIVE CHARGE Once during your turn, whenever this character challenges another character, you may ready chosen Hunny character. If you do, that character can't quest for the rest of this turn.",
+"strength": 5,
+"willpower": 4,
+"lore": 0,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally",
+"Tigger",
+"Hunny"
+],
+"verified": true
+},
+"ごきげん — ツンツンするこびと": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9493/",
+"en": "Happy - Joyful Adventurer",
+"score": "31.62",
+"cost": 2,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": null,
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Seven Dwarfs"
+],
+"verified": true
+},
+"イアーゴ — ドデカいおばけオウム": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7012/",
+"en": "Iago - Giant Spectral Parrot",
+"score": "31.23",
+"cost": 4,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nVanish (When an opponent chooses this character for an action, banish them.)",
+"strength": 4,
+"willpower": 6,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally",
+"Illusion"
+],
+"verified": true
+},
+"エルサ — 第5の精霊": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4743/",
+"en": "Elsa - The Fifth Spirit",
+"score": "75.34",
+"cost": 5,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)\nEvasive (Only characters with Evasive can challenge this character.)\nCRYSTALLIZE When you play this character, exert chosen opposing character.",
+"strength": 2,
+"willpower": 5,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"スヴェン — とんでもトナカイ": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/9765/",
+"en": "Sven - Leaping Reindeer",
+"score": "59.87",
+"cost": 4,
+"inkwell": false,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)\nChallenger +3 (While challenging, this character gets +3 {S}.)\nEvasive (Only characters with Evasive can challenge this character.)",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Ally"
+],
+"verified": true
+},
+"ダンボ — 世界の七不思議": {
+"url": "https://disneylorcana.jp/cardlist/fabled/7236/",
+"en": "Dumbo - Ninth Wonder of the Universe",
+"score": "65.97",
+"cost": 4,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Evasive (Only characters with Evasive can challenge this character.)\nBREAKING RECORDS {E}, 1 {I} – Draw a card and gain 1 lore.\nMAKING HISTORY Your other characters with Evasive gain \"{E}, 1 {I} – Draw a card and gain 1 lore.\"",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ディアブロ — 従順なワタリガラス": {
+"url": "https://disneylorcana.jp/cardlist/azurite-sea/6049/",
+"en": "Diablo - Obedient Raven",
+"score": "63.94",
+"cost": 1,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "FLY, MY PET! When this character is banished, you may draw a card.",
+"strength": 0,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ピーター・パン — 影の追跡者": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4124/",
+"en": "Peter Pan - Shadow Finder",
+"score": "28.10",
+"cost": 3,
+"inkwell": false,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)\nEvasive (Only characters with Evasive can challenge this character.)\nFLY, OF COURSE! Your other characters with Evasive gain Rush.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ファシリエのたくらみ — FRIENDS ON THE OTHER SIDE": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1405/",
+"en": "Friends on the Other Side",
+"score": "69.83",
+"cost": 3,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.)\nDraw 2 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"マダム・ミム — キツネ": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2248/",
+"en": "Madam Mim - Fox",
+"score": "68.79",
+"cost": 3,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "CHASING THE RABBIT When you play this character, banish her or return another chosen character of yours to your hand.\nRush (This character can challenge the turn they're played.)",
+"strength": 4,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Sorcerer"
+],
+"verified": true
+},
+"マーリン — カニ": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2252/",
+"en": "Merlin - Crab",
+"score": "34.75",
+"cost": 3,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "READY OR NOT! When you play this character and when he leaves play, chosen character gains Challenger +3 this turn. (They get +3 {S} while challenging.)",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor",
+"Sorcerer"
+],
+"verified": true
+},
+"ルイーサ・マドリガル — 力自慢": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9512/",
+"en": "Luisa Madrigal - Pushing Through",
+"score": "44.32",
+"cost": 1,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Challenger +2 (While challenging, this character gets +2 {S}.)",
+"strength": 0,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Madrigal"
+],
+"verified": true
+},
+"ルイーサ・マドリガル — 自信家の登山家": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9510/",
+"en": "Luisa Madrigal - Confident Climber",
+"score": "21.56",
+"cost": 5,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Luisa Madrigal.)\nI CAN TAKE IT 1 {I} — Move up to 1 damage from chosen character of yours to this character. Then, if this character has 3 or more damage, move all damage from this character to chosen opposing character.",
+"strength": 6,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Ally",
+"Madrigal"
+],
+"verified": true
+},
+"魔法のほうき — イルミナの保守係": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4118/",
+"en": "Magic Broom - Illuminary Keeper",
+"score": "10.74",
+"cost": 1,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "NICE AND TIDY Whenever you play another character, you may banish this character to draw a card.",
+"strength": 1,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Broom"
+],
+"verified": true
+},
+"アースラ — 大海の魔女王": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4128/",
+"en": "Ursula - Sea Witch Queen",
+"score": "43.33",
+"cost": 7,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Shift 5 (You may pay 5 {I} to play this on top of one of your characters named Ursula.)\nNOW I AM THE RULER! Whenever this character quests, exert chosen character.\nYOU'LL LISTEN TO ME! Other characters can't exert to sing songs.",
+"strength": 4,
+"willpower": 7,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Villain",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"チェルナボーグの従僕ども — 邪悪の眷属": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3082/",
+"en": "Chernabog's Followers - Creatures of Evil",
+"score": "21.66",
+"cost": 1,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "RESTLESS SOULS Whenever this character quests, you may banish them to draw a card.",
+"strength": 2,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"トレメイン夫人 — 横柄な女王": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2313/",
+"en": "Lady Tremaine - Imperious Queen",
+"score": "18.04",
+"cost": 6,
+"inkwell": false,
+"ink": "Ruby",
+"type": [
+"Character"
+],
+"text": "Shift 4 (You may pay 4 {I} to play this on top of one of your characters named Lady Tremaine.)\nPOWER TO RULE AT LAST When you play this character, each opponent chooses and banishes one of their characters.",
+"strength": 3,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Villain",
+"Queen"
+],
+"verified": true
+},
+"パニック — ドカドカ使い魔": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10787/",
+"en": "Panic - Hammer Enthusiast",
+"score": "24.14",
+"cost": 3,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Rush (This character can challenge the turn they're played.)",
+"strength": 3,
+"willpower": 1,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ペイン — チョキチョキ使い魔": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10794/",
+"en": "Pain - Running with Scissors",
+"score": "18.68",
+"cost": 4,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "MULTIPURPOSE TOOL When you play this character, if you have a character card named Panic in your discard, gain 2 lore.",
+"strength": 5,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"マダム・ミム — ヘビ": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2251/",
+"en": "Madam Mim - Snake",
+"score": "20.12",
+"cost": 2,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "JUST YOU WAIT When you play this character, banish her or return another chosen character of yours to your hand.",
+"strength": 3,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Sorcerer"
+],
+"verified": true
+},
+"マーリン — ウサギ": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2254/",
+"en": "Merlin - Rabbit",
+"score": "16.35",
+"cost": 4,
+"inkwell": false,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "HOPPITY HIP! When you play this character and when he leaves play, you may draw a card.",
+"strength": 2,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Mentor",
+"Sorcerer"
+],
+"verified": true
+},
+"ラフィキ — 謎めいた闘士": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3100/",
+"en": "Rafiki - Mystical Fighter",
+"score": "22.60",
+"cost": 1,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Challenger +3 (While challenging, this character gets +3 {S}.)\nANCIENT SKILLS Whenever he challenges a Hyena character, this character takes no damage from the challenge.",
+"strength": 0,
+"willpower": 2,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Mentor",
+"Sorcerer"
+],
+"verified": true
+},
+"図書室 — ベルへの贈り物": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4763/",
+"en": "The Library - A Gift for Belle",
+"score": "20.42",
+"cost": 3,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Location"
+],
+"text": "LOST IN A BOOK Whenever a character is banished while here, you may draw a card.",
+"strength": null,
+"willpower": 8,
+"lore": 1,
+"move_cost": 1,
+"classifications": null,
+"verified": true
+},
+"女王 — 妬み深い美女": {
+"url": "https://disneylorcana.jp/cardlist/archazias-island/7037/",
+"en": "The Queen - Jealous Beauty",
+"score": "26.62",
+"cost": 4,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "NO ORDINARY APPLE {E} — Choose 3 cards from chosen opponent's discard and put them on the bottom of their deck to gain 3 lore. If any Princess cards were moved this way, gain 4 lore instead.",
+"strength": 4,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"エルサ — 猛吹雪の守護者": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8015/",
+"en": "Elsa - Fierce Protector",
+"score": "19.28",
+"cost": 4,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "ICE OVER 1 {I} , Choose and discard a card — Exert chosen opposing character.",
+"strength": 3,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Queen",
+"Sorcerer"
+],
+"verified": true
+},
+"クロッケーのマレット": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2268/",
+"en": "Croquet Mallet",
+"score": "40.16",
+"cost": 1,
+"inkwell": false,
+"ink": "Amethyst",
+"type": [
+"Item"
+],
+"text": "HURTLING HEDGEHOG Banish this item — Chosen character gains Rush this turn. (They can challenge the turn they're played.)",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"ベル — 熟練なるミスティーク": {
+"url": "https://disneylorcana.jp/cardlist/fabled/8276/",
+"en": "Belle - Accomplished Mystic",
+"score": "47.00",
+"cost": 5,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Belle.)\nENHANCED HEALING When you play this character, move up to 3 damage counters from chosen character to chosen opposing character.",
+"strength": 4,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Floodborn",
+"Hero",
+"Princess",
+"Sorcerer"
+],
+"verified": true
+},
+"メリーウェザー — 気の短い妖精": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9589/",
+"en": "Merryweather - Feisty Fairy",
+"score": "41.20",
+"cost": 4,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "Ward (Opponents can't choose this character except to challenge.)",
+"strength": 4,
+"willpower": 5,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally",
+"Fairy"
+],
+"verified": true
+},
+"モルデュー — 猛獣に堕した王子": {
+"url": "https://disneylorcana.jp/cardlist/wilds-unknown/9507/",
+"en": "Mor'du - Savage Cursed Prince",
+"score": "18.38",
+"cost": 5,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "FEROCIOUS ROAR When you play this character, exert all your characters not named Mor'du.\nROOTED BY FEAR Your characters not named Mor'du can't ready at the start of your turn.",
+"strength": 8,
+"willpower": 8,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain",
+"Prince"
+],
+"verified": true
+},
+"レット・イット・ゴー — LET IT GO": {
+"url": "https://disneylorcana.jp/cardlist/the-first-chapter/1505/",
+"en": "Let it Go",
+"score": "38.52",
+"cost": 5,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 5 or more can {E} to sing this song for free.)\nPut chosen character into their player’s inkwell facedown and exerted.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"冒険少年ガイドブック": {
+"url": "https://disneylorcana.jp/cardlist/whispers-in-the-well/9709/",
+"en": "Junior Woodchuck Guidebook",
+"score": "36.68",
+"cost": 2,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Item"
+],
+"text": "THE BOOK KNOWS EVERYTHING {E}, 1 {I}, Banish this item — Draw 2 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"女王の城 — 鏡の間": {
+"url": "https://disneylorcana.jp/cardlist/into-the-inklands/3113/",
+"en": "The Queen's Castle - Mirror Chamber",
+"score": "22.30",
+"cost": 4,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Location"
+],
+"text": "USING THE MIRROR At the start of your turn, for each character you have here, you may draw a card.",
+"strength": null,
+"willpower": 7,
+"lore": 2,
+"move_cost": 1,
+"classifications": null,
+"verified": true
+},
+"アイシス・ヴァンダーチル — セントカナードの氷の女王": {
+"url": "https://disneylorcana.jp/cardlist/winterspell/11340/",
+"en": "Isis Vanderchill - Ice Queen of St. Canard",
+"score": "11.04",
+"cost": 4,
+"inkwell": false,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "CHILL OUT When you play this character, exert chosen opposing character.",
+"strength": 4,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Super",
+"Villain"
+],
+"verified": true
+},
+"クリストファー・ロビン — はちみつの賢者": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10807/",
+"en": "Christopher Robin - Hunny Sage",
+"score": "23.05",
+"cost": 6,
+"inkwell": true,
+"ink": "Amethyst",
+"type": [
+"Character"
+],
+"text": "GATHER THE PARTY You can have other Hunny characters in your deck regardless of ink type.\nMAGICAL SUMMONS When you play this character, you may search your deck for a Hunny card, reveal it, and put it in your hand. If you do, shuffle your deck.",
+"strength": 4,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Hunny"
+],
+"verified": true
+},
+"IF I DIDN'T HAVE YOU": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10778/",
+"en": "IF I DIDN'T HAVE YOU",
+"score": "6.93",
+"cost": 3,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Action",
+"Song"
+],
+"text": "(A character with cost 3 or more can {E} to sing this song for free.) \nYou and another chosen player each draw 2 cards.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"くまのプーさん — かんがえごとしてるの": {
+"url": "https://disneylorcana.jp/cardlist/rise-of-the-floodborn/2364/",
+"en": "Winnie The Pooh - Having a Think",
+"score": "16.35",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "HUNNY POT Whenever this character quests, you may put a card from your hand into your inkwell facedown.",
+"strength": 2,
+"willpower": 3,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"ガストン — 傲慢ボウマン": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10761/",
+"en": "Gaston - Superior Archer",
+"score": "7.27",
+"cost": 5,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "WATCH THIS! When you play this character, you may banish chosen character with 5 {S} or more.",
+"strength": 3,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Villain"
+],
+"verified": true
+},
+"サリー — 怖すぎる怖がらせ屋": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10898/",
+"en": "Sulley - Strategic Scarer",
+"score": "4.82",
+"cost": 3,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "JUMP SCARE While you have 5 or more cards in your inkwell, this character gets +2 {S}.",
+"strength": 4,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Monster"
+],
+"verified": true
+},
+"サリー — 新社長": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10770/",
+"en": "Sulley - The New Boss",
+"score": "12.83",
+"cost": 5,
+"inkwell": false,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.) \nREHIRE When you play this character, you may return a character card from your discard to your hand.",
+"strength": 4,
+"willpower": 4,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Monster"
+],
+"verified": true
+},
+"ドナルドダック — 慧眼の警官": {
+"url": "https://disneylorcana.jp/cardlist/shimmering-skies/4850/",
+"en": "Donald Duck - Focused Flatfoot",
+"score": "12.22",
+"cost": 5,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "BAFFLING MYSTERY When you play this character, you may put the top card of your deck into your inkwell facedown and exerted.",
+"strength": 3,
+"willpower": 4,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Dreamborn",
+"Hero",
+"Detective"
+],
+"verified": true
+},
+"ブー — モンスターごっこ": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10765/",
+"en": "Boo - In Disguise",
+"score": "11.19",
+"cost": 2,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "YOU'RE SAFE NOW While you have an exerted character named Sulley in play, this character can't be challenged.",
+"strength": 1,
+"willpower": 2,
+"lore": 2,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Monster"
+],
+"verified": true
+},
+"ブー — 人間の子ども": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10906/",
+"en": "Boo - Human Child",
+"score": "6.62",
+"cost": 1,
+"inkwell": true,
+"ink": "Sapphire",
+"type": [
+"Character"
+],
+"text": "MAKING MEMORIES While you have 5 or more cards in your inkwell, this character gets +2 {L}.",
+"strength": 0,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero"
+],
+"verified": true
+},
+"マイク・ワゾウスキ — お笑いの球道者": {
+"url": "https://disneylorcana.jp/cardlist/attack-of-the-vine/10767/",
+"en": "Mike Wazowski - Well-Rounded Entertainer",
+"score": "5.18",
+"cost": 1,
+"inkwell": true,
+"ink": "Amber",
+"type": [
+"Character"
+],
+"text": "MAKE 'EM LAUGH When you play this character, you may pay 2 {I} to give chosen character +1 {L} this turn.",
+"strength": 2,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Hero",
+"Monster"
+],
+"verified": true
+},
+"ルードヴィヒ・フォン・ドレイク — 万物の専門家": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/7962/",
+"en": "Ludwig von Drake - All-Around Expert",
+"score": "5.35",
+"cost": 2,
+"inkwell": false,
+"ink": null,
+"type": [
+"Character"
+],
+"text": "SUPERIOR MIND When you play this character, chosen opponent reveals their hand and discards a non-character card of your choice.\nLASTING LEGACY When this character is banished, you may put this card into your inkwell facedown and exerted.",
+"strength": 1,
+"willpower": 1,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"それじゃなぁぁぁい！": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8071/",
+"en": "Wrong Lever!",
+"score": "16.35",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Action"
+],
+"text": "Choose one:\n- Return chosen character to their player's hand.\n- Put a Pull the Lever! card from your discard pile on the bottom of your deck to put chosen character on the bottom of their owner's deck.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+},
+"クリキー — 幸運のコオロギ": {
+"url": "https://disneylorcana.jp/cardlist/ursulas-return/4139/",
+"en": "Cri-Kee - Lucky Cricket",
+"score": "9.38",
+"cost": 5,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "SPREADING GOOD FORTUNE When you play this character, your other characters get +3 {S} this turn.",
+"strength": 3,
+"willpower": 4,
+"lore": 3,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"ルイス — かわいいワニ": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8050/",
+"en": "Louis - Endearing Alligator",
+"score": "5.27",
+"cost": 3,
+"inkwell": true,
+"ink": "Emerald",
+"type": [
+"Character"
+],
+"text": "SENSITIVE SOUL This character enters play exerted.\nFRIENDLIER THAN HE LOOKS When you play this character, chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)",
+"strength": 4,
+"willpower": 3,
+"lore": 1,
+"move_cost": null,
+"classifications": [
+"Storyborn",
+"Ally"
+],
+"verified": true
+},
+"レバーを引いて！": {
+"url": "https://disneylorcana.jp/cardlist/reign-of-jafar/8035/",
+"en": "Pull the Lever!",
+"score": "9.21",
+"cost": 3,
+"inkwell": true,
+"ink": null,
+"type": [
+"Action"
+],
+"text": "Choose one:\n- Draw 2 cards.\n- Each opponent chooses and discards a card.",
+"strength": null,
+"willpower": null,
+"lore": null,
+"move_cost": null,
+"classifications": null,
+"verified": true
+}
+}

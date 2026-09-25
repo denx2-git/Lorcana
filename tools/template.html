@@ -1,0 +1,398 @@
+<title>ロルカナ環境相性表</title>
+<meta name="description" content="ディズニー・ロルカナ第13弾「ヴァインズ・アタック！」環境のデッキ解説・型の違い・キーカード・相性表">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --bg:#EEF1F6; --surface:#FFFFFF; --surface-2:#F5F7FB; --line:#D5DBE6; --line-strong:#AEB8C9;
+  --ink:#18203A; --ink-2:#48536E; --ink-3:#6F7A93;
+  --gold:#9A6C0E; --gold-soft:#F3E6C4;
+  --fav:#1E7A68; --fav-bg:#D7EFE8; --even:#636B7D; --even-bg:#E7EAF0; --unf:#B0482F; --unf-bg:#F6DDD5;
+  --amber:#E0A10F; --amethyst:#7B4FA0; --emerald:#2E8B57; --ruby:#C2283B; --sapphire:#1F6FB5; --steel:#8A94A3;
+  --link:#1F5FA0;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11152A; --surface:#181D36; --surface-2:#1E2440; --line:#2C3456; --line-strong:#46507A;
+    --ink:#E8ECF6; --ink-2:#B3BBD2; --ink-3:#8791AE;
+    --gold:#E2B24C; --gold-soft:#3A3120;
+    --fav:#5CC7AE; --fav-bg:#173A36; --even:#A3AAC0; --even-bg:#262C48; --unf:#EE8A70; --unf-bg:#43262A;
+    --steel:#A9B2C0; --link:#86B6E8;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11152A; --surface:#181D36; --surface-2:#1E2440; --line:#2C3456; --line-strong:#46507A;
+  --ink:#E8ECF6; --ink-2:#B3BBD2; --ink-3:#8791AE;
+  --gold:#E2B24C; --gold-soft:#3A3120;
+  --fav:#5CC7AE; --fav-bg:#173A36; --even:#A3AAC0; --even-bg:#262C48; --unf:#EE8A70; --unf-bg:#43262A;
+  --steel:#A9B2C0; --link:#86B6E8;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.75;margin:0;padding-inline:16px;padding-block:0 72px}
+.wrap{max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:60px}
+h1,h2,h3,h4{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.35}
+h2{font-size:clamp(22px,3.2vw,28px)}
+h3{font-size:20px}
+h4{font-size:15px;font-family:var(--body);font-weight:700}
+p{margin:0}
+a{color:var(--link);text-underline-offset:2px}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.muted{color:var(--ink-2)}
+.small{font-size:13px}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+section{display:flex;flex-direction:column;gap:18px;scroll-margin-top:64px}
+.sec-head{display:flex;flex-direction:column;gap:6px;max-width:70ch}
+
+header.hero{padding-top:40px;display:flex;flex-direction:column;gap:16px}
+header.hero h1{font-size:clamp(30px,5.4vw,48px);font-weight:800;letter-spacing:.02em}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13px;color:var(--ink-2)}
+.hero-meta b{color:var(--ink)}
+.lede{max-width:68ch;color:var(--ink-2)}
+.inkbar{display:flex;gap:6px}
+.inkbar span{width:22px;height:6px;border-radius:3px}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-16px;padding:10px 16px;display:flex;gap:6px;overflow-x:auto}
+nav.toc a{flex:none;font-size:13px;font-weight:700;color:var(--ink-2);text-decoration:none;padding:5px 12px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
+nav.toc a:hover{color:var(--ink);border-color:var(--line-strong)}
+
+.pips{display:inline-flex;gap:3px;vertical-align:middle;flex:none}
+.pip{width:11px;height:11px;border-radius:50%;display:inline-block;box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
+.i-amber{background:var(--amber)} .i-amethyst{background:var(--amethyst)} .i-emerald{background:var(--emerald)}
+.i-ruby{background:var(--ruby)} .i-sapphire{background:var(--sapphire)} .i-steel{background:var(--steel)}
+
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{font-size:12px;letter-spacing:.04em;color:var(--ink-3);font-weight:700;background:var(--surface-2);white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+.deckname{display:flex;align-items:center;gap:8px;font-weight:700;white-space:nowrap}
+.deckname small{font-weight:400;color:var(--ink-3);font-size:12px}
+.tier{display:inline-block;font-family:var(--mono);font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line-strong);white-space:nowrap}
+.tier.t1{background:var(--gold-soft);border-color:var(--gold);color:var(--gold)}
+
+.two{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media (max-width:820px){.two{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px;display:flex;flex-direction:column;gap:14px}
+.bars{display:flex;flex-direction:column;gap:7px}
+.bar{display:grid;grid-template-columns:120px 1fr 86px;align-items:center;gap:10px;font-size:13px}
+.bar .lab{display:flex;align-items:center;gap:6px;white-space:nowrap}
+.bar .track{height:14px;background:var(--surface-2);border-radius:3px;overflow:hidden}
+.bar .fill{display:block;height:100%;background:var(--ink-3);border-radius:3px}
+.bar.top .fill{background:var(--gold)}
+.bar .val{text-align:right;color:var(--ink-2)}
+
+/* matrix */
+.matrix-grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:20px;align-items:start}
+@media (max-width:900px){.matrix-grid{grid-template-columns:1fr}}
+table.mx{width:auto;min-width:100%}
+table.mx th,table.mx td{border:1px solid var(--line);text-align:center;padding:0}
+table.mx thead th{padding:8px 4px;vertical-align:bottom}
+table.mx thead th.corner{text-align:left;font-weight:400;font-size:11px;color:var(--ink-3);padding:8px 10px;line-height:1.4}
+table.mx tbody th{background:var(--surface-2);padding:8px 10px;text-align:left}
+.mx-label{display:flex;flex-direction:column;align-items:center;gap:3px;font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap}
+tbody .mx-label{flex-direction:row;gap:7px;font-size:13px}
+.cell{appearance:none;border:0;margin:0;width:100%;min-width:58px;height:54px;display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;font:inherit;color:inherit;background:transparent}
+.cell .sym{font-size:19px;line-height:1;font-weight:700}
+.cell .cf{font-size:10px;margin-top:3px;opacity:.85}
+.v1{background:var(--fav-bg);color:var(--fav)} .v0{background:var(--even-bg);color:var(--even)} .vm1{background:var(--unf-bg);color:var(--unf)}
+.cell.low{background-image:repeating-linear-gradient(135deg,transparent 0 6px,rgba(127,127,127,.12) 6px 8px)}
+.cell.mirror{cursor:default;color:var(--ink-3);background:var(--surface-2)}
+.cell:focus-visible,button:focus-visible,a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.cell.sel{box-shadow:inset 0 0 0 3px var(--gold)}
+th.hl{background:var(--gold-soft)!important}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--ink-2)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:22px;height:18px;border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;font-style:normal}
+.detail{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px;display:flex;flex-direction:column;gap:12px;position:sticky;top:calc(env(safe-area-inset-top,0px) + 64px)}
+.detail .vs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:700}
+.detail .vs .x{color:var(--ink-3);font-weight:400;font-size:13px}
+.verdict{display:inline-flex;gap:8px;font-size:14px;font-weight:700;padding:4px 10px;border-radius:6px;align-self:flex-start}
+.detail .why{font-size:14px}
+.detail .tip{font-size:13px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:10px}
+
+/* deck guide */
+.pairtabs{display:flex;flex-wrap:wrap;gap:8px}
+.pairtab{appearance:none;font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:700;font-size:14px}
+.pairtab small{font-family:var(--mono);font-weight:500;color:var(--ink-3);font-size:11px}
+.pairtab[aria-selected="true"]{border-color:var(--gold);background:var(--gold-soft)}
+.pairhead{display:flex;flex-direction:column;gap:8px;padding:18px 0 4px;border-top:1px solid var(--line)}
+.pairhead h3{display:flex;align-items:center;gap:10px;font-size:24px}
+.varnav{display:flex;flex-wrap:wrap;gap:6px}
+.varnav a{font-size:13px;text-decoration:none;color:var(--ink-2);border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--surface)}
+.variants{display:flex;flex-direction:column;gap:22px}
+.variant{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px;display:flex;flex-direction:column;gap:16px;scroll-margin-top:64px}
+.v-top{display:flex;flex-direction:column;gap:8px}
+.v-top h3{font-size:21px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.badge{font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;border:1px solid var(--line-strong);color:var(--ink-2);background:var(--surface-2)}
+.badge.arch{border-color:transparent;background:var(--ink);color:var(--surface)}
+.badge.tag{border-color:var(--gold);color:var(--gold);background:var(--gold-soft)}
+.stats{display:flex;flex-wrap:wrap;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.stat{flex:1 1 90px;padding:8px 12px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:0;background:var(--surface-2)}
+.stat:last-child{border-right:0}
+.stat span{font-size:11px;color:var(--ink-3);letter-spacing:.04em}
+.stat b{font-family:var(--mono);font-size:17px;font-weight:500;font-variant-numeric:tabular-nums}
+.diff{font-size:14px;color:var(--ink-2);background:var(--surface-2);border-radius:8px;padding:12px 14px}
+.diff b{color:var(--ink)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media (max-width:820px){.cols{grid-template-columns:1fr}}
+.block{display:flex;flex-direction:column;gap:8px}
+.block ol,.block ul{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.block.beat{border:1px solid var(--fav);border-radius:10px;padding:14px 16px;background:var(--fav-bg)}
+.block.beat h4{color:var(--fav)}
+.block.beat ul{color:var(--ink)}
+.block.watch h4{color:var(--unf)}
+.cards{display:flex;flex-direction:column;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.card{display:grid;grid-template-columns:44px 1fr;gap:12px;padding:12px 14px;border-bottom:1px solid var(--line)}
+.card:last-child{border-bottom:0}
+.cost{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:16px;background:var(--surface-2);border:2px solid var(--line-strong)}
+.cost.ink-false{border-style:dashed}
+.card .nm{font-weight:700;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline}
+.card .nm small{font-weight:400;color:var(--ink-3);font-size:12px}
+.card .tx{font-size:13.5px;color:var(--ink-2);margin-top:2px}
+.card .tx b{color:var(--ink)}
+.card .src{font-size:11px;color:var(--ink-3);margin-left:4px}
+.adopt{font-size:12px;color:var(--ink-3);font-family:var(--mono)}
+details{border:1px solid var(--line);border-radius:10px;background:var(--surface-2)}
+details summary{cursor:pointer;padding:10px 14px;font-weight:700;font-size:14px}
+details .inner{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+.list{columns:2 260px;column-gap:24px;font-size:13px;margin:0;padding:0;list-style:none}
+.list li{break-inside:avoid;display:flex;gap:8px;padding:2px 0;border-bottom:1px dotted var(--line)}
+.list li .c{font-family:var(--mono);color:var(--ink-3);width:18px;text-align:right;flex:none}
+.list li .n{font-family:var(--mono);margin-left:auto;flex:none}
+.decklinks{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px}
+.casual{font-size:13px;color:var(--ink-2)}
+.notes{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:18px;font-size:13px;color:var(--ink-2);display:flex;flex-direction:column;gap:8px}
+.notes ul{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:4px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="wrap">
+  <header class="hero">
+    <div class="inkbar" aria-hidden="true"><span class="i-amber"></span><span class="i-amethyst"></span><span class="i-emerald"></span><span class="i-ruby"></span><span class="i-sapphire"></span><span class="i-steel"></span></div>
+    <span class="eyebrow">DISNEY LORCANA · 第13弾環境</span>
+    <h1>ロルカナ環境相性表</h1>
+    <p class="lede">「ヴァインズ・アタック！」環境（2026/07/17〜10/15）のデッキを、インク構成ごと・型ごとにまとめました。同じ色でも、キャラ名が同じでも、アグロとミッドレンジで中身が違うデッキは別の型として扱っています。各型の動き、キーカード、対面したときの注意点、勝率を上げる動きを載せています。</p>
+    <div class="hero-meta">
+      <span>集計日 <b class="num">2026-09-25</b></span>
+      <span>掲載レシピ <b class="num">80</b>件を分析</span>
+      <span>次弾 <b>第14弾「ハイペリアシティ」</b> <span class="num">10/16</span> 発売予定</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="目次">
+    <a href="#meta">環境</a><a href="#matrix">相性表</a><a href="#decks">デッキ解説</a><a href="#threats">全体除去の早見表</a><a href="#notes">出典</a>
+  </nav>
+
+  <section id="meta">
+    <div class="sec-head">
+      <span class="eyebrow">META SNAPSHOT</span>
+      <h2>いまの環境</h2>
+      <p class="muted">最大母数の黄緑、それを狙うスティール系2種（黄鋼・緑鋼）、その全員を長期戦で上回ろうとする赤青の四強。大会形式で評価が入れ替わります。日本一決定戦は対戦前にインク色を宣言するルールで、対面ごとの回答を持つ緑鋼・赤青が有利でした。約2000人の通常BO1だった神戸では、黄緑がTop64の3分の1を占めました。</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>デッキ</th><th>評価</th><th class="r">神戸 Top64</th><th class="r">日本一 使用</th><th class="r">日本一 TOP8</th><th class="r">SCS優勝 初週</th><th class="r">SCS優勝 8月後半</th><th class="r">掲載構成比</th><th>主な戦績</th></tr></thead>
+        <tbody id="metaBody"></tbody>
+      </table>
+    </div>
+    <p class="small muted">神戸：チャレンジ 2026 Autumn 神戸（9/6、約2000名）のTop64。日本一：日本一決定戦2026（8/15〜16、招待57名）。SCS：店舗のセットチャンピオンシップの優勝デッキの割合（初週は7/18〜20の50大会以上、8月後半は8/17〜30の40大会以上）。掲載構成比：disneylorcana.jp の掲載レシピ80件の内訳。どれも全プレイヤーの使用率・勝率ではありません。</p>
+    <div class="panel">
+      <div class="sec-head">
+        <h3>神戸 Top64 のデッキ分布</h3>
+        <p class="small muted">公式発表。64人中の人数。</p>
+      </div>
+      <div class="bars" id="kobeBars"></div>
+    </div>
+  </section>
+
+  <section id="matrix">
+    <div class="sec-head">
+      <span class="eyebrow">MATCHUP CHART</span>
+      <h2>相性表</h2>
+      <p class="muted">行が自分のデッキ、列が相手のデッキです。マスを押すと根拠と立ち回りが出ます。公式記事、上位プレイヤーの対面評価、実測データ（サンプル数があるもの）を突き合わせた見立てで、全体の勝率を集計したものではありません。</p>
+    </div>
+    <div class="legend">
+      <span><i class="sw v1">○</i>有利寄り</span>
+      <span><i class="sw v0">△</i>五分</span>
+      <span><i class="sw vm1">▲</i>不利寄り</span>
+      <span>確度 高：複数の実戦データと見立てが一致／中：使用者の見立てが一致／低：推測か意見が割れる（斜線）</span>
+    </div>
+    <div class="matrix-grid">
+      <div class="scroll"><table class="mx" id="mx"></table></div>
+      <aside class="detail" id="detail" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="decks">
+    <div class="sec-head">
+      <span class="eyebrow">DECK GUIDE</span>
+      <h2>デッキ解説</h2>
+      <p class="muted">色を選ぶと、その色の型がすべて表示されます。数値は各型の掲載レシピの平均です。キーカードの「採用」は、その型のレシピのうち何件に入っているか（平均枚数）です。カード効果は公式カードリストの日本語テキストで、公式テキストを取得できなかったカードだけ英語版からの要約を載せています。</p>
+    </div>
+    <div class="pairtabs" id="pairTabs" role="tablist" aria-label="インク構成"></div>
+    <div id="pairView"></div>
+  </section>
+
+  <section id="threats">
+    <div class="sec-head">
+      <span class="eyebrow">WATCH LIST</span>
+      <h2>全体除去・妨害の早見表</h2>
+      <p class="muted">この環境で盤面や手札を一度に崩してくるカードです。S2以下（攻撃力2以下）を狙う除去が多いので、攻撃力3以上のキャラで受けると被害が減ります。</p>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>カード</th><th>使うデッキ</th><th>効果</th><th>警戒のポイント</th></tr></thead>
+        <tbody id="threatBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="notes">
+    <div class="notes">
+      <b style="color:var(--ink)">この表の読み方と出典</b>
+      <ul>
+        <li>型の分類は、掲載レシピ80件を採用カードの一致度と、平均コスト・キャラ枚数・歌の枚数などの数値で分けたものです。</li>
+        <li>相性の「確度」は根拠の強さです。note記事の評価は筆者の主観を含み、勝率の多くはサンプル数が公開されていません。</li>
+        <li>海外（英語圏）では日本と同じカードプールが「Infinity」フォーマットにあたります。海外データは参考として相性の根拠に併記しています。</li>
+        <li>第14弾「ハイペリアシティ」（10/16発売）で環境は大きく動く見込みです。</li>
+        <li>disneylorcana.jp とnote記事は個人・非公式のサイトです。Disney Lorcana の名称・商標は各権利者に帰属します。</li>
+      </ul>
+      <b style="color:var(--ink)">出典</b>
+      <ul id="srcList"></ul>
+    </div>
+  </section>
+</div>
+
+<script>
+const D=/*__DATA__*/null;
+const INK={amber:"アンバー",amethyst:"アメジスト",emerald:"エメラルド",ruby:"ルビー",sapphire:"サファイア",steel:"スティール"};
+const SHORT={amber:"黄",amethyst:"紫",emerald:"緑",ruby:"赤",sapphire:"青",steel:"鋼"};
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const inks=k=>k.split(",");
+const pips=k=>`<span class="pips">${inks(k).map(i=>`<i class="pip i-${i}" title="${INK[i]}"></i>`).join("")}</span>`;
+const shortName=k=>inks(k).map(i=>SHORT[i]).join("");
+const pairName=k=>inks(k).map(i=>INK[i]).join("／");
+const store={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+// meta
+document.getElementById("metaBody").innerHTML=D.meta.map(m=>`<tr>
+  <td><div class="deckname">${pips(m.pair)}${shortName(m.pair)}<small>${pairName(m.pair)}</small></div></td>
+  <td><span class="tier ${m.tier==="Tier 1"?"t1":""}">${m.tier}</span></td>
+  <td class="r num">${m.kobe}</td><td class="r num">${m.jnc}</td><td class="r num">${m.top8}</td><td class="r num">${m.scs1}</td><td class="r num">${m.scs2}</td><td class="r num">${m.site}</td>
+  <td class="small muted" style="min-width:220px">${esc(m.results)}</td></tr>`).join("");
+const kmax=Math.max(...D.kobe.map(k=>k[1]));
+document.getElementById("kobeBars").innerHTML=D.kobe.map(([p,n],i)=>`<div class="bar ${i<4?"top":""}">
+  <span class="lab">${pips(p)}${shortName(p)}</span>
+  <span class="track"><span class="fill" style="width:${(n/kmax*100).toFixed(1)}%"></span></span>
+  <span class="val num">${n}人 ${(n/64*100).toFixed(1)}%</span></div>`).join("");
+
+// matrix
+const SYM={"1":"○","0":"△","-1":"▲"},CLS={"1":"v1","0":"v0","-1":"vm1"},LAB={"1":"有利寄り","0":"五分","-1":"不利寄り"};
+const muLabel=k=>D.muLabel[k]||shortName(k);
+function mu(a,b){
+  if(a===b)return null;
+  const m=D.mu[a+"|"+b]; if(m)return m;
+  const r=D.mu[b+"|"+a]; if(!r)return null;
+  return {v:-r.v,c:r.c,why:r.why,tip:r.tip};
+}
+const mx=document.getElementById("mx");
+mx.innerHTML=`<thead><tr><th class="corner">自分 ↓<br>相手 →</th>${D.muDecks.map(d=>`<th data-col="${d}"><div class="mx-label">${pips(d)}${esc(shortName(d))}</div></th>`).join("")}</tr></thead><tbody>`+
+D.muDecks.map(r=>`<tr><th data-row="${r}"><div class="mx-label">${pips(r)}${esc(muLabel(r))}</div></th>${D.muDecks.map(c=>{
+  const m=mu(r,c);
+  if(!m)return `<td><div class="cell mirror" aria-label="ミラー"><span class="sym">—</span></div></td>`;
+  return `<td><button type="button" class="cell ${CLS[m.v]} ${m.c==="低"?"low":""}" data-r="${r}" data-c="${c}" aria-label="${esc(muLabel(r))}対${esc(muLabel(c))}：${LAB[m.v]}、確度${m.c}"><span class="sym">${SYM[m.v]}</span><span class="cf">確度${m.c}</span></button></td>`;
+}).join("")}</tr>`).join("")+"</tbody>";
+function selectMu(r,c){
+  mx.querySelectorAll(".sel,.hl").forEach(e=>e.classList.remove("sel","hl"));
+  mx.querySelector(`.cell[data-r="${r}"][data-c="${c}"]`)?.classList.add("sel");
+  mx.querySelector(`th[data-row="${r}"]`)?.classList.add("hl");
+  mx.querySelector(`th[data-col="${c}"]`)?.classList.add("hl");
+  const m=mu(r,c);
+  document.getElementById("detail").innerHTML=`<span class="eyebrow">選択中の対面</span>
+    <div class="vs">${pips(r)}${esc(muLabel(r))}<span class="x">（自分）vs</span>${pips(c)}${esc(muLabel(c))}<span class="x">（相手）</span></div>
+    <span class="verdict ${CLS[m.v]}">${SYM[m.v]} ${LAB[m.v]}・確度${m.c}</span>
+    <p class="why">${esc(m.why)}</p>
+    ${m.tip?`<p class="tip"><b>立ち回り</b>　${esc(m.tip)}</p>`:""}`;
+  store.set("lorcana-mu",r+"|"+c);
+}
+mx.addEventListener("click",e=>{const b=e.target.closest("button.cell");if(b)selectMu(b.dataset.r,b.dataset.c)});
+(()=>{let s=(store.get("lorcana-mu")||"").split("|");if(!(s.length===2&&mu(s[0],s[1])))s=["amber,emerald","emerald,steel"];selectMu(s[0],s[1])})();
+
+// card text
+function fmt(t){
+  return esc(t).replace(/\\([^\\]+)\\/g,"<b>$1</b>").replace(/&lt;([^&]+?)&gt;/g,"<b>$1</b>")
+    .replace(/\{I\}/g,"インク").replace(/\{S\}/g,"攻撃力").replace(/\{W\}/g,"意志力").replace(/\{L\}/g,"ロア").replace(/\{E\}/g,"エグザート").replace(/ \/ /g,"<br>");
+}
+function cardRow(k,total){
+  const c=D.cards[k.name]||{};
+  const text=c.official?`${fmt(c.official)}<span class="src">公式テキスト</span>`:(c.summary?`${esc(c.summary)}<span class="src">要約（英語版から）</span>`:"");
+  const meta=[c.type,c.stat,c.ink].filter(Boolean).join("・");
+  const ad=k.adopt?`採用 ${k.adopt.in}/${total}件・平均${k.adopt.avg}枚`:"";
+  return `<div class="card"><div class="cost ink-${c.inkable===false?"false":"true"}" title="${c.inkable===false?"インクにできない":"インクにできる"}">${c.cost??"–"}</div>
+    <div><div class="nm">${esc(k.name)}<small>${esc(meta)}</small><span class="adopt">${ad}</span></div><div class="tx">${text}</div></div></div>`;
+}
+const KORDER={char:0,song:1,act:2,item:3,loc:4};
+function decklist(rep){
+  const rows=rep.cards.map(x=>({...x,c:D.cards[x.name]||{}})).sort((a,b)=>(a.c.cost??99)-(b.c.cost??99)||a.name.localeCompare(b.name,"ja"));
+  return `<ul class="list">${rows.map(x=>`<li><span class="c">${x.c.cost??""}</span><span>${esc(x.name)}</span><span class="n">×${x.n}</span></li>`).join("")}</ul>`;
+}
+function variantCard(v){
+  const s=v.stats;
+  return `<article class="variant" id="v-${v.id}">
+    <div class="v-top">
+      <div class="badges">${v.arch.map(a=>`<span class="badge arch">${esc(a)}</span>`).join("")}<span class="badge tag">${esc(v.tag)}</span><span class="badge">掲載 ${v.count}件</span></div>
+      <h3>${esc(v.name)}</h3>
+      <p>${esc(v.summary)}</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><span>平均コスト</span><b>${s.avg}</b></div>
+      <div class="stat"><span>キャラ</span><b>${s.char}</b></div>
+      <div class="stat"><span>歌</span><b>${s.song}</b></div>
+      <div class="stat"><span>歌以外のアクション</span><b>${s.act}</b></div>
+      <div class="stat"><span>アイテム</span><b>${s.item}</b></div>
+      <div class="stat"><span>ロケーション</span><b>${s.loc}</b></div>
+      <div class="stat"><span>2コスト以下</span><b>${s.low}</b></div>
+    </div>
+    <p class="diff"><b>この型の特徴</b>　${esc(v.diff)}</p>
+    <div class="cols">
+      <div class="block"><h4>デッキの動き</h4><ol>${v.plan.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>
+      <div class="block watch"><h4>対面したときの注意点</h4><ul>${v.watch.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+    </div>
+    <div class="block beat"><h4>このデッキに勝率を上げる動き</h4><ul>${v.beat.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+    <div class="block"><h4>キーカード</h4><div class="cards">${v.keys.map(k=>cardRow(k,v.count)).join("")}</div></div>
+    <details><summary>代表レシピ：${esc(v.rep.event)} ${esc(v.rep.player)}（60枚）</summary><div class="inner">${decklist(v.rep)}<a class="small" href="${v.rep.url}" target="_blank" rel="noopener">disneylorcana.jp でレシピを見る</a></div></details>
+    <details><summary>この型の掲載レシピ（${v.count}件）</summary><div class="inner"><div class="decklinks">${v.decks.map(d=>`<a href="${d.url}" target="_blank" rel="noopener">${esc(d.event)} ${esc(d.player)}</a>`).join("")}</div></div></details>
+  </article>`;
+}
+const tabs=document.getElementById("pairTabs");
+tabs.innerHTML=D.pairs.map(p=>`<button type="button" class="pairtab" role="tab" id="tab-${p.key.replace(",","-")}" data-k="${p.key}" aria-selected="false">${pips(p.key)}${esc(p.short)}<small>${p.count}件</small></button>`).join("");
+function showPair(k){
+  const p=D.pairs.find(x=>x.key===k)||D.pairs[0];
+  tabs.querySelectorAll(".pairtab").forEach(b=>b.setAttribute("aria-selected",b.dataset.k===p.key));
+  const vs=D.variants.filter(v=>v.pair===p.key);
+  const cas=D.casual.filter(c=>c.pair===p.key);
+  document.getElementById("pairView").innerHTML=`<div class="pairhead">
+      <h3>${pips(p.key)}${esc(p.short)}<span class="small muted" style="font-family:var(--body)">${esc(p.name)}</span></h3>
+      <p class="muted">${esc(p.lead)}</p>
+      ${vs.length>1?`<div class="varnav">${vs.map(v=>`<a href="#v-${v.id}">${esc(v.name)}</a>`).join("")}</div>`:""}
+    </div>
+    <div class="variants">${vs.map(variantCard).join("")}</div>
+    ${cas.length?`<p class="casual">このほか、カジュアル向けの掲載レシピ：${cas.map(c=>`<a href="https://disneylorcana.jp/deck/${c.id}/" target="_blank" rel="noopener">${esc(c.name)}</a>`).join("、")}</p>`:""}`;
+  store.set("lorcana-pair",p.key);
+}
+tabs.addEventListener("click",e=>{const b=e.target.closest(".pairtab");if(b)showPair(b.dataset.k)});
+showPair(store.get("lorcana-pair")||"amber,emerald");
+
+// threats
+document.getElementById("threatBody").innerHTML=D.threats.map(t=>{const c=D.cards[t.name]||{};return `<tr>
+  <td style="min-width:180px"><b>${esc(t.name)}</b><div class="small muted">${c.cost!=null?`コスト${c.cost}・`:""}${esc(c.type||"")}</div></td>
+  <td style="white-space:nowrap">${esc(t.who)}</td><td>${esc(t.what)}</td><td class="small muted" style="min-width:200px">${esc(t.note)}</td></tr>`}).join("");
+document.getElementById("srcList").innerHTML=D.sources.map(([n,u])=>`<li><a href="${u}" target="_blank" rel="noopener">${esc(n)}</a></li>`).join("");
+</script>
