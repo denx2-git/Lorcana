@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<style>
+@font-face { font-family: "MPR"; src: url("fonts/mplus-500.ttf"); font-weight: 500; }
+@font-face { font-family: "MPR"; src: url("fonts/mplus-800.ttf"); font-weight: 800; }
+@font-face { font-family: "MPR"; src: url("fonts/mplus-900.ttf"); font-weight: 900; }
+:root {
+  --bg1: #0f1630; --bg2: #1b2552;
+  --amber: #f4b223; --emerald: #2fa866; --ink: #8fb7ff;
+  --text: #fff; --muted: #b9c3e6; --gold: #ffd76a; --accent: #ff7a59;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; }
+body {
+  font-family: "MPR", sans-serif; font-weight: 500; color: var(--text);
+  background: radial-gradient(1200px 700px at 20% 10%, #2a3a7a 0%, transparent 60%),
+              radial-gradient(1000px 700px at 90% 90%, #1d5a52 0%, transparent 60%),
+              linear-gradient(160deg, var(--bg1), var(--bg2));
+}
+.sparkle { position: absolute; border-radius: 50%; background: #fff; opacity: .35; }
+#root { position: absolute; inset: 0; }
+
+/* ---------- 字幕 */
+.caption {
+  position: absolute; left: 60px; right: 60px; bottom: 40px; min-height: 170px;
+  background: rgba(255,255,255,.96); color: #1a2040; border-radius: 28px;
+  padding: 28px 48px; font-size: 46px; line-height: 1.5; font-weight: 800;
+  display: flex; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,.35);
+  word-break: auto-phrase;
+}
+
+/* ---------- 盤面ヘッダー */
+.header { position: absolute; top: 36px; left: 60px; right: 60px; height: 120px; display: flex; align-items: center; gap: 36px; }
+.chapter {
+  font-size: 64px; font-weight: 900; padding: 6px 40px; border-radius: 999px;
+  background: linear-gradient(90deg, var(--amber), var(--emerald)); color: #10162e;
+}
+.meter { margin-left: auto; display: flex; gap: 28px; align-items: center; }
+.box { background: rgba(255,255,255,.08); border: 2px solid rgba(255,255,255,.18); border-radius: 24px; padding: 12px 28px; display: flex; align-items: center; gap: 18px; }
+.box .label { font-size: 30px; color: var(--muted); font-weight: 800; }
+.lore-num { font-size: 64px; font-weight: 900; color: var(--gold); }
+.lore-num small { font-size: 34px; color: var(--muted); }
+.lorebar { width: 260px; height: 18px; border-radius: 9px; background: rgba(255,255,255,.15); overflow: hidden; }
+.lorebar i { display: block; height: 100%; background: linear-gradient(90deg, #ffd76a, #ff9f43); }
+.inkdots { display: flex; gap: 10px; }
+.inkdot { width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #d9e7ff, var(--ink) 55%, #3f5fa8); box-shadow: 0 0 14px rgba(143,183,255,.6); }
+.inkdot.used { background: rgba(255,255,255,.12); box-shadow: none; border: 2px dashed rgba(255,255,255,.35); }
+.inkleft { font-size: 28px; font-weight: 800; color: var(--muted); }
+.inkdot.new { outline: 4px solid var(--gold); outline-offset: 3px; }
+
+/* ---------- 盤面 */
+.board { position: absolute; top: 190px; left: 60px; right: 60px; height: 620px; display: flex; justify-content: center; align-items: center; }
+.row { display: flex; align-items: center; gap: 22px; transform-origin: center; flex: none; }
+.slot { width: 196px; height: 290px; display: flex; align-items: center; justify-content: center; position: relative; transition: none; }
+.slot.ex { width: 290px; }
+.exname { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 22px; font-weight: 900; color: #fff; background: rgba(0,0,0,.45); padding: 2px 12px; border-radius: 8px; }
+.boardlabel { position: absolute; top: 190px; left: 60px; font-size: 30px; color: var(--muted); font-weight: 800; }
+
+/* ---------- カード */
+.card {
+  width: 196px; height: 290px; border-radius: 16px; position: relative; overflow: hidden; flex: none;
+  background: #f7f3ea; color: #1a2040; box-shadow: 0 8px 26px rgba(0,0,0,.45);
+  border: 5px solid #2a2f4a;
+}
+.card.big { transform: scale(1.45); transform-origin: center; }
+.card .band { height: 98px; position: relative; overflow: hidden; }
+.card .initial { position: absolute; right: 8px; bottom: -14px; font-size: 92px; font-weight: 900; color: rgba(255,255,255,.35); line-height: 1; }
+.card .cost {
+  position: absolute; top: 8px; left: 8px; width: 54px; height: 54px; border-radius: 50%;
+  background: #1a2040; color: #fff; font-size: 34px; font-weight: 900; display: flex; align-items: center; justify-content: center;
+  border: 3px solid #fff;
+}
+.card .cost.inkable { box-shadow: 0 0 0 4px var(--gold); }
+.card .noink { position: absolute; top: 66px; left: 6px; font-size: 15px; font-weight: 900; background: #1a2040; color: #fff; padding: 1px 6px; border-radius: 6px; }
+.card .name { padding: 8px 10px 0; font-size: 25px; font-weight: 900; line-height: 1.15; }
+.card .sub { padding: 2px 10px; font-size: 17px; font-weight: 800; color: #5a6185; line-height: 1.2; }
+.card .stats { position: absolute; bottom: 8px; left: 8px; right: 8px; display: flex; gap: 6px; align-items: center; }
+.stat { font-size: 25px; font-weight: 900; border-radius: 10px; padding: 0 8px; background: #e8e2d2; }
+.stat.s { color: #c0392b; }
+.stat.s.up { background: #c0392b; color: #fff; }
+.stat.w { color: #2c5aa0; }
+.lore { margin-left: auto; display: flex; gap: 2px; }
+.lore b { width: 17px; height: 17px; background: #1a2040; transform: rotate(45deg); border-radius: 3px; margin: 0 2px; }
+.lore b.extra { background: var(--accent); }
+.card .songtag { position: absolute; bottom: 12px; left: 10px; font-size: 22px; font-weight: 900; color: var(--emerald); }
+
+.card.ex { transform: rotate(90deg); }
+.card.fresh::after {
+  content: "出したばかり"; position: absolute; top: 8px; right: 0; background: #8a6cff; color: #fff;
+  font-size: 15px; font-weight: 900; padding: 2px 8px; border-radius: 8px 0 0 8px;
+}
+.card.ex.fresh::after { content: none; }
+.card.hl { border-color: var(--gold); box-shadow: 0 0 0 6px rgba(255,215,106,.55), 0 0 40px rgba(255,215,106,.7); }
+.card.dim { opacity: .35; filter: grayscale(.6); }
+.tag {
+  position: absolute; top: -26px; left: 50%; transform: translateX(-50%); white-space: nowrap; z-index: 3;
+  background: var(--gold); color: #1a2040; font-size: 28px; font-weight: 900; padding: 4px 18px; border-radius: 999px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+}
+
+/* ---------- 右の補足 */
+.side { position: absolute; right: 60px; top: 180px; display: flex; flex-direction: column; gap: 16px; align-items: flex-end; }
+.point {
+  background: var(--accent); color: #fff; font-size: 36px; font-weight: 900; padding: 14px 30px; border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+.point::before { content: "POINT  "; font-size: 26px; opacity: .85; }
+.calc { background: rgba(255,255,255,.92); color: #1a2040; font-size: 34px; font-weight: 900; padding: 12px 28px; border-radius: 18px; }
+.discard { position: absolute; left: 60px; top: 180px; display: flex; align-items: center; gap: 14px; font-size: 28px; color: var(--muted); font-weight: 800; }
+.discard .mini { background: #f7f3ea; color: #1a2040; padding: 6px 16px; border-radius: 10px; border-left: 10px solid var(--amber); font-weight: 900; }
+.inkdrop { position: absolute; left: 60px; top: 180px; font-size: 30px; font-weight: 800; color: var(--ink); }
+.inkdrop b { color: #fff; }
+
+/* ---------- タイトル系 */
+.center { position: absolute; inset: 0 0 230px 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 28px; text-align: center; }
+.kicker { font-size: 44px; font-weight: 800; color: var(--muted); letter-spacing: .08em; }
+.title { font-size: 120px; font-weight: 900; line-height: 1.15; }
+.title .grad { background: linear-gradient(90deg, var(--amber), #9be37a, var(--emerald)); -webkit-background-clip: text; color: transparent; }
+.chips { display: flex; gap: 20px; }
+.chip { font-size: 36px; font-weight: 900; padding: 8px 30px; border-radius: 999px; }
+.chip.a { background: var(--amber); color: #2a1d00; }
+.chip.e { background: var(--emerald); color: #002a12; }
+.chip.n { background: rgba(255,255,255,.12); }
+
+.h1 { position: absolute; top: 70px; left: 0; right: 0; text-align: center; font-size: 76px; font-weight: 900; }
+.h1sub { position: absolute; top: 175px; left: 0; right: 0; text-align: center; font-size: 36px; font-weight: 800; color: var(--muted); }
+.bullets { position: absolute; top: 280px; left: 220px; right: 220px; display: flex; flex-direction: column; gap: 30px; }
+.bullet { word-break: auto-phrase; display: flex; align-items: center; gap: 30px; font-size: 54px; font-weight: 900; background: rgba(255,255,255,.08); border-radius: 24px; padding: 20px 36px; border: 3px solid transparent; }
+.bullet .num { width: 72px; height: 72px; flex: none; border-radius: 50%; background: linear-gradient(135deg, var(--amber), var(--emerald)); color: #10162e; display: flex; align-items: center; justify-content: center; font-size: 42px; }
+.bullet.emph { border-color: var(--gold); background: rgba(255,215,106,.15); }
+.bullet.muted { opacity: .45; }
+
+.cardrow { position: absolute; top: 200px; left: 0; right: 0; display: flex; justify-content: center; gap: 70px; }
+.cardcol { width: 470px; display: flex; flex-direction: column; align-items: center; gap: 0; }
+.cardcol .cardwrap { height: 440px; display: flex; align-items: center; }
+.cardcol .eff { word-break: auto-phrase; font-size: 30px; font-weight: 800; line-height: 1.45; background: rgba(255,255,255,.1); border-radius: 18px; padding: 14px 22px; min-height: 140px; }
+.cardcol.dimcol { opacity: .4; }
+
+.hand { zoom: 1.25; position: absolute; top: 190px; left: 0; right: 0; display: flex; justify-content: center; gap: 22px; }
+.handslot { position: relative; display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.mark { font-size: 32px; font-weight: 900; padding: 4px 22px; border-radius: 999px; }
+.mark.keep { background: var(--emerald); }
+.mark.back { background: var(--accent); }
+.mark.none { visibility: hidden; }
+
+.summary { position: absolute; top: 200px; left: 260px; right: 260px; display: grid; grid-template-columns: 1fr; gap: 26px; }
+.summary .bullet { font-size: 56px; }
+</style>
+</head>
+<body>
+<div id="sky"></div>
+<div id="root"></div>
+<script>
+const INK = { amber: "var(--amber)", emerald: "var(--emerald)" };
+let CARDS = {}, EFFECT = {};
+
+function el(tag, cls, html) { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; }
+
+function cardEl(key, opt = {}) {
+  const c = CARDS[key];
+  const card = el("div", "card");
+  const band = el("div", "band");
+  const cols = c.inks.map((i) => INK[i]);
+  band.style.background = cols.length > 1 ? `linear-gradient(90deg, ${cols[0]} 0 50%, ${cols[1]} 50% 100%)` : cols[0];
+  const cost = el("div", "cost" + (c.ink ? " inkable" : ""), String(c.cost));
+  band.appendChild(el("div", "initial", c.name[0]));
+  band.appendChild(cost);
+  if (!c.ink) band.appendChild(el("div", "noink", "インク不可"));
+  card.appendChild(band);
+  card.appendChild(el("div", "name", c.name));
+  card.appendChild(el("div", "sub", c.sub));
+  if (c.song) {
+    card.appendChild(el("div", "songtag", "♪ 歌カード"));
+  } else {
+    const st = el("div", "stats");
+    const bonus = opt.bonus || 0;
+    const s = el("div", "stat s" + (bonus ? " up" : ""), "S" + (c.s + bonus));
+    st.appendChild(s);
+    st.appendChild(el("div", "stat w", "W" + c.w));
+    const lore = el("div", "lore");
+    const n = opt.lore ?? c.l;
+    for (let i = 0; i < n; i++) lore.appendChild(el("b", i >= c.l ? "extra" : ""));
+    st.appendChild(lore);
+    card.appendChild(st);
+  }
+  if (opt.exerted) card.classList.add("ex");
+  if (opt.fresh) card.classList.add("fresh");
+  if (opt.hl) card.classList.add("hl");
+  if (opt.dim) card.classList.add("dim");
+  return card;
+}
+
+function loreOf(c) {
+  const b = CARDS[c.key];
+  if (c.key === "lady" && b.s + c.bonus >= 3) return b.l + 2;
+  return b.l;
+}
+
+function caption(root, text) { if (text) root.appendChild(el("div", "caption", text)); }
+
+function renderTurn(root, step) {
+  const s = step.state;
+  const h = el("div", "header");
+  h.appendChild(el("div", "chapter", step.chapter));
+  const meter = el("div", "meter");
+  const inkBox = el("div", "box");
+  inkBox.appendChild(el("div", "label", "インク"));
+  const dots = el("div", "inkdots");
+  for (let i = 0; i < s.ink; i++) {
+    const d = el("div", "inkdot");
+    if (i >= s.ink - s.used) d.classList.add("used");
+    if (s.drop && i === s.ink - 1) d.classList.add("new");
+    dots.appendChild(d);
+  }
+  inkBox.appendChild(dots);
+  inkBox.appendChild(el("div", "inkleft", `残り${s.ink - s.used}`));
+  meter.appendChild(inkBox);
+  const loreBox = el("div", "box");
+  loreBox.appendChild(el("div", "label", "ロア"));
+  loreBox.appendChild(el("div", "lore-num", `${s.lore}<small> / 20</small>`));
+  const bar = el("div", "lorebar"); const fill = el("i"); fill.style.width = Math.min(100, s.lore / 20 * 100) + "%"; bar.appendChild(fill);
+  loreBox.appendChild(bar);
+  meter.appendChild(loreBox);
+  h.appendChild(meter);
+  root.appendChild(h);
+
+  if (s.drop) root.appendChild(el("div", "inkdrop", `インクに置いたカード：<b>${CARDS[s.drop].name} – ${CARDS[s.drop].sub}</b>`));
+  if (s.discard.length) {
+    const d = el("div", "discard", "捨て札：");
+    s.discard.forEach((k) => d.appendChild(el("span", "mini", `${CARDS[k].name} – ${CARDS[k].sub}`)));
+    root.appendChild(d);
+  }
+
+  const board = el("div", "board");
+  const row = el("div", "row");
+  board.appendChild(row);
+  for (const c of s.board) {
+    const slot = el("div", "slot" + (c.exerted ? " ex" : ""));
+    slot.appendChild(cardEl(c.key, { bonus: c.bonus, lore: loreOf(c), exerted: c.exerted, fresh: c.fresh, hl: c.hl }));
+    if (c.tag) slot.appendChild(el("div", "tag", c.tag));
+    if (c.exerted) slot.appendChild(el("div", "exname", CARDS[c.key].name));
+    row.appendChild(slot);
+  }
+  root.appendChild(board);
+  // 枚数に合わせて盤面を拡大・縮小する
+  const scale = Math.min(1.6, (board.clientWidth - 40) / row.scrollWidth, 520 / 290);
+  row.style.transform = `scale(${scale})`;
+
+  const side = el("div", "side");
+  if (step.calc) side.appendChild(el("div", "calc", step.calc));
+  if (step.point) side.appendChild(el("div", "point", step.point));
+  if (step.calc || step.point) {
+    side.style.top = "auto"; side.style.bottom = "240px";
+  }
+  root.appendChild(side);
+  caption(root, step.caption);
+}
+
+function renderTitle(root, step) {
+  const c = el("div", "center");
+  c.appendChild(el("div", "kicker", "ディズニー・ロルカナ　初心者向けデッキ解説"));
+  c.appendChild(el("div", "title", `<span class="grad">ロイヤルドッグ</span>の回し方`));
+  c.appendChild(el("div", "kicker", "1ターンずつ、やることを解説"));
+  const chips = el("div", "chips");
+  chips.appendChild(el("div", "chip a", "アンバー"));
+  chips.appendChild(el("div", "chip e", "エメラルド"));
+  chips.appendChild(el("div", "chip n", "第13弾「ヴァインズ・アタック！」環境"));
+  c.appendChild(chips);
+  root.appendChild(c);
+  caption(root, step.caption);
+}
+
+function renderBullets(root, step, cls = "bullets") {
+  root.appendChild(el("div", "h1", step.heading));
+  if (step.sub) root.appendChild(el("div", "h1sub", step.sub));
+  const b = el("div", cls);
+  step.bullets.forEach((t, i) => {
+    let k = "bullet";
+    if (step.emph != null) k += i === step.emph ? " emph" : " muted";
+    const row = el("div", k);
+    row.appendChild(el("div", "num", String(i + 1)));
+    row.appendChild(el("div", "", t));
+    b.appendChild(row);
+  });
+  root.appendChild(b);
+  caption(root, step.caption);
+}
+
+function renderCards(root, step) {
+  root.appendChild(el("div", "h1", step.heading));
+  const row = el("div", "cardrow");
+  step.cards.forEach((k, i) => {
+    const focused = step.focus == null ? i === 0 : i >= step.focus;
+    const col = el("div", "cardcol" + (focused ? "" : " dimcol"));
+    const wrap = el("div", "cardwrap");
+    const card = cardEl(k);
+    card.classList.add("big");
+    if (focused) card.classList.add("hl");
+    wrap.appendChild(card);
+    col.appendChild(wrap);
+    col.appendChild(el("div", "eff", EFFECT[k]));
+    row.appendChild(col);
+  });
+  root.appendChild(row);
+  caption(root, step.caption);
+}
+
+function renderHand(root, step) {
+  root.appendChild(el("div", "h1", step.heading));
+  const hand = el("div", "hand");
+  for (const [k, m] of step.hand) {
+    const slot = el("div", "handslot");
+    const card = cardEl(k);
+    if (step.marks && m === "back") card.classList.add("dim");
+    if (step.marks && m === "keep") card.classList.add("hl");
+    slot.appendChild(card);
+    slot.appendChild(el("div", "mark " + (step.marks ? m : "none"), m === "keep" ? "残す" : "戻す"));
+    hand.appendChild(slot);
+  }
+  root.appendChild(hand);
+  caption(root, step.caption);
+}
+
+function renderEnd(root, step) {
+  const c = el("div", "center");
+  c.appendChild(el("div", "title", `<span class="grad">20ロア</span>を目指そう！`));
+  c.appendChild(el("div", "kicker", "参考デッキ：セットチャンピオンシップ優勝（いつわ選手）"));
+  c.appendChild(el("div", "kicker", "カード情報：disneylorcana.jp 公式カードリスト"));
+  root.appendChild(c);
+  caption(root, step.caption);
+}
+
+window.setup = (cards, effect) => { CARDS = cards; EFFECT = effect; };
+window.render = (step) => {
+  const root = document.getElementById("root");
+  root.innerHTML = "";
+  if (step.layout === "turn") renderTurn(root, step);
+  else if (step.layout === "title") renderTitle(root, step);
+  else if (step.layout === "bullets") renderBullets(root, step);
+  else if (step.layout === "summary") renderBullets(root, step, "summary");
+  else if (step.layout === "cards") renderCards(root, step);
+  else if (step.layout === "hand") renderHand(root, step);
+  else if (step.layout === "end") renderEnd(root, step);
+};
+
+// 背景の星（毎回同じ配置になるよう固定の乱数）
+(() => {
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const sky = document.getElementById("sky");
+  for (let i = 0; i < 70; i++) {
+    const s = el("div", "sparkle"); const r = 1 + rnd() * 3;
+    Object.assign(s.style, { left: rnd() * 1920 + "px", top: rnd() * 1080 + "px", width: r + "px", height: r + "px" });
+    sky.appendChild(s);
+  }
+})();
+</script>
+</body>
+</html>
