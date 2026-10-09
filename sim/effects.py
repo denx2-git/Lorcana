@@ -1165,14 +1165,19 @@ def start_of_turn_post(g, p):
         elif n == "Namaari - Single-Minded Rival":
             g.draw(p)
             choose_discard(g, p, 1)
+    # リロ（抜け出し名人）：ターン開始時、捨て札にあればコストを払ってプレイできる（エグザートで登場）。複数枚あればそれぞれ。
     for c in list(p.discard):
         if c.name == "Lilo - Escape Artist":
+            cost = cost_for(g, p, c)
+            if p.ink_free() < cost:
+                continue
+            p.pay(cost)
+            consume_discounts(g, p, c)
             p.discard.remove(c)
             x = g.new_perm(c, p.pid)
             x.exerted = True
             p.perms.append(x)
-            g.log("  リロ（抜け出し名人）が捨て札から戻る")
-            break
+            g.log(f"  リロ（抜け出し名人）が捨て札から戻る（{cost}インク）")
 
 
 def end_of_turn(g, p):

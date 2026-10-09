@@ -110,7 +110,7 @@ def evaluate(g, pid):
     # 捨て札から戻ってくるカード（リロ・抜け出し名人）は除去しても価値が残る
     for q, sign in ((p, 1), (o, -1)):
         if any(c.name == "Lilo - Escape Artist" for c in q.discard):
-            s += sign * 2.5
+            s += sign * 1.5
     # 手札
     s += sum(p.policy.hand_value(g, p, c) for c in p.hand)
     s -= W_HAND * len(o.hand)
