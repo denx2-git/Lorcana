@@ -1,6 +1,6 @@
 # シミュレーター結果レポート
 
-更新: 2026-10-09 11:41
+更新: 2026-10-09 13:43
 
 > Botは「1手先を読んで盤面評価が一番良くなる行動を選ぶ」単純な思考です。
 > 勝率は人同士の対戦より極端になりやすいので、**デッキ同士の比較・入れ替えの良し悪しの目安**として見てください。
@@ -139,4 +139,39 @@
 1 Malicious, Mean, and Scary
 1 Prince John - Greediest of All
 1 Shere Khan - Opportunistic Tycoon
+```
+
+## 自動改良：黄鋼スティッチ（第14弾・ロックスターなし）
+
+- 環境勝率（確認用の別の乱数）: **69.8% → 69.8%**
+- 試した入れ替え: 241通り / 採用: 1回
+
+| 抜いた | 入れた | 勝率 |
+|---|---|---|
+| 柳の木のおばあさん - 古き善き相談相手 | シンデレラ - 舞踏会の花形 | 71.4%→74.2% |
+
+改良後のリスト（Duels.ink形式）:
+
+```
+4 Lilo & Stitch - Fun-Loving Friends
+4 Mickey Mouse - Best in Town
+4 Pete - Games Referee
+4 Pocahontas - Guiding the Tribe
+4 Pudge - Controls the Weather
+4 Stitch - New Dog
+4 Stitch - Protector of Frogs
+3 Grandmother Willow - Ancient Advisor
+3 Lilo - Bundled Up
+3 Lilo - Escape Artist
+3 Lilo - Snow Artist
+3 Strength of a Raging Fire
+3 Toulouse - Rough and Tumble
+2 Flash - Efficient Clerk
+2 Grab Your Sword
+2 Keep the Ancient Ways
+2 Mike Wazowski - Heroic Climber
+2 Nani - Stage Manager
+2 Rex - Protective Dinosaur
+1 Cinderella - Ballroom Sensation
+1 The Bare Necessities
 ```

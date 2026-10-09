@@ -1,80 +1,60 @@
 {
  "deck": "stitch14",
  "name": "黄鋼スティッチ（第14弾・ロックスターなし）",
- "start": 0.6887911618070347,
- "end": 0.7688353680417171,
- "tries": 165,
- "verify_before": 0.6962962962962962,
- "verify_after": 0.7365079365079366,
+ "start": 0.714021164021164,
+ "end": 0.7417989417989418,
+ "tries": 241,
+ "verify_before": 0.6978835978835978,
+ "verify_after": 0.6978835978835977,
  "verify_detail": {
-  "ae-mike": 0.59375,
-  "ae-queen": 0.5727272727272728,
-  "as-std": 0.9142857142857143,
+  "ae-mike": 0.55625,
+  "ae-queen": 0.4090909090909091,
+  "as-std": 0.8071428571428572,
   "as_song14": 0.875,
-  "as-naveen": 0.8666666666666667,
-  "as-lilo-aggro": 0.5333333333333333,
-  "rs-basil": 0.7777777777777778,
-  "rs-inkrunner": 0.7833333333333333,
-  "es-fergus": 0.625,
-  "es-location": 0.68,
-  "emerald_lock": 0.8,
-  "esa-mickey": 0.95,
-  "ar-sugar": 0.875,
-  "amr-evasive": 0.675,
-  "ams-hades": 0.8,
+  "as-naveen": 0.9,
+  "as-lilo-aggro": 0.48333333333333334,
+  "rs-basil": 0.7944444444444444,
+  "rs-inkrunner": 0.7416666666666667,
+  "es-fergus": 0.6625,
+  "es-location": 0.88,
+  "emerald_lock": 0.575,
+  "esa-mickey": 0.9166666666666666,
+  "ar-sugar": 0.8625,
+  "amr-evasive": 0.5375,
+  "ams-hades": 0.925,
   "er-leviathan": 0.9,
-  "blue_lock": 0.9
+  "blue_lock": 0.75
  },
  "swaps": [
   {
-   "out": "Stitch - Protector of Frogs",
-   "in": "You Broke My Smolder",
-   "before": 0.6887911618070347,
-   "after": 0.7059804393137725,
+   "out": "Grandmother Willow - Ancient Advisor",
+   "in": "Cinderella - Ballroom Sensation",
+   "before": 0.714021164021164,
+   "after": 0.7417989417989418,
    "check": [
-    0.6966142910587353,
-    0.7120456263313406
-   ]
-  },
-  {
-   "out": "Grab Your Sword",
-   "in": "Baloo - Freight Pilot",
-   "before": 0.7059804393137725,
-   "after": 0.7265699321254877,
-   "check": [
-    0.733167273643464,
-    0.7522950594379165
-   ]
-  },
-  {
-   "out": "Rex - Protective Dinosaur",
-   "in": "Lilo - Bundled Up",
-   "before": 0.7265699321254877,
-   "after": 0.7688353680417171,
-   "check": [
-    0.6660051001320841,
-    0.7051367797399544
+    0.6927689594356261,
+    0.7350970017636683
    ]
   }
  ],
- "list": "4 Grandmother Willow - Ancient Advisor\n4 Lilo & Stitch - Fun-Loving Friends\n4 Lilo - Bundled Up\n4 Mickey Mouse - Best in Town\n4 Pete - Games Referee\n4 Pocahontas - Guiding the Tribe\n4 Pudge - Controls the Weather\n4 Stitch - New Dog\n3 Lilo - Escape Artist\n3 Lilo - Snow Artist\n3 Stitch - Protector of Frogs\n3 Strength of a Raging Fire\n3 Toulouse - Rough and Tumble\n2 Flash - Efficient Clerk\n2 Keep the Ancient Ways\n2 Mike Wazowski - Heroic Climber\n2 Nani - Stage Manager\n1 Baloo - Freight Pilot\n1 Grab Your Sword\n1 Rex - Protective Dinosaur\n1 The Bare Necessities\n1 You Broke My Smolder",
+ "list": "4 Lilo & Stitch - Fun-Loving Friends\n4 Mickey Mouse - Best in Town\n4 Pete - Games Referee\n4 Pocahontas - Guiding the Tribe\n4 Pudge - Controls the Weather\n4 Stitch - New Dog\n4 Stitch - Protector of Frogs\n3 Grandmother Willow - Ancient Advisor\n3 Lilo - Bundled Up\n3 Lilo - Escape Artist\n3 Lilo - Snow Artist\n3 Strength of a Raging Fire\n3 Toulouse - Rough and Tumble\n2 Flash - Efficient Clerk\n2 Grab Your Sword\n2 Keep the Ancient Ways\n2 Mike Wazowski - Heroic Climber\n2 Nani - Stage Manager\n2 Rex - Protective Dinosaur\n1 Cinderella - Ballroom Sensation\n1 The Bare Necessities",
  "detail": {
-  "ae-mike": 0.65,
-  "ae-queen": 0.42857142857142855,
-  "as-std": 0.9444444444444444,
-  "as_song14": 0.75,
-  "as-naveen": 1.0,
-  "as-lilo-aggro": 0.625,
-  "rs-basil": 0.7727272727272727,
-  "rs-inkrunner": 0.7333333333333333,
-  "es-fergus": 0.8,
+  "ae-mike": 0.5,
+  "ae-queen": 0.5272727272727272,
+  "as-std": 0.9428571428571428,
+  "as_song14": 0.825,
+  "as-naveen": 0.9333333333333333,
+  "as-lilo-aggro": 0.6,
+  "rs-basil": 0.8666666666666667,
+  "rs-inkrunner": 0.6666666666666666,
+  "es-fergus": 0.75,
   "es-location": 1.0,
-  "emerald_lock": 1.0,
-  "esa-mickey": 0.8666666666666667,
+  "emerald_lock": 0.8,
+  "esa-mickey": 0.9333333333333333,
   "ar-sugar": 1.0,
-  "amr-evasive": 0.9,
+  "amr-evasive": 0.6,
   "ams-hades": 1.0,
-  "er-leviathan": 1.0,
-  "blue_lock": 1.0
+  "er-leviathan": 0.9,
+  "blue_lock": 0.8
  }
 }
