@@ -113,6 +113,24 @@ DECKS["stitch14"] = {"name": "黄鋼スティッチ（第14弾・ロックスタ
 DECKS["stitch14_rs"] = {"name": "黄鋼スティッチ（第14弾・ロックスターあり）", "pair": "amber,steel", "source": "自作",
                         "list_text": _STITCH_BASE + "4 Stitch - Rock Star\n1 The Bare Necessities\n"}
 
+DECKS["esa_priscilla"] = {"name": "緑青ミキミニ・プリシラ型（第14弾）", "pair": "emerald,sapphire", "source": "チェルシーさんのリスト（X）", "list_text": """
+4 Minnie Mouse - Practical Traveler
+4 Minnie Mouse - Curious Adventurer
+4 The Beanstalk - Onward and Upward
+4 Morph - Space Goo
+4 Vision of the Future
+4 Sail the Azurite Sea
+4 Minnie Mouse - Busy Go-Getter
+4 Cinderella - Homespun Dressmaker
+4 Mickey Mouse - Detective
+4 You Came Back
+4 Tod - Clever Fox
+4 Priscilla - Efficient Clerk
+4 Mickey Mouse & Minnie Mouse - Adventuring Duo
+4 Cinderella - Unintentional Icon
+4 Minnie Mouse - Urban Visionary
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -215,6 +233,13 @@ CONFIG = {
         "never_ink": {"Pudge - Controls the Weather", "Grandmother Willow - Ancient Advisor", "Lilo & Stitch - Fun-Loving Friends"},
         "key": {"Lilo & Stitch - Fun-Loving Friends": 0.8},
         "ink_cap": 6,
+    },
+    "esa_priscilla": {
+        "keep": {"Morph - Space Goo", "Mickey Mouse - Detective", "Minnie Mouse - Curious Adventurer",
+                 "Minnie Mouse - Practical Traveler", "Mickey Mouse & Minnie Mouse - Adventuring Duo", "Priscilla - Efficient Clerk"},
+        "never_ink": {"Mickey Mouse & Minnie Mouse - Adventuring Duo", "Morph - Space Goo", "You Came Back", "Priscilla - Efficient Clerk"},
+        "key": {"Mickey Mouse & Minnie Mouse - Adventuring Duo": 1.5, "You Came Back": 0.5},
+        "ink_cap": 9,
     },
     "blue_lock": {
         "keep": {"Toulouse - Rough and Tumble", "Pete - Games Referee", "Keep the Ancient Ways", "Scram!",

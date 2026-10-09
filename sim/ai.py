@@ -79,7 +79,7 @@ def can_be_killed_next(g, x):
     for a in o.chars():
         if a.flags.get("cant_challenge_until") is not None or a.flags.get("cant_ready"):
             continue
-        if x.card.evasive and not (a.card.evasive or a.card.alert):
+        if (x.card.evasive or effects.gains_evasive(g, x)) and not (a.card.evasive or a.card.alert):
             continue
         dmg = effects.strength(g, a) + a.card.challenger - x.card.resist
         for kind, pid in g.global_mods:

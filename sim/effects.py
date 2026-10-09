@@ -94,6 +94,10 @@ def strength(g, x):
         if kind == "kida":
             s -= 3
     s -= x.flags.get("priya", 0)
+    if x.loc is not None:
+        loc = g.find(x.loc)
+        if loc is not None and loc.card.name == "The Beanstalk - Onward and Upward":
+            s += 1
     return s
 
 
@@ -156,6 +160,10 @@ def has_rush(g, x):
 
 
 def gains_evasive(g, x):
+    if x.loc is not None:
+        loc = g.find(x.loc)
+        if loc is not None and loc.card.name == "The Beanstalk - Onward and Upward":
+            return True
     return False
 
 
@@ -183,6 +191,8 @@ def no_damage_from_challenge(g, att):
 def modify_damage(g, x, n, src, ignore_resist):
     if not ignore_resist:
         n -= x.card.resist + x.flags.get("resist", 0)
+    if x.card.name == "Minnie Mouse - Busy Go-Getter" and g.active != x.owner:
+        n -= 2
     if x.card.name == "Lilo - Bundled Up" and g.active != x.owner and not x.flags.get("layer_used"):
         x.flags["layer_used"] = g.turn
         return 0
@@ -794,6 +804,12 @@ def on_play_char(g, p, x, target, extra):
             p.drops += 1
     elif n == "Ursula - Deceiver":
         opp_discard_choice(g, p, o, lambda c: c.is_song)
+    elif n == "Tod - Clever Fox":
+        g.draw(p, 2)
+        choose_discard(g, p, 1)
+    elif n == "Cinderella - Homespun Dressmaker":
+        if p.deck and p.deck[0].cost > p.ink + 2:
+            p.deck.append(p.deck.pop(0))
     elif n == "Berlioz - Tiny Rascal":
         if t:
             g.deal(t, 1)
@@ -1183,6 +1199,14 @@ def end_of_turn(g, p):
             diff = len(o.hand) - len(p.hand)
             if diff > 0:
                 g.draw(p, diff)
+        elif n == "Cinderella - Unintentional Icon":
+            if len(p.deck) >= 2:
+                top = p.deck[:2]
+                del p.deck[:2]
+                keep = max(top, key=lambda c: p.policy.card_value(g, p, c))
+                top.remove(keep)
+                p.deck.insert(0, keep)
+                g.put_card_in_inkwell(p, top[0])
         elif n == "Mickey Mouse - Best in Town":
             if x.exerted:
                 for q in g.players:
