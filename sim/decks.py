@@ -45,7 +45,34 @@ DECKS["blue_lock"] = {"name": "青鋼ロック", "pair": "sapphire,steel", "sour
 2 Grab Your Sword
 """}
 
-DECKS["emerald_lock"] = {"name": "緑鋼ロック", "pair": "emerald,steel", "source": "自作", "list_text": """
+DECKS["emerald_lock"] = {"name": "緑鋼ロック", "pair": "emerald,steel", "source": "自作（自動改良後・500試合ずつで確認 53.7%→61.6%）", "list_text": """
+4 Diablo - Devoted Herald
+4 Elinor - Renowned Diplomat
+4 Keep the Ancient Ways
+4 Let the Storm Rage On
+4 Pete - Games Referee
+4 Sudden Chill
+4 Toulouse - Rough and Tumble
+4 Ursula - Deceiver
+3 Diablo - Stone Servant
+3 Don Karnage - Debonair Pirate
+3 Strength of a Raging Fire
+2 Diablo - Maleficent's Spy
+2 Don Karnage - Khan's Courier
+2 Fergus - King of DunBroch
+2 Lenny - Toy Binoculars
+2 Max Goof - Rebellious Teen
+2 Sabotage
+1 Cinderella - Stouthearted
+1 Flash - Efficient Clerk
+1 Fred - Big Stomper
+1 Lilo - Bundled Up
+1 Malicious, Mean, and Scary
+1 Prince John - Greediest of All
+1 Shere Khan - Opportunistic Tycoon
+"""}
+
+DECKS["emerald_lock_v1"] = {"name": "緑鋼ロック（改良前）", "pair": "emerald,steel", "source": "自作", "list_text": """
 2 Diablo - Maleficent's Spy
 2 Don Karnage - Khan's Courier
 4 Ursula - Deceiver
@@ -262,6 +289,7 @@ CONFIG = {
     },
 }
 
+CONFIG["emerald_lock_v1"] = CONFIG["emerald_lock"]
 CONFIG["stitch14_rs"] = dict(CONFIG["stitch14"], key={"Lilo & Stitch - Fun-Loving Friends": 0.8, "Stitch - Rock Star": 1.0},
                              never_ink=CONFIG["stitch14"]["never_ink"] | {"Stitch - Rock Star"})
 
