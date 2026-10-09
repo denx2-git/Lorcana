@@ -117,11 +117,13 @@ def evaluate(g, pid):
     # インク
     s += _ink_value(p.ink) - _ink_value(o.ink)
     s += W_DROP * (p.drops - o.drops)
-    # ロック
-    if o.action_locked:
-        s += p.policy.lock_bonus(g, o, "action")
-    if o.item_locked:
-        s += p.policy.lock_bonus(g, o, "item")
+    # 相手の次のターンのアクション・アイテムによる損失の見込み（封じていれば0）
+    if g.active == pid and not Policy._busy:
+        th = p.policy.opp_threat(g, p)
+        if not o.action_locked:
+            s -= th["action"] * p.policy.cfg.get("lock_mult", 1.0)
+        if not o.item_locked:
+            s -= th["item"]
     # 全体除去への出しすぎ
     s -= p.policy.overextend_penalty(g, p)
     return s
@@ -229,6 +231,7 @@ def apply(g, p, act):
 
 
 LOOKAHEAD_KINDS = ("move", "act")
+LOCK_CARDS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
 
 
 def try_action(g, p, act, depth=0):
@@ -279,6 +282,9 @@ class Policy:
     def hand_value(self, g, p, c):
         cfg = self.cfg
         v = W_HAND + cfg.get("key", {}).get(c.name, 0)
+        if c.name in LOCK_CARDS and not Policy._busy:
+            # ロック役は「次のターン以降に使える封じ」として手札に残す価値がある
+            v += 0.35 * self.opp_threat(g, p)["action"]
         if c.cost > p.ink + 3:
             v -= 0.25
         return v
@@ -287,11 +293,98 @@ class Policy:
         return self.hand_value(g, p, c) + (0.3 if c.cost <= p.ink + 1 else 0)
 
     def lock_bonus(self, g, o, kind):
-        """相手のアクション（アイテム）を封じた価値。相手の手札は覗かず、デッキの構成比で見積もる。"""
-        k = min(len(o.hand), 5)
-        if kind == "action":
-            return 0.4 + self.cfg.get("_opp_action_ratio", 0.2) * k * 1.6
-        return 0.2 + self.cfg.get("_opp_item_ratio", 0.0) * k * 1.4
+        """相手のアクション（アイテム）を封じた価値。
+
+        「相手が次のターンに使えそうなアクション」を相手のデッキリストから洗い出し、
+        それぞれ実際に使われた場合に自分の盤面評価がどれだけ下がるかを先読みして、
+        手札にある確率を掛けた期待損失（上位2枚分）を封じた価値とする。相手の手札は覗かない。
+        """
+        p = g.opp(o)
+        t = self.opp_threat(g, p)
+        return t["action"] if kind == "action" else t["item"]
+
+    _busy = False
+
+    def opp_threat(self, g, p):
+        o = g.opp(p)
+        key = (g.turn, p.pid, p.lore, o.lore, len(o.hand), o.ink,
+               tuple((x.card.name, x.damage, x.exerted) for x in p.perms),
+               tuple((x.card.name, x.damage, x.exerted) for x in o.perms))
+        cache = self.__dict__.setdefault("_threat_cache", {})
+        if key in cache:
+            return cache[key]
+        if Policy._busy:
+            return {"action": 0.0, "item": 0.0}
+        Policy._busy = True
+        try:
+            res = self._compute_threat(g, p)
+        finally:
+            Policy._busy = False
+        if len(cache) > 5000:
+            cache.clear()
+        cache[key] = res
+        return res
+
+    def _compute_threat(self, g, p):
+        from cards import db
+        o = g.opp(p)
+        counts = dict(self.cfg.get("_opp_counts", {}))
+        for c in o.discard:
+            if c.name in counts:
+                counts[c.name] -= 1
+        for x in o.perms:
+            if x.card.name in counts:
+                counts[x.card.name] -= 1
+        pool = sum(max(0, v) for v in counts.values()) or 1
+        hand = len(o.hand)
+        if hand == 0:
+            return {"action": 0.0, "item": 0.0}
+        ink_next = o.ink + 1 + o.drops
+        singers = [x for x in o.chars() if not x.card.reckless]
+        base = evaluate(g, p.pid)
+        acts, items = [], []
+        cdb = db()
+        for name, n in counts.items():
+            if n <= 0:
+                continue
+            card = cdb[name]
+            prob = min(1.0, hand * n / pool)
+            if card.kind == "item":
+                if card.cost <= ink_next:
+                    items.append(prob * ITEM_VALUE.get(name, 1.0))
+                continue
+            if card.kind != "action":
+                continue
+            castable = card.cost <= ink_next
+            if card.is_song and not castable:
+                if card.sing_together:
+                    castable = sum(g.singer_value(x) for x in singers) >= card.sing_together
+                else:
+                    castable = any(g.singer_value(x) >= card.cost for x in singers)
+            if not castable:
+                continue
+            h = g.clone()
+            ho = h.players[o.pid]
+            h.active = o.pid
+            try:
+                tgt = effects.auto_target(h, ho, card)
+                effects.resolve_spell(h, ho, card, tgt, None)
+                if card.is_song:
+                    ho.t.setdefault("spells", []).append(card)
+                effects.after_spell(h, ho, card, None)
+            except Exception:
+                continue
+            # 歌を使うと得をする相手のキャラ（オーロラのターン終了時ロアなど）も損失に含める
+            if card.is_song and not ho.t.get("_sang"):
+                if any(x.card.name == "Aurora - Delightful Musician" for x in ho.chars()):
+                    h.gain_lore(ho, 1)
+            h.active = p.pid
+            loss = base - evaluate(h, p.pid)
+            if loss > 0:
+                acts.append(prob * loss)
+        acts.sort(reverse=True)
+        items.sort(reverse=True)
+        return {"action": sum(acts[:2]), "item": 0.2 + sum(items[:2])}
 
     def overextend_penalty(self, g, p):
         o = g.opp(p)

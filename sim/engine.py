@@ -120,6 +120,7 @@ class Game:
         self.reason = None
         self.global_mods = []   # [(種類, 期限のpid)]
         self.sim = False        # Botの先読み中か
+        self.lock_turns = [0, 0]  # 相手のアクションを封じてターンを終えた回数
 
     # ----- 複製（Botの先読み用） -----
     def clone(self):
@@ -134,6 +135,7 @@ class Game:
         g.winner, g.reason = self.winner, self.reason
         g.global_mods = list(self.global_mods)
         g.sim = True
+        g.lock_turns = list(self.lock_turns)
         return g
 
     def log(self, s):
@@ -312,6 +314,8 @@ class Game:
         if self.winner is not None:
             return
         effects.end_of_turn(self, p)
+        if self.opp(p).action_locked:
+            self.lock_turns[p.pid] += 1
         for x in p.perms:
             x.tmp_str = 0
             x.tmp_lore = 0

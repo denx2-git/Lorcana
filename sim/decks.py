@@ -232,4 +232,8 @@ def make_policy(key, opp_key, list_override=None, opp_list_override=None):
     od = parse_list(opp_text)
     cfg["_opp_action_ratio"] = sum(1 for c in od if c.kind == "action") / len(od)
     cfg["_opp_item_ratio"] = sum(1 for c in od if c.kind == "item") / len(od)
+    counts = {}
+    for c in od:
+        counts[c.name] = counts.get(c.name, 0) + 1
+    cfg["_opp_counts"] = counts
     return Policy(cfg)

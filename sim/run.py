@@ -28,6 +28,7 @@ def play_one(args):
         lists[1] = list_b
     g = run_game(a, b, pa, pb, i % 2, seed * 1_000_003 + i, log=log, lists=lists)
     return {"winner": g.winner, "first": i % 2, "turns": g.turn, "lore": [g.players[0].lore, g.players[1].lore],
+            "lock_turns": g.lock_turns,
             "lines": g.lines if log else None}
 
 
@@ -52,6 +53,7 @@ def summarize(res):
         "on_play": sum(1 for r in on_play if r["winner"] == 0) / max(1, len(on_play)),
         "on_draw": sum(1 for r in on_draw if r["winner"] == 0) / max(1, len(on_draw)),
         "avg_turns": statistics.mean(r["turns"] for r in res) if res else 0,
+        "lock_rate": sum(r["lock_turns"][0] for r in res) / max(1, sum((r["turns"] + (1 - r["first"])) // 2 for r in res)),
     }
 
 
@@ -81,6 +83,7 @@ def main():
     s = summarize(res)
     print(f"{NAMES_JP[args.a]} vs {NAMES_JP[args.b]}  {s['games']}試合")
     print(f"  勝率 {s['winrate']:.1%}（先攻 {s['on_play']:.1%} / 後攻 {s['on_draw']:.1%}）引き分け {s['draw']}  平均{s['avg_turns']:.1f}ターン")
+    print(f"  自分のターンの終わりに相手のアクションを封じていた割合: {s['lock_rate']:.0%}")
     print(json.dumps(s, ensure_ascii=False))
 
 
