@@ -20,12 +20,15 @@ from cards import db  # noqa: E402
 from decks import DECKS, NAMES_JP  # noqa: E402
 from run import play_one  # noqa: E402
 
-# 環境のデッキ分布（タカラトミー公式の環境分析をもとにした目安）
+# 環境のデッキ分布：タカラトミー公式「最新デッキ情報局 Vol.35」（トリオクエスト上位16チーム、2026/10/09）の色別使用率を、
+# 同じ色のデッキに割り振った目安。黄緑27%・黄鋼23%・赤青15%・緑鋼12.5%・緑青6%・黄赤4%・紫赤4%・紫青2%・青鋼2%。
 FIELD = {
-    "ae-mike": 0.15, "ae-queen": 0.10, "as_song14": 0.12, "as-std": 0.06, "as-naveen": 0.03,
-    "as-lilo-aggro": 0.04, "es-fergus": 0.10, "es-location": 0.04, "rs-basil": 0.09, "rs-inkrunner": 0.05,
-    "er-leviathan": 0.06, "ar-sugar": 0.03, "amr-evasive": 0.03, "ams-hades": 0.06, "esa-mickey": 0.02,
-    "emerald_lock": 0.01, "blue_lock": 0.01,
+    "ae-mike": 0.16, "ae-queen": 0.11,
+    "as-std": 0.07, "as_song14": 0.08, "as-naveen": 0.03, "as-lilo-aggro": 0.03, "stitch14": 0.02,
+    "rs-basil": 0.09, "rs-inkrunner": 0.06,
+    "es-fergus": 0.08, "es-location": 0.025, "emerald_lock": 0.02,
+    "esa-mickey": 0.06, "ar-sugar": 0.04, "amr-evasive": 0.04, "ams-hades": 0.02,
+    "er-leviathan": 0.02, "blue_lock": 0.01,
 }
 
 

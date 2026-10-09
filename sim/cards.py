@@ -10,7 +10,7 @@ class Card:
     __slots__ = ("name", "jp", "cost", "inkable", "kind", "str", "wp", "lore", "move", "classes", "text",
                  "base", "singer", "shift", "shift_names", "resist", "challenger", "bodyguard", "evasive",
                  "ward", "rush", "reckless", "support", "alert", "underdog", "sing_together", "vanish",
-                 "duo_shift", "is_song")
+                 "duo_shift", "is_song", "adventurous")
 
     def __init__(self, name, d):
         self.name = name
@@ -56,6 +56,7 @@ class Card:
         self.alert = own("Alert")
         self.underdog = "UNDERDOG" in t
         self.vanish = own("Vanish")
+        self.adventurous = own("Adventurous")
         self.shift_names = (self.base,)
         m = re.search(r"characters named ([^.)]+?)\.\)", t)
         if self.shift and m:

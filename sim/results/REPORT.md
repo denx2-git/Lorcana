@@ -1,6 +1,6 @@
 # シミュレーター結果レポート
 
-更新: 2026-10-09 11:24
+更新: 2026-10-09 11:41
 
 > Botは「1手先を読んで盤面評価が一番良くなる行動を選ぶ」単純な思考です。
 > 勝率は人同士の対戦より極端になりやすいので、**デッキ同士の比較・入れ替えの良し悪しの目安**として見てください。
@@ -99,4 +99,44 @@
 1 Mr. Smee - Bumbling Mate
 1 Strength of a Raging Fire
 1 Toulouse - Rough and Tumble
+```
+
+## 自動改良：緑鋼ロック
+
+- 環境勝率（確認用の別の乱数）: **53.3% → 60.1%**
+- 試した入れ替え: 83通り / 採用: 3回
+
+| 抜いた | 入れた | 勝率 |
+|---|---|---|
+| プリンス・ジョン - 強欲王 | シンデレラ - 剛胆なる姫君 | 47.8%→54.9% |
+| シア・カーン - 虎視眈々の実力者 | フラッシュ - 最速の職員 | 54.9%→58.6% |
+| 俺は悪党！意地悪！下品！ | リロ - 寒さ対策バッチリ | 58.6%→61.7% |
+
+改良後のリスト（Duels.ink形式）:
+
+```
+4 Diablo - Devoted Herald
+4 Elinor - Renowned Diplomat
+4 Keep the Ancient Ways
+4 Let the Storm Rage On
+4 Pete - Games Referee
+4 Sudden Chill
+4 Toulouse - Rough and Tumble
+4 Ursula - Deceiver
+3 Diablo - Stone Servant
+3 Don Karnage - Debonair Pirate
+3 Strength of a Raging Fire
+2 Diablo - Maleficent's Spy
+2 Don Karnage - Khan's Courier
+2 Fergus - King of DunBroch
+2 Lenny - Toy Binoculars
+2 Max Goof - Rebellious Teen
+2 Sabotage
+1 Cinderella - Stouthearted
+1 Flash - Efficient Clerk
+1 Fred - Big Stomper
+1 Lilo - Bundled Up
+1 Malicious, Mean, and Scary
+1 Prince John - Greediest of All
+1 Shere Khan - Opportunistic Tycoon
 ```

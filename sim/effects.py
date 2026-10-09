@@ -93,6 +93,7 @@ def strength(g, x):
     for kind, _pid in g.global_mods:
         if kind == "kida":
             s -= 3
+    s -= x.flags.get("priya", 0)
     return s
 
 
@@ -141,8 +142,14 @@ def can_sing(g, x):
     return x.card.name != "Meilin Lee - Lead Vocalist" and not x.card.reckless or x.card.reckless
 
 
+def flash_in_play(g):
+    return any(y.card.name == "Flash - Efficient Clerk" for q in g.players for y in q.chars())
+
+
 def has_rush(g, x):
     p = g.players[x.owner]
+    if flash_in_play(g):
+        return False
     if x.card.evasive and any(y.card.name == "Peter Pan - Shadow Finder" and y is not x for y in p.chars()):
         return True
     return False
@@ -340,12 +347,15 @@ TARGETS = {
     "Clarabelle - Out for a Stroll": _all_items,
     "Clarabelle - Clumsy Guest": _all_items,
     "Fred - Big Stomper": lambda g, p: [x.uid for x in g.opp(p).locs()],
+    "Berlioz - Tiny Rascal": _opp_chars(),
+    "Priya Mangal - Immovable Fan": _opp_chars(),
+    "Jousting Match": _opp_chars(),
 }
 OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cloudkicker - Tough Guy",
             "Milo Thatch - Getting His Hands Dirty", "Wildcat - Unconventional Mechanic",
             "Clarabelle - Out for a Stroll", "Clarabelle - Clumsy Guest", "Fred - Big Stomper",
             "Belle - Accomplished Mystic", "Tramp - Enterprising Dog", "Elsa - The Fifth Spirit",
-            "Sisu - Daring Visitor"}
+            "Sisu - Daring Visitor", "Berlioz - Tiny Rascal", "Priya Mangal - Immovable Fan"}
 
 
 def target_options(g, p, card):
@@ -526,6 +536,18 @@ def resolve_spell(g, p, card, target, extra):
     elif n == "You Came Back":
         if t:
             t.exerted = False
+    elif n == "Khan Transport Delivery":
+        g.draw(p)
+        p.drops += 1
+    elif n == "Jousting Match":
+        dmg = 2
+        if p.drops > 0 and p.ink_used > 0:
+            # インク・ドロップで支払ったことにする
+            p.drops -= 1
+            p.ink_used -= 1
+            dmg = 5
+        if t:
+            g.deal(t, dmg)
 
 
 def after_spell(g, p, card, singers):
@@ -772,9 +794,26 @@ def on_play_char(g, p, x, target, extra):
             p.drops += 1
     elif n == "Ursula - Deceiver":
         opp_discard_choice(g, p, o, lambda c: c.is_song)
+    elif n == "Berlioz - Tiny Rascal":
+        if t:
+            g.deal(t, 1)
+    elif n == "Priya Mangal - Immovable Fan":
+        if t:
+            t.flags["priya"] = 2
+            t.flags["priya_until"] = p.pid
+    elif n == "Pocahontas - Guiding the Tribe":
+        ones = [c for c in p.hand if c.kind == "char" and c.cost == 1]
+        if ones:
+            c = max(ones, key=lambda c: p.policy.card_value(g, p, c))
+            g.play_card(p, c, mode="free", target=auto_target(g, p, c))
 
 
 def after_char_played(g, p, x):
+    if x.card.cost <= 2 and x in p.perms and not x.exerted:
+        stars = sum(1 for y in p.chars() if y.card.name == "Stitch - Rock Star" and y is not x)
+        if stars:
+            x.exerted = True
+            g.draw(p, stars)
     for y in p.chars():
         n = y.card.name
         if n == "Lady - Decisive Dog":
@@ -1144,6 +1183,10 @@ def end_of_turn(g, p):
             diff = len(o.hand) - len(p.hand)
             if diff > 0:
                 g.draw(p, diff)
+        elif n == "Mickey Mouse - Best in Town":
+            if x.exerted:
+                for q in g.players:
+                    q.drops += 1
         elif n == "Milo Thatch - Getting His Hands Dirty":
             if p.t.get("discarded", 0) >= 2:
                 g.draw(p)

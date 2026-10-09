@@ -89,6 +89,30 @@ DECKS["as_song14"] = {"name": "黄鋼ソング（第14弾）", "pair": "amber,st
 3 Beyond the Horizon
 """}
 
+_STITCH_BASE = """
+4 Stitch - New Dog
+4 Stitch - Protector of Frogs
+3 Lilo - Snow Artist
+4 Mickey Mouse - Best in Town
+4 Pocahontas - Guiding the Tribe
+4 Pudge - Controls the Weather
+4 Grandmother Willow - Ancient Advisor
+3 Lilo - Bundled Up
+3 Lilo - Escape Artist
+3 Toulouse - Rough and Tumble
+2 Flash - Efficient Clerk
+4 Pete - Games Referee
+4 Lilo & Stitch - Fun-Loving Friends
+3 Strength of a Raging Fire
+2 Keep the Ancient Ways
+2 Mike Wazowski - Heroic Climber
+2 Rex - Protective Dinosaur
+"""
+DECKS["stitch14"] = {"name": "黄鋼スティッチ（第14弾・ロックスターなし）", "pair": "amber,steel", "source": "自作",
+                     "list_text": _STITCH_BASE + "2 Nani - Stage Manager\n2 Grab Your Sword\n1 The Bare Necessities\n"}
+DECKS["stitch14_rs"] = {"name": "黄鋼スティッチ（第14弾・ロックスターあり）", "pair": "amber,steel", "source": "自作",
+                        "list_text": _STITCH_BASE + "4 Stitch - Rock Star\n1 The Bare Necessities\n"}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -184,6 +208,14 @@ CONFIG = {
         "keep": {"Tipo - Growing Son", "Sail the Azurite Sea", "Merryweather - Feisty Fairy", "Elsa - The Fifth Spirit"},
         "ink_cap": 10,
     },
+    "stitch14": {
+        "keep": {"Stitch - New Dog", "Stitch - Protector of Frogs", "Lilo - Snow Artist", "Mickey Mouse - Best in Town",
+                 "Pocahontas - Guiding the Tribe", "Grandmother Willow - Ancient Advisor", "Pudge - Controls the Weather",
+                 "Lilo & Stitch - Fun-Loving Friends"},
+        "never_ink": {"Pudge - Controls the Weather", "Grandmother Willow - Ancient Advisor", "Lilo & Stitch - Fun-Loving Friends"},
+        "key": {"Lilo & Stitch - Fun-Loving Friends": 0.8},
+        "ink_cap": 6,
+    },
     "blue_lock": {
         "keep": {"Toulouse - Rough and Tumble", "Pete - Games Referee", "Keep the Ancient Ways", "Scram!",
                  "Priscilla - Efficient Clerk", "Fergus - King of DunBroch", "Doug - Lying in Wait"},
@@ -204,6 +236,9 @@ CONFIG = {
         "ink_cap": 7,
     },
 }
+
+CONFIG["stitch14_rs"] = dict(CONFIG["stitch14"], key={"Lilo & Stitch - Fun-Loving Friends": 0.8, "Stitch - Rock Star": 1.0},
+                             never_ink=CONFIG["stitch14"]["never_ink"] | {"Stitch - Rock Star"})
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,

@@ -490,7 +490,7 @@ class Policy:
                 return
             if x not in p.perms or x.exerted:
                 continue
-            if must:
+            if must or x.card.adventurous:
                 g.quest(p, x)
                 continue
             base = evaluate(g, p.pid)

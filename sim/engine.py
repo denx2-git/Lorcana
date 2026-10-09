@@ -285,6 +285,9 @@ class Game:
         for x in o.perms:
             if x.flags.get("cant_challenge_until") == p.pid:
                 del x.flags["cant_challenge_until"]
+            if x.flags.get("priya_until") == p.pid:
+                x.flags.pop("priya", None)
+                x.flags.pop("priya_until", None)
         p.t = {"first_turn": self.turn <= 2}
         p.ink_used = 0
         effects.start_of_turn_pre(self, p)   # ロケーションのロア・野獣など
@@ -405,7 +408,12 @@ class Game:
         o = self.opp(p)
         if att.card.kind != "char" or att.exerted:
             return False
-        if att.dry and not (att.card.rush or att.flags.get("rush") or effects.has_rush(self, att)):
+        if att.dry:
+            if effects.flash_in_play(self):
+                return False
+            if not (att.card.rush or att.flags.get("rush") or effects.has_rush(self, att)):
+                return False
+        if att.card.adventurous:
             return False
         if att.flags.get("cant_challenge_until") is not None:
             return False

@@ -9,6 +9,14 @@
 - 神戸 上位64分析 https://www.takaratomy.co.jp/products/disneylorcana/news/column/101033/
 - 神戸 優勝者インタビュー https://www.takaratomy.co.jp/products/disneylorcana/news/column/101134/
 - 日本一 優勝者インタビュー https://www.takaratomy.co.jp/products/disneylorcana/news/column/99907/
+- 最新デッキ情報局 Vol.35（トリオクエスト上位16チーム、2026/10/09） https://www.takaratomy.co.jp/products/disneylorcana/news/column/117311/
+
+## 最新の使用率（Vol.35・トリオクエスト上位16チームの個人デッキ）
+黄緑27.1%／黄鋼22.9%／赤青14.6%／緑鋼12.5%／緑青6.3%／黄赤・紫緑・紫赤 各4.2%／紫青・青鋼 各2.1%。上位4色で77%以上（ビッグ4）。
+- 黄緑の強さを意識した選択が緑鋼（忠実なる使い魔・七つの海の騙し屋・手札破壊）。
+- 黄鋼はA WHOLE NEW WORLDよりビヨンド・ザ・ホライズン（相手に引かせるか選べる。黄緑相手に強制で引かせない）。
+- 黄鋼はアークーデテムーティで3ターン目に野獣（悲劇の主人公）かナマーリを出すのが強い動き。エンジェルは後攻1ターン目に。
+- 青鋼はダークウィング・ダック型（変身＋魔除のミッドレンジ）が上位入り（シミュレーター未収録）。
 
 ## 環境の相性（情報源より）
 - 緑鋼ディスカード ＞ 黄緑ドッグ（忠実なる使い魔＋アースラ）

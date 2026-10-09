@@ -1,0 +1,80 @@
+{
+ "deck": "emerald_lock",
+ "name": "緑鋼ロック",
+ "start": 0.4781749546749546,
+ "end": 0.616510619010619,
+ "tries": 83,
+ "verify_before": 0.5328655490729876,
+ "verify_after": 0.6012636242462125,
+ "verify_detail": {
+  "ae-mike": 0.43125,
+  "ae-queen": 0.5514018691588785,
+  "as_song14": 0.6953125,
+  "as-std": 0.59375,
+  "as-naveen": 0.6875,
+  "as-lilo-aggro": 0.4186046511627907,
+  "es-fergus": 0.5700934579439252,
+  "es-location": 0.7674418604651163,
+  "rs-basil": 0.6145833333333334,
+  "rs-inkrunner": 0.5849056603773585,
+  "er-leviathan": 0.765625,
+  "ar-sugar": 0.875,
+  "amr-evasive": 0.46875,
+  "ams-hades": 0.640625,
+  "esa-mickey": 0.8571428571428571,
+  "blue_lock": 0.8181818181818182,
+  "stitch14": 0.2727272727272727
+ },
+ "swaps": [
+  {
+   "out": "Prince John - Greediest of All",
+   "in": "Cinderella - Stouthearted",
+   "before": 0.4781749546749546,
+   "after": 0.5493643486143485,
+   "check": [
+    0.500418868168868,
+    0.5115299792799791
+   ]
+  },
+  {
+   "out": "Shere Khan - Opportunistic Tycoon",
+   "in": "Flash - Efficient Clerk",
+   "before": 0.5493643486143485,
+   "after": 0.5862635327635327,
+   "check": [
+    0.5382507122507121,
+    0.5457254597254596
+   ]
+  },
+  {
+   "out": "Malicious, Mean, and Scary",
+   "in": "Lilo - Bundled Up",
+   "before": 0.5862635327635327,
+   "after": 0.616510619010619,
+   "check": [
+    0.5381947034447033,
+    0.5495084822584821
+   ]
+  }
+ ],
+ "list": "4 Diablo - Devoted Herald\n4 Elinor - Renowned Diplomat\n4 Keep the Ancient Ways\n4 Let the Storm Rage On\n4 Pete - Games Referee\n4 Sudden Chill\n4 Toulouse - Rough and Tumble\n4 Ursula - Deceiver\n3 Diablo - Stone Servant\n3 Don Karnage - Debonair Pirate\n3 Strength of a Raging Fire\n2 Diablo - Maleficent's Spy\n2 Don Karnage - Khan's Courier\n2 Fergus - King of DunBroch\n2 Lenny - Toy Binoculars\n2 Max Goof - Rebellious Teen\n2 Sabotage\n1 Cinderella - Stouthearted\n1 Flash - Efficient Clerk\n1 Fred - Big Stomper\n1 Lilo - Bundled Up\n1 Malicious, Mean, and Scary\n1 Prince John - Greediest of All\n1 Shere Khan - Opportunistic Tycoon",
+ "detail": {
+  "ae-mike": 0.475,
+  "ae-queen": 0.5185185185185185,
+  "as_song14": 0.625,
+  "as-std": 0.6875,
+  "as-naveen": 0.625,
+  "as-lilo-aggro": 0.36363636363636365,
+  "es-fergus": 0.6296296296296297,
+  "es-location": 0.8181818181818182,
+  "rs-basil": 0.7083333333333334,
+  "rs-inkrunner": 0.5384615384615384,
+  "er-leviathan": 0.8125,
+  "ar-sugar": 1.0,
+  "amr-evasive": 0.125,
+  "ams-hades": 0.75,
+  "esa-mickey": 1.0,
+  "blue_lock": 0.6666666666666666,
+  "stitch14": 0.3333333333333333
+ }
+}

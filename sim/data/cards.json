@@ -3710,5 +3710,222 @@
   "ink": [
    "emerald"
   ]
+ },
+ "Pocahontas - Guiding the Tribe": {
+  "jp": "ポカホンタス - 部族の導き手",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "STAY CLOSE When you play this character, you may play a character with cost 1 for free.",
+  "set": "13",
+  "num": "12",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Mickey Mouse - Best in Town": {
+  "jp": "ミッキーマウス - 名物店主",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "Adventurous (This character can't challenge and must quest each turn if able.) / HOT DOG! At the end of your turn, if this character is exerted, each player gets 1 ink drop. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "23",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Flash - Efficient Clerk": {
+  "jp": "フラッシュ - 最速の職員",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Resist +1 (Damage dealt to this character is reduced by 1.) / TAKE . . . YOUR . . . TIME All characters lose Rush and can't gain Rush.",
+  "set": "14",
+  "num": "171",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Woolter & Jesse - Bellwether's Henchmen": {
+  "jp": "ウールター＆ジェシー - ベルウェザーの手下",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.) / Challenger +2 (While challenging, this character gets +2 {S}.)",
+  "set": "14",
+  "num": "178",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Baloo - Freight Pilot": {
+  "jp": "バルー - 貨物輸送パイロット",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Captain"
+  ],
+  "text": "Resist +1 (Damage dealt to this character is reduced by 1.)",
+  "set": "14",
+  "num": "191",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Khan Transport Delivery": {
+  "jp": "カーン航空便",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Draw a card. Get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "199",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Jousting Match": {
+  "jp": "馬上槍試合",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Deal 2 damage to chosen character. If you removed an ink drop to play this action, deal 5 damage instead.",
+  "set": "14",
+  "num": "197",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Berlioz - Tiny Rascal": {
+  "jp": "ベルリオーズ - 小っちゃないたずらっ子",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "SHARP LITTLE CLAWS When you play this character, you may deal 1 damage to chosen character.",
+  "set": "14",
+  "num": "186",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Priya Mangal - Immovable Fan": {
+  "jp": "プリヤ・マンガル - ぐいぐいファン",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "BACK OFF! When you play this character, you may give chosen character -2 {S} until the start of your next turn.",
+  "set": "14",
+  "num": "7",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Stitch - Rock Star": {
+  "jp": "スティッチ - ロックスター",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Alien"
+  ],
+  "text": "Shift 4 (You may pay 4 {I} to play this on top of one of your Stitch characters.) / ADORING FANS Whenever you play a character with cost 2 or less, you may exert it to draw a card.",
+  "set": "P1",
+  "num": "2",
+  "ink": [
+   "amber"
+  ]
  }
 }
