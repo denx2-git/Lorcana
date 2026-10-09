@@ -1,148 +1,260 @@
-"""ロルカナ簡易シミュレーター（デッキ限定・ヒューリスティックBot）。
+"""ロルカナ簡易シミュレーター v2：対戦の進行（ルール処理）。
 
-対応していないルール（今回の2デッキに関係しないもの）：
-ロケーション、アイテム、移動、チームプレイ、一部の任意効果の細かい選択。
-Botは「そこそこ」のプレイをする前提で、勝率は目安として使う。
+カード個別の効果は effects.py、Botの判断は ai.py。
 """
 import random
-from dataclasses import dataclass, field
 
-from cards import CARDS, Card, parse_list, DECKS
+from cards import parse_list
 
 WIN_LORE = 20
-MAX_TURNS = 60
+MAX_TURNS = 50
 
 
-@dataclass
-class Char:
-    card: Card
-    damage: int = 0
-    exerted: bool = False
-    dry: bool = True          # True = このターンに出た（クエスト・チャレンジ・歌えない）
-    temp_str: int = 0
-    cant_challenge: bool = False
+class Perm:
+    """場のカード（キャラ・アイテム・ロケーション）。"""
+    __slots__ = ("uid", "card", "owner", "damage", "exerted", "dry", "loc", "tmp_str", "tmp_lore",
+                 "flags", "played_turn")
+
+    def __init__(self, uid, card, owner, turn):
+        self.uid = uid
+        self.card = card
+        self.owner = owner
+        self.damage = 0
+        self.exerted = False
+        self.dry = card.kind == "char"
+        self.loc = None
+        self.tmp_str = 0
+        self.tmp_lore = 0
+        self.flags = {}
+        self.played_turn = turn
+
+    def clone(self):
+        p = Perm.__new__(Perm)
+        p.uid, p.card, p.owner, p.damage = self.uid, self.card, self.owner, self.damage
+        p.exerted, p.dry, p.loc, p.tmp_str, p.tmp_lore = self.exerted, self.dry, self.loc, self.tmp_str, self.tmp_lore
+        p.flags = dict(self.flags) if self.flags else {}
+        p.played_turn = self.played_turn
+        return p
 
     @property
     def name(self):
         return self.card.name
 
-    def str_(self):
-        return self.card.str_ + self.temp_str
+    @property
+    def kind(self):
+        return self.card.kind
 
     def left(self):
         return self.card.wp - self.damage
 
 
-@dataclass
 class Player:
-    pid: int
-    deck_name: str
-    policy: "Policy"
-    deck: list
-    hand: list = field(default_factory=list)
-    ink_total: int = 0
-    ink_used: int = 0
-    drops: int = 0
-    board: list = field(default_factory=list)
-    discard: list = field(default_factory=list)
-    lore: int = 0
-    action_locked: bool = False
-    item_locked: bool = False
-    inked_this_turn: bool = False
-    songs_this_turn: list = field(default_factory=list)
-    powerline_used: bool = False
-    akood_discount: int = 0
-    first_turn: bool = True
+    def __init__(self, pid, deck_key, deck, policy):
+        self.pid = pid
+        self.deck_key = deck_key
+        self.deck = deck
+        self.policy = policy
+        self.hand = []
+        self.ink = 0
+        self.ink_used = 0
+        self.drops = 0
+        self.perms = []
+        self.discard = []
+        self.lore = 0
+        self.action_locked = False
+        self.item_locked = False
+        self.t = {}  # このターンだけの情報
 
-    def ink_avail(self):
-        return self.ink_total - self.ink_used + self.drops
+    def clone(self):
+        q = Player.__new__(Player)
+        q.pid, q.deck_key, q.policy = self.pid, self.deck_key, self.policy
+        q.deck = list(self.deck)
+        q.hand = list(self.hand)
+        q.ink, q.ink_used, q.drops = self.ink, self.ink_used, self.drops
+        q.perms = [p.clone() for p in self.perms]
+        q.discard = list(self.discard)
+        q.lore = self.lore
+        q.action_locked, q.item_locked = self.action_locked, self.item_locked
+        q.t = {k: (list(v) if isinstance(v, list) else v) for k, v in self.t.items()}
+        return q
+
+    def chars(self):
+        return [p for p in self.perms if p.card.kind == "char"]
+
+    def items(self):
+        return [p for p in self.perms if p.card.kind == "item"]
+
+    def locs(self):
+        return [p for p in self.perms if p.card.kind == "location"]
+
+    def ink_free(self):
+        return self.ink - self.ink_used + self.drops
 
     def pay(self, n):
-        free = self.ink_total - self.ink_used
+        n = max(0, n)
+        free = self.ink - self.ink_used
         use = min(free, n)
         self.ink_used += use
-        rest = n - use
-        assert rest <= self.drops
-        self.drops -= rest
+        self.drops -= (n - use)
+        assert self.drops >= 0
 
 
 class Game:
-    def __init__(self, deck_a, deck_b, policy_a, policy_b, first=0, seed=None, log=False):
+    def __init__(self, deck_a, deck_b, pol_a, pol_b, first=0, seed=None, log=False, lists=None):
+        import effects  # noqa: F401  効果の登録
         self.rng = random.Random(seed)
         self.logging = log
         self.lines = []
+        self.uid = 0
         self.players = []
-        for pid, (dn, pol) in enumerate([(deck_a, policy_a), (deck_b, policy_b)]):
-            cards = parse_list(DECKS[dn])
+        from decks import DECKS
+        lists = lists or {}
+        for pid, (key, pol) in enumerate([(deck_a, pol_a), (deck_b, pol_b)]):
+            cards = parse_list(lists.get(pid) or DECKS[key]["list_text"])
             self.rng.shuffle(cards)
-            self.players.append(Player(pid, dn, pol, cards))
-        self.turn_no = 0
+            self.players.append(Player(pid, key, cards, pol))
+        self.turn = 0
         self.active = first
         self.first = first
         self.winner = None
-        self.stats = {"lock_turns": [0, 0]}
+        self.reason = None
+        self.global_mods = []   # [(種類, 期限のpid)]
+        self.sim = False        # Botの先読み中か
 
-    # ---------- 共通処理 ----------
-    def log(self, msg):
+    # ----- 複製（Botの先読み用） -----
+    def clone(self):
+        g = Game.__new__(Game)
+        g.rng = random.Random()
+        g.rng.setstate(self.rng.getstate())
+        g.logging = False
+        g.lines = []
+        g.uid = self.uid
+        g.players = [p.clone() for p in self.players]
+        g.turn, g.active, g.first = self.turn, self.active, self.first
+        g.winner, g.reason = self.winner, self.reason
+        g.global_mods = list(self.global_mods)
+        g.sim = True
+        return g
+
+    def log(self, s):
         if self.logging:
-            self.lines.append(msg)
+            self.lines.append(s)
 
     def opp(self, p):
         return self.players[1 - p.pid]
 
+    def find(self, uid):
+        for pl in self.players:
+            for x in pl.perms:
+                if x.uid == uid:
+                    return x
+        return None
+
+    def new_perm(self, card, owner):
+        self.uid += 1
+        return Perm(self.uid, card, owner, self.turn)
+
+    # ----- 基本処理 -----
+    def end(self, pid, why):
+        if self.winner is None:
+            self.winner = pid
+            self.reason = why
+
     def draw(self, p, n=1):
+        import effects
         for _ in range(n):
+            if self.winner is not None:
+                return
             if not p.deck:
-                self.end(self.opp(p), "deckout")
+                self.end(1 - p.pid, "deckout")
                 return
             p.hand.append(p.deck.pop(0))
+            effects.on_draw(self, p)
 
     def gain_lore(self, p, n):
         if n <= 0 or self.winner is not None:
             return
         p.lore += n
         if p.lore >= WIN_LORE:
-            self.end(p, "lore")
+            self.end(p.pid, "lore")
 
-    def end(self, p, why):
-        if self.winner is None:
-            self.winner = p.pid
-            self.win_reason = why
+    def lose_lore(self, p, n):
+        p.lore = max(0, p.lore - n)
 
-    def to_discard(self, owner, ch):
-        owner.board.remove(ch)
-        owner.discard.append(ch.card)
+    def to_discard_card(self, p, card):
+        p.discard.append(card)
+        p.t["discarded"] = p.t.get("discarded", 0) + 1
 
-    def deal(self, target_owner, ch, n):
-        dmg = max(0, n - ch.card.resist)
-        ch.damage += dmg
-        if ch.left() <= 0:
-            self.log(f"  {ch.card.jp} が退場")
-            self.to_discard(target_owner, ch)
+    def discard_from_hand(self, p, card):
+        import effects
+        p.hand.remove(card)
+        self.to_discard_card(p, card)
+        effects.on_discard(self, p, 1)
+
+    def leave_play(self, x, dest="discard"):
+        """x を場から離す。dest: discard / hand / inkwell / deck_bottom / deck_top"""
+        import effects
+        owner = self.players[x.owner]
+        if x not in owner.perms:
+            return
+        if x.card.kind == "location":
+            for c in owner.chars():
+                if c.loc == x.uid:
+                    c.loc = None
+        owner.perms.remove(x)
+        if dest == "discard":
+            self.to_discard_card(owner, x.card)
+        elif dest == "hand":
+            owner.hand.append(x.card)
+        elif dest == "inkwell":
+            owner.ink += 1
+            owner.ink_used += 1
+        elif dest == "inkwell_ready":
+            owner.ink += 1
+        elif dest == "deck_bottom":
+            owner.deck.append(x.card)
+        elif dest == "deck_top":
+            owner.deck.insert(0, x.card)
+        effects.on_leave(self, x, dest)
+
+    def banish(self, x, by_challenge=False):
+        import effects
+        if effects.replace_banish(self, x):
+            return
+        self.log(f"  {x.card.jp} が退場")
+        self.leave_play(x, "discard")
+        effects.on_banished(self, x, by_challenge)
+
+    def deal(self, x, n, src=None, ignore_resist=False):
+        """ダメージを与える。退場したら True。"""
+        import effects
+        if x is None or x.card.kind == "item":
+            return False
+        if n <= 0:
+            return False
+        if x.card.kind == "char":
+            n = effects.modify_damage(self, x, n, src, ignore_resist)
+        if n <= 0:
+            return False
+        x.damage += n
+        if x.damage >= x.card.wp:
+            self.banish(x, by_challenge=src == "challenge")
             return True
         return False
 
-    def to_inkwell(self, owner, ch):
-        owner.board.remove(ch)
-        owner.ink_total += 1
-        owner.ink_used += 1  # 裏向き・エグザートで置く
-        self.log(f"  {ch.card.jp} が相手のインクへ")
+    def char_str(self, x):
+        import effects
+        return max(0, effects.strength(self, x))
 
-    def singer_value(self, p, ch):
-        if ch.name == "Miguel Rivera - Street Musician":
-            return 3 if any(c.kind == "song" for c in p.discard) else 0
-        return ch.card.singer or ch.card.cost
+    def char_lore(self, x):
+        import effects
+        return max(0, effects.lore(self, x))
 
-    def char_lore(self, p, ch):
-        lore = ch.card.lore
-        if ch.name == "Miguel Rivera - Street Musician" and any(c.kind == "song" for c in p.discard):
-            lore += 1
-        if ch.name == "Powerline - Megastar":
-            lore += sum(1 for o in p.board if o is not ch and (o.card.singer or (
-                o.name == "Miguel Rivera - Street Musician" and any(c.kind == "song" for c in p.discard))))
-        return lore
+    def singer_value(self, x):
+        import effects
+        return effects.singer_value(self, x)
 
-    # ---------- ゲーム進行 ----------
+    # ----- ゲーム進行 -----
     def setup(self):
         for p in self.players:
             self.draw(p, 7)
@@ -152,232 +264,231 @@ class Game:
             p.deck += back
             self.draw(p, len(back))
             self.rng.shuffle(p.deck)
-            self.log(f"P{p.pid}（{p.deck_name}）マリガン {len(back)}枚")
+            self.log(f"P{p.pid}（{p.deck_key}）マリガン{len(back)}枚")
 
-    def play(self):
+    def play_game(self):
         self.setup()
-        while self.winner is None and self.turn_no < MAX_TURNS:
-            self.turn_no += 1
+        while self.winner is None and self.turn < MAX_TURNS:
+            self.turn += 1
             self.take_turn(self.players[self.active])
             self.active = 1 - self.active
         return self.winner
 
-    def take_turn(self, p):
+    def start_turn(self, p):
+        import effects
         o = self.opp(p)
-        self.log(f"--- T{self.turn_no} P{p.pid}（{p.deck_name}） ロア {p.lore}-{o.lore}")
-        # 相手にかけていたロックはこのターン開始時に解除
         o.action_locked = False
         o.item_locked = False
-        for ch in o.board:
-            ch.cant_challenge = False
-        # レディ
+        self.global_mods = [m for m in self.global_mods if m[1] != p.pid]
+        for x in o.perms:
+            if x.flags.get("cant_challenge_until") == p.pid:
+                del x.flags["cant_challenge_until"]
+        p.t = {"first_turn": self.turn <= 2}
         p.ink_used = 0
-        for ch in p.board:
-            ch.exerted = False
-            ch.dry = False
-            ch.temp_str = 0
-        p.inked_this_turn = False
-        p.songs_this_turn = []
-        p.powerline_used = False
-        p.akood_discount = 0
-        # ドロー（先攻1ターン目以外）
-        if not (self.turn_no == 1):
+        effects.start_of_turn_pre(self, p)   # ロケーションのロア・野獣など
+        if self.winner is not None:
+            return
+        for x in p.perms:
+            if x.card.kind == "char" and x.flags.get("cant_ready"):
+                pass
+            else:
+                x.exerted = False
+            x.dry = False
+            x.tmp_str = 0
+            x.tmp_lore = 0
+            for k in ("rush", "alert", "challenger", "challenge_ready"):
+                x.flags.pop(k, None)
+        if self.turn != 1:
             self.draw(p)
-        if self.winner is not None:
-            return
-        # 野獣
-        for ch in list(p.board):
-            if ch.name == "Beast - Tragic Hero":
-                if ch.damage == 0:
-                    self.draw(p)
-                else:
-                    ch.temp_str += 4
-        p.policy.main(self, p)
-        if self.winner is not None:
-            return
-        # ターン終了時
-        if any(c.kind == "song" for c in p.songs_this_turn):
-            for ch in p.board:
-                if ch.name == "Aurora - Delightful Musician":
-                    self.gain_lore(p, 1)
-        if o.action_locked:
-            self.stats["lock_turns"][p.pid] += 1
-        p.first_turn = False
+        effects.start_of_turn_post(self, p)
 
-    # ---------- 行動 ----------
-    def ink(self, p, card):
-        assert card.inkable and not p.inked_this_turn
+    def take_turn(self, p):
+        import effects
+        self.log(f"--- T{self.turn} P{p.pid}（{p.deck_key}）ロア 自{p.lore} 相{self.opp(p).lore} インク{p.ink}")
+        self.start_turn(p)
+        if self.winner is not None:
+            return
+        p.policy.play_turn(self, p)
+        if self.winner is not None:
+            return
+        effects.end_of_turn(self, p)
+        for x in p.perms:
+            x.tmp_str = 0
+            x.tmp_lore = 0
+
+    # ----- 行動 -----
+    def can_ink(self, p, card):
+        extra = p.t.get("extra_ink", 0)
+        return card.inkable and p.t.get("inked", 0) < 1 + extra
+
+    def do_ink(self, p, card):
+        import effects
         p.hand.remove(card)
-        p.ink_total += 1
-        p.inked_this_turn = True
+        p.ink += 1
+        p.t["inked"] = p.t.get("inked", 0) + 1
         self.log(f"  インク: {card.jp}")
+        effects.on_ink(self, p)
 
-    def can_play(self, p, card, cost=None):
-        if card.kind in ("action", "song") and p.action_locked:
-            return False
-        return p.ink_avail() >= (card.cost if cost is None else cost)
+    def put_card_in_inkwell(self, p, card, exerted=True):
+        import effects
+        p.ink += 1
+        if exerted:
+            p.ink_used += 1
+        effects.on_ink(self, p)
 
-    def card_cost(self, p, card):
-        cost = card.cost
-        if card.name == "Angel - Siren Singer" and p.first_turn and self.first != p.pid:
-            cost -= 1
-        if card.kind == "char" and p.akood_discount:
-            cost = max(0, cost - p.akood_discount)
-        return cost
+    def char_cost(self, p, card):
+        import effects
+        return effects.cost_for(self, p, card)
 
-    def play_char(self, p, card, shift_onto=None, **kw):
+    def play_card(self, p, card, mode="normal", base=None, target=None, singers=None, extra=None):
+        """手札のカードをプレイ。mode: normal / shift / free / alt"""
+        import effects
         o = self.opp(p)
-        if shift_onto is not None:
-            cost = card.shift
-        else:
-            cost = self.card_cost(p, card)
-        p.pay(cost)
-        if card.kind == "char" and p.akood_discount:
-            p.akood_discount = 0
         p.hand.remove(card)
-        if shift_onto is not None:
-            idx = p.board.index(shift_onto)
-            ch = Char(card, damage=shift_onto.damage, exerted=shift_onto.exerted, dry=shift_onto.dry)
-            p.board[idx] = ch  # 変身元のカードは下に重なる（簡略化のため保持しない）
-        else:
-            ch = Char(card)
-            p.board.append(ch)
-        self.log(f"  プレイ: {card.jp}（{cost}）")
-        n = card.name
-        if n == "Priscilla - Efficient Clerk":
-            ch.exerted = True
-        elif n in ("Pete - Games Referee", "Toulouse - Rough and Tumble"):
-            o.action_locked = True
-        elif n == "Bellwether - Highly Qualified":
-            t = kw.get("target")
-            if t is not None and t in o.board:
-                self.to_inkwell(o, t)
-        elif n == "Hades - Infernal Schemer":
-            t = kw.get("target")
-            if t is not None and t in o.board:
-                o.board.remove(t)
-                o.ink_total += 1
-                self.log(f"  {t.card.jp} が相手のインクへ")
-        elif n in ("Ariel - Spectacular Singer", "Meilin Lee - Losing Control"):
-            top = p.deck[:4]
-            songs = [c for c in top if c.kind == "song"]
-            pick = p.policy.pick_song(self, p, songs) if songs else None
-            rest = [c for c in top if c is not pick]
-            del p.deck[:4]
-            if pick:
-                p.hand.append(pick)
-                self.log(f"  {pick.jp} を手札へ")
-            p.deck += rest
-        elif n == "Aurora - Delightful Musician":
-            cands = [c for c in p.songs_this_turn if c.cost <= 3 and c in p.discard]
-            if cands:
-                c = max(cands, key=lambda c: p.policy.card_value(self, p, c))
-                p.discard.remove(c)
-                p.hand.append(c)
-                self.log(f"  {c.jp} を回収")
-        return ch
-
-    def play_spell(self, p, card, singers=None, **kw):
-        """アクション・歌をプレイ。singers を渡すと歌って無料。"""
-        o = self.opp(p)
+        if card.kind == "char":
+            if mode == "shift":
+                p.pay(effects.shift_cost(self, p, card))
+            elif mode in ("free", "alt"):
+                effects.pay_alt(self, p, card, extra)
+            else:
+                p.pay(self.char_cost(p, card))
+                effects.consume_discounts(self, p, card)
+            x = self.new_perm(card, p.pid)
+            if mode == "shift" and base is not None:
+                bases = base if isinstance(base, (list, tuple)) else [base]
+                b0 = bases[0]
+                x.damage, x.exerted, x.dry, x.loc = b0.damage, b0.exerted, b0.dry, b0.loc
+                idx = p.perms.index(b0)
+                p.perms[idx] = x
+                for b in bases[1:]:
+                    p.perms.remove(b)
+                x.flags["under"] = len(bases)
+            else:
+                p.perms.append(x)
+            p.t["chars_played"] = p.t.get("chars_played", 0) + 1
+            self.log(f"  プレイ: {card.jp}" + ("（変身）" if mode == "shift" else ""))
+            effects.on_play_char(self, p, x, target, extra)
+            effects.after_char_played(self, p, x)
+            return x
+        if card.kind in ("item", "location"):
+            if mode not in ("free",):
+                p.pay(self.char_cost(p, card))
+            x = self.new_perm(card, p.pid)
+            p.perms.append(x)
+            self.log(f"  プレイ: {card.jp}")
+            effects.on_play_perm(self, p, x, target, extra)
+            return x
+        # アクション・歌
         if singers:
             for s in singers:
                 s.exerted = True
-            how = "歌う: " + "・".join(s.card.jp for s in singers)
+            self.log(f"  {card.jp}（歌う: {'・'.join(s.card.jp for s in singers)}）")
+        elif mode == "free":
+            self.log(f"  {card.jp}（無料）")
         else:
             p.pay(card.cost)
-            how = f"{card.cost}インク"
-        p.hand.remove(card)
-        self.log(f"  {card.jp}（{how}）")
-        n = card.name
-        t = kw.get("target")
-        if n == "Scram!" or n == "Let It Go":
-            if t is not None and t in o.board:
-                self.to_inkwell(o, t)
-        elif n == "Keep the Ancient Ways":
-            o.action_locked = True
-            o.item_locked = True
-        elif n == "Let the Storm Rage On":
-            if t is not None and t in o.board:
-                self.deal(o, t, 2)
-            self.draw(p)
-        elif n == "Hot Potato":
-            if t is not None and t in o.board:
-                self.deal(o, t, 2)
-        elif n == "Ink Explosion":
-            if t is not None and t in o.board:
-                self.deal(o, t, 4)
-            p.drops += 1
-        elif n == "Grab Your Sword":
-            for ch in list(o.board):
-                self.deal(o, ch, 2)
-        elif n == "Strength of a Raging Fire":
-            if t is not None and t in o.board:
-                self.deal(o, t, len(p.board))
-        elif n == "And Then Along Came Zeus":
-            if t is not None and t in o.board:
-                self.deal(o, t, 5)
-        elif n == "Akood et Emuti":
-            p.akood_discount = 2
-            self.draw(p)
-        elif n == "Beyond the Horizon":
-            for q in kw.get("players", [p]):
-                q.discard += q.hand
-                q.hand = []
-                self.draw(q, 3)
-        p.discard.append(card)
-        if card.kind == "song":
-            p.songs_this_turn.append(card)
-            if not p.powerline_used and any(c.name == "Powerline - Megastar" for c in p.board):
-                back = [c for c in p.discard if c.kind == "char" and (c.singer or c.name.startswith("Miguel"))]
-                if back:
-                    c = max(back, key=lambda c: c.cost)
-                    p.discard.remove(c)
-                    p.hand.append(c)
-                    p.powerline_used = True
-                    self.log(f"  パワーライン: {c.jp} を回収")
+            self.log(f"  {card.jp}（{card.cost}インク）")
+        effects.resolve_spell(self, p, card, target, extra)
+        if card in p.hand:
+            pass
+        self.to_discard_card(p, card)
+        p.t.setdefault("spells", []).append(card)
+        effects.after_spell(self, p, card, singers)
+        return None
 
     def can_challenge(self, p, att, tgt):
+        import effects
         o = self.opp(p)
-        if att.exerted or att.dry or att.cant_challenge:
+        if att.card.kind != "char" or att.exerted:
             return False
-        ready_ok = att.name == "Cinderella - Stouthearted" and p.songs_this_turn
-        if not tgt.exerted and not ready_ok:
+        if att.dry and not (att.card.rush or att.flags.get("rush") or effects.has_rush(self, att)):
             return False
-        if tgt.card.evasive and not (att.card.evasive or att.card.alert):
+        if att.flags.get("cant_challenge_until") is not None:
             return False
-        guards = [c for c in o.board if c.card.bodyguard and c.exerted and c is not tgt]
+        if tgt.owner == p.pid:
+            return False
+        if tgt.card.kind == "location":
+            if effects.loc_evasive(self, tgt) and not (att.card.evasive or att.card.alert or att.flags.get("alert")):
+                return False
+            return True
+        if tgt.card.kind != "char":
+            return False
+        if not tgt.exerted and not att.flags.get("challenge_ready"):
+            return False
+        if (tgt.card.evasive or effects.gains_evasive(self, tgt)) and not (
+                att.card.evasive or att.card.alert or att.flags.get("alert") or effects.gains_evasive(self, att)):
+            return False
+        if effects.cant_be_challenged(self, tgt):
+            return False
+        guards = [c for c in o.chars() if c.card.bodyguard and c.exerted and c is not tgt
+                  and not effects.cant_be_challenged(self, c)]
         if guards and not tgt.card.bodyguard:
-            return False
+            # 護衛を選べるなら護衛を選ばなければならない（回避などで選べない場合は除く）
+            ok_guards = [gd for gd in guards if not (gd.card.evasive and not (att.card.evasive or att.card.alert))]
+            if ok_guards:
+                return False
         return True
 
     def challenge(self, p, att, tgt):
+        import effects
         o = self.opp(p)
         att.exerted = True
         self.log(f"  チャレンジ: {att.card.jp} → {tgt.card.jp}")
-        a_str, t_str = att.str_(), tgt.str_()
-        self.deal(o, tgt, a_str)
-        self.deal(p, att, t_str)
+        effects.on_challenge(self, p, att, tgt)
+        a = self.char_str(att) + effects.challenger_bonus(self, att)
+        if tgt.card.kind == "location":
+            self.deal(tgt, a, src="challenge")
+            return
+        d = self.char_str(tgt)
+        effects.on_challenged(self, o, tgt, att)
+        tgt_alive_before = tgt in o.perms
+        killed = self.deal(tgt, a, src="challenge") if tgt_alive_before else False
+        if not effects.no_damage_from_challenge(self, att):
+            self.deal(att, d, src="challenge")
+        if killed:
+            effects.on_banish_in_challenge(self, p, att, tgt)
 
-    def quest(self, p, ch):
-        ch.exerted = True
-        n = self.char_lore(p, ch)
-        self.log(f"  クエスト: {ch.card.jp}（+{n}）")
+    def quest(self, p, x):
+        import effects
+        x.exerted = True
+        n = self.char_lore(x)
+        self.log(f"  クエスト: {x.card.jp}（+{n}）")
         self.gain_lore(p, n)
-        if ch.name == "Priscilla - Efficient Clerk" and p.deck:
-            top = p.deck[:2]
-            del p.deck[:2]
-            if len(top) == 2:
-                keep = max(top, key=lambda c: p.policy.card_value(self, p, c))
-                other = top[1] if keep is top[0] else top[0]
-                p.hand.append(keep)
-                p.ink_total += 1
-                p.ink_used += 1
-            else:
-                p.hand += top
+        if self.winner is None:
+            effects.on_quest(self, p, x)
+
+    def move(self, p, x, loc):
+        import effects
+        cost = effects.move_cost(self, p, x, loc)
+        p.pay(cost)
+        prev = x.loc
+        x.loc = loc.uid
+        self.log(f"  移動: {x.card.jp} → {loc.card.jp}")
+        effects.on_move(self, p, x, loc, prev)
+
+    def singers_for(self, p, card):
+        """歌える組み合わせの候補（最大数通り）。"""
+        import effects
+        ready = [x for x in p.chars() if not x.exerted and not x.dry and effects.can_sing(self, x)]
+        if card.sing_together:
+            ready_all = [x for x in p.chars() if not x.exerted and not x.dry]
+            ready_all.sort(key=lambda x: (self.char_lore(x), x.card.cost))
+            chosen, tot = [], 0
+            for x in ready_all:
+                v = self.singer_value(x)
+                chosen.append(x)
+                tot += v
+                if tot >= card.sing_together:
+                    return [chosen]
+            return []
+        ok = [x for x in ready if self.singer_value(x) >= card.cost]
+        if not ok:
+            return []
+        ok.sort(key=lambda x: (self.char_lore(x), x.card.cost))
+        return [[ok[0]]]
 
 
-def run_game(deck_a, deck_b, pol_a, pol_b, first, seed, log=False):
-    g = Game(deck_a, deck_b, pol_a, pol_b, first=first, seed=seed, log=log)
-    g.play()
+def run_game(deck_a, deck_b, pol_a, pol_b, first, seed, log=False, lists=None):
+    g = Game(deck_a, deck_b, pol_a, pol_b, first=first, seed=seed, log=log, lists=lists)
+    g.play_game()
     return g

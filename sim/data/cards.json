@@ -1,0 +1,3714 @@
+{
+ "A Pirate's Life": {
+  "jp": "海賊の暮らし - A Pirate’s Life",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Sing Together 6 (Any number of your or your teammates’ characters with total cost 6 or more may {E} to sing this song for free.) %Each opponent loses 2 lore. You gain 2 lore.",
+  "set": "4",
+  "num": "128",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "A Whole New World": {
+  "jp": "ホール・ニュー・ワールド - A WHOLE NEW WORLD",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 5 or more can {E} to sing this song for free.) / Each player discards their hand and draws 7 cards.",
+  "set": "1",
+  "num": "195",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Akood et Emuti": {
+  "jp": "アークーデテムーティ",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / You pay 2 {I} less for the next character you play this turn. Draw a card.",
+  "set": "11",
+  "num": "29",
+  "ink": [
+   "amber"
+  ]
+ },
+ "And Then Along Came Zeus": {
+  "jp": "そこに登場、ゼウス！",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 4 or more can {E} to sing this song for free.) / Deal 5 damage to chosen character or location.",
+  "set": "3",
+  "num": "195",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Angel - Siren Singer": {
+  "jp": "エンジェル - 魔性の歌姫",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Alien"
+  ],
+  "text": "UNDERDOG If this is your first turn and you're not the first player, you pay 1 {I} less to play this character. / Singer 3 (This character counts as cost 3 to sing songs.)",
+  "set": "11",
+  "num": "25",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Ariel - Spectacular Singer": {
+  "jp": "アリエル - 麗しい歌姫",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "Singer 5 (This character counts as cost 5 to sing songs.) / MUSICAL DEBUT When you play this character, look at the top 4 cards of your deck. You may reveal a song card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "1",
+  "num": "2",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Aurora - Delightful Musician": {
+  "jp": "オーロラ - 喜びを歌う音楽家",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "MELODIC REFRAIN When you play this character, return a song card you played this turn with cost 3 or less from your discard to your hand. / JOYOUS RECEPTION At the end of your turn, if you played a song this turn, gain 1 lore.",
+  "set": "14",
+  "num": "19",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Aurora - Holding Court": {
+  "jp": "オーロラ - 姫のお披露目",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "ROYAL WELCOME Whenever this character quests, you pay 1 {I} less for the next Princess or Queen character you play this turn.",
+  "set": "9",
+  "num": "6",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Basil's Magnifying Glass": {
+  "jp": "バジルの虫眼鏡",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "FIND WHAT'S HIDDEN {E}, 2 {I} — Look at the top 3 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "5",
+  "num": "166",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Be Prepared": {
+  "jp": "準備をしておけ - BE PREPARED",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 7 or more can {E} to sing this song for free.) / Banish all characters.",
+  "set": "1",
+  "num": "128",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Beast - Snowfield Troublemaker": {
+  "jp": "野獣 - 雪原のトラブルメーカー",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Prince"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / DYNAMIC MANEUVER Whenever this character challenges, if he’s at a location, he takes no damage from the challenge.",
+  "set": "11",
+  "num": "118",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Beast - Tragic Hero": {
+  "jp": "野獣 - 悲劇の主人公",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Prince"
+  ],
+  "text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Beast.) / IT'S BETTER THIS WAY At the start of your turn, if this character has no damage, draw a card. Otherwise, he gets +4 {S} this turn.",
+  "set": "2",
+  "num": "173",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Belle - Accomplished Mystic": {
+  "jp": "ベル - 熟練なるミスティーク",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Princess",
+   "Sorcerer"
+  ],
+  "text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Belle.) / ENHANCED HEALING When you play this character, move up to 3 damage counters from chosen character to chosen opposing character.",
+  "set": "4",
+  "num": "36",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Belle - Apprentice Inventor": {
+  "jp": "ベル - 見習い発明家",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess",
+   "Inventor"
+  ],
+  "text": "WHAT A MESS During your turn, you may banish chosen item of yours to play this character for free.",
+  "set": "7",
+  "num": "159",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Bellwether - Highly Qualified": {
+  "jp": "ベルウェザー - 超優秀",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "CLEVER PLAN When you play this character, you may put chosen opposing character with cost 2 or less into their player's inkwell facedown and exerted.",
+  "set": "14",
+  "num": "159",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Beyond the Horizon": {
+  "jp": "ビヨンド・ザ・ホライズン",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Sing Together 7 (Any number of your or your teammates’ characters with total cost 7 or more may {E} to sing this song for free.) / Choose any number of players. They discard their hands and draw 3 cards each.",
+  "set": "8",
+  "num": "202",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Bobby Zimuruski - Spray Cheese Kid": {
+  "jp": "ボビー・ジムルースキー - スプレーチーズ小僧",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "SO CHEESY When you play this character, you may draw a card, then choose and discard a card.",
+  "set": "9",
+  "num": "78",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Brawl": {
+  "jp": "乱闘",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Banish chosen character with 2 {S} or less.",
+  "set": "4",
+  "num": "130",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Bunch of Balloons": {
+  "jp": "無数の風船",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "FLOAT AWAY When you play this item, choose a location of yours. While this item is in play, that location gains Evasive. (Only characters with Evasive can challenge it.) / OUT OF SIGHT 3 {I} — Return this item to your hand.",
+  "set": "13",
+  "num": "140",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Calhoun - Marine Sergeant": {
+  "jp": "カルホーン - 海兵隊軍曹",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "Resist +1 (Damage dealt to this character is reduced by 1.) / LEVEL UP During your turn, whenever this character banishes another character in a challenge, gain 2 lore.",
+  "set": "6",
+  "num": "191",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Carl Fredricksen - Wilderness Guide": {
+  "jp": "カール・フレドリクセン - 野外ガイド",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 6,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "",
+  "set": "14",
+  "num": "137",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Carl's House - Flying High": {
+  "jp": "カールの家 - 空中家屋",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 6,
+  "lore": 0,
+  "move": 0,
+  "classes": [],
+  "text": "MOVING DAY Once during your turn, you may move chosen character from here to another location for free. If you do, gain 1 lore.",
+  "set": "13",
+  "num": "142",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Chief Bogo - Police Commissioner": {
+  "jp": "ボゴ署長 - 警察本部長",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 6,
+  "wp": 6,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn"
+  ],
+  "text": "I KNOW THESE STREETS Whenever this character quests, you may move him to a Hyperia City location for free. / STOP RIGHT THERE 6 {I} — Chosen opposing character can't challenge until the start of your next turn.",
+  "set": "14",
+  "num": "183",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Cinderella - Ballroom Sensation": {
+  "jp": "シンデレラ - 舞踏会の花形",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "Singer 3 (This character counts as cost 3 to sing songs.)",
+  "set": "2",
+  "num": "3",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Cinderella - Stouthearted": {
+  "jp": "シンデレラ - 剛胆なる姫君",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 5,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Princess",
+   "Knight"
+  ],
+  "text": "Shift 5 (You may pay 5 {I} to play this on top of one of your characters named Cinderella.) / Resist +2 (Damage dealt to this character is reduced by 2.) / THE SINGING SWORD Whenever you play a song, this character may challenge ready characters this turn.",
+  "set": "2",
+  "num": "177",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Clarabelle - Clumsy Guest": {
+  "jp": "クララベル - おっちょこちょい",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "BUTTERFINGERS When you play this character, you may pay 2 {I} to banish chosen item.",
+  "set": "5",
+  "num": "86",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Clarabelle - Light on Her Hooves": {
+  "jp": "クララベル - 軽やかなひづめの持ち主",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Ally"
+  ],
+  "text": "Shift 5 (You may pay 5 {I} to play this on top of one of your characters named Clarabelle.) / KEEP IN STEP At the end of your turn, if chosen opponent has more cards in their hand than you, you may draw cards until you have the same number.",
+  "set": "5",
+  "num": "84",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Clarabelle - Out for a Stroll": {
+  "jp": "クララベル - お散歩にお出かけ",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 7,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "IMPROVE THE VIEW When you play this character, you may banish chosen item. If you do, its player puts the top card of their deck into their inkwell facedown and exerted.",
+  "set": "14",
+  "num": "160",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Croquet Mallet": {
+  "jp": "クロッケーのマレット",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "HURTLING HEDGEHOG Banish this item — Chosen character gains Rush this turn. (They can challenge the turn they're played.)",
+  "set": "2",
+  "num": "66",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Daisy Duck - Donald's Date": {
+  "jp": "デイジーダック - ドナルドの彼女",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "BIG PRIZE Whenever this character quests, each opponent reveals the top card of their deck. If it's a character card, they may put it into their hand. Otherwise, they put it on the bottom of their deck.",
+  "set": "5",
+  "num": "16",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Diablo - Devoted Herald": {
+  "jp": "ディアブロ - 忠実なる使い魔",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Ally"
+  ],
+  "text": "Shift: Discard an action card (You may discard an action card to play this on top of one of your characters named Diablo.) / Evasive (Only characters with Evasive can challenge this character.) / CIRCLE FAR AND WIDE During each opponent's turn, whenever they draw a card while this character is exerted, you may draw a card.",
+  "set": "4",
+  "num": "70",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Diablo - Maleficent's Spy": {
+  "jp": "ディアブロ - マレフィセントのスパイ",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "SCOUT AHEAD When you play this character, you may look at each opponent's hand.",
+  "set": "4",
+  "num": "71",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Diablo - Obedient Raven": {
+  "jp": "ディアブロ - 従順なワタリガラス",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "FLY, MY PET! When this character is banished, you may draw a card.",
+  "set": "6",
+  "num": "49",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Diablo - Stone Servant": {
+  "jp": "ディアブロ - 石使いの召使い",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally"
+  ],
+  "text": "CRUEL INTENT While you have a Villain character in play, this character gets +2 {S} and +1 {L}. / VILLAINOUS BOND While this character is exerted, your Villain characters can't be challenged.",
+  "set": "12",
+  "num": "196",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Doc - Bold Knight": {
+  "jp": "先生 - 剛胆なる騎士",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally",
+   "Knight",
+   "Seven Dwarfs"
+  ],
+  "text": "DRASTIC MEASURES When you play this character, you may discard your hand to draw 2 cards.",
+  "set": "5",
+  "num": "193",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Don Karnage - Debonair Pirate": {
+  "jp": "ドン・カルナージ - 華麗なる海賊",
+  "cost": 6,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Prince",
+   "Pirate"
+  ],
+  "text": "Shift 4 {I} (You may pay 4 {I} to play this on top of one of your characters named Don Karnage.) / LASTING IMPRESSION When you play this character, deal 1 damage to each opposing character. This damage can't be reduced by Resist. / SO SUAVE While this character is exerted, each opposing damaged character gets -1 {L}.",
+  "set": "14",
+  "num": "88",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Don Karnage - Khan's Courier": {
+  "jp": "ドン・カルナージ - カーンの運び屋",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Prince",
+   "Pirate"
+  ],
+  "text": "",
+  "set": "14",
+  "num": "70",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Doug - Lying in Wait": {
+  "jp": "羊のダグ - 沈黙の羊",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.)",
+  "set": "14",
+  "num": "161",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Dr. Bushroot - Evil Botanist": {
+  "jp": "ドクター・ブッシュルート - 悪の植物学者",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 3,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Villain"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.) / FAIR IS FAIR Whenever this character is challenged, chosen opponent chooses and discards a card.",
+  "set": "13",
+  "num": "92",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Dumbo - Ninth Wonder of the Universe": {
+  "jp": "ダンボ - 世界の七不思議",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / BREAKING RECORDS {E}, 1 {I} – Draw a card and gain 1 lore. / MAKING HISTORY Your other characters with Evasive gain \"{E}, 1 {I} – Draw a card and gain 1 lore.\"",
+  "set": "9",
+  "num": "45",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Elinor - Renowned Diplomat": {
+  "jp": "エリノア - 名高い外交家",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Mentor",
+   "Queen"
+  ],
+  "text": "COORDINATED EFFORTS At the end of your turn, if you have 3 or more exerted characters in play, deal 1 damage to chosen opposing character, gain 1 lore, and draw a card.",
+  "set": "12",
+  "num": "86",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Elsa - Concerned Sister": {
+  "jp": "エルサ - 心配する姉",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Queen",
+   "Sorcerer"
+  ],
+  "text": "CLEAR THE WAY When you play this character, you pay 2 {I} less for the next location you play this turn.",
+  "set": "11",
+  "num": "125",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Elsa - Fierce Protector": {
+  "jp": "エルサ - 猛吹雪の守護者",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Queen",
+   "Sorcerer"
+  ],
+  "text": "ICE OVER 1 {I} , Choose and discard a card — Exert chosen opposing character.",
+  "set": "8",
+  "num": "60",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Elsa - The Fifth Spirit": {
+  "jp": "エルサ - 第5の精霊",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Queen",
+   "Sorcerer"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / Evasive (Only characters with Evasive can challenge this character.) / CRYSTALLIZE When you play this character, exert chosen opposing character.",
+  "set": "5",
+  "num": "48",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Fergus - King of DunBroch": {
+  "jp": "ファーガス - ダンブロッホの王",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Mentor",
+   "King"
+  ],
+  "text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.)",
+  "set": "12",
+  "num": "175",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Fishbone Quill": {
+  "jp": "魚の骨ペン",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "GO AHEAD AND SIGN {E} — Put any card from your hand into your inkwell facedown.",
+  "set": "1",
+  "num": "168",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Fix-It Felix, Jr. - Delighted Sightseer": {
+  "jp": "フィックス・イット・フェリックス JR. - 浮かれた観光客",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "OH, MY LAND! When you play this character, if you have a location in play, draw a card.",
+  "set": "5",
+  "num": "17",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Fred - Big Stomper": {
+  "jp": "フレッド - 怪獣大強襲！",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Hero"
+  ],
+  "text": "KAIJU CRUSH When you play this character, you may banish chosen location.",
+  "set": "14",
+  "num": "91",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Friends on the Other Side": {
+  "jp": "ファシリエのたくらみ - FRIENDS ON THE OTHER SIDE",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / Draw 2 cards.",
+  "set": "1",
+  "num": "64",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Gaetan Moliere - Clever Burrower": {
+  "jp": "ガエタン・モリエール - 穴掘り名人",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / UNEARTH Whenever this character quests, you may draw 2 cards, then choose and discard 2 cards.",
+  "set": "12",
+  "num": "80",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Go Go Tomago - Working Late": {
+  "jp": "ゴー・ゴー・トマゴ - 長時間調査",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 6,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Hero",
+   "Inventor"
+  ],
+  "text": "",
+  "set": "14",
+  "num": "145",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Grab Your Bow": {
+  "jp": "みな残らずやっつけろ！",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 5 or more can {E} to sing this song for free.) / Banish up to 2 chosen characters with 2 {S} or less.",
+  "set": "11",
+  "num": "131",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Grab Your Sword": {
+  "jp": "剣をふるえ！",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 5 or more can {E} to sing this song for free.) / Deal 2 damage to each opposing character.",
+  "set": "1",
+  "num": "198",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Grandmother Willow - Ancient Advisor": {
+  "jp": "柳の木のおばあさん - 古き善き相談相手",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Mentor"
+  ],
+  "text": "SMOOTH THE WAY Once during your turn, you pay 1 {I} less for the next character you play this turn.",
+  "set": "11",
+  "num": "13",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Hades - Infernal Schemer": {
+  "jp": "ハデス - 冥府の策謀家",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Deity"
+  ],
+  "text": "IS THERE A DOWNSIDE TO THIS? When you play this character, you may put chosen opposing character into their player's inkwell facedown.",
+  "set": "1",
+  "num": "147",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Hades - Meticulous Schemer": {
+  "jp": "ハデス - 緻密な策謀家",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 5,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.)",
+  "set": "13",
+  "num": "156",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Happy - Joyful Adventurer": {
+  "jp": "ごきげん - ツンツンするこびと",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Seven Dwarfs"
+  ],
+  "text": "",
+  "set": "12",
+  "num": "43",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Henry J. Waternoose III - Chief Executive Officer": {
+  "jp": "ウォーターヌース - 最高経営責任者",
+  "cost": 6,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Monster"
+  ],
+  "text": "THE BOTTOM LINE While you have more cards in your inkwell than each opposing player, this character gets +2 {L} and gains Ward. (Opponents can't choose them except to challenge.)",
+  "set": "13",
+  "num": "163",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Hide Away": {
+  "jp": "隠すなら森の中",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Put chosen item or location into its player's inkwell facedown and exerted.",
+  "set": "5",
+  "num": "163",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Hot Potato": {
+  "jp": "あぶなイモの",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Choose one: / - Deal 2 damage to chosen character. / - Banish chosen item.",
+  "set": "6",
+  "num": "195",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Hypnotize": {
+  "jp": "催眠術",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Each opponent chooses and discards a card. Draw a card.",
+  "set": "2",
+  "num": "98",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "I Find 'Em, I Flatten 'Em": {
+  "jp": "ダイヤ プラチナ ペシャンコに！",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 4 or more can {E} to sing this song for free.) / Banish all items.",
+  "set": "9",
+  "num": "199",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Iago - Giant Spectral Parrot": {
+  "jp": "イアーゴ - ドデカいおばけオウム",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 6,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally",
+   "Illusion"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / Vanish (When an opponent chooses this character for an action, banish them.)",
+  "set": "7",
+  "num": "49",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Ink Explosion": {
+  "jp": "インク爆発",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Deal 4 damage to chosen character. Get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "198",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Inkrunner": {
+  "jp": "インクランナー",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "PREFLIGHT CHECK When you play this item, draw a card. / READY TO RIDE {E}, 1 {I} - Chosen character gains Alert this turn. (They can challenge as if they had Evasive.)",
+  "set": "10",
+  "num": "169",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Jebidiah Farnsworth - Cookie": {
+  "jp": "ジェデダイア・ファーンズワース - クッキー",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 0,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / Reckless (This character can't quest and must challenge each turn if able.)",
+  "set": "12",
+  "num": "117",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Junior Woodchuck Guidebook": {
+  "jp": "冒険少年ガイドブック",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "THE BOOK KNOWS EVERYTHING {E}, 1 {I}, Banish this item — Draw 2 cards.",
+  "set": "10",
+  "num": "66",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Keep the Ancient Ways": {
+  "jp": "昔ながらのこの営み",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Opponents can't play actions or items until the start of your next turn.",
+  "set": "11",
+  "num": "196",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Kida - Atlantean": {
+  "jp": "キーダ - アトランティス人",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "",
+  "set": "3",
+  "num": "6",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Kida - Protector of Atlantis": {
+  "jp": "キーダ - アトランティスの守護者",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Kida.) / PERHAPS WE CAN SAVE OUR FUTURE When you play this character, all characters get -3 {S} until the start of your next turn.",
+  "set": "3",
+  "num": "7",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Kit Cloudkicker - Tough Guy": {
+  "jp": "キット・クラウドキッカー - タフガイ",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "SKYSURFING When you play this character, you may return chosen opposing character with 2 {S} or less to their player's hand.",
+  "set": "3",
+  "num": "77",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Lady - Decisive Dog": {
+  "jp": "レディ - 凛々しいお嬢さん",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "PACK OF HER OWN Whenever you play a character, this character gets +1 {S} this turn. / TAKE THE LEAD While this character has 3 {S} or more, she gets +2 {L}.",
+  "set": "8",
+  "num": "33",
+  "ink": [
+   "amber",
+   "emerald"
+  ]
+ },
+ "Lady - Miss Park Avenue": {
+  "jp": "レディ - ミス・ニューヨーク",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero"
+  ],
+  "text": "Shift 3 (You may pay 3 {I} to play this on top of one of your characters named Lady.) / SOMETHING WONDERFUL When you play this character, you may return up to 2 character cards with cost 2 or less each from your discard to your hand.",
+  "set": "7",
+  "num": "28",
+  "ink": [
+   "amber",
+   "emerald"
+  ]
+ },
+ "Lenny - Toy Binoculars": {
+  "jp": "レニー - おもちゃの双眼鏡",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Toy"
+  ],
+  "text": "TAKE A GOOD LOOK When you play this character, chosen opponent reveals their hand and discards an action card of your choice. / COMIN' UP FAST Once during your turn, whenever you play an action, you may ready this character.",
+  "set": "12",
+  "num": "79",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Let It Go": {
+  "jp": "レット・イット・ゴー - LET IT GO",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 5 or more can {E} to sing this song for free.) / Put chosen character into their player's inkwell facedown and exerted.",
+  "set": "1",
+  "num": "163",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Let the Storm Rage On": {
+  "jp": "風よ吹け",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / Deal 2 damage to chosen character. Draw a card.",
+  "set": "2",
+  "num": "199",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Lilo & Stitch - Fun-Loving Friends": {
+  "jp": "リロ＆スティッチ - わんぱくなかよしオハナ",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Team",
+   "Hero",
+   "Alien"
+  ],
+  "text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Lilo or Stitch.) / Resist +1 (Damage dealt to this character is reduced by 1.) / Support (Whenever this character quests, you may add their {S} to another chosen character's {S} this turn.)",
+  "set": "13",
+  "num": "31",
+  "ink": [
+   "amber",
+   "steel"
+  ]
+ },
+ "Lilo - Bundled Up": {
+  "jp": "リロ - 寒さ対策バッチリ",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "EXTRA LAYERS During each opponent's turn, the first time this character would take damage, she takes no damage instead.",
+  "set": "11",
+  "num": "195",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Lilo - Escape Artist": {
+  "jp": "リロ - 抜け出し名人",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "NO PLACE I’D RATHER BE At the start of your turn, if this card is in your discard, you may play her and she enters play exerted.",
+  "set": "6",
+  "num": "2",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Lilo - Snow Artist": {
+  "jp": "リロ - 雪の芸術家",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "CREATIVE INSPIRATION While you have a character named Stitch in play, this character gets +1 {L}.",
+  "set": "11",
+  "num": "2",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Liquidator - Iced Over": {
+  "jp": "リキッデーター - こおりゃ結構！",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 2,
+  "lore": 0,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Villain"
+  ],
+  "text": "UNDERDOG If this is your first turn and you're not the first player, you pay 1 {I} less to play this character. / Reckless (This character can't quest and must challenge each turn if able.)",
+  "set": "11",
+  "num": "111",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Look at This Family": {
+  "jp": "大丈夫、家族がいる",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Sing Together 7 (Any number of your or your teammates' characters with total cost 7 or more may {E} to sing this song for free.) / Look at the top 5 cards of your deck. You may reveal up to 2 character cards and put them into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "4",
+  "num": "28",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Lucky Dime": {
+  "jp": "ラッキーダイム",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "NUMBER ONE {E}, 2 {I} — Choose a character of yours and gain lore equal to their {L}.",
+  "set": "3",
+  "num": "165",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Luisa Madrigal - Confident Climber": {
+  "jp": "ルイーサ・マドリガル - 自信家の登山家",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 6,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Ally",
+   "Madrigal"
+  ],
+  "text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Luisa Madrigal.) / I CAN TAKE IT 1 {I} — Move up to 1 damage from chosen character of yours to this character. Then, if this character has 3 or more damage, move all damage from this character to chosen opposing character.",
+  "set": "12",
+  "num": "60",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Luisa Madrigal - Pushing Through": {
+  "jp": "ルイーサ・マドリガル - 力自慢",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Madrigal"
+  ],
+  "text": "Challenger +2 (While challenging, this character gets +2 {S}.)",
+  "set": "12",
+  "num": "62",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Madam Mim - Fox": {
+  "jp": "マダム・ミム - キツネ",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Sorcerer"
+  ],
+  "text": "CHASING THE RABBIT When you play this character, banish her or return another chosen character of yours to your hand. / Rush (This character can challenge the turn they're played.)",
+  "set": "2",
+  "num": "46",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Magic Broom - Illuminary Keeper": {
+  "jp": "魔法のほうき - イルミナの保守係",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Broom"
+  ],
+  "text": "NICE AND TIDY Whenever you play another character, you may banish this character to draw a card.",
+  "set": "4",
+  "num": "48",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Malicious, Mean, and Scary": {
+  "jp": "俺は悪党！意地悪！下品！",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / Put 1 damage counter on each opposing character.",
+  "set": "10",
+  "num": "97",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Maui - Half-Shark": {
+  "jp": "マウイ - オレって半サメだろ？",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 7,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Deity"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / CHEEEEOHOOOO! Whenever this character challenges another character, you may return an action card from your discard to your hand. / WAYFINDING Whenever you play an action, gain 1 lore.",
+  "set": "6",
+  "num": "124",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Maui - Hero to All": {
+  "jp": "マウイ - みんなの英雄",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 6,
+  "wp": 5,
+  "lore": 0,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Deity"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / Reckless (This character can't quest and must challenge each turn if able.)",
+  "set": "1",
+  "num": "114",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Maurice's Workshop": {
+  "jp": "モーリスの工房",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "LOOKING FOR THIS? Whenever you play another item, you may pay 1 {I} to draw a card.",
+  "set": "2",
+  "num": "168",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Max Goof - Rebellious Teen": {
+  "jp": "マックス・グーフ - 反抗期のティーン",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "PERSONAL SOUNDTRACK When you play this character, you may pay 1 {I} to return a song card with cost 3 or less from your discard to your hand.",
+  "set": "9",
+  "num": "75",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Meilin Lee - Lead Vocalist": {
+  "jp": "メイ・リー - リード・ボーカリスト",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Red Panda"
+  ],
+  "text": "Singer 3 (This character counts as cost 3 to sing songs.) / BAND LOYALTY This character can't sing songs without Sing Together.",
+  "set": "13",
+  "num": "7",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Meilin Lee - Losing Control": {
+  "jp": "メイ・リー - コントロール不能",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Red Panda"
+  ],
+  "text": "RED PANDA POWER When you play this character, look at the top 4 cards of your deck. You may reveal a Red Panda character card or a song card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "13",
+  "num": "16",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Merlin - Crab": {
+  "jp": "マーリン - カニ",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Mentor",
+   "Sorcerer"
+  ],
+  "text": "READY OR NOT! When you play this character and when he leaves play, chosen character gains Challenger +3 this turn. (They get +3 {S} while challenging.)",
+  "set": "2",
+  "num": "50",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Merryweather - Feisty Fairy": {
+  "jp": "メリーウェザー - 気の短い妖精",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Fairy"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.)",
+  "set": "12",
+  "num": "139",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Mickey Mouse & Minnie Mouse - Adventuring Duo": {
+  "jp": "ミッキーマウス＆ミニーマウス - 大冒険カップル",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 5,
+  "lore": 5,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Team",
+   "Hero"
+  ],
+  "text": "Duo Shift 0 {I} (You may pay 0 {I} to play this on top of two of your characters, one named Mickey Mouse and one named Minnie Mouse.) / THINKING OF YOU If this character would be banished, put them into your inkwell facedown and exerted instead.",
+  "set": "13",
+  "num": "99",
+  "ink": [
+   "emerald",
+   "sapphire"
+  ]
+ },
+ "Mickey Mouse - Detective": {
+  "jp": "ミッキーマウス - 名探偵",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Detective"
+  ],
+  "text": "GET A CLUE When you play this character, you may put the top card of your deck into your inkwell facedown and exerted.",
+  "set": "1",
+  "num": "154",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Miguel Rivera - Street Musician": {
+  "jp": "ミゲル・リヴェラ - 街角の音楽家",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "SHARE THE MUSIC While you have a song card in your discard, this character gets +1 {L} and gains Singer 3. (They count as cost 3 to sing songs.)",
+  "set": "14",
+  "num": "21",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Mike Wazowski - Heroic Climber": {
+  "jp": "マイク・ワゾウスキ - トップを目指すヒーロー",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Monster"
+  ],
+  "text": "FIND A FRIEND When you play this character and whenever he quests, each player reveals the top card of their deck. If it's a character card, they may put it into their hand. Otherwise, put it on the bottom of their deck.",
+  "set": "13",
+  "num": "18",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Milo Thatch - Getting His Hands Dirty": {
+  "jp": "マイロ・サッチ - 現場主義",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 5,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "Ward / SCHOLAR'S GAMBIT When you play this character, you may choose and discard a card to return chosen character to their player's hand. / PRACTICAL KNOWLEDGE At the end of your turn, if 2 or more cards were put into your discard this turn, draw a card.",
+  "set": "12",
+  "num": "82",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Minnie Mouse - Curious Adventurer": {
+  "jp": "ミニーマウス - 調べたがりの冒険家",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "",
+  "set": "13",
+  "num": "87",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Minnie Mouse - Pirate Lookout": {
+  "jp": "ミニーマウス - 海賊の見張り番",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Pirate"
+  ],
+  "text": "LAND, HO! Once during your turn, whenever a card is put into your inkwell, you may return a location card from your discard to your hand.",
+  "set": "6",
+  "num": "120",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Minnie Mouse - Practical Traveler": {
+  "jp": "ミニーマウス - 堅実な旅人",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "DISCERNING EYE Whenever this character quests, if you played another character this turn, gain 1 lore.",
+  "set": "12",
+  "num": "159",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Minnie Mouse - Urban Visionary": {
+  "jp": "ミニーマウス - 都市の設計家",
+  "cost": 8,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 6,
+  "wp": 6,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.) / ALL BY DESIGN At the end of your turn, if this character is exerted, you may look at the cards in your inkwell and then you may return one to your hand. If you do either, exert all cards in your inkwell.",
+  "set": "14",
+  "num": "155",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Mor'du - Savage Cursed Prince": {
+  "jp": "モルデュー - 猛獣に堕した王子",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 8,
+  "wp": 8,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Prince"
+  ],
+  "text": "FEROCIOUS ROAR When you play this character, exert all your characters not named Mor'du. / ROOTED BY FEAR Your characters not named Mor'du can't ready at the start of your turn.",
+  "set": "12",
+  "num": "57",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Morph - Space Goo": {
+  "jp": "モーフ - 宇宙スライム",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Alien"
+  ],
+  "text": "MIMICRY You may play any character with Shift on this character as if this character had any name.",
+  "set": "3",
+  "num": "81",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Mother Gothel - Withered and Wicked": {
+  "jp": "マザー・ゴーテル - しわしわで性悪",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "WHAT HAVE YOU DONE?! This character enters play with 3 damage.",
+  "set": "2",
+  "num": "116",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Mr. Smee - Bumbling Mate": {
+  "jp": "ミスター・スミー - マヌケなお仲間",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Pirate"
+  ],
+  "text": "OH DEAR, DEAR, DEAR At the end of your turn, if this character is exerted and you don't have a Captain character in play, deal 1 damage to this character.",
+  "set": "3",
+  "num": "184",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Mufasa - Ruler of Pride Rock": {
+  "jp": "ムファサ - プライドロックの統治者",
+  "cost": 8,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 9,
+  "lore": 4,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Mentor",
+   "King"
+  ],
+  "text": "A DELICATE BALANCE When you play this character, exert all cards in your inkwell, then return 2 cards at random from your inkwell to your hand. / EVERYTHING THE LIGHT TOUCHES Whenever this character quests, ready all cards in your inkwell.",
+  "set": "5",
+  "num": "150",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Namaari - Single-Minded Rival": {
+  "jp": "ナマーリ - 一本気な宿敵",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Princess"
+  ],
+  "text": "STRATEGIC EDGE When you play this character and at the start of your turn, you may draw a card, then choose and discard a card. / EXTREME FOCUS This character gets +1 {S} for each card in your discard.",
+  "set": "8",
+  "num": "198",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Nani - Stage Manager": {
+  "jp": "ナニ - ステージマネージャー",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "THAT'S YOUR CUE When you play this character, look at the top 4 cards of your deck. You may reveal a character card with cost 2 or less and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "11",
+  "num": "20",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Paradise Falls - Exotic Destination": {
+  "jp": "パラダイスの滝 - エキゾチックな目的地",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 7,
+  "lore": 1,
+  "move": 2,
+  "classes": [],
+  "text": "QUITE A SIGHT While you have a character here, this location gets +3 {L}.",
+  "set": "13",
+  "num": "108",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Pawpsicle": {
+  "jp": "アイスポー",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "JUMBO POP When you play this item, you may draw a card. / THAT'S REDWOOD Banish this item — Remove up to 2 damage from chosen character.",
+  "set": "2",
+  "num": "169",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Pete - Games Referee": {
+  "jp": "ピート - リングのレフェリー",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain"
+  ],
+  "text": "BLOW THE WHISTLE When you play this character, opponents can't play actions until the start of your next turn.",
+  "set": "5",
+  "num": "195",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Peter Pan - Shadow Finder": {
+  "jp": "ピーター・パン - 影の追跡者",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / Evasive (Only characters with Evasive can challenge this character.) / FLY, OF COURSE! Your other characters with Evasive gain Rush.",
+  "set": "4",
+  "num": "54",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Piglet - Pooh Pirate Captain": {
+  "jp": "ピグレット - プー海賊団の船長",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Pirate",
+   "Captain"
+  ],
+  "text": "AND I'M THE CAPTAIN! While you have 2 or more other characters in play, this character gets +2 {L}.",
+  "set": "3",
+  "num": "16",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Powerline - Megastar": {
+  "jp": "パワーライン - ミリオン・スター",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 6,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn"
+  ],
+  "text": "Singer 9  / BACKUP SINGERS Once during your turn, whenever you play a song, return a character card with Singer from your discard to your hand. / PERFECT HARMONY This character gets +1 {L} for each other character with Singer you have in play.",
+  "set": "14",
+  "num": "17",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Prince John - Greediest of All": {
+  "jp": "プリンス・ジョン - 強欲王",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Prince"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.) / I SENTENCE YOU Whenever your opponent discards 1 or more cards, you may draw a card for each card discarded.",
+  "set": "2",
+  "num": "89",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Prince Naveen - Ukulele Player": {
+  "jp": "ナヴィーン王子 - ウクレレ奏者",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Prince"
+  ],
+  "text": "Singer 6 (This character counts as cost 6 to sing songs.) / IT'S BEAUTIFUL, NO? When you play this character, you may play a song with cost 6 or less for free.",
+  "set": "5",
+  "num": "3",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Priscilla - Efficient Clerk": {
+  "jp": "プリシラ - 最速の職員",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "NOT-SO-SECRET CRUSH This character enters play exerted. / FILING SYSTEM Whenever this character quests, you may look at the top 2 cards of your deck. Put one into your hand and the other into your inkwell facedown and exerted.",
+  "set": "14",
+  "num": "148",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Pudge - Controls the Weather": {
+  "jp": "パッジ - 嵐を起こす魚",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Deity"
+  ],
+  "text": "GOOD FRIEND If you have a character named Lilo in play, you can play this character for free.",
+  "set": "11",
+  "num": "3",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Randall Boggs - Scary Smart": {
+  "jp": "ランドール・ボッグス - 怖いほど狡猾",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Monster"
+  ],
+  "text": "GET OUTTA HERE! When you play this character, put chosen character of yours into your inkwell facedown and exerted. / DEVIOUS PLAN At the end of your turn, if all cards in your inkwell are exerted, gain 1 lore.",
+  "set": "13",
+  "num": "153",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Rapunzel - Gifted with Healing": {
+  "jp": "ラプンツェル - いやしの賜物",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "GLEAM AND GLOW When you play this character, remove up to 3 damage from one of your characters. Draw a card for each 1 damage removed this way.",
+  "set": "1",
+  "num": "18",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Rex - Protective Dinosaur": {
+  "jp": "レックス - カバウノサウルス",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Dinosaur",
+   "Toy"
+  ],
+  "text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.) / RUN AWAY! During an opponent's turn, when this character is banished, gain 1 lore.",
+  "set": "12",
+  "num": "10",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Sabotage": {
+  "jp": "破壊工作",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Banish chosen item or location and all other items or locations with the same name.",
+  "set": "12",
+  "num": "96",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Sail the Azurite Sea": {
+  "jp": "アズライト航海記",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "This turn, you may put an additional card from your hand into your inkwell facedown. Draw a card.",
+  "set": "6",
+  "num": "163",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Sapphire Coil": {
+  "jp": "サファイア・コイル",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "BRILLIANT SHINE During your turn, whenever a card is put into your inkwell, you may give chosen character -2 {S} this turn.",
+  "set": "7",
+  "num": "179",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Scar - Vicious Cheater": {
+  "jp": "スカー - 凶悪な謀り屋",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 6,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / DADDY ISN'T HERE TO SAVE YOU During your turn, whenever this character banishes another character in a challenge, you may ready this character. He can't quest for the rest of this turn.",
+  "set": "2",
+  "num": "125",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Scram!": {
+  "jp": "消えっちまえ！",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Put chosen opposing character with cost 2 or less into their player's inkwell facedown and exerted.",
+  "set": "14",
+  "num": "165",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Scrooge Mcduck - Resourceful Miser": {
+  "jp": "スクルージ・マクダック - 抜け目ない守銭奴",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "PUT IT TO GOOD USE You may exert 4 items of yours to play this character for free. / FORTUNE HUNTER When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "7",
+  "num": "154",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Shere Khan - Opportunistic Tycoon": {
+  "jp": "シア・カーン - 虎視眈々の実力者",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain"
+  ],
+  "text": "ONE-SIDED DEAL When you play this character, each opponent may choose and discard a card. For each opponent who doesn't, get 1 ink drop. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "81",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Sisu - Daring Visitor": {
+  "jp": "シスー - 大胆不敵な来訪者",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Deity",
+   "Dragon"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / BRING ON THE HEAT! When you play this character, banish chosen opposing character with 1 {S} or less.",
+  "set": "4",
+  "num": "123",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Sisu - Empowered Sibling": {
+  "jp": "シスー - 兄弟姉妹の希望",
+  "cost": 8,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 4,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Deity",
+   "Dragon"
+  ],
+  "text": "Shift 6 (You may pay 6 {I} to play this on top of one of your characters named Sisu.) / I GOT THIS! When you play this character, banish all opposing characters with 2 {S} or less.",
+  "set": "4",
+  "num": "125",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Stitch - New Dog": {
+  "jp": "スティッチ - あたしの犬",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Alien"
+  ],
+  "text": "",
+  "set": "1",
+  "num": "22",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Stitch - Protector of Frogs": {
+  "jp": "スティッチ - カエルの守護者",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Alien"
+  ],
+  "text": "",
+  "set": "13",
+  "num": "180",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Strength of a Raging Fire": {
+  "jp": "持つんだ熱い心",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / Deal damage to chosen character equal to the number of characters you have in play.",
+  "set": "2",
+  "num": "201",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Strike A Good Match": {
+  "jp": "縁組次第",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Draw 2 cards, then choose and discard a card.",
+  "set": "3",
+  "num": "96",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Sudden Chill": {
+  "jp": "背すじがゾクッ！",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Each opponent chooses and discards a card.",
+  "set": "1",
+  "num": "98",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Sugar Rush Speedway - Finish Line": {
+  "jp": "シュガーラッシュスピードウェイ - ゴールライン",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 7,
+  "lore": 0,
+  "move": 6,
+  "classes": [],
+  "text": "BRING IT HOME, LITTLE ONE! When you move a character here from another location, you may banish this location to gain 3 lore and draw 3 cards.",
+  "set": "6",
+  "num": "35",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Sugar Rush Speedway - Starting Line": {
+  "jp": "シュガーラッシュスピードウェイ - スタートライン",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 5,
+  "lore": 0,
+  "move": 0,
+  "classes": [],
+  "text": "ON YOUR MARKS! Once per turn, you may {E} chosen character here and deal them 1 damage to move them to another location for free.",
+  "set": "5",
+  "num": "135",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Sven - Leaping Reindeer": {
+  "jp": "スヴェン - とんでもトナカイ",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / Challenger +3 (While challenging, this character gets +3 {S}.) / Evasive (Only characters with Evasive can challenge this character.)",
+  "set": "11",
+  "num": "60",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Taffyta Muttonfudge - Crowd Favorite": {
+  "jp": "タフィタ・マトンファッジ - 大人気レーサー",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Racer"
+  ],
+  "text": "SHOWSTOPPER When you play this character, if you have a location in play, each opponent loses 1 lore.",
+  "set": "5",
+  "num": "114",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Taffyta Muttonfudge - Sour Speedster": {
+  "jp": "タフィタ・マトンファッジ - スッパイ・スピードスター",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Ally",
+   "Racer"
+  ],
+  "text": "Shift 2 (You may pay 2 {I} to play this on top of one of your characters named Taffyta Muttonfudge.) / NEW ROSTER Once per turn, when this character moves to a location, gain 2 lore.",
+  "set": "5",
+  "num": "117",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Tamatoa - Happy as a Clam": {
+  "jp": "タマトア - ゴージャス！",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "COOLEST COLLECTION When you play this character, return up to 2 item cards from your discard to your hand. / I'M BEAUTIFUL, BABY! Whenever this character quests, you may play an item for free.",
+  "set": "7",
+  "num": "162",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Tamatoa - So Shiny!": {
+  "jp": "タマトア - シャイニー！",
+  "cost": 8,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 8,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "WHAT HAVE WE HERE? When you play this character and whenever he quests, you may return an item card from your discard to your hand. / GLAM This character gets +1 {L} for each item you have in play.",
+  "set": "1",
+  "num": "159",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Teeth and Ambitions": {
+  "jp": "野心と牙",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Deal 2 damage to chosen character of yours to deal 2 damage to another chosen character.",
+  "set": "2",
+  "num": "130",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "The Bare Necessities": {
+  "jp": "ベア・ネセシティ - THE BARE NECESSITIES",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Chosen opponent reveals their hand and discards a non-character card of your choice.",
+  "set": "3",
+  "num": "28",
+  "ink": [
+   "amber"
+  ]
+ },
+ "The Family Scattered": {
+  "jp": "散り散りの家族",
+  "cost": 8,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Chosen opponent chooses 3 of their characters and returns one of those cards to their hand, puts one on the bottom of their deck, and puts one on the top of their deck.",
+  "set": "12",
+  "num": "97",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "The Islands I Pulled From the Sea": {
+  "jp": "島があるのも俺のおかげ",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / Search your deck for a location card, reveal that card to all players, and put it into your hand. Then, shuffle your deck.",
+  "set": "6",
+  "num": "130",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "The Leviathan - Guardian of Atlantis": {
+  "jp": "レヴィアタン - アトランティスの守護怪獣",
+  "cost": 10,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 10,
+  "wp": 10,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Monster",
+   "Robot"
+  ],
+  "text": "IT'S A MACHINE! When you play this character, if 2 or more cards were put into your discard this turn, you may banish any number of chosen opposing characters with total {S} 10 or less.",
+  "set": "12",
+  "num": "125",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "The Muses - Proclaimers of Heroes": {
+  "jp": "ミューズ - アートとヒーローの専門家",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.) / THE GOSPEL TRUTH Whenever you play a song, you may return chosen character with 2 {S} or less to their player's hand.",
+  "set": "4",
+  "num": "90",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "The Queen - Devious Disguise": {
+  "jp": "女王 - 欺きの姿",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Queen",
+   "Sorcerer"
+  ],
+  "text": "EVIL SCHEME When you play this character, you may draw a card. If you do, each opponent gains 2 lore. / JEALOUS HEART While an opponent has more lore than you, this character gets +2 {L}.",
+  "set": "12",
+  "num": "90",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "The Queen's Castle - Mirror Chamber": {
+  "jp": "女王の城 - 鏡の間",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 7,
+  "lore": 2,
+  "move": 1,
+  "classes": [],
+  "text": "USING THE MIRROR At the start of your turn, for each character you have here, you may draw a card.",
+  "set": "3",
+  "num": "67",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "The Return of Hercules": {
+  "jp": "ヘラクレスの帰還",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Each player may reveal a character card from their hand and play it for free.",
+  "set": "7",
+  "num": "118",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "The Troubadour - Musical Narrator": {
+  "jp": "トルバドール - ミュージカル・ナレーター",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Resist +1 (Damage dealt to this character is reduced by 1.) / Singer 4 (This character counts as cost 4 to sing songs.)",
+  "set": "7",
+  "num": "11",
+  "ink": [
+   "amber",
+   "steel"
+  ]
+ },
+ "Tipo - Growing Son": {
+  "jp": "ティポ - 育ち盛りの息子",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "MEASURE ME AGAIN When you play this character, you may put a card from your hand into your inkwell facedown and exerted.",
+  "set": "5",
+  "num": "157",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Touch the Sky": {
+  "jp": "タッチ・ザ・スカイ - TOUCH THE SKY",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Move a character of yours to a location for free. Then, draw cards equal to that location's {L}.",
+  "set": "12",
+  "num": "199",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Toulouse - Rough and Tumble": {
+  "jp": "トゥルーズ - やんちゃざかり",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "UNBECOMING BEHAVIOR When you play this character, opponents can't play actions until the start of your next turn.",
+  "set": "14",
+  "num": "182",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Tramp - Enterprising Dog": {
+  "jp": "トランプ - 切れ者の犬",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "HEY, PIDGE If you have a character named Lady in play, you pay 1 {I} less to play this character. / NO TIME FOR WISECRACKS When you play this character, chosen character of yours gets +1 {S} this turn for each other character you have in play.",
+  "set": "7",
+  "num": "110",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Tramp - Street-Smart Dog": {
+  "jp": "トランプ - 裏路地暮らしの犬",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "NOW IT'S A PARTY For each character you have in play, you pay 1 {I} less to play this character. / HOW'S PICKINGS? When you play this character, you may draw a card for each other character you have in play, then choose and discard that many cards.",
+  "set": "7",
+  "num": "10",
+  "ink": [
+   "amber",
+   "emerald"
+  ]
+ },
+ "Under the Sea": {
+  "jp": "アンダー・ザ・シー - Under the Sea",
+  "cost": 8,
+  "inkable": false,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Sing Together 8 (Any number of your or your teammates' characters with total cost 8 or more may {E} to sing this song for free.) / Put all opposing characters with 2 {S} or less on the bottom of their players' decks in any order.",
+  "set": "4",
+  "num": "95",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Undermine": {
+  "jp": "妨害小細工",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Chosen opponent chooses and discards a card. Chosen character gets +2 {S} this turn.",
+  "set": "8",
+  "num": "117",
+  "ink": [
+   "emerald",
+   "ruby"
+  ]
+ },
+ "Ursula - Deceiver": {
+  "jp": "アースラ - 騙し屋",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Sorcerer"
+  ],
+  "text": "YOU'LL NEVER EVEN MISS IT When you play this character, chosen opponent reveals their hand and discards a song card of your choice.",
+  "set": "3",
+  "num": "90",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Ursula - Deceiver of All": {
+  "jp": "アースラ - 七つの海の騙し屋",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Sorcerer"
+  ],
+  "text": "WHAT A DEAL Whenever this character sings a song, you may play that song again from your discard for free, then put it on the bottom of your deck.",
+  "set": "3",
+  "num": "91",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Ursula - Vanessa": {
+  "jp": "アースラ - ヴァネッサ",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Sorcerer"
+  ],
+  "text": "Singer 4 (This character counts as cost 4 to sing songs.)",
+  "set": "4",
+  "num": "25",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Vision of the Future": {
+  "jp": "未来の幻視",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Look at the top 5 cards of your deck. Put one into your hand and the rest on the bottom of your deck in any order.",
+  "set": "5",
+  "num": "160",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Vitalisphere": {
+  "jp": "生命の宝球",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "EXTRACT OF RUBY 1 {I}, Banish this item — Chosen character gains Rush and gets +2 {S} this turn. (They can challenge the turn they're played.)",
+  "set": "4",
+  "num": "134",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Wildcat - Unconventional Mechanic": {
+  "jp": "ワイルドキャット - 型破りな整備士",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "WELL, THAT'S BROKEN When you play this character, you may banish chosen item.",
+  "set": "14",
+  "num": "180",
+  "ink": [
+   "steel"
+  ]
+ },
+ "You Broke My Smolder": {
+  "jp": "かっこわるすぎィ…",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Discard your hand. Draw 2 cards.",
+  "set": "13",
+  "num": "201",
+  "ink": [
+   "steel"
+  ]
+ },
+ "You Came Back": {
+  "jp": "来てくれたの？",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Ready chosen character.",
+  "set": "6",
+  "num": "97",
+  "ink": [
+   "emerald"
+  ]
+ }
+}

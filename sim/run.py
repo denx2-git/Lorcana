@@ -1,80 +1,87 @@
-"""使い方:
-  python3 run.py                         # 青鋼ロック vs 黄鋼ソング を2000試合
-  python3 run.py -n 10000 --seed 1
-  python3 run.py --log 1                 # 1試合目のログを表示
+"""1対1の対戦を何試合も回す。
+
+  python3 run.py -a blue_lock -b as_song14 -n 200
+  python3 run.py -a blue_lock -b as_song14 --log 1
+  python3 run.py --list                    # デッキ一覧
 """
 import argparse
 import json
+import os
 import statistics
 import sys
-import os
+from multiprocessing import Pool
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from decks import DECKS, NAMES_JP, make_policy  # noqa: E402
 from engine import run_game  # noqa: E402
-from policies import POLICIES  # noqa: E402
-from cards import DECK_NAMES_JP  # noqa: E402
+
+
+def play_one(args):
+    a, b, i, seed, list_a, list_b, log = args
+    pa = make_policy(a, b, list_a, list_b)
+    pb = make_policy(b, a, list_b, list_a)
+    lists = {}
+    if list_a:
+        lists[0] = list_a
+    if list_b:
+        lists[1] = list_b
+    g = run_game(a, b, pa, pb, i % 2, seed * 1_000_003 + i, log=log, lists=lists)
+    return {"winner": g.winner, "first": i % 2, "turns": g.turn, "lore": [g.players[0].lore, g.players[1].lore],
+            "lines": g.lines if log else None}
+
+
+def matchup(a, b, n, seed=0, list_a=None, list_b=None, procs=4, log=0):
+    jobs = [(a, b, i, seed, list_a, list_b, i < log) for i in range(n)]
+    if procs > 1 and n >= 8:
+        with Pool(procs) as pool:
+            res = pool.map(play_one, jobs, chunksize=max(1, n // (procs * 4)))
+    else:
+        res = [play_one(j) for j in jobs]
+    return res
+
+
+def summarize(res):
+    n = len(res)
+    w = sum(1 for r in res if r["winner"] == 0)
+    l = sum(1 for r in res if r["winner"] == 1)
+    on_play = [r for r in res if r["first"] == 0]
+    on_draw = [r for r in res if r["first"] == 1]
+    return {
+        "games": n, "win": w, "loss": l, "draw": n - w - l, "winrate": w / n if n else 0,
+        "on_play": sum(1 for r in on_play if r["winner"] == 0) / max(1, len(on_play)),
+        "on_draw": sum(1 for r in on_draw if r["winner"] == 0) / max(1, len(on_draw)),
+        "avg_turns": statistics.mean(r["turns"] for r in res) if res else 0,
+    }
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("-a", default="blue_lock")
-    ap.add_argument("-b", default="amber_steel_song")
-    ap.add_argument("-n", type=int, default=2000)
+    ap.add_argument("-b", default="as_song14")
+    ap.add_argument("-n", type=int, default=200)
     ap.add_argument("--seed", type=int, default=0)
-    ap.add_argument("--log", type=int, default=0, help="最初のN試合のログを表示")
-    ap.add_argument("--json", help="結果をJSONで保存")
-    ap.add_argument("--list-a", help="Aのデッキを上書きするリストファイル（Duels.ink形式）")
-    ap.add_argument("--list-b", help="Bのデッキを上書きするリストファイル（Duels.ink形式）")
+    ap.add_argument("--log", type=int, default=0)
+    ap.add_argument("--procs", type=int, default=4)
+    ap.add_argument("--list-a")
+    ap.add_argument("--list-b")
+    ap.add_argument("--list", action="store_true")
     args = ap.parse_args()
-
-    from cards import DECKS
-    if args.list_a:
-        DECKS[args.a] = open(args.list_a, encoding="utf-8").read()
-    if args.list_b:
-        DECKS[args.b] = open(args.list_b, encoding="utf-8").read()
-    pa, pb = POLICIES[args.a](), POLICIES[args.b]()
-    wins = [0, 0]
-    wins_first = [[0, 0], [0, 0]]  # [先攻側pid][勝者pid]
-    games_first = [0, 0]
-    lengths, lore_loser = [], []
-    draws = 0
-    lock_turns = 0
-    for i in range(args.n):
-        first = i % 2
-        g = run_game(args.a, args.b, pa, pb, first, args.seed * 1_000_003 + i, log=i < args.log)
-        if i < args.log:
-            print(f"===== 試合{i + 1}（先攻: {'A' if first == 0 else 'B'}）=====")
-            print("\n".join(g.lines))
-            print(f"勝者: {g.winner}  ロア {g.players[0].lore}-{g.players[1].lore}\n")
-        games_first[first] += 1
-        if g.winner is None:
-            draws += 1
-            continue
-        wins[g.winner] += 1
-        wins_first[first][g.winner] += 1
-        lengths.append(g.turn_no)
-        lore_loser.append(g.players[1 - g.winner].lore)
-        lock_turns += g.stats["lock_turns"][0]
-
-    na, nb = DECK_NAMES_JP.get(args.a, args.a), DECK_NAMES_JP.get(args.b, args.b)
-    n = args.n
-    res = {
-        "A": na, "B": nb, "games": n,
-        "A_winrate": wins[0] / n, "B_winrate": wins[1] / n, "draws": draws,
-        "A_winrate_on_play": wins_first[0][0] / max(1, games_first[0]),
-        "A_winrate_on_draw": wins_first[1][0] / max(1, games_first[1]),
-        "avg_turns": statistics.mean(lengths) if lengths else 0,
-        "avg_loser_lore": statistics.mean(lore_loser) if lore_loser else 0,
-        "A_lock_turns_per_game": lock_turns / n,
-    }
-    print(f"{na} vs {nb}  {n}試合")
-    print(f"  {na} 勝率 {res['A_winrate']:.1%}（先攻 {res['A_winrate_on_play']:.1%} / 後攻 {res['A_winrate_on_draw']:.1%}）")
-    print(f"  {nb} 勝率 {res['B_winrate']:.1%}  引き分け {draws}")
-    print(f"  平均ターン数 {res['avg_turns']:.1f}  負けた側の平均ロア {res['avg_loser_lore']:.1f}")
-    print(f"  {na} が相手のターンを封じた回数（1試合平均） {res['A_lock_turns_per_game']:.1f}")
-    if args.json:
-        json.dump(res, open(args.json, "w"), ensure_ascii=False, indent=1)
+    if args.list:
+        for k, v in DECKS.items():
+            print(f"{k:16s} {v['name']}（{v['pair']}）")
+        return
+    la = open(args.list_a, encoding="utf-8").read() if args.list_a else None
+    lb = open(args.list_b, encoding="utf-8").read() if args.list_b else None
+    res = matchup(args.a, args.b, args.n, args.seed, la, lb, args.procs, args.log)
+    for r in res:
+        if r["lines"]:
+            print("\n".join(r["lines"]))
+            print(f"勝者 P{r['winner']}  ロア {r['lore']}\n")
+    s = summarize(res)
+    print(f"{NAMES_JP[args.a]} vs {NAMES_JP[args.b]}  {s['games']}試合")
+    print(f"  勝率 {s['winrate']:.1%}（先攻 {s['on_play']:.1%} / 後攻 {s['on_draw']:.1%}）引き分け {s['draw']}  平均{s['avg_turns']:.1f}ターン")
+    print(json.dumps(s, ensure_ascii=False))
 
 
 if __name__ == "__main__":

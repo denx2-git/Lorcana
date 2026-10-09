@@ -1,0 +1,188 @@
+{
+ "deck": "blue_lock",
+ "name": "青鋼ロック",
+ "start": 0.3057464047363036,
+ "end": 0.6709645666716373,
+ "tries": 260,
+ "verify_before": 0.27230230333408545,
+ "verify_after": 0.5855870489299048,
+ "verify_detail": {
+  "ae-mike": 0.48125,
+  "ae-queen": 0.5981308411214953,
+  "as_song14": 0.65625,
+  "as-std": 0.640625,
+  "as-naveen": 0.59375,
+  "as-lilo-aggro": 0.3488372093023256,
+  "es-fergus": 0.7009345794392523,
+  "es-location": 0.7906976744186046,
+  "rs-basil": 0.5,
+  "rs-inkrunner": 0.4528301886792453,
+  "er-leviathan": 0.875,
+  "ar-sugar": 0.71875,
+  "amr-evasive": 0.25,
+  "ams-hades": 0.4375,
+  "esa-mickey": 0.7619047619047619,
+  "emerald_lock": 0.6363636363636364
+ },
+ "swaps": [
+  {
+   "out": "Toulouse - Rough and Tumble",
+   "in": "Belle - Apprentice Inventor",
+   "before": 0.3057464047363036,
+   "after": 0.338930747516606,
+   "check": [
+    0.2758357336640165,
+    0.3547404895889743
+   ]
+  },
+  {
+   "out": "Ink Explosion",
+   "in": "Calhoun - Marine Sergeant",
+   "before": 0.338930747516606,
+   "after": 0.37318850248143165,
+   "check": [
+    0.2791232710424629,
+    0.312636007838028
+   ]
+  },
+  {
+   "out": "Bellwether - Highly Qualified",
+   "in": "Calhoun - Marine Sergeant",
+   "before": 0.37318850248143165,
+   "after": 0.4045394373677201,
+   "check": [
+    0.3090521244561648,
+    0.3960535162555364
+   ]
+  },
+  {
+   "out": "Chief Bogo - Police Commissioner",
+   "in": "Beyond the Horizon",
+   "before": 0.4045394373677201,
+   "after": 0.42344181258322655,
+   "check": [
+    0.41198105112246514,
+    0.42297973257569205
+   ]
+  },
+  {
+   "out": "Keep the Ancient Ways",
+   "in": "Hades - Meticulous Schemer",
+   "before": 0.42344181258322655,
+   "after": 0.4461004109994008,
+   "check": [
+    0.39571295707659326,
+    0.4303660798610293
+   ]
+  },
+  {
+   "out": "Keep the Ancient Ways",
+   "in": "I Find 'Em, I Flatten 'Em",
+   "before": 0.4461004109994008,
+   "after": 0.47982930836466187,
+   "check": [
+    0.4336470114247892,
+    0.4415724193501971
+   ]
+  },
+  {
+   "out": "Toulouse - Rough and Tumble",
+   "in": "Doc - Bold Knight",
+   "before": 0.47982930836466187,
+   "after": 0.5018443303796838,
+   "check": [
+    0.437613835846159,
+    0.46779187890298995
+   ]
+  },
+  {
+   "out": "Keep the Ancient Ways",
+   "in": "Let the Storm Rage On",
+   "before": 0.5018443303796838,
+   "after": 0.5472315096052468,
+   "check": [
+    0.5160669110164059,
+    0.5320102082728344
+   ]
+  },
+  {
+   "out": "Let It Go",
+   "in": "Hades - Infernal Schemer",
+   "before": 0.5472315096052468,
+   "after": 0.5698865107956016,
+   "check": [
+    0.5064337364842415,
+    0.556168653643401
+   ]
+  },
+  {
+   "out": "Hades - Meticulous Schemer",
+   "in": "Mr. Smee - Bumbling Mate",
+   "before": 0.5698865107956016,
+   "after": 0.589206556630799,
+   "check": [
+    0.48257189873351475,
+    0.49442907447957946
+   ]
+  },
+  {
+   "out": "Toulouse - Rough and Tumble",
+   "in": "Merryweather - Feisty Fairy",
+   "before": 0.589206556630799,
+   "after": 0.6115172052040738,
+   "check": [
+    0.5436846449472711,
+    0.5930690615034049
+   ]
+  },
+  {
+   "out": "Keep the Ancient Ways",
+   "in": "Strength of a Raging Fire",
+   "before": 0.6115172052040738,
+   "after": 0.6335472701634317,
+   "check": [
+    0.5622322682928743,
+    0.5924708755516835
+   ]
+  },
+  {
+   "out": "Beyond the Horizon",
+   "in": "Calhoun - Marine Sergeant",
+   "before": 0.6335472701634317,
+   "after": 0.6527234269658511,
+   "check": [
+    0.581112406112406,
+    0.618986027066835
+   ]
+  },
+  {
+   "out": "Merryweather - Feisty Fairy",
+   "in": "Ink Explosion",
+   "before": 0.6527234269658511,
+   "after": 0.6709645666716373,
+   "check": [
+    0.60419586959991,
+    0.6191858366100791
+   ]
+  }
+ ],
+ "list": "4 Doug - Lying in Wait\n4 Fergus - King of DunBroch\n4 Hades - Infernal Schemer\n4 Let the Storm Rage On\n4 Pete - Games Referee\n4 Priscilla - Efficient Clerk\n4 Scram!\n3 Bellwether - Highly Qualified\n3 Calhoun - Marine Sergeant\n3 Carl Fredricksen - Wilderness Guide\n3 Let It Go\n3 Wildcat - Unconventional Mechanic\n2 Clarabelle - Out for a Stroll\n2 Grab Your Sword\n2 Hot Potato\n2 Minnie Mouse - Urban Visionary\n1 Belle - Apprentice Inventor\n1 Chief Bogo - Police Commissioner\n1 Doc - Bold Knight\n1 Go Go Tomago - Working Late\n1 I Find 'Em, I Flatten 'Em\n1 Ink Explosion\n1 Mr. Smee - Bumbling Mate\n1 Strength of a Raging Fire\n1 Toulouse - Rough and Tumble",
+ "detail": {
+  "ae-mike": 0.475,
+  "ae-queen": 0.8148148148148148,
+  "as_song14": 0.78125,
+  "as-std": 0.875,
+  "as-naveen": 0.625,
+  "as-lilo-aggro": 0.36363636363636365,
+  "es-fergus": 0.8148148148148148,
+  "es-location": 0.8181818181818182,
+  "rs-basil": 0.5,
+  "rs-inkrunner": 0.6153846153846154,
+  "er-leviathan": 0.75,
+  "ar-sugar": 0.75,
+  "amr-evasive": 0.375,
+  "ams-hades": 0.6875,
+  "esa-mickey": 0.6,
+  "emerald_lock": 1.0
+ }
+}
