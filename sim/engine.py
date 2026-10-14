@@ -192,6 +192,7 @@ class Game:
         p.hand.remove(card)
         self.to_discard_card(p, card)
         effects.on_discard(self, p, 1)
+        effects.on_discard_card(self, p, card)
 
     def leave_play(self, x, dest="discard"):
         """x を場から離す。dest: discard / hand / inkwell / deck_bottom / deck_top"""
@@ -301,7 +302,7 @@ class Game:
             x.dry = False
             x.tmp_str = 0
             x.tmp_lore = 0
-            for k in ("rush", "alert", "challenger", "challenge_ready"):
+            for k in ("rush", "alert", "challenger", "challenge_ready", "evasive_tmp", "resist_tmp"):
                 x.flags.pop(k, None)
         if self.turn != 1:
             self.draw(p)
@@ -326,7 +327,7 @@ class Game:
     # ----- 行動 -----
     def can_ink(self, p, card):
         extra = p.t.get("extra_ink", 0)
-        return card.inkable and p.t.get("inked", 0) < 1 + extra
+        return effects_inkable(self, p, card) and p.t.get("inked", 0) < 1 + extra
 
     def do_ink(self, p, card):
         import effects
@@ -447,13 +448,15 @@ class Game:
         att.exerted = True
         self.log(f"  チャレンジ: {att.card.jp} → {tgt.card.jp}")
         effects.on_challenge(self, p, att, tgt)
-        a = self.char_str(att) + effects.challenger_bonus(self, att)
+        a = effects.challenge_dmg(self, att) + effects.challenger_bonus(self, att)
         if tgt.card.kind == "location":
             self.deal(tgt, a, src="challenge")
             return
-        d = self.char_str(tgt)
+        d = effects.challenge_dmg(self, tgt)
         effects.on_challenged(self, o, tgt, att)
         tgt_alive_before = tgt in o.perms
+        if not tgt_alive_before:
+            return  # スクルージ（S.H.U.S.H.エージェント）などで手札に戻った：ダメージなし
         killed = self.deal(tgt, a, src="challenge") if tgt_alive_before else False
         if not effects.no_damage_from_challenge(self, att):
             self.deal(att, d, src="challenge")
@@ -498,6 +501,11 @@ class Game:
             return []
         ok.sort(key=lambda x: (self.char_lore(x), x.card.cost))
         return [[ok[0]]]
+
+
+def effects_inkable(g, p, card):
+    import effects
+    return effects.inkable(g, p, card)
 
 
 def run_game(deck_a, deck_b, pol_a, pol_b, first, seed, log=False, lists=None):

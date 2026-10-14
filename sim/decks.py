@@ -158,6 +158,104 @@ DECKS["esa_priscilla"] = {"name": "緑青ミキミニ・プリシラ型（第14�
 4 Minnie Mouse - Urban Visionary
 """}
 
+
+# スクショで共有されたデッキ・黄緑ドッグの比較用（2026/10/14 追加）
+DECKS["ae_nokida"] = {"name": "黄緑ドッグ（キーダなし・わいけー選手）", "pair": "amber,emerald", "source": "わいけー選手（セットチャンピオンシップ優勝）", "list_text": """
+4 Ursula - Deceiver
+4 Elinor - Renowned Diplomat
+4 Aurora - Holding Court
+2 Go Go Tomago - Darting Dynamo
+2 Dale - Ready for His Shot
+4 Tramp - Enterprising Dog
+3 Tramp - Street-Smart Dog
+4 Nani - Stage Manager
+2 Pluto - Friendly Pooch
+1 The Horned King - Merciless Master
+4 Bobby Zimuruski - Spray Cheese Kid
+2 Mike Wazowski - Heroic Climber
+2 Mushu - Stealthy Dragon
+3 Rhino - One-Sixteenth Wolf
+1 Rapunzel - Gifted with Healing
+4 Lilo - Escape Artist
+2 Rex - Protective Dinosaur
+2 Lady - Miss Park Avenue
+4 Lady - Decisive Dog
+4 Grandmother Willow - Ancient Advisor
+2 Under the Sea
+"""}
+DECKS["es_items14"] = {"name": "青緑アイテム（第14弾・ニシオカ選手）", "pair": "emerald,sapphire", "source": "ニシオカ選手（スクショ）", "list_text": """
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Blinding Chem Ball
+4 Sail the Azurite Sea
+4 Inkrunner
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Belle - Apprentice Inventor
+4 Baymax - Lab Assistant
+4 Ariel - Collector of Oddities
+4 Tamatoa - Happy as a Clam
+2 Hades - Infernal Schemer
+4 Milo Thatch - Getting His Hands Dirty
+2 Lucky Dime
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+"""}
+DECKS["est_aggro14"] = {"name": "緑鋼アグロ（第14弾・拓さん）", "pair": "emerald,steel", "source": "拓さん（スクショ）", "list_text": """
+4 Cursed Merfolk - Ursula's Handiwork
+4 Mulan - Disguised Soldier
+4 Gantu - Hamsterviel's Accomplice
+4 Rapunzel - Escaping the Tower
+4 You Broke My Smolder
+4 Doc - Bold Knight
+4 Scrooge McDuck - S.H.U.S.H. Agent
+4 Look What You've Done
+4 Mother Gothel - Evil as Ever
+4 Toulouse - Rough and Tumble
+4 Flash - Efficient Clerk
+2 Jaq - Connoisseur of Climbing
+2 Lenny - Toy Binoculars
+4 Flynn Rider - High-Climbing Rogue
+4 Dr. Bushroot - Evil Botanist
+4 Rapunzel & Flynn Rider - Unlikely Pair
+"""}
+DECKS["re_farewell"] = {"name": "赤緑お別れマキシマス（第14弾・ニシオカ選手）", "pair": "emerald,ruby", "source": "ニシオカ選手（スクショ）", "list_text": """
+4 Rivera Family Photo
+4 Jebidiah Farnsworth - Cookie
+4 Another Tale to Spin
+4 Though I Have to Say Goodbye
+4 Strike a Good Match
+4 Max Goof - Karaoke Star
+4 Firefly Swarm
+4 The Torn Corner
+4 Land of the Dead - Marigold Bridge
+4 The Return of Hercules
+4 Maui - Half-Shark
+4 Maximus - Team Champion
+4 The Leviathan - Guardian of Atlantis
+4 Heffalumps and Woozles
+4 Be Prepared
+"""}
+DECKS["ae_dog14"] = {"name": "黄緑ドッグ（第14弾入り・自作）", "pair": "amber,emerald", "source": "自作（いつわ選手の優勝リスト＋第14弾）", "list_text": """
+4 Under the Sea
+4 Ursula - Deceiver
+4 Elinor - Renowned Diplomat
+4 Aurora - Holding Court
+4 Kida - Protector of Atlantis
+4 Tramp - Enterprising Dog
+4 Tramp - Street-Smart Dog
+4 Nani - Stage Manager
+4 Meilin Lee - Lead Vocalist
+4 Lilo - Escape Artist
+4 Lady - Decisive Dog
+4 Grandmother Willow - Ancient Advisor
+3 Lady - Relaxed and Rested
+3 Bobby Zimuruski - Spray Cheese Kid
+2 Mike Wazowski - Heroic Climber
+2 Lady - Miss Park Avenue
+2 Nick Wilde - Toy Drive Officer
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -289,6 +387,35 @@ CONFIG = {
     },
 }
 
+CONFIG["ae_dog14"] = dict(CONFIG["ae-mike"], keep=CONFIG["ae-mike"]["keep"] | {"Lady - Relaxed and Rested"})
+CONFIG["ae_nokida"] = dict(CONFIG["ae-mike"], keep=CONFIG["ae-mike"]["keep"] | {"Rhino - One-Sixteenth Wolf", "Pluto - Friendly Pooch"},
+                           ship={"Tramp - Street-Smart Dog", "Lady - Miss Park Avenue", "The Horned King - Merciless Master"})
+CONFIG["es_items14"] = {
+    "keep": {"Pawpsicle", "Prototype Chem Ball", "Blinding Chem Ball", "Inkrunner", "Hidden Inkcaster",
+             "Honey Lemon - Testing the Limits", "Sail the Azurite Sea"},
+    "ship": {"Stegmutt - Clumsy Dinosaur", "Lucky Dime", "Hades - Infernal Schemer", "Milo Thatch - Getting His Hands Dirty"},
+    "never_ink": {"Honey Lemon - Testing the Limits", "Ariel - Collector of Oddities", "Lucky Dime"},
+    "key": {"Ariel - Collector of Oddities": 0.5, "Honey Lemon - Testing the Limits": 0.5, "Under the Sea": 0.6},
+    "ink_cap": 8,
+}
+CONFIG["est_aggro14"] = {
+    "keep": {"Cursed Merfolk - Ursula's Handiwork", "Mulan - Disguised Soldier", "Gantu - Hamsterviel's Accomplice",
+             "Rapunzel - Escaping the Tower", "Toulouse - Rough and Tumble", "Flash - Efficient Clerk",
+             "Mother Gothel - Evil as Ever", "Scrooge McDuck - S.H.U.S.H. Agent"},
+    "ship": {"Dr. Bushroot - Evil Botanist"},
+    "never_ink": {"Toulouse - Rough and Tumble", "Rapunzel & Flynn Rider - Unlikely Pair"},
+    "key": {"Toulouse - Rough and Tumble": 0.4, "Rapunzel & Flynn Rider - Unlikely Pair": 0.5},
+    "ink_cap": 6,
+}
+CONFIG["re_farewell"] = {
+    "keep": {"Rivera Family Photo", "Jebidiah Farnsworth - Cookie", "Strike a Good Match", "Max Goof - Karaoke Star",
+             "Though I Have to Say Goodbye", "Another Tale to Spin"},
+    "ship": {"The Leviathan - Guardian of Atlantis", "Be Prepared", "Maui - Half-Shark", "Maximus - Team Champion"},
+    "never_ink": {"Rivera Family Photo", "The Torn Corner", "Land of the Dead - Marigold Bridge", "Maui - Half-Shark",
+                  "The Leviathan - Guardian of Atlantis", "Maximus - Team Champion"},
+    "key": {"Maui - Half-Shark": 0.6, "Rivera Family Photo": 0.4, "Be Prepared": 0.5, "Firefly Swarm": 0.3},
+    "ink_cap": 8,
+}
 CONFIG["emerald_lock_v1"] = CONFIG["emerald_lock"]
 CONFIG["stitch14_rs"] = dict(CONFIG["stitch14"], key={"Lilo & Stitch - Fun-Loving Friends": 0.8, "Stitch - Rock Star": 1.0},
                              never_ink=CONFIG["stitch14"]["never_ink"] | {"Stitch - Rock Star"})

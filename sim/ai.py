@@ -398,11 +398,15 @@ class Policy:
 
     # ----- 選択 -----
     def discard_choice(self, g, p):
+        # 捨てても捨て札からそのままプレイできるカード（マザー・ゴーテルなど）を優先して捨てる
+        rep = [c for c in p.hand if effects.can_replay(g, p, c)]
+        if rep:
+            return max(rep, key=lambda c: c.cost)
         return min(p.hand, key=lambda c: self.card_value(g, p, c))
 
     def ink_choice(self, g, p, any_card=False):
         never = self.cfg.get("never_ink", set())
-        cands = [c for c in p.hand if any_card or c.inkable]
+        cands = [c for c in p.hand if any_card or effects.inkable(g, p, c)]
         if not any_card and p.ink >= 4:
             cands = [c for c in cands if c.name not in never]
         if not cands:

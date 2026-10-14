@@ -4036,5 +4036,761 @@
   "ink": [
    "emerald"
   ]
+ },
+ "Hidden Inkcaster": {
+  "jp": "隠されしインクキャスター",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "FRESH INK When you play this item, draw a card. / UNEXPECTED TREASURE All cards in your hand count as having {IW}.",
+  "set": "P1",
+  "num": "36",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Pluto - Friendly Pooch": {
+  "jp": "プルート - 人なつっこいわんこ",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "GOOD DOG {E} — You pay 1 {I} less for the next character you play this turn.",
+  "set": "3",
+  "num": "18",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Cursed Merfolk - Ursula's Handiwork": {
+  "jp": "呪われた人魚 - アースラの被害者",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 1,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn"
+  ],
+  "text": "POOR SOULS Whenever this character is challenged, each opponent chooses and discards a card.",
+  "set": "3",
+  "num": "70",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Strike a Good Match": {
+  "jp": "縁組次第",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Draw 2 cards, then choose and discard a card.",
+  "set": "3",
+  "num": "96",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Jaq - Connoisseur of Climbing": {
+  "jp": "ジャック - チームのチャレンジャー",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "SNEAKY IDEA When you play this character, chosen opposing character gains Reckless during their next turn. (They can't quest and must challenge if able.)",
+  "set": "4",
+  "num": "77",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Maximus - Team Champion": {
+  "jp": "マキシマス - 本命チーム",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "ROYALLY BIG REWARDS At the end of your turn, if you have any characters in play with 5 {S} or more, gain 2 lore. If you have any in play with 10 {S} or more, gain 5 lore instead.",
+  "set": "5",
+  "num": "105",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Mushu - Stealthy Dragon": {
+  "jp": "ムーシュー - 姑息な龍",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Dragon"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / TIP THE SCALES Whenever this character quests, if an opponent has more cards in their hand than you, you may draw a card.",
+  "set": "D23",
+  "num": "12",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Go Go Tomago - Darting Dynamo": {
+  "jp": "ゴー・ゴー・トマゴ - ダイナミック・ダイナモ",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Inventor"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / STOP WHINING, WOMAN UP When you play this character, you may pay 2 {I} to gain lore equal to the damage on chosen opposing character.",
+  "set": "6",
+  "num": "73",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Heffalumps and Woozles": {
+  "jp": "ズオウとヒイタチ",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Chosen opposing character can't quest during their next turn. Draw a card.",
+  "set": "6",
+  "num": "95",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Mulan - Disguised Soldier": {
+  "jp": "ムーラン - 男装の兵士",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "WHERE DO I SIGN IN? When you play this character, you may draw a card, then choose and discard a card.",
+  "set": "7",
+  "num": "193",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Rhino - One-Sixteenth Wolf": {
+  "jp": "ライノ - 16分の1はオオカミ",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally"
+  ],
+  "text": "TINY HOWL When you play this character, chosen opposing character gets -1 {S} until the start of your next turn.",
+  "set": "8",
+  "num": "15",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Scrooge McDuck - S.H.U.S.H. Agent": {
+  "jp": "スクルージ・マクダック - S.H.U.S.H.エージェント",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "BACKUP PLAN When you play this character, draw a card, then choose and discard a card. / ON THE MOVE When this character is challenged, return this card to your hand. (No damage is dealt in that challenge.)",
+  "set": "P3",
+  "num": "36",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Stegmutt - Clumsy Dinosaur": {
+  "jp": "ステグマット - おっちょこちょいな恐竜",
+  "cost": 8,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 7,
+  "wp": 7,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Dinosaur"
+  ],
+  "text": "WAKE OF DESTRUCTION For each item card in your discard, you pay 1 {I} less to play this character. / COLLATERAL DAMAGE When you play this character, you may put 3 item cards from your discard on the bottom of your deck in any order. If you do, deal 3 damage to chosen character.",
+  "set": "11",
+  "num": "79",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Gantu - Hamsterviel's Accomplice": {
+  "jp": "ガントゥ - ハムスターヴィールの共犯者",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Alien",
+   "Captain"
+  ],
+  "text": "EASY TARGET When you play this character, choose and discard a card.",
+  "set": "11",
+  "num": "176",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Dale - Ready for His Shot": {
+  "jp": "デール - スパイク大作戦",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "SPIKE SUIT During challenges, your characters deal damage with their {W} instead of their {S}.",
+  "set": "12",
+  "num": "22",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Firefly Swarm": {
+  "jp": "ホタルの大群",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Choose one: / • Banish chosen character with 2 {S} or less. / • If 2 or more other cards were put into your discard this turn, banish chosen character.",
+  "set": "12",
+  "num": "130",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "The Horned King - Merciless Master": {
+  "jp": "ホーンド・キング - 無慈悲なる支配者",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "King",
+   "Sorcerer"
+  ],
+  "text": "CAULDRON'S POWER While this character is exerted, you may play characters from your discard. If you do, they enter play exerted. (You pay all costs.)",
+  "set": "13",
+  "num": "22",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Mother Gothel - Evil as Ever": {
+  "jp": "マザー・ゴーテル - 悪者は居座るもの",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "MUMMY'S BACK During your turn, when you discard this card, you may play this character from your discard. (You pay all costs.)",
+  "set": "13",
+  "num": "93",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Rapunzel - Escaping the Tower": {
+  "jp": "ラプンツェル - 塔を棄てよラプンツェル",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "THE CALL OF ADVENTURE Once during your turn, you may discard a card to give this character +1 {L} and Evasive until the start of your next turn. (Only characters with Evasive can challenge them.)",
+  "set": "13",
+  "num": "95",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Rapunzel & Flynn Rider - Unlikely Pair": {
+  "jp": "ラプンツェル＆フリン・ライダー - 出会うはずのなかったふたり",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Team",
+   "Hero",
+   "Prince",
+   "Princess"
+  ],
+  "text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Rapunzel or Flynn Rider.) / CLEVER SWAP Whenever this character quests, you may draw a card, then choose and discard a card. / FRESH START During your turn, whenever you discard a character card, you may play that character from your discard. (You pay all costs.)",
+  "set": "13",
+  "num": "100",
+  "ink": [
+   "emerald",
+   "steel"
+  ]
+ },
+ "Flynn Rider - High-Climbing Rogue": {
+  "jp": "フリン・ライダー - 塔の上で盗んでる",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Prince"
+  ],
+  "text": "WE CAN WORK THIS OUT Whenever an opponent chooses this character for an action or ability, they choose and discard a card.",
+  "set": "13",
+  "num": "189",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Look What You've Done": {
+  "jp": "全部あんたのせいよ",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Deal 2 damage to chosen character. During your turn, when you discard this card, you may play it from your discard. (You pay all costs.)",
+  "set": "13",
+  "num": "200",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Nick Wilde - Toy Drive Officer": {
+  "jp": "ニック・ワイルド - おもちゃの寄付の受付担当",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally",
+   "Detective"
+  ],
+  "text": "Support (Whenever this character quests, you may add their {S} to another chosen character's {S} this turn.)\r / COMMUNITY OUTREACH At the end of your turn, if you played 2 or more characters this turn, draw a card.",
+  "set": "14",
+  "num": "14",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Lady - Relaxed and Rested": {
+  "jp": "レディ - ゆったりゆっくり",
+  "cost": 1,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.)",
+  "set": "14",
+  "num": "79",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Baymax - Lab Assistant": {
+  "jp": "ベイマックス - ラボのロボ",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Hero",
+   "Robot"
+  ],
+  "text": "RESUPPLY When you play this character, if you have 2 or more items in play, get 2 ink drops. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "85",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Max Goof - Karaoke Star": {
+  "jp": "マックス・グーフ - カラオケ・スター",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "SWEET REMIX When you play this character, you may choose and discard a song card. If you do, draw 2 cards. / BRAND-NEW PLAYLIST While you have 5 or more song cards in your discard, this character gets +3 {L}.",
+  "set": "14",
+  "num": "89",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Honey Lemon - Testing the Limits": {
+  "jp": "ハニー・レモン - 極限への挑戦",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Hero",
+   "Inventor"
+  ],
+  "text": "ADVANCED CHEMISTRY When you play this character and whenever she quests, you may banish chosen item of yours. If you do, draw a card and get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "93",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Another Tale to Spin": {
+  "jp": "ANOTHER TALE TO SPIN",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.) / Draw a card. You and another chosen player each get 1 ink drop. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "96",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Though I Have to Say Goodbye": {
+  "jp": "お別れだけど",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 2 or more can {E} to sing this song for free.)  / Put the top 3 cards of your deck into your discard. Chosen character gets +1 {S} this turn for each song card in your discard.",
+  "set": "14",
+  "num": "131",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Rivera Family Photo": {
+  "jp": "リヴェラ家の写真",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "HONOR THE PAST {E}, 1 {I} — Choose one: / • Put the top 2 cards of your deck into your discard. / • If you have 10 or more cards in your discard, gain 1 lore.",
+  "set": "14",
+  "num": "132",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "The Torn Corner": {
+  "jp": "引き裂かれた切れ端",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "FOND MEMORIES {E}, 1 {I} — If you have 10 or more cards in your discard, draw a card. / MEND THE PHOTO When this card is put into your discard from your deck, if you have an item named Rivera Family Photo in play, you may play this card from your discard for free.",
+  "set": "14",
+  "num": "133",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Land of the Dead - Marigold Bridge": {
+  "jp": "死者の国 - マリーゴールドの橋",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 8,
+  "lore": 1,
+  "move": 1,
+  "classes": [],
+  "text": "HONORED OFFERINGS While you have 10 or more cards in your discard, this location gets +2 {L}.",
+  "set": "14",
+  "num": "135",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Ariel - Collector of Oddities": {
+  "jp": "アリエル - 非日常の収集家",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "ONE OF A KIND Whenever you play an item, if the item you played has a different name than each other item you have in play, draw a card. / PERSONAL COLLECTION For each item with a different name you have in play, this character gets +1 {L}.",
+  "set": "14",
+  "num": "156",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Blinding Chem Ball": {
+  "jp": "閃光ケミボール",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "DESTABILIZE {E}, 2 {I} — Banish this item. / BRILLIANT BURST During your turn, when this item is banished, you may get 1 ink drop. If you do, chosen character gets -2 {S} this turn. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "166",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Prototype Chem Ball": {
+  "jp": "試作ケミボール",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "DESTABILIZE {E}, 2 {I} — Banish this item. / ENIGMA BURST During your turn, when this item is banished, you may get 1 ink drop. If you do, chosen character of yours gains Resist +1 until the start of your next turn. (Damage dealt to them is reduced by 1. You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "167",
+  "ink": [
+   "sapphire"
+  ]
  }
 }

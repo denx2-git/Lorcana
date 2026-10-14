@@ -68,6 +68,58 @@ def look_take(g, p, n, pred, take=1):
     return picks
 
 
+def mill(g, p, n):
+    """デッキの上から n 枚を捨て札に置く（引き裂かれた切れ端の誘発つき）。"""
+    for _ in range(n):
+        if not p.deck:
+            return
+        c = p.deck.pop(0)
+        g.to_discard_card(p, c)
+        if c.name == "The Torn Corner" and any(x.card.name == "Rivera Family Photo" for x in p.items()):
+            p.discard.remove(c)
+            x = g.new_perm(c, p.pid)
+            p.perms.append(x)
+            g.log("  引き裂かれた切れ端が捨て札から場に出る")
+
+
+REPLAY_FROM_DISCARD = {"Mother Gothel - Evil as Ever", "Look What You've Done"}
+
+
+def can_replay(g, p, c):
+    """手札から捨てたときに、そのまま捨て札からプレイできるか。"""
+    if g.active != p.pid:
+        return False
+    if c.name in REPLAY_FROM_DISCARD:
+        pass
+    elif c.kind == "char" and any(x.card.name == "Rapunzel & Flynn Rider - Unlikely Pair" for x in p.chars()):
+        pass
+    else:
+        return False
+    if c.kind == "action" and p.action_locked:
+        return False
+    return p.ink_free() >= cost_for(g, p, c)
+
+
+def on_discard_card(g, p, c):
+    """手札から1枚捨てたときの誘発（マザー・ゴーテル - 悪者は居座るもの など）。"""
+    if c not in p.discard or not can_replay(g, p, c):
+        return
+    p.discard.remove(c)
+    p.hand.append(c)
+    g.log(f"  {c.jp} を捨て札からプレイ")
+    g.play_card(p, c, target=auto_target(g, p, c))
+
+
+def discard_hand(g, p):
+    cs = list(p.hand)
+    for c in cs:
+        p.hand.remove(c)
+        g.to_discard_card(p, c)
+    on_discard(g, p, len(cs))
+    for c in cs:
+        on_discard_card(g, p, c)
+
+
 def to_inkwell_from_hand(g, p, exerted=True):
     if not p.hand:
         return
@@ -125,6 +177,10 @@ def lore(g, x):
         v += 2
     elif n == "Tamatoa - So Shiny!":
         v += len(p.items())
+    elif n == "Ariel - Collector of Oddities":
+        v += len({y.card.name for y in p.items()})
+    elif n == "Max Goof - Karaoke Star" and sum(1 for c in p.discard if c.is_song) >= 5:
+        v += 3
     elif n == "Don Karnage - Debonair Pirate":
         pass
     # ドン・カルナージ（華麗なる海賊）がエグザートしている間、ダメージを受けた相手キャラはロア-1
@@ -160,6 +216,8 @@ def has_rush(g, x):
 
 
 def gains_evasive(g, x):
+    if x.flags.get("evasive_tmp"):
+        return True
     if x.loc is not None:
         loc = g.find(x.loc)
         if loc is not None and loc.card.name == "The Beanstalk - Onward and Upward":
@@ -180,6 +238,14 @@ def cant_be_challenged(g, x):
     return False
 
 
+def challenge_dmg(g, x):
+    """チャレンジで与えるダメージ。デール（スパイク大作戦）がいれば意志力で与える。"""
+    p = g.players[x.owner]
+    if any(y.card.name == "Dale - Ready for His Shot" for y in p.chars()):
+        return max(0, x.card.wp)
+    return g.char_str(x)
+
+
 def challenger_bonus(g, att):
     return att.card.challenger + att.flags.get("challenger", 0)
 
@@ -190,7 +256,7 @@ def no_damage_from_challenge(g, att):
 
 def modify_damage(g, x, n, src, ignore_resist):
     if not ignore_resist:
-        n -= x.card.resist + x.flags.get("resist", 0)
+        n -= x.card.resist + x.flags.get("resist", 0) + x.flags.get("resist_tmp", 0)
     if x.card.name == "Minnie Mouse - Busy Go-Getter" and g.active != x.owner:
         n -= 2
     if x.card.name == "Lilo - Bundled Up" and g.active != x.owner and not x.flags.get("layer_used"):
@@ -214,6 +280,8 @@ def cost_for(g, p, card):
             c -= 1
         if n == "Tramp - Street-Smart Dog":
             c -= len(p.chars())
+        if n == "Stegmutt - Clumsy Dinosaur":
+            c -= sum(1 for d in p.discard if d.kind == "item")
         willows = sum(1 for x in p.chars() if x.card.name == "Grandmother Willow - Ancient Advisor")
         c -= max(0, willows - p.t.get("willow_used", 0))
         c -= p.t.get("akood", 0)
@@ -360,12 +428,21 @@ TARGETS = {
     "Berlioz - Tiny Rascal": _opp_chars(),
     "Priya Mangal - Immovable Fan": _opp_chars(),
     "Jousting Match": _opp_chars(),
+    "Firefly Swarm": lambda g, p: [x.uid for x in g.opp(p).chars() if not x.card.ward and (
+        g.char_str(x) <= 2 or p.t.get("discarded", 0) >= 2)],
+    "Heffalumps and Woozles": _opp_chars(),
+    "Look What You've Done": _opp_chars(),
+    "Though I Have to Say Goodbye": _own_chars(),
+    "Jaq - Connoisseur of Climbing": _opp_chars(),
+    "Rhino - One-Sixteenth Wolf": _opp_chars(),
+    "Stegmutt - Clumsy Dinosaur": _opp_chars(),
 }
 OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cloudkicker - Tough Guy",
             "Milo Thatch - Getting His Hands Dirty", "Wildcat - Unconventional Mechanic",
             "Clarabelle - Out for a Stroll", "Clarabelle - Clumsy Guest", "Fred - Big Stomper",
             "Belle - Accomplished Mystic", "Tramp - Enterprising Dog", "Elsa - The Fifth Spirit",
-            "Sisu - Daring Visitor", "Berlioz - Tiny Rascal", "Priya Mangal - Immovable Fan"}
+            "Sisu - Daring Visitor", "Berlioz - Tiny Rascal", "Priya Mangal - Immovable Fan",
+            "Jaq - Connoisseur of Climbing", "Rhino - One-Sixteenth Wolf", "Stegmutt - Clumsy Dinosaur"}
 
 
 def target_options(g, p, card):
@@ -481,7 +558,25 @@ def resolve_spell(g, p, card, target, extra):
     elif n == "Sail the Azurite Sea":
         p.t["extra_ink"] = p.t.get("extra_ink", 0) + 1
         g.draw(p)
-    elif n == "Strike A Good Match":
+    elif n == "Another Tale to Spin":
+        g.draw(p)
+        p.drops += 1
+        o.drops += 1
+    elif n == "Firefly Swarm":
+        if t and (g.char_str(t) <= 2 or p.t.get("discarded", 0) >= 2):
+            g.banish(t)
+    elif n == "Heffalumps and Woozles":
+        if t:
+            t.flags["no_quest"] = g.turn + 1
+        g.draw(p)
+    elif n == "Look What You've Done":
+        if t:
+            g.deal(t, 2)
+    elif n == "Though I Have to Say Goodbye":
+        mill(g, p, 3)
+        if t:
+            t.tmp_str += sum(1 for c in p.discard if c.is_song)
+    elif n in ("Strike A Good Match", "Strike a Good Match"):
         g.draw(p, 2)
         choose_discard(g, p, 1)
     elif n == "Sudden Chill":
@@ -537,11 +632,7 @@ def resolve_spell(g, p, card, target, extra):
     elif n == "Vision of the Future":
         look_take(g, p, 5, lambda c: True)
     elif n == "You Broke My Smolder":
-        k = len(p.hand)
-        for c in list(p.hand):
-            p.hand.remove(c)
-            g.to_discard_card(p, c)
-        on_discard(g, p, k)
+        discard_hand(g, p)
         g.draw(p, 2)
     elif n == "You Came Back":
         if t:
@@ -660,11 +751,7 @@ def on_play_char(g, p, x, target, extra):
                 g.put_card_in_inkwell(owner, None)
     elif n == "Doc - Bold Knight":
         if len(p.hand) <= 1:
-            k = len(p.hand)
-            for c in list(p.hand):
-                p.hand.remove(c)
-                g.to_discard_card(p, c)
-            on_discard(g, p, k)
+            discard_hand(g, p)
             g.draw(p, 2)
     elif n == "Elsa - Concerned Sister":
         p.t["elsa_loc"] = 2
@@ -817,11 +904,60 @@ def on_play_char(g, p, x, target, extra):
         if t:
             t.flags["priya"] = 2
             t.flags["priya_until"] = p.pid
+    elif n == "Baymax - Lab Assistant":
+        if len(p.items()) >= 2:
+            p.drops += 2
+    elif n == "Gantu - Hamsterviel's Accomplice":
+        choose_discard(g, p, 1)
+    elif n == "Go Go Tomago - Darting Dynamo":
+        dmg = [y for y in o.chars() if y.damage > 0]
+        if dmg and p.ink_free() >= 2:
+            y = max(dmg, key=lambda y: y.damage)
+            if y.damage >= 2:
+                p.pay(2)
+                g.gain_lore(p, y.damage)
+    elif n == "Honey Lemon - Testing the Limits":
+        honey_lemon(g, p)
+    elif n == "Jaq - Connoisseur of Climbing":
+        if t:
+            t.flags["no_quest"] = g.turn + 1  # 簡略化：暴勇の「チャレンジしなければならない」は省略
+    elif n == "Max Goof - Karaoke Star":
+        songs = [c for c in p.hand if c.is_song]
+        if songs:
+            c = min(songs, key=lambda c: p.policy.card_value(g, p, c))
+            g.discard_from_hand(p, c)
+            g.draw(p, 2)
+    elif n in ("Mulan - Disguised Soldier", "Scrooge McDuck - S.H.U.S.H. Agent"):
+        g.draw(p)
+        choose_discard(g, p, 1)
+    elif n == "Rhino - One-Sixteenth Wolf":
+        if t and t.flags.get("priya", 0) < 1:
+            t.flags["priya"] = 1
+            t.flags["priya_until"] = p.pid
+    elif n == "Stegmutt - Clumsy Dinosaur":
+        its = [c for c in p.discard if c.kind == "item"]
+        if len(its) >= 3 and t:
+            for c in its[:3]:
+                p.discard.remove(c)
+                p.deck.append(c)
+            g.deal(t, 3)
     elif n == "Pocahontas - Guiding the Tribe":
         ones = [c for c in p.hand if c.kind == "char" and c.cost == 1]
         if ones:
             c = max(ones, key=lambda c: p.policy.card_value(g, p, c))
             g.play_card(p, c, mode="free", target=auto_target(g, p, c))
+
+
+def honey_lemon(g, p):
+    """ハニー・レモン（極限への挑戦）：自分のアイテムを1つ退場させて1枚引き、インク・ドロップを得る。"""
+    pref = ["Prototype Chem Ball", "Blinding Chem Ball", "Pawpsicle", "Hidden Inkcaster"]
+    its = [it for it in p.items() if it.card.name in pref]
+    if not its:
+        return
+    it = min(its, key=lambda it: pref.index(it.card.name))
+    g.banish(it)
+    g.draw(p)
+    p.drops += 1
 
 
 def after_char_played(g, p, x):
@@ -854,13 +990,17 @@ def mike_reveal(g, p):
 
 def on_play_perm(g, p, x, target, extra):
     n = x.card.name
-    if n == "Pawpsicle" or n == "Inkrunner":
+    if n == "Pawpsicle" or n == "Inkrunner" or n == "Hidden Inkcaster":
         g.draw(p)
     elif n == "Bunch of Balloons":
         locs = p.locs()
         if locs:
             locs[0].flags["evasive"] = True
     if x.card.kind == "item":
+        if all(y.card.name != n for y in p.items() if y is not x):
+            for y in p.chars():
+                if y.card.name == "Ariel - Collector of Oddities":
+                    g.draw(p)
         for y in p.items():
             if y is not x and y.card.name == "Maurice's Workshop" and p.ink_free() >= 1:
                 p.pay(1)
@@ -872,6 +1012,8 @@ def loc_lore(g, loc):
     v = loc.card.lore
     if loc.card.name == "Paradise Falls - Exotic Destination" and any(c.loc == loc.uid for c in p.chars()):
         v += 3
+    if loc.card.name == "Land of the Dead - Marigold Bridge" and len(p.discard) >= 10:
+        v += 2
     return v
 
 
@@ -934,6 +1076,16 @@ def activations(g, p):
             others = [l for l in p.locs() if l is not x]
             if here and others:
                 out.append((x.uid, 0, None))
+        elif n in ("Prototype Chem Ball", "Blinding Chem Ball") and not x.exerted and free >= 2:
+            out.append((x.uid, 0, None))
+        elif n == "Rivera Family Photo" and not x.exerted and free >= 1:
+            out.append((x.uid, 0, None))
+        elif n == "The Torn Corner" and not x.exerted and free >= 1 and len(p.discard) >= 10:
+            out.append((x.uid, 0, None))
+        elif n == "Pluto - Friendly Pooch" and not x.exerted and not x.dry and any(c.kind == "char" for c in p.hand):
+            out.append((x.uid, 0, None))
+        elif n == "Rapunzel - Escaping the Tower" and p.hand and not p.t.get("rapunzel_" + str(x.uid)) and not x.exerted:
+            out.append((x.uid, 0, None))
         elif n == "Sugar Rush Speedway - Starting Line" and not p.t.get("srstart"):
             here = [c for c in p.chars() if c.loc == x.uid and not c.exerted and c.left() > 1]
             others = [l for l in p.locs() if l is not x]
@@ -1003,6 +1155,29 @@ def activate(g, p, uid, idx, target):
         c.loc = dest.uid
         g.gain_lore(p, 1)
         on_move(g, p, c, dest, x.uid)
+    elif n in ("Prototype Chem Ball", "Blinding Chem Ball"):
+        x.exerted = True
+        p.pay(2)
+        g.banish(x)
+    elif n == "Rivera Family Photo":
+        x.exerted = True
+        p.pay(1)
+        if len(p.discard) >= 10:
+            g.gain_lore(p, 1)
+        else:
+            mill(g, p, 2)
+    elif n == "The Torn Corner":
+        x.exerted = True
+        p.pay(1)
+        g.draw(p)
+    elif n == "Pluto - Friendly Pooch":
+        x.exerted = True
+        p.t["akood"] = p.t.get("akood", 0) + 1
+    elif n == "Rapunzel - Escaping the Tower":
+        p.t["rapunzel_" + str(x.uid)] = True
+        choose_discard(g, p, 1)
+        x.tmp_lore += 1
+        x.flags["evasive_tmp"] = True
     elif n == "Sugar Rush Speedway - Starting Line":
         p.t["srstart"] = True
         here = [c for c in p.chars() if c.loc == x.uid and not c.exerted and c.left() > 1]
@@ -1071,6 +1246,17 @@ def on_banished(g, x, by_challenge):
         g.draw(p)
     elif n == "Rex - Protective Dinosaur" and g.active != x.owner:
         g.gain_lore(p, 1)
+    elif n in ("Prototype Chem Ball", "Blinding Chem Ball") and g.active == x.owner:
+        p.drops += 1
+        if n == "Blinding Chem Ball":
+            t = best_opp(g, p, lambda y: not y.exerted) or best_opp(g, p)
+            if t:
+                t.tmp_str -= 2
+        else:
+            own = p.chars()
+            if own:
+                y = max(own, key=lambda y: threat(g, y))
+                y.flags["resist_tmp"] = 1
 
 
 def on_challenge(g, p, att, tgt):
@@ -1082,7 +1268,18 @@ def on_challenge(g, p, att, tgt):
             p.hand.append(c)
 
 
+def inkable(g, p, card):
+    return card.inkable or any(x.card.name == "Hidden Inkcaster" for x in p.items())
+
+
 def on_challenged(g, o, tgt, att):
+    if tgt.card.name == "Cursed Merfolk - Ursula's Handiwork":
+        q = g.players[att.owner]
+        if q.hand:
+            g.discard_from_hand(q, q.policy.discard_choice(g, q))
+    elif tgt.card.name == "Scrooge McDuck - S.H.U.S.H. Agent":
+        g.leave_play(tgt, "hand")
+        return
     if tgt.card.name == "Dr. Bushroot - Evil Botanist":
         p = g.players[att.owner]
         if p.hand:
@@ -1136,6 +1333,14 @@ def on_quest(g, p, x):
         for c in its:
             p.discard.remove(c)
             p.hand.append(c)
+    elif n == "Honey Lemon - Testing the Limits":
+        honey_lemon(g, p)
+    elif n == "Rapunzel & Flynn Rider - Unlikely Pair":
+        g.draw(p)
+        choose_discard(g, p, 1)
+    elif n == "Mushu - Stealthy Dragon":
+        if len(o.hand) > len(p.hand):
+            g.draw(p)
 
 
 def start_of_turn_pre(g, p):
@@ -1218,6 +1423,15 @@ def end_of_turn(g, p):
                     q.drops += 1
         elif n == "Milo Thatch - Getting His Hands Dirty":
             if p.t.get("discarded", 0) >= 2:
+                g.draw(p)
+        elif n == "Maximus - Team Champion":
+            top = max((g.char_str(y) for y in p.chars()), default=0)
+            if top >= 10:
+                g.gain_lore(p, 5)
+            elif top >= 5:
+                g.gain_lore(p, 2)
+        elif n == "Nick Wilde - Toy Drive Officer":
+            if p.t.get("chars_played", 0) >= 2:
                 g.draw(p)
         if g.winner is not None:
             return
