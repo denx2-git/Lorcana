@@ -1242,6 +1242,10 @@ def replace_banish(g, x):
 def on_banished(g, x, by_challenge):
     p = g.players[x.owner]
     n = x.card.name
+    if x.card.kind == "char" and g.active != x.owner and any(i.card.name == "Emerald Chromicon" for i in p.items()):
+        t = best_opp(g, p)
+        if t:
+            g.leave_play(t, "hand")
     if n == "Diablo - Obedient Raven":
         g.draw(p)
     elif n == "Rex - Protective Dinosaur" and g.active != x.owner:

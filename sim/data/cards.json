@@ -4792,5 +4792,24 @@
   "ink": [
    "sapphire"
   ]
+ },
+ "Emerald Chromicon": {
+  "jp": "エメラルドのクロミコン",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "EMERALD LIGHT During opponents' turns, whenever one of your characters is banished, you may return chosen character to their player's hand.",
+  "set": "5",
+  "num": "100",
+  "ink": [
+   "emerald"
+  ]
  }
 }
