@@ -256,6 +256,30 @@ DECKS["ae_dog14"] = {"name": "黄緑ドッグ（第14弾入り・自作）", "pa
 2 Nick Wilde - Toy Drive Officer
 """}
 
+DECKS["stam_drop"] = {"name": "鋼紫インク・ドロップ（第14弾・自作）", "pair": "amethyst,steel", "source": "自作", "list_text": """
+4 Madam Mim - Bauble Chaser
+2 Marie - Caught in the Act
+4 Arthur - Novice Blacksmith
+4 Baloo - Delivery Pilot
+3 Khan Transport Delivery
+1 Keep the Ancient Ways
+4 Merlin - Bauble Expert
+4 Sir Pellinore - Tougher Than He Looks
+4 Pete - Games Referee
+2 Archimedes - Messenger Owl
+3 Jousting Match
+2 Inkcaster Skates
+4 Merlin - Profoundly Curious
+2 Shere Khan - Khan Industries CEO
+2 Ink Explosion
+3 Sir Kay - Determined to Win
+3 Arthur - Jousting Knight
+2 Tia Victoria - Disapproving Ancestor
+2 Higitus Figitus
+3 Merlin - Ink Drop Tinkerer
+2 Madam Mim - Resourceful Trickster
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -414,6 +438,14 @@ CONFIG["re_farewell"] = {
     "never_ink": {"Rivera Family Photo", "The Torn Corner", "Land of the Dead - Marigold Bridge", "Maui - Half-Shark",
                   "The Leviathan - Guardian of Atlantis", "Maximus - Team Champion"},
     "key": {"Maui - Half-Shark": 0.6, "Rivera Family Photo": 0.4, "Be Prepared": 0.5, "Firefly Swarm": 0.3},
+    "ink_cap": 8,
+}
+CONFIG["stam_drop"] = {
+    "keep": {"Arthur - Novice Blacksmith", "Baloo - Delivery Pilot", "Khan Transport Delivery", "Madam Mim - Bauble Chaser",
+             "Merlin - Bauble Expert", "Sir Pellinore - Tougher Than He Looks", "Marie - Caught in the Act"},
+    "ship": {"Madam Mim - Resourceful Trickster", "Merlin - Ink Drop Tinkerer", "Higitus Figitus", "Tia Victoria - Disapproving Ancestor"},
+    "never_ink": {"Pete - Games Referee", "Madam Mim - Resourceful Trickster", "Merlin - Ink Drop Tinkerer"},
+    "key": {"Pete - Games Referee": 0.4, "Merlin - Profoundly Curious": 0.3},
     "ink_cap": 8,
 }
 CONFIG["emerald_lock_v1"] = CONFIG["emerald_lock"]

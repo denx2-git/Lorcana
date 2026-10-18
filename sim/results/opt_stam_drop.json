@@ -1,0 +1,92 @@
+{
+ "deck": "stam_drop",
+ "name": "鋼紫インク・ドロップ（第14弾・自作）",
+ "start": 0.5878377438877287,
+ "end": 0.6953759031784024,
+ "tries": 214,
+ "verify_before": 0.5110246791736744,
+ "verify_after": 0.5760588265730299,
+ "verify_detail": {
+  "ae-mike": 0.475,
+  "ae-queen": 0.5975609756097561,
+  "as-std": 0.6923076923076923,
+  "as_song14": 0.7166666666666667,
+  "as-naveen": 0.7727272727272727,
+  "as-lilo-aggro": 0.22727272727272727,
+  "stitch14": 0.4,
+  "rs-basil": 0.5223880597014925,
+  "rs-inkrunner": 0.6,
+  "es-fergus": 0.4666666666666667,
+  "es-location": 0.6842105263157895,
+  "emerald_lock": 0.13333333333333333,
+  "esa-mickey": 0.6888888888888889,
+  "ar-sugar": 0.8333333333333334,
+  "amr-evasive": 0.5666666666666667,
+  "ams-hades": 0.6,
+  "er-leviathan": 0.7333333333333333,
+  "blue_lock": 0.625
+ },
+ "swaps": [
+  {
+   "out": "Arthur - Jousting Knight",
+   "in": "Diablo - Stone Servant",
+   "before": 0.5878377438877287,
+   "after": 0.6126084217519755,
+   "check": [
+    0.50685847729432,
+    0.5602939780934295
+   ]
+  },
+  {
+   "out": "Keep the Ancient Ways",
+   "in": "Calhoun - Marine Sergeant",
+   "before": 0.6126084217519755,
+   "after": 0.6458039775930663,
+   "check": [
+    0.4873668036728078,
+    0.5200297416694856
+   ]
+  },
+  {
+   "out": "Shere Khan - Khan Industries CEO",
+   "in": "Belle - Accomplished Mystic",
+   "before": 0.6458039775930663,
+   "after": 0.6735079611032064,
+   "check": [
+    0.5003979257560481,
+    0.5503628952577443
+   ]
+  },
+  {
+   "out": "Shere Khan - Khan Industries CEO",
+   "in": "Namaari - Single-Minded Rival",
+   "before": 0.6735079611032064,
+   "after": 0.6953759031784024,
+   "check": [
+    0.5378756365041034,
+    0.542962087186409
+   ]
+  }
+ ],
+ "list": "4 Arthur - Novice Blacksmith\n4 Baloo - Delivery Pilot\n4 Madam Mim - Bauble Chaser\n4 Merlin - Bauble Expert\n4 Merlin - Profoundly Curious\n4 Pete - Games Referee\n4 Sir Pellinore - Tougher Than He Looks\n3 Jousting Match\n3 Khan Transport Delivery\n3 Merlin - Ink Drop Tinkerer\n3 Sir Kay - Determined to Win\n2 Archimedes - Messenger Owl\n2 Arthur - Jousting Knight\n2 Higitus Figitus\n2 Ink Explosion\n2 Inkcaster Skates\n2 Madam Mim - Resourceful Trickster\n2 Marie - Caught in the Act\n2 Tia Victoria - Disapproving Ancestor\n1 Belle - Accomplished Mystic\n1 Calhoun - Marine Sergeant\n1 Diablo - Stone Servant\n1 Namaari - Single-Minded Rival",
+ "detail": {
+  "ae-mike": 0.6,
+  "ae-queen": 0.8095238095238095,
+  "as-std": 0.8461538461538461,
+  "as_song14": 0.7333333333333333,
+  "as-naveen": 0.8333333333333334,
+  "as-lilo-aggro": 0.0,
+  "stitch14": 0.75,
+  "rs-basil": 0.5882352941176471,
+  "rs-inkrunner": 0.7272727272727273,
+  "es-fergus": 0.6666666666666666,
+  "es-location": 0.6,
+  "emerald_lock": 0.5,
+  "esa-mickey": 0.6363636363636364,
+  "ar-sugar": 0.875,
+  "amr-evasive": 0.75,
+  "ams-hades": 1.0,
+  "er-leviathan": 1.0,
+  "blue_lock": 1.0
+ }
+}

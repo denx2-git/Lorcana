@@ -68,6 +68,28 @@ def look_take(g, p, n, pred, take=1):
     return picks
 
 
+def gain_drop(g, p, n=1):
+    p.drops += n
+    p.t["gained_drop"] = True
+
+
+def cant_act(g, x):
+    """バルー（配達パイロット）：このターンにインク・ドロップを得ていないとクエスト・チャレンジできない。"""
+    if x.card.name == "Baloo - Delivery Pilot":
+        return not g.players[x.owner].t.get("gained_drop")
+    return False
+
+
+def check_mim(g, p):
+    """マダム・ミム（やりくり上手なトリックスター）：各ターン1回、インク・ドロップを取り除いたら1枚引く。"""
+    if p.t.get("drop_removed", 0) > p.t.get("mim_seen", 0):
+        p.t["mim_seen"] = p.t["drop_removed"]
+        if g.active == p.pid and not p.t.get("mim_drawn") and any(
+                x.card.name == "Madam Mim - Resourceful Trickster" for x in p.chars()):
+            p.t["mim_drawn"] = True
+            g.draw(p)
+
+
 def mill(g, p, n):
     """デッキの上から n 枚を捨て札に置く（引き裂かれた切れ端の誘発つき）。"""
     for _ in range(n):
@@ -218,6 +240,8 @@ def has_rush(g, x):
 def gains_evasive(g, x):
     if x.flags.get("evasive_tmp"):
         return True
+    if x.card.name == "Madam Mim - Bauble Chaser" and g.players[x.owner].drops > 0:
+        return True
     if x.loc is not None:
         loc = g.find(x.loc)
         if loc is not None and loc.card.name == "The Beanstalk - Onward and Upward":
@@ -247,7 +271,10 @@ def challenge_dmg(g, x):
 
 
 def challenger_bonus(g, att):
-    return att.card.challenger + att.flags.get("challenger", 0)
+    b = att.card.challenger + att.flags.get("challenger", 0)
+    if att.card.name == "Sir Kay - Determined to Win" and g.players[att.owner].drops > 0:
+        b += 3
+    return b
 
 
 def no_damage_from_challenge(g, att):
@@ -436,6 +463,8 @@ TARGETS = {
     "Jaq - Connoisseur of Climbing": _opp_chars(),
     "Rhino - One-Sixteenth Wolf": _opp_chars(),
     "Stegmutt - Clumsy Dinosaur": _opp_chars(),
+    "Tia Victoria - Disapproving Ancestor": _opp_chars(),
+    "Shere Khan - Khan Industries CEO": _own_chars(lambda g, x: not x.exerted),
 }
 OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cloudkicker - Tough Guy",
             "Milo Thatch - Getting His Hands Dirty", "Wildcat - Unconventional Mechanic",
@@ -484,7 +513,7 @@ def resolve_spell(g, p, card, target, extra):
     elif n == "Ink Explosion":
         if t:
             g.deal(t, 4)
-        p.drops += 1
+        gain_drop(g, p, 1)
     elif n == "Grab Your Sword":
         for x in list(o.chars()):
             g.deal(x, 2)
@@ -560,8 +589,10 @@ def resolve_spell(g, p, card, target, extra):
         g.draw(p)
     elif n == "Another Tale to Spin":
         g.draw(p)
-        p.drops += 1
-        o.drops += 1
+        gain_drop(g, p, 1)
+        gain_drop(g, o, 1)
+    elif n == "Higitus Figitus":
+        gain_drop(g, p, 3)
     elif n == "Firefly Swarm":
         if t and (g.char_str(t) <= 2 or p.t.get("discarded", 0) >= 2):
             g.banish(t)
@@ -639,13 +670,14 @@ def resolve_spell(g, p, card, target, extra):
             t.exerted = False
     elif n == "Khan Transport Delivery":
         g.draw(p)
-        p.drops += 1
+        gain_drop(g, p, 1)
     elif n == "Jousting Match":
         dmg = 2
         if p.drops > 0 and p.ink_used > 0:
             # インク・ドロップで支払ったことにする
             p.drops -= 1
             p.ink_used -= 1
+            p.t["drop_removed"] = p.t.get("drop_removed", 0) + 1
             dmg = 5
         if t:
             g.deal(t, dmg)
@@ -888,7 +920,7 @@ def on_play_char(g, p, x, target, extra):
         if o.hand and len(o.hand) >= 3:
             g.discard_from_hand(o, o.policy.discard_choice(g, o))
         else:
-            p.drops += 1
+            gain_drop(g, p, 1)
     elif n == "Ursula - Deceiver":
         opp_discard_choice(g, p, o, lambda c: c.is_song)
     elif n == "Tod - Clever Fox":
@@ -906,7 +938,7 @@ def on_play_char(g, p, x, target, extra):
             t.flags["priya_until"] = p.pid
     elif n == "Baymax - Lab Assistant":
         if len(p.items()) >= 2:
-            p.drops += 2
+            gain_drop(g, p, 2)
     elif n == "Gantu - Hamsterviel's Accomplice":
         choose_discard(g, p, 1)
     elif n == "Go Go Tomago - Darting Dynamo":
@@ -941,6 +973,26 @@ def on_play_char(g, p, x, target, extra):
                 p.discard.remove(c)
                 p.deck.append(c)
             g.deal(t, 3)
+    elif n == "Arthur - Novice Blacksmith":
+        if p.ink - p.ink_used >= 1:
+            p.pay(1)
+            gain_drop(g, p, 1)
+    elif n == "Merlin - Bauble Expert":
+        if chars_named(p, "Arthur"):
+            gain_drop(g, p, 1)
+    elif n == "Merlin - Profoundly Curious":
+        gain_drop(g, p, 1)
+    elif n == "Merlin - Ink Drop Tinkerer":
+        gain_drop(g, p, 2 if x.flags.get("under") else 1)
+    elif n == "Madam Mim - Resourceful Trickster":
+        if p.t.get("drop_removed", 0) > p.t.get("_dr_before", 0):
+            g.draw(p, 2)
+    elif n == "Tia Victoria - Disapproving Ancestor":
+        if t:
+            t.flags["victoria"] = True
+    elif n == "Shere Khan - Khan Industries CEO":
+        if t:
+            t.flags["challenge_ready"] = True
     elif n == "Pocahontas - Guiding the Tribe":
         ones = [c for c in p.hand if c.kind == "char" and c.cost == 1]
         if ones:
@@ -957,7 +1009,7 @@ def honey_lemon(g, p):
     it = min(its, key=lambda it: pref.index(it.card.name))
     g.banish(it)
     g.draw(p)
-    p.drops += 1
+    gain_drop(g, p, 1)
 
 
 def after_char_played(g, p, x):
@@ -1248,10 +1300,12 @@ def on_banished(g, x, by_challenge):
             g.leave_play(t, "hand")
     if n == "Diablo - Obedient Raven":
         g.draw(p)
+    elif n == "Archimedes - Messenger Owl" and by_challenge:
+        gain_drop(g, p, 1)
     elif n == "Rex - Protective Dinosaur" and g.active != x.owner:
         g.gain_lore(p, 1)
     elif n in ("Prototype Chem Ball", "Blinding Chem Ball") and g.active == x.owner:
-        p.drops += 1
+        gain_drop(g, p, 1)
         if n == "Blinding Chem Ball":
             t = best_opp(g, p, lambda y: not y.exerted) or best_opp(g, p)
             if t:
@@ -1291,6 +1345,15 @@ def on_challenged(g, o, tgt, att):
 
 
 def on_banish_in_challenge(g, p, att, tgt):
+    if g.active == p.pid and att in p.perms:
+        if att.card.name == "Sir Pellinore - Tougher Than He Looks":
+            gain_drop(g, p, 1)
+        elif att.card.name == "Arthur - Jousting Knight":
+            g.draw(p)
+            gain_drop(g, p, 1)
+        if not p.t.get("ceo") and any(y.card.name == "Shere Khan - Khan Industries CEO" and y is not att for y in p.chars()):
+            p.t["ceo"] = True
+            gain_drop(g, p, 1)
     if att.card.name == "Calhoun - Marine Sergeant" and g.active == p.pid and att in p.perms:
         g.gain_lore(p, 2)
     if att.card.name == "Scar - Vicious Cheater" and g.active == p.pid and att in p.perms:
@@ -1300,6 +1363,7 @@ def on_banish_in_challenge(g, p, att, tgt):
 
 def on_quest(g, p, x):
     o = g.opp(p)
+    p.t["quested"] = True
     n = x.card.name
     if n == "Priscilla - Efficient Clerk" and len(p.deck) >= 2:
         top = p.deck[:2]
@@ -1342,6 +1406,11 @@ def on_quest(g, p, x):
     elif n == "Rapunzel & Flynn Rider - Unlikely Pair":
         g.draw(p)
         choose_discard(g, p, 1)
+    elif n == "Merlin - Profoundly Curious":
+        g.draw(p)
+    elif n == "Marie - Caught in the Act":
+        if p.t.get("opp_damaged"):
+            gain_drop(g, p, 1)
     elif n == "Mushu - Stealthy Dragon":
         if len(o.hand) > len(p.hand):
             g.draw(p)
@@ -1359,6 +1428,8 @@ def start_of_turn_pre(g, p):
             x.flags["cant_ready"] = True
         else:
             x.flags.pop("cant_ready", None)
+        if x.flags.pop("victoria", None):
+            x.flags["cant_ready"] = True
 
 
 def start_of_turn_post(g, p):
@@ -1391,6 +1462,12 @@ def start_of_turn_post(g, p):
 
 def end_of_turn(g, p):
     o = g.opp(p)
+    # インクキャスターのスケート：このターンにキャラがクエストしていればインク・ドロップ（簡略化：ターン終了時に起動）
+    if any(x.exerted and x.card.kind == "char" for x in p.chars()) and p.t.get("quested"):
+        for it in p.items():
+            if it.card.name == "Inkcaster Skates" and not it.exerted:
+                it.exerted = True
+                gain_drop(g, p, 1)
     sang = any(c.is_song for c in p.t.get("spells", []))
     for x in list(p.chars()):
         n = x.card.name
@@ -1424,7 +1501,7 @@ def end_of_turn(g, p):
         elif n == "Mickey Mouse - Best in Town":
             if x.exerted:
                 for q in g.players:
-                    q.drops += 1
+                    gain_drop(g, q, 1)
         elif n == "Milo Thatch - Getting His Hands Dirty":
             if p.t.get("discarded", 0) >= 2:
                 g.draw(p)
