@@ -1,0 +1,62 @@
+{
+ "deck": "bmx_v2_belle",
+ "name": "緑青ベイマックス（強化案2・ベル入り）",
+ "start": 0.238545889749791,
+ "end": 0.3028416062247211,
+ "tries": 668,
+ "verify_before": 0.22174932434149694,
+ "verify_after": 0.23257936331443202,
+ "verify_detail": {
+  "ae-mike": 0.08333333333333333,
+  "ae-queen": 0.1951219512195122,
+  "as-std": 0.36538461538461536,
+  "as_song14": 0.3333333333333333,
+  "as-naveen": 0.36363636363636365,
+  "as-lilo-aggro": 0.0,
+  "stitch14": 0.2,
+  "rs-basil": 0.31343283582089554,
+  "rs-inkrunner": 0.28888888888888886,
+  "es-fergus": 0.18333333333333332,
+  "es-location": 0.15789473684210525,
+  "emerald_lock": 0.06666666666666667,
+  "esa-mickey": 0.26666666666666666,
+  "ar-sugar": 0.36666666666666664,
+  "amr-evasive": 0.16666666666666666,
+  "ams-hades": 0.3333333333333333,
+  "er-leviathan": 0.4,
+  "blue_lock": 0.5
+ },
+ "swaps": [
+  {
+   "out": "Blinding Chem Ball",
+   "in": "Carl Fredricksen - Wilderness Guide",
+   "before": 0.238545889749791,
+   "after": 0.3028416062247211,
+   "check": [
+    0.24881246965977233,
+    0.2573306202077918
+   ]
+  }
+ ],
+ "list": "4 Ariel - Collector of Oddities\n4 Baymax - Lab Assistant\n4 Honey Lemon - Testing the Limits\n4 Leaning Tower of Cheese-a\n4 Prototype Chem Ball\n4 Spyglass Hat\n3 A Dark Age No More\n3 Blinding Chem Ball\n3 Honey Lemon - Ingenious Researcher\n3 Upgraded Chem Purse\n2 Above the Crowd\n2 Another Tale to Spin\n2 Belle - Apprentice Inventor\n2 Belle - Exceptional Writer\n2 Chemical Reaction\n2 Hidden Inkcaster\n2 Inkrunner\n2 Institute of Technology - Honey Lemon's Lab\n2 Shere Khan - Ruthless Entrepreneur\n2 Triton - Discerning King\n2 Under the Sea\n1 Baymax - Amped Up\n1 Carl Fredricksen - Wilderness Guide",
+ "detail": {
+  "ae-mike": 0.16666666666666666,
+  "ae-queen": 0.3333333333333333,
+  "as-std": 0.38461538461538464,
+  "as_song14": 0.2,
+  "as-naveen": 0.6666666666666666,
+  "as-lilo-aggro": 0.0,
+  "stitch14": 0.75,
+  "rs-basil": 0.29411764705882354,
+  "rs-inkrunner": 0.45454545454545453,
+  "es-fergus": 0.26666666666666666,
+  "es-location": 0.2,
+  "emerald_lock": 0.25,
+  "esa-mickey": 0.18181818181818182,
+  "ar-sugar": 0.5,
+  "amr-evasive": 0.375,
+  "ams-hades": 0.25,
+  "er-leviathan": 0.25,
+  "blue_lock": 1.0
+ }
+}
