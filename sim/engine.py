@@ -354,7 +354,10 @@ class Game:
         o = self.opp(p)
         p.hand.remove(card)
         if card.kind == "char":
-            if mode == "shift":
+            if mode == "shift" and extra and extra[0] == "drops":
+                p.drops -= extra[1]
+                assert p.drops >= 0
+            elif mode == "shift":
                 p.pay(effects.shift_cost(self, p, card))
             elif mode in ("free", "alt"):
                 effects.pay_alt(self, p, card, extra)
@@ -394,8 +397,10 @@ class Game:
         elif mode == "free":
             self.log(f"  {card.jp}（無料）")
         else:
-            p.pay(card.cost)
-            self.log(f"  {card.jp}（{card.cost}インク）")
+            cost = effects.action_cost(self, p, card)
+            p.pay(cost)
+            self.log(f"  {card.jp}（{cost}インク）")
+        p.t["belle_disc"] = 0
         effects.resolve_spell(self, p, card, target, extra)
         if card in p.hand:
             pass

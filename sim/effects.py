@@ -120,6 +120,59 @@ def discard_hand(g, p):
         on_discard_card(g, p, c)
 
 
+def gain_drop(g, p, n=1):
+    """インク・ドロップを得る。ベイマックス（ハイボルテージ）がいれば、代わりに山札の上をインクウェルへ置ける。"""
+    amped = any(x.card.name == "Baymax - Amped Up" for x in p.chars())
+    for _ in range(n):
+        # 簡略化：インクが8未満の間はインクウェルに置き、それ以降はドロップで受け取る
+        if amped and p.deck and p.ink < 8:
+            p.deck.pop(0)
+            g.put_card_in_inkwell(p, None)
+        else:
+            p.drops += 1
+
+
+SAC_PREF = ["Prototype Chem Ball", "Blinding Chem Ball", "Leaning Tower of Cheese-a", "Pawpsicle", "Inkrunner",
+            "Upgraded Chem Purse", "Hidden Inkcaster"]
+
+
+def sac_item(g, p, exclude=None):
+    """自分のアイテムを1つ退場させる（ケミボールを優先）。退場させたら True。"""
+    its = [it for it in p.items() if it.card.name in SAC_PREF and it is not exclude]
+    if not its:
+        return False
+    it = min(its, key=lambda it: (SAC_PREF.index(it.card.name), not it.exerted))
+    g.banish(it)
+    return True
+
+
+def return_item(g, p):
+    its = [c for c in p.discard if c.kind == "item"]
+    if not its:
+        return False
+    c = max(its, key=lambda c: p.policy.card_value(g, p, c))
+    p.discard.remove(c)
+    p.hand.append(c)
+    return True
+
+
+def action_cost(g, p, card):
+    return max(0, card.cost - p.t.get("belle_disc", 0))
+
+
+def belle_exerted(g, p, x):
+    """ベル（非凡な文筆家）がエグザートした：次のアクションのコスト-2。"""
+    if x.card.name == "Belle - Exceptional Writer" and g.active == p.pid:
+        p.t["belle_disc"] = p.t.get("belle_disc", 0) + 2
+
+
+def special_shift_options(g, p, card):
+    """[(bases, extra)]：インク以外で支払う変身（ベイマックス・ハイボルテージはドロップ2つ）。"""
+    if card.name == "Baymax - Amped Up" and p.drops >= 2:
+        return [([x], ("drops", 2)) for x in p.chars() if x.card.base == "Baymax"][:1]
+    return []
+
+
 def to_inkwell_from_hand(g, p, exerted=True):
     if not p.hand:
         return
@@ -436,6 +489,8 @@ TARGETS = {
     "Jaq - Connoisseur of Climbing": _opp_chars(),
     "Rhino - One-Sixteenth Wolf": _opp_chars(),
     "Stegmutt - Clumsy Dinosaur": _opp_chars(),
+    "Shere Khan - Ruthless Entrepreneur": _opp_chars(lambda g, x: g.char_str(x) <= 3),
+    "Above the Crowd": _opp_chars(lambda g, x: g.char_str(x) <= 3),
 }
 OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cloudkicker - Tough Guy",
             "Milo Thatch - Getting His Hands Dirty", "Wildcat - Unconventional Mechanic",
@@ -484,7 +539,7 @@ def resolve_spell(g, p, card, target, extra):
     elif n == "Ink Explosion":
         if t:
             g.deal(t, 4)
-        p.drops += 1
+        gain_drop(g, p, 1)
     elif n == "Grab Your Sword":
         for x in list(o.chars()):
             g.deal(x, 2)
@@ -560,8 +615,8 @@ def resolve_spell(g, p, card, target, extra):
         g.draw(p)
     elif n == "Another Tale to Spin":
         g.draw(p)
-        p.drops += 1
-        o.drops += 1
+        gain_drop(g, p, 1)
+        gain_drop(g, o, 1)
     elif n == "Firefly Swarm":
         if t and (g.char_str(t) <= 2 or p.t.get("discarded", 0) >= 2):
             g.banish(t)
@@ -639,7 +694,19 @@ def resolve_spell(g, p, card, target, extra):
             t.exerted = False
     elif n == "Khan Transport Delivery":
         g.draw(p)
-        p.drops += 1
+        gain_drop(g, p, 1)
+    elif n == "Above the Crowd":
+        if t:
+            g.leave_play(t, "deck_bottom")
+    elif n == "Chemical Reaction":
+        g.draw(p)
+        if o.hand and sac_item(g, p):
+            g.discard_from_hand(o, o.policy.discard_choice(g, o))
+    elif n == "A Dark Age No More":
+        if p.deck:
+            p.deck.pop(0)
+            g.put_card_in_inkwell(p, None)
+        gain_drop(g, p, 1)
     elif n == "Jousting Match":
         dmg = 2
         if p.drops > 0 and p.ink_used > 0:
@@ -653,6 +720,15 @@ def resolve_spell(g, p, card, target, extra):
 
 def after_spell(g, p, card, singers):
     o = g.opp(p)
+    if card.kind == "action":
+        k = sum(1 for c in p.t.get("spells", []) if c.kind == "action")
+        if k == 3:
+            for x in p.chars():
+                if x.card.name == "Belle - Exceptional Writer":
+                    g.gain_lore(p, 3)
+    if singers:
+        for s_ in singers:
+            belle_exerted(g, p, s_)
     for x in p.chars():
         n = x.card.name
         if n == "Maui - Half-Shark":
@@ -888,7 +964,7 @@ def on_play_char(g, p, x, target, extra):
         if o.hand and len(o.hand) >= 3:
             g.discard_from_hand(o, o.policy.discard_choice(g, o))
         else:
-            p.drops += 1
+            gain_drop(g, p, 1)
     elif n == "Ursula - Deceiver":
         opp_discard_choice(g, p, o, lambda c: c.is_song)
     elif n == "Tod - Clever Fox":
@@ -906,7 +982,7 @@ def on_play_char(g, p, x, target, extra):
             t.flags["priya_until"] = p.pid
     elif n == "Baymax - Lab Assistant":
         if len(p.items()) >= 2:
-            p.drops += 2
+            gain_drop(g, p, 2)
     elif n == "Gantu - Hamsterviel's Accomplice":
         choose_discard(g, p, 1)
     elif n == "Go Go Tomago - Darting Dynamo":
@@ -918,6 +994,19 @@ def on_play_char(g, p, x, target, extra):
                 g.gain_lore(p, y.damage)
     elif n == "Honey Lemon - Testing the Limits":
         honey_lemon(g, p)
+    elif n in ("Shere Khan - Ruthless Entrepreneur",):
+        if t:
+            g.leave_play(t, "deck_bottom")
+    elif n == "Hiram Flaversham - Toymaker":
+        if sac_item(g, p):
+            g.draw(p, 2)
+    elif n == "Hiro Hamada - Versatile Inventor":
+        others = [y for y in p.chars() if y is not x and not y.card.evasive]
+        if others and p.ink_free() >= 1:
+            y = max(others, key=lambda y: threat(g, y))
+            if g.char_lore(y) >= 2:
+                p.pay(1)
+                y.flags["evasive_tmp"] = True
     elif n == "Jaq - Connoisseur of Climbing":
         if t:
             t.flags["no_quest"] = g.turn + 1  # 簡略化：暴勇の「チャレンジしなければならない」は省略
@@ -950,14 +1039,10 @@ def on_play_char(g, p, x, target, extra):
 
 def honey_lemon(g, p):
     """ハニー・レモン（極限への挑戦）：自分のアイテムを1つ退場させて1枚引き、インク・ドロップを得る。"""
-    pref = ["Prototype Chem Ball", "Blinding Chem Ball", "Pawpsicle", "Hidden Inkcaster"]
-    its = [it for it in p.items() if it.card.name in pref]
-    if not its:
+    if not sac_item(g, p):
         return
-    it = min(its, key=lambda it: pref.index(it.card.name))
-    g.banish(it)
     g.draw(p)
-    p.drops += 1
+    gain_drop(g, p, 1)
 
 
 def after_char_played(g, p, x):
@@ -992,6 +1077,10 @@ def on_play_perm(g, p, x, target, extra):
     n = x.card.name
     if n == "Pawpsicle" or n == "Inkrunner" or n == "Hidden Inkcaster":
         g.draw(p)
+    elif n == "Leaning Tower of Cheese-a":
+        if p.hand:
+            g.draw(p)
+            choose_discard(g, p, 1)
     elif n == "Bunch of Balloons":
         locs = p.locs()
         if locs:
@@ -1001,6 +1090,9 @@ def on_play_perm(g, p, x, target, extra):
             for y in p.chars():
                 if y.card.name == "Ariel - Collector of Oddities":
                     g.draw(p)
+            for y in p.items():
+                if y.card.name == "Spyglass Hat" and len(p.hand) >= 2 and p.ink < p.policy.cfg.get("ink_cap", 9) + 2:
+                    to_inkwell_from_hand(g, p)
         for y in p.items():
             if y is not x and y.card.name == "Maurice's Workshop" and p.ink_free() >= 1:
                 p.pay(1)
@@ -1077,6 +1169,12 @@ def activations(g, p):
             if here and others:
                 out.append((x.uid, 0, None))
         elif n in ("Prototype Chem Ball", "Blinding Chem Ball") and not x.exerted and free >= 2:
+            out.append((x.uid, 0, None))
+        elif n == "Upgraded Chem Purse" and not x.exerted and free >= 1 and p.deck and any(
+                it is not x and it.card.name in SAC_PREF for it in p.items()):
+            out.append((x.uid, 0, None))
+        elif n == "Triton - Discerning King" and not x.exerted and not x.dry and any(
+                it.card.name in SAC_PREF for it in p.items()):
             out.append((x.uid, 0, None))
         elif n == "Rivera Family Photo" and not x.exerted and free >= 1:
             out.append((x.uid, 0, None))
@@ -1159,6 +1257,15 @@ def activate(g, p, uid, idx, target):
         x.exerted = True
         p.pay(2)
         g.banish(x)
+    elif n == "Upgraded Chem Purse":
+        x.exerted = True
+        p.pay(1)
+        sac_item(g, p, exclude=x)
+        look_take(g, p, 4, lambda c: c.kind == "item")
+    elif n == "Triton - Discerning King":
+        x.exerted = True
+        if sac_item(g, p):
+            g.gain_lore(p, 3)
     elif n == "Rivera Family Photo":
         x.exerted = True
         p.pay(1)
@@ -1251,7 +1358,7 @@ def on_banished(g, x, by_challenge):
     elif n == "Rex - Protective Dinosaur" and g.active != x.owner:
         g.gain_lore(p, 1)
     elif n in ("Prototype Chem Ball", "Blinding Chem Ball") and g.active == x.owner:
-        p.drops += 1
+        gain_drop(g, p, 1)
         if n == "Blinding Chem Ball":
             t = best_opp(g, p, lambda y: not y.exerted) or best_opp(g, p)
             if t:
@@ -1264,6 +1371,7 @@ def on_banished(g, x, by_challenge):
 
 
 def on_challenge(g, p, att, tgt):
+    belle_exerted(g, p, att)
     if att.card.name == "Maui - Half-Shark":
         acts = [c for c in p.discard if c.kind == "action"]
         if acts:
@@ -1301,6 +1409,11 @@ def on_banish_in_challenge(g, p, att, tgt):
 def on_quest(g, p, x):
     o = g.opp(p)
     n = x.card.name
+    belle_exerted(g, p, x)
+    if x.loc is not None and "Super" in x.card.classes and not p.t.get("institute"):
+        loc = g.find(x.loc)
+        if loc is not None and loc.card.name == "Institute of Technology - Honey Lemon's Lab" and return_item(g, p):
+            p.t["institute"] = True
     if n == "Priscilla - Efficient Clerk" and len(p.deck) >= 2:
         top = p.deck[:2]
         del p.deck[:2]
@@ -1339,12 +1452,30 @@ def on_quest(g, p, x):
             p.hand.append(c)
     elif n == "Honey Lemon - Testing the Limits":
         honey_lemon(g, p)
+    elif n == "Honey Lemon - Ingenious Researcher":
+        if return_item(g, p):
+            gain_drop(g, p, 1)
+    elif n == "Hiram Flaversham - Toymaker":
+        if sac_item(g, p):
+            g.draw(p, 2)
     elif n == "Rapunzel & Flynn Rider - Unlikely Pair":
         g.draw(p)
         choose_discard(g, p, 1)
     elif n == "Mushu - Stealthy Dragon":
         if len(o.hand) > len(p.hand):
             g.draw(p)
+
+
+def before_quest(g, p, x):
+    """クエスト前：スーパーのキャラをハニー・レモンのラボへ移動しておく（捨て札にアイテムがあるとき）。"""
+    if "Super" not in x.card.classes or p.t.get("institute") or x.loc is not None:
+        return
+    if not any(c.kind == "item" for c in p.discard):
+        return
+    for loc in p.locs():
+        if loc.card.name == "Institute of Technology - Honey Lemon's Lab" and p.ink_free() >= move_cost(g, p, x, loc):
+            g.move(p, x, loc)
+            return
 
 
 def start_of_turn_pre(g, p):
@@ -1424,7 +1555,7 @@ def end_of_turn(g, p):
         elif n == "Mickey Mouse - Best in Town":
             if x.exerted:
                 for q in g.players:
-                    q.drops += 1
+                    gain_drop(g, q, 1)
         elif n == "Milo Thatch - Getting His Hands Dirty":
             if p.t.get("discarded", 0) >= 2:
                 g.draw(p)

@@ -256,6 +256,116 @@ DECKS["ae_dog14"] = {"name": "黄緑ドッグ（第14弾入り・自作）", "pa
 2 Nick Wilde - Toy Drive Officer
 """}
 
+DECKS["bmx_official"] = {"name": "緑青ベイマックス（公式コラム・第14弾のみ）", "pair": "emerald,sapphire", "source": "https://www.takaratomy.co.jp/products/disneylorcana/news/column/128360/", "list_text": """
+4 Leaning Tower of Cheese-a
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+2 Hiro Hamada - Versatile Inventor
+2 Another Tale to Spin
+3 Chemical Reaction
+4 Upgraded Chem Purse
+2 Institute of Technology - Honey Lemon's Lab
+4 Honey Lemon - Testing the Limits
+4 A Dark Age No More
+4 Spyglass Hat
+4 Baymax - Lab Assistant
+2 Fred - Big Stomper
+4 Ariel - Collector of Oddities
+4 Above the Crowd
+3 Honey Lemon - Ingenious Researcher
+2 Baymax - Amped Up
+4 Shere Khan - Ruthless Entrepreneur
+"""}
+DECKS["bmx_v1"] = {"name": "緑青ベイマックス（強化案1・モーリスの工房）", "pair": "emerald,sapphire", "source": "自作（公式コラムのリストを既存カードで強化）", "list_text": """
+4 Leaning Tower of Cheese-a
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+3 Chemical Reaction
+2 Another Tale to Spin
+4 Upgraded Chem Purse
+2 Institute of Technology - Honey Lemon's Lab
+4 Honey Lemon - Testing the Limits
+4 A Dark Age No More
+4 Spyglass Hat
+2 Triton - Discerning King
+2 Maurice's Workshop
+4 Baymax - Lab Assistant
+2 Hiram Flaversham - Toymaker
+4 Ariel - Collector of Oddities
+4 Above the Crowd
+3 Honey Lemon - Ingenious Researcher
+1 Baymax - Amped Up
+3 Shere Khan - Ruthless Entrepreneur
+"""}
+DECKS["bmx_v1_belle"] = {"name": "緑青ベイマックス（強化案1・ベル入り）", "pair": "emerald,sapphire", "source": "自作（公式コラムのリストを既存カードで強化）", "list_text": """
+4 Leaning Tower of Cheese-a
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+3 Chemical Reaction
+2 Another Tale to Spin
+4 Upgraded Chem Purse
+2 Institute of Technology - Honey Lemon's Lab
+4 Honey Lemon - Testing the Limits
+4 A Dark Age No More
+4 Spyglass Hat
+2 Triton - Discerning King
+4 Baymax - Lab Assistant
+2 Hiram Flaversham - Toymaker
+4 Ariel - Collector of Oddities
+4 Above the Crowd
+3 Honey Lemon - Ingenious Researcher
+2 Shere Khan - Ruthless Entrepreneur
+2 Belle - Exceptional Writer
+2 Belle - Apprentice Inventor
+"""}
+DECKS["bmx_v2"] = {"name": "緑青ベイマックス（強化案2・公式おすすめ3種）", "pair": "emerald,sapphire", "source": "自作（公式コラムのリストを既存カードで強化）", "list_text": """
+4 Leaning Tower of Cheese-a
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+2 Chemical Reaction
+2 Another Tale to Spin
+3 Upgraded Chem Purse
+2 Institute of Technology - Honey Lemon's Lab
+4 Honey Lemon - Testing the Limits
+3 A Dark Age No More
+4 Spyglass Hat
+4 Baymax - Lab Assistant
+4 Ariel - Collector of Oddities
+3 Above the Crowd
+3 Honey Lemon - Ingenious Researcher
+2 Baymax - Amped Up
+2 Shere Khan - Ruthless Entrepreneur
+2 Inkrunner
+2 Hidden Inkcaster
+2 Under the Sea
+2 Triton - Discerning King
+2 Hiram Flaversham - Toymaker
+"""}
+DECKS["bmx_v2_belle"] = {"name": "緑青ベイマックス（強化案2・ベル入り）", "pair": "emerald,sapphire", "source": "自作（公式コラムのリストを既存カードで強化）", "list_text": """
+4 Leaning Tower of Cheese-a
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+2 Chemical Reaction
+2 Another Tale to Spin
+3 Upgraded Chem Purse
+2 Institute of Technology - Honey Lemon's Lab
+4 Honey Lemon - Testing the Limits
+3 A Dark Age No More
+4 Spyglass Hat
+4 Baymax - Lab Assistant
+4 Ariel - Collector of Oddities
+2 Above the Crowd
+3 Honey Lemon - Ingenious Researcher
+1 Baymax - Amped Up
+2 Shere Khan - Ruthless Entrepreneur
+2 Inkrunner
+2 Hidden Inkcaster
+2 Under the Sea
+2 Triton - Discerning King
+2 Belle - Exceptional Writer
+2 Belle - Apprentice Inventor
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -419,6 +529,20 @@ CONFIG["re_farewell"] = {
 CONFIG["emerald_lock_v1"] = CONFIG["emerald_lock"]
 CONFIG["stitch14_rs"] = dict(CONFIG["stitch14"], key={"Lilo & Stitch - Fun-Loving Friends": 0.8, "Stitch - Rock Star": 1.0},
                              never_ink=CONFIG["stitch14"]["never_ink"] | {"Stitch - Rock Star"})
+
+CONFIG["bmx_official"] = {
+    "keep": {"Honey Lemon - Testing the Limits", "Prototype Chem Ball", "Blinding Chem Ball", "Leaning Tower of Cheese-a",
+             "Baymax - Lab Assistant", "Upgraded Chem Purse", "Inkrunner", "Hidden Inkcaster", "Belle - Apprentice Inventor"},
+    "ship": {"Shere Khan - Ruthless Entrepreneur", "Honey Lemon - Ingenious Researcher", "Baymax - Amped Up", "Under the Sea"},
+    "never_ink": {"Honey Lemon - Testing the Limits", "Ariel - Collector of Oddities", "Triton - Discerning King",
+                  "Honey Lemon - Ingenious Researcher", "Belle - Exceptional Writer"},
+    "key": {"Ariel - Collector of Oddities": 0.5, "Honey Lemon - Testing the Limits": 0.5, "Under the Sea": 0.6,
+            "Triton - Discerning King": 0.6, "Shere Khan - Ruthless Entrepreneur": 0.3},
+    "ink_cap": 8,
+    "post_quest_pass": True,
+}
+for _k in ("bmx_v1", "bmx_v1_belle", "bmx_v2", "bmx_v2_belle"):
+    CONFIG[_k] = CONFIG["bmx_official"]
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
