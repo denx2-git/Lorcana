@@ -1,0 +1,92 @@
+{
+ "deck": "es_items14",
+ "name": "青緑アイテム（第14弾・ニシオカ選手）",
+ "start": 0.46956327224538136,
+ "end": 0.5885899125765021,
+ "tries": 789,
+ "verify_before": 0.5428389265710025,
+ "verify_after": 0.5648066375922354,
+ "verify_detail": {
+  "ae-mike": 0.43333333333333335,
+  "ae-queen": 0.4878048780487805,
+  "as-std": 0.5384615384615384,
+  "as_song14": 0.5833333333333334,
+  "as-naveen": 0.7272727272727273,
+  "as-lilo-aggro": 0.18181818181818182,
+  "stitch14": 0.2,
+  "rs-basil": 0.8656716417910447,
+  "rs-inkrunner": 0.7111111111111111,
+  "es-fergus": 0.45,
+  "es-location": 0.7368421052631579,
+  "emerald_lock": 0.3333333333333333,
+  "esa-mickey": 0.6888888888888889,
+  "ar-sugar": 0.4666666666666667,
+  "amr-evasive": 0.7,
+  "ams-hades": 0.6666666666666666,
+  "er-leviathan": 0.7333333333333333,
+  "blue_lock": 0.875
+ },
+ "swaps": [
+  {
+   "out": "Belle - Apprentice Inventor",
+   "in": "Tamatoa - So Shiny!",
+   "before": 0.46956327224538136,
+   "after": 0.48999268535995144,
+   "check": [
+    0.5018763010838597,
+    0.5431163979777208
+   ]
+  },
+  {
+   "out": "Inkrunner",
+   "in": "Hiram Flaversham - Toymaker",
+   "before": 0.48999268535995144,
+   "after": 0.5454109032286417,
+   "check": [
+    0.5584626285022506,
+    0.5871121259112726
+   ]
+  },
+  {
+   "out": "Lucky Dime",
+   "in": "Go Go Tomago - Darting Dynamo",
+   "before": 0.5454109032286417,
+   "after": 0.5722431383510322,
+   "check": [
+    0.48416827508567833,
+    0.5110300042332959
+   ]
+  },
+  {
+   "out": "Lucky Dime",
+   "in": "Mushu - Stealthy Dragon",
+   "before": 0.5722431383510322,
+   "after": 0.5885899125765021,
+   "check": [
+    0.5108994835297792,
+    0.5432561545941613
+   ]
+  }
+ ],
+ "list": "4 Ariel - Collector of Oddities\n4 Baymax - Lab Assistant\n4 Blinding Chem Ball\n4 Hidden Inkcaster\n4 Honey Lemon - Testing the Limits\n4 Milo Thatch - Getting His Hands Dirty\n4 Pawpsicle\n4 Prototype Chem Ball\n4 Sail the Azurite Sea\n4 Stegmutt - Clumsy Dinosaur\n4 Tamatoa - Happy as a Clam\n4 Under the Sea\n3 Belle - Apprentice Inventor\n3 Inkrunner\n2 Hades - Infernal Schemer\n1 Go Go Tomago - Darting Dynamo\n1 Hiram Flaversham - Toymaker\n1 Mushu - Stealthy Dragon\n1 Tamatoa - So Shiny!",
+ "detail": {
+  "ae-mike": 0.4,
+  "ae-queen": 0.5238095238095238,
+  "as-std": 0.7692307692307693,
+  "as_song14": 0.8666666666666667,
+  "as-naveen": 0.6666666666666666,
+  "as-lilo-aggro": 0.16666666666666666,
+  "stitch14": 0.25,
+  "rs-basil": 0.9411764705882353,
+  "rs-inkrunner": 0.7272727272727273,
+  "es-fergus": 0.3333333333333333,
+  "es-location": 0.4,
+  "emerald_lock": 0.5,
+  "esa-mickey": 0.6363636363636364,
+  "ar-sugar": 0.625,
+  "amr-evasive": 0.625,
+  "ams-hades": 0.5,
+  "er-leviathan": 0.75,
+  "blue_lock": 0.5
+ }
+}
