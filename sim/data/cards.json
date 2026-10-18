@@ -5235,5 +5235,359 @@
   "ink": [
    "sapphire"
   ]
+ },
+ "Madam Mim - Bauble Chaser": {
+  "jp": "マダム・ミム - 光り物まっしぐら",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Sorcerer"
+  ],
+  "text": "HARD TO HANDLE While you have an ink drop, this character gains Evasive. (Only characters with Evasive can challenge them.)",
+  "set": "14",
+  "num": "46",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Marie - Caught in the Act": {
+  "jp": "マリー - みつかっちゃった",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "A LITTLE TREAT Whenever this character quests, if an opposing character took damage this turn, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "187",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Arthur - Novice Blacksmith": {
+  "jp": "アーサー - 鍛冶屋の見習い",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "CAREFUL CRAFTING When you play this character, you may pay 1 {I} to get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "185",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Baloo - Delivery Pilot": {
+  "jp": "バルー - 配達パイロット",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Captain"
+  ],
+  "text": "PAYMENT UP FRONT This character can't quest or challenge unless you got an ink drop this turn.",
+  "set": "14",
+  "num": "188",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Merlin - Bauble Expert": {
+  "jp": "マーリン - 光り物の専門家",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Mentor",
+   "Sorcerer"
+  ],
+  "text": "RAW MATERIAL When you play this character, if you have a character named Arthur in play, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "39",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Sir Pellinore - Tougher Than He Looks": {
+  "jp": "ペリノー卿 - 見かけによらずタフ",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Knight"
+  ],
+  "text": "Challenger +2 (While challenging, this character gets +2 {S}.) / SPOILS OF VICTORY During your turn, whenever this character banishes another character in a challenge, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "184",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Archimedes - Messenger Owl": {
+  "jp": "アルキメデス - 伝書フクロウ",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Rush (This character can challenge the turn they're played.) / THE INDIGNITY! When this character is banished in a challenge, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "58",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Inkcaster Skates": {
+  "jp": "インクキャスターのスケート",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "THE LATEST TREND {E} — If a character quested this turn, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "67",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Merlin - Profoundly Curious": {
+  "jp": "マーリン - 底なしの好奇心",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Mentor",
+   "Sorcerer"
+  ],
+  "text": "UNTAPPED POTENTIAL When you play this character, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)\r / THRILLING DISCOVERY Whenever this character quests, draw a card.",
+  "set": "14",
+  "num": "57",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Shere Khan - Khan Industries CEO": {
+  "jp": "シア・カーン - カーン産業CEO",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "NEW INCENTIVE When you play this character, chosen character can challenge ready characters this turn. / CORNER THE MARKET Once during your turn, whenever one of your other characters banishes another character in a challenge, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "195",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Sir Kay - Determined to Win": {
+  "jp": "サー・ケイ - 勝つためなら何でもやる",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Knight"
+  ],
+  "text": "COMPETITIVE EDGE While you have an ink drop, this character gains Challenger +3. (They get +3 {S} while challenging.)",
+  "set": "14",
+  "num": "181",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Arthur - Jousting Knight": {
+  "jp": "アーサー - 馬上槍試合の騎士",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Knight"
+  ],
+  "text": "Shift 4 {I} (You may pay 4 {I} to play this on top of one of your characters named Arthur.) / Challenger +2 (While challenging, this character gets +2 {S}.) / VICTORY PURSE During your turn, whenever this character banishes another character in a challenge, draw a card and get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "193",
+  "ink": [
+   "steel"
+  ]
+ },
+ "Tia Victoria - Disapproving Ancestor": {
+  "jp": "ヴィクトリアおばさん - 辛辣なご先祖様",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 7,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "WITHERING GLARE When you play this character, chosen opposing character can't ready at the start of their next turn.",
+  "set": "14",
+  "num": "42",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Higitus Figitus": {
+  "jp": "HIGITUS FIGITUS",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 6 or more can {E} to sing this song for free.)  / Get 3 ink drops. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "62",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Merlin - Ink Drop Tinkerer": {
+  "jp": "マーリン - インク・ドロップ細工師",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 6,
+  "wp": 8,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Mentor",
+   "Sorcerer"
+  ],
+  "text": "Shift 5 {I} (You may pay 5 {I} to play this on top of one of your characters named Merlin.) / WHAT A DISCOVERY! When you play this character, get 1 ink drop. If you used Shift to play him, get 2 ink drops instead. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "52",
+  "ink": [
+   "amethyst"
+  ]
+ },
+ "Madam Mim - Resourceful Trickster": {
+  "jp": "マダム・ミム - やりくり上手なトリックスター",
+  "cost": 8,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 7,
+  "wp": 5,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain",
+   "Sorcerer"
+  ],
+  "text": "UPPER HAND When you play this character, if you removed an ink drop to play her, draw 2 cards. / BAUBLE GAME Once during your turn, whenever you remove an ink drop, draw a card.",
+  "set": "14",
+  "num": "59",
+  "ink": [
+   "amethyst"
+  ]
  }
 }

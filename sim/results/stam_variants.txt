@@ -1,0 +1,7 @@
+O.txt 重み付け57.0% 単純58.3% アグロ3種平均27.6% | as-lilo-aggro:22 est_aggro14:28 stitch14:33 ae-mike:50 ae_nokida:48 emerald_lock:45 es_items14:47 bmx_official:82
+V1.txt 重み付け72.3% 単純72.9% アグロ3種平均47.6% | as-lilo-aggro:40 est_aggro14:49 stitch14:54 ae-mike:66 ae_nokida:69 emerald_lock:64 es_items14:58 bmx_official:93
+V2.txt 重み付け71.4% 単純71.4% アグロ3種平均45.6% | as-lilo-aggro:41 est_aggro14:43 stitch14:53 ae-mike:71 ae_nokida:70 emerald_lock:55 es_items14:64 bmx_official:89
+V3.txt 重み付け70.3% 単純70.0% アグロ3種平均45.2% | as-lilo-aggro:40 est_aggro14:42 stitch14:53 ae-mike:74 ae_nokida:70 emerald_lock:56 es_items14:57 bmx_official:87
+V4.txt 重み付け71.4% 単純70.7% アグロ3種平均46.8% | as-lilo-aggro:41 est_aggro14:45 stitch14:55 ae-mike:72 ae_nokida:69 emerald_lock:56 es_items14:55 bmx_official:86
+
+[exited with code 0]

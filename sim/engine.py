@@ -96,6 +96,8 @@ class Player:
         use = min(free, n)
         self.ink_used += use
         self.drops -= (n - use)
+        if n - use > 0:
+            self.t["drop_removed"] = self.t.get("drop_removed", 0) + (n - use)
         assert self.drops >= 0
 
 
@@ -240,6 +242,8 @@ class Game:
         if n <= 0:
             return False
         x.damage += n
+        if x.card.kind == "char" and x.owner != self.active:
+            self.players[self.active].t["opp_damaged"] = True
         if x.damage >= x.card.wp:
             self.banish(x, by_challenge=src == "challenge")
             return True
@@ -353,6 +357,7 @@ class Game:
         import effects
         o = self.opp(p)
         p.hand.remove(card)
+        p.t["_dr_before"] = p.t.get("drop_removed", 0)
         if card.kind == "char":
             if mode == "shift" and extra and extra[0] == "drops":
                 p.drops -= extra[1]
@@ -380,6 +385,7 @@ class Game:
             self.log(f"  プレイ: {card.jp}" + ("（変身）" if mode == "shift" else ""))
             effects.on_play_char(self, p, x, target, extra)
             effects.after_char_played(self, p, x)
+            effects.check_mim(self, p)
             return x
         if card.kind in ("item", "location"):
             if mode not in ("free",):
@@ -407,6 +413,7 @@ class Game:
         self.to_discard_card(p, card)
         p.t.setdefault("spells", []).append(card)
         effects.after_spell(self, p, card, singers)
+        effects.check_mim(self, p)
         return None
 
     def can_challenge(self, p, att, tgt):
@@ -420,6 +427,8 @@ class Game:
             if not (att.card.rush or att.flags.get("rush") or effects.has_rush(self, att)):
                 return False
         if att.card.adventurous:
+            return False
+        if effects.cant_act(self, att):
             return False
         if att.flags.get("cant_challenge_until") is not None:
             return False

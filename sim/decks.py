@@ -256,6 +256,30 @@ DECKS["ae_dog14"] = {"name": "黄緑ドッグ（第14弾入り・自作）", "pa
 2 Nick Wilde - Toy Drive Officer
 """}
 
+DECKS["stam_drop"] = {"name": "鋼紫インク・ドロップ（第14弾・自作）", "pair": "amethyst,steel", "source": "自作", "list_text": """
+4 Madam Mim - Bauble Chaser
+2 Marie - Caught in the Act
+4 Arthur - Novice Blacksmith
+4 Baloo - Delivery Pilot
+3 Khan Transport Delivery
+1 Keep the Ancient Ways
+4 Merlin - Bauble Expert
+4 Sir Pellinore - Tougher Than He Looks
+4 Pete - Games Referee
+2 Archimedes - Messenger Owl
+3 Jousting Match
+2 Inkcaster Skates
+4 Merlin - Profoundly Curious
+2 Shere Khan - Khan Industries CEO
+2 Ink Explosion
+3 Sir Kay - Determined to Win
+3 Arthur - Jousting Knight
+2 Tia Victoria - Disapproving Ancestor
+2 Higitus Figitus
+3 Merlin - Ink Drop Tinkerer
+2 Madam Mim - Resourceful Trickster
+"""}
+
 DECKS["bmx_official"] = {"name": "緑青ベイマックス（公式コラム・第14弾のみ）", "pair": "emerald,sapphire", "source": "https://www.takaratomy.co.jp/products/disneylorcana/news/column/128360/", "list_text": """
 4 Leaning Tower of Cheese-a
 4 Blinding Chem Ball
@@ -364,6 +388,30 @@ DECKS["bmx_v2_belle"] = {"name": "緑青ベイマックス（強化案2・ベル
 2 Triton - Discerning King
 2 Belle - Exceptional Writer
 2 Belle - Apprentice Inventor
+"""}
+
+DECKS["stam_drop_v1"] = {"name": "鋼紫インク・ドロップ（アグロ対策版）", "pair": "amethyst,steel", "source": "自作（400試合ずつの確認で57.0%→72.3%）", "list_text": """
+4 Arthur - Novice Blacksmith
+4 Baloo - Delivery Pilot
+4 Madam Mim - Bauble Chaser
+4 Merlin - Bauble Expert
+4 Merlin - Profoundly Curious
+4 Pete - Games Referee
+4 Sir Pellinore - Tougher Than He Looks
+3 Jousting Match
+3 Khan Transport Delivery
+3 Merlin - Ink Drop Tinkerer
+3 Sir Kay - Determined to Win
+2 Archimedes - Messenger Owl
+2 Arthur - Jousting Knight
+2 Higitus Figitus
+2 Ink Explosion
+2 Madam Mim - Resourceful Trickster
+1 Belle - Accomplished Mystic
+3 Calhoun - Marine Sergeant
+2 Grab Your Sword
+2 Let the Storm Rage On
+2 Flash - Efficient Clerk
 """}
 
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
@@ -526,6 +574,15 @@ CONFIG["re_farewell"] = {
     "key": {"Maui - Half-Shark": 0.6, "Rivera Family Photo": 0.4, "Be Prepared": 0.5, "Firefly Swarm": 0.3},
     "ink_cap": 8,
 }
+CONFIG["stam_drop"] = {
+    "keep": {"Arthur - Novice Blacksmith", "Baloo - Delivery Pilot", "Khan Transport Delivery", "Madam Mim - Bauble Chaser",
+             "Merlin - Bauble Expert", "Sir Pellinore - Tougher Than He Looks", "Marie - Caught in the Act"},
+    "ship": {"Madam Mim - Resourceful Trickster", "Merlin - Ink Drop Tinkerer", "Higitus Figitus", "Tia Victoria - Disapproving Ancestor"},
+    "never_ink": {"Pete - Games Referee", "Madam Mim - Resourceful Trickster", "Merlin - Ink Drop Tinkerer"},
+    "key": {"Pete - Games Referee": 0.4, "Merlin - Profoundly Curious": 0.3},
+    "ink_cap": 8,
+}
+CONFIG["stam_drop_v1"] = CONFIG["stam_drop"]
 CONFIG["emerald_lock_v1"] = CONFIG["emerald_lock"]
 CONFIG["stitch14_rs"] = dict(CONFIG["stitch14"], key={"Lilo & Stitch - Fun-Loving Friends": 0.8, "Stitch - Rock Star": 1.0},
                              never_ink=CONFIG["stitch14"]["never_ink"] | {"Stitch - Rock Star"})
