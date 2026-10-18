@@ -702,6 +702,11 @@ def resolve_spell(g, p, card, target, extra):
         g.draw(p)
         if o.hand and sac_item(g, p):
             g.discard_from_hand(o, o.policy.discard_choice(g, o))
+    elif n == "Royal Tantrum":
+        k = 0
+        while sac_item(g, p):  # 退場させて得なアイテム（ケミボールなど）だけ
+            k += 1
+        g.draw(p, k)
     elif n == "A Dark Age No More":
         if p.deck:
             p.deck.pop(0)
@@ -1000,6 +1005,11 @@ def on_play_char(g, p, x, target, extra):
     elif n == "Hiram Flaversham - Toymaker":
         if sac_item(g, p):
             g.draw(p, 2)
+    elif n == "Dug - Good Boy":
+        if p.items():
+            g.draw(p)
+    elif n in ("Gosalyn Mallard - Curious Child", "Scuttle - Expert on Humans"):
+        look_take(g, p, 4, lambda c: c.kind == "item")
     elif n == "Hiro Hamada - Versatile Inventor":
         others = [y for y in p.chars() if y is not x and not y.card.evasive]
         if others and p.ink_free() >= 1:
@@ -1458,6 +1468,9 @@ def on_quest(g, p, x):
     elif n == "Hiram Flaversham - Toymaker":
         if sac_item(g, p):
             g.draw(p, 2)
+    elif n == "Monsieur D'Arque - Despicable Proprietor":
+        if sac_item(g, p):
+            g.draw(p)
     elif n == "Rapunzel & Flynn Rider - Unlikely Pair":
         g.draw(p)
         choose_discard(g, p, 1)
@@ -1493,6 +1506,12 @@ def start_of_turn_pre(g, p):
 
 
 def start_of_turn_post(g, p):
+    for x in p.chars():
+        if x.card.name == "Pacha - Emperor's Guide":
+            if p.items():
+                g.gain_lore(p, 1)
+            if p.locs():
+                g.gain_lore(p, 1)
     if p.t.get("castle_draw"):
         g.draw(p, p.t["castle_draw"])
     for x in list(p.chars()):

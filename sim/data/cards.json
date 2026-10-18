@@ -5106,5 +5106,134 @@
   "ink": [
    "sapphire"
   ]
+ },
+ "Pacha - Emperor's Guide": {
+  "jp": "パチャ - 王様のガイド",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "HELPFUL SUPPLIES At the start of your turn, if you have an item in play, gain 1 lore. / PERFECT DIRECTIONS At the start of your turn, if you have a location in play, gain 1 lore.",
+  "set": "5",
+  "num": "143",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Royal Tantrum": {
+  "jp": "王族のかんしゃく",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Banish any number of your items, then draw a card for each item banished this way.",
+  "set": "5",
+  "num": "161",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Monsieur D'Arque - Despicable Proprietor": {
+  "jp": "ダルク - 卑劣な悪徳医師",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "I'VE COME TO COLLECT Whenever this character quests, you may banish chosen item of yours to draw a card.",
+  "set": "7",
+  "num": "157",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Dug - Good Boy": {
+  "jp": "ダグ - お前はわしの犬",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "FETCH! When you play this character, if you have an item in play, draw a card.",
+  "set": "13",
+  "num": "144",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Gosalyn Mallard - Curious Child": {
+  "jp": "ゴサリン・マラード - 好奇心ガール",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "KEEN GEAR When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "11",
+  "num": "149",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Scuttle - Expert on Humans": {
+  "jp": "スカットル - 人間の専門家",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "LET ME SEE When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "4",
+  "num": "154",
+  "ink": [
+   "sapphire"
+  ]
  }
 }
