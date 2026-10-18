@@ -390,6 +390,30 @@ DECKS["bmx_v2_belle"] = {"name": "緑青ベイマックス（強化案2・ベル
 2 Belle - Apprentice Inventor
 """}
 
+DECKS["stam_drop_v1"] = {"name": "鋼紫インク・ドロップ（アグロ対策版）", "pair": "amethyst,steel", "source": "自作（400試合ずつの確認で57.0%→72.3%）", "list_text": """
+4 Arthur - Novice Blacksmith
+4 Baloo - Delivery Pilot
+4 Madam Mim - Bauble Chaser
+4 Merlin - Bauble Expert
+4 Merlin - Profoundly Curious
+4 Pete - Games Referee
+4 Sir Pellinore - Tougher Than He Looks
+3 Jousting Match
+3 Khan Transport Delivery
+3 Merlin - Ink Drop Tinkerer
+3 Sir Kay - Determined to Win
+2 Archimedes - Messenger Owl
+2 Arthur - Jousting Knight
+2 Higitus Figitus
+2 Ink Explosion
+2 Madam Mim - Resourceful Trickster
+1 Belle - Accomplished Mystic
+3 Calhoun - Marine Sergeant
+2 Grab Your Sword
+2 Let the Storm Rage On
+2 Flash - Efficient Clerk
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -558,6 +582,7 @@ CONFIG["stam_drop"] = {
     "key": {"Pete - Games Referee": 0.4, "Merlin - Profoundly Curious": 0.3},
     "ink_cap": 8,
 }
+CONFIG["stam_drop_v1"] = CONFIG["stam_drop"]
 CONFIG["emerald_lock_v1"] = CONFIG["emerald_lock"]
 CONFIG["stitch14_rs"] = dict(CONFIG["stitch14"], key={"Lilo & Stitch - Fun-Loving Friends": 0.8, "Stitch - Rock Star": 1.0},
                              never_ink=CONFIG["stitch14"]["never_ink"] | {"Stitch - Rock Star"})
