@@ -4812,6 +4812,430 @@
    "emerald"
   ]
  },
+ "Hiro Hamada - Versatile Inventor": {
+  "jp": "ヒロ・ハマダ - 多才な発明家",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Super",
+   "Hero",
+   "Inventor"
+  ],
+  "text": "Evasive (Only characters with Evasive can challenge this character.) / TURBO THRUSTERS When you play this character, you may pay 1 {I} to give chosen character of yours Evasive until the start of your next turn.",
+  "set": "14",
+  "num": "71",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Shere Khan - Ruthless Entrepreneur": {
+  "jp": "シア・カーン - 冷酷非情の実業家",
+  "cost": 7,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 7,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Villain"
+  ],
+  "text": "QUIETLY RELEASED When you play this character, put chosen opposing character with 3 {S} or less on the bottom of their player's deck.",
+  "set": "14",
+  "num": "83",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Belle - Exceptional Writer": {
+  "jp": "ベル - 非凡な文筆家",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 5,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "Shift 3 {I} (You may pay 3 {I} to play this on top of one of your characters named Belle.) / HYPERIA CITY TIPS During your turn, whenever this character exerts, you pay 2 {I} less for the next action you play this turn. / HYPERIA CITY SECRETS During your turn, whenever you play a third action, gain 3 lore.",
+  "set": "14",
+  "num": "90",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Above the Crowd": {
+  "jp": "ABOVE THE CROWD",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 5 or more can {E} to sing this song for free.)  / Put chosen opposing character with 3 {S} or less on the bottom of their player's deck.",
+  "set": "14",
+  "num": "95",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Chemical Reaction": {
+  "jp": "化学反応",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Draw a card. You may banish chosen item of yours. If you do, chosen opponent chooses and discards a card.",
+  "set": "14",
+  "num": "99",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Leaning Tower of Cheese-a": {
+  "jp": "ピザの斜塔",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "FAIR TRADE When you play this item, you may draw a card, then choose and discard a card. / EXTRA CHEESY While you have 4 items named Leaning Tower of Cheese-a in play, your items gain Ward. (Opponents can't choose them.)",
+  "set": "14",
+  "num": "101",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Honey Lemon - Ingenious Researcher": {
+  "jp": "ハニー・レモン - 独創的な研究者",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 6,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Super",
+   "Hero",
+   "Inventor"
+  ],
+  "text": "Shift 5 {I} (You may pay 5 {I} to play this on top of one of your characters named Honey Lemon.) / SYNTHESIZE Whenever this character quests, you may return an item card from your discard to your hand. If you do, get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "144",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Baymax - Amped Up": {
+  "jp": "ベイマックス - ハイボルテージ",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 5,
+  "wp": 8,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Super",
+   "Hero",
+   "Robot"
+  ],
+  "text": "Shift Remove 2 ink drops (You may remove 2 ink drops to play this on top of one of your characters named Baymax.) / SUPERCHARGE If you would get an ink drop, you may put the top card of your deck into your inkwell facedown and exerted instead.",
+  "set": "14",
+  "num": "158",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "A Dark Age No More": {
+  "jp": "もはや暗黒時代にあらず",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Put the top card of your deck into your inkwell facedown and exerted. Get 1 ink drop. (You may remove an ink drop to pay 1 {I}.)",
+  "set": "14",
+  "num": "162",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Spyglass Hat": {
+  "jp": "帽遠鏡",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "HAT COUTURE Whenever you play this or another item, if the item you played has a different name than each other item you have in play, you may put a card from your hand into your inkwell facedown and exerted.",
+  "set": "14",
+  "num": "168",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Upgraded Chem Purse": {
+  "jp": "ケミバッグ2.0",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "IT'S GOT POCKETS! {E}, 1 {I}, Banish one of your other items — Look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "14",
+  "num": "169",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Institute of Technology - Honey Lemon's Lab": {
+  "jp": "サンフランソウキョウ工科大学 - ハニー・レモンのラボ",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 5,
+  "lore": 1,
+  "move": 1,
+  "classes": [],
+  "text": "BREAK TIME Once during your turn, whenever a Super character quests while here, return an item card from your discard to your hand.",
+  "set": "14",
+  "num": "170",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Triton - Discerning King": {
+  "jp": "トリトン王 - 賢明なる王",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "King"
+  ],
+  "text": "CONSIGN TO THE DEPTHS {E}, Banish one of your items — Gain 3 lore.",
+  "set": "4",
+  "num": "159",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Hiram Flaversham - Toymaker": {
+  "jp": "ヒーラム・フラバーシャム - おもちゃ職人",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 6,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Inventor"
+  ],
+  "text": "ARTIFICER When you play this character and whenever he quests, you may banish one of your items to draw 2 cards.",
+  "set": "2",
+  "num": "149",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Pacha - Emperor's Guide": {
+  "jp": "パチャ - 王様のガイド",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero"
+  ],
+  "text": "HELPFUL SUPPLIES At the start of your turn, if you have an item in play, gain 1 lore. / PERFECT DIRECTIONS At the start of your turn, if you have a location in play, gain 1 lore.",
+  "set": "5",
+  "num": "143",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Royal Tantrum": {
+  "jp": "王族のかんしゃく",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Banish any number of your items, then draw a card for each item banished this way.",
+  "set": "5",
+  "num": "161",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Monsieur D'Arque - Despicable Proprietor": {
+  "jp": "ダルク - 卑劣な悪徳医師",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "I'VE COME TO COLLECT Whenever this character quests, you may banish chosen item of yours to draw a card.",
+  "set": "7",
+  "num": "157",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Dug - Good Boy": {
+  "jp": "ダグ - お前はわしの犬",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "FETCH! When you play this character, if you have an item in play, draw a card.",
+  "set": "13",
+  "num": "144",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Gosalyn Mallard - Curious Child": {
+  "jp": "ゴサリン・マラード - 好奇心ガール",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "KEEN GEAR When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "11",
+  "num": "149",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Scuttle - Expert on Humans": {
+  "jp": "スカットル - 人間の専門家",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "LET ME SEE When you play this character, look at the top 4 cards of your deck. You may reveal an item card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "4",
+  "num": "154",
+  "ink": [
+   "sapphire"
+  ]
+ },
  "Madam Mim - Bauble Chaser": {
   "jp": "マダム・ミム - 光り物まっしぐら",
   "cost": 1,

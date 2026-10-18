@@ -86,11 +86,17 @@ def main():
     ap.add_argument("--seed", type=int, default=7)
     ap.add_argument("--procs", type=int, default=4)
     ap.add_argument("--out")
+    ap.add_argument("--lock", default="", help="抜かないカードの最低枚数（例: \"Honey Lemon - Testing the Limits:4,Prototype Chem Ball:3\"）")
     args = ap.parse_args()
     key = args.deck
     rng = random.Random(args.seed)
     cur = parse_counts(DECKS[key]["list_text"])
     candidates = pool_for(key)
+    lock = {}
+    for part in filter(None, args.lock.split(",")):
+        name, k = part.rsplit(":", 1)
+        assert name in db(), name
+        lock[name] = int(k)
     t_end = time.time() + args.minutes * 60
     history = []
     with Pool(args.procs) as pool:
@@ -100,7 +106,7 @@ def main():
         tries = 0
         while time.time() < t_end:
             tries += 1
-            out_c = rng.choice([c for c, n in cur.items() if n > 0])
+            out_c = rng.choice([c for c, n in cur.items() if n > lock.get(c, 0)])
             in_c = rng.choice([c for c in candidates if cur.get(c, 0) < 4 and c != out_c])
             new = dict(cur)
             new[out_c] -= 1

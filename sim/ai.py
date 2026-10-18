@@ -24,11 +24,14 @@ ENGINE_BONUS = {
     "Cinderella - Stouthearted": 1.5, "The Muses - Proclaimers of Heroes": 1.5,
     "Henry J. Waternoose III - Chief Executive Officer": 1.0, "Lenny - Toy Binoculars": 0.3,
     "Stitch - Rock Star": 2.0, "Calhoun - Marine Sergeant": 0.8, "Scar - Vicious Cheater": 1.0,
+    "Triton - Discerning King": 2.0, "Hiram Flaversham - Toymaker": 1.0, "Honey Lemon - Ingenious Researcher": 1.0,
+    "Belle - Exceptional Writer": 0.8,
 }
 ITEM_VALUE = {
     "Maurice's Workshop": 3.0, "Fishbone Quill": 2.5, "Basil's Magnifying Glass": 1.8, "Lucky Dime": 3.5,
     "Sapphire Coil": 1.2, "Pawpsicle": 0.8, "Vitalisphere": 0.9, "Inkrunner": 0.6, "Croquet Mallet": 0.6,
     "Junior Woodchuck Guidebook": 1.5, "Bunch of Balloons": 0.8,
+    "Spyglass Hat": 1.5, "Upgraded Chem Purse": 1.2, "Leaning Tower of Cheese-a": 0.6,
 }
 
 
@@ -154,6 +157,9 @@ def legal_actions(g, p):
                 for bases in effects.shift_bases(g, p, card):
                     for t in effects.target_options(g, p, card):
                         acts.append(("play", card.name, "shift", tuple(b.uid for b in bases), t, None))
+            for bases, extra in effects.special_shift_options(g, p, card):
+                for t in effects.target_options(g, p, card):
+                    acts.append(("play", card.name, "shift", tuple(b.uid for b in bases), t, extra))
             for mode, extra in effects.alt_play_options(g, p, card):
                 for t in effects.target_options(g, p, card):
                     acts.append(("play", card.name, mode, None, t, extra))
@@ -174,7 +180,7 @@ def legal_actions(g, p):
                     for t in tgts:
                         for e in extras:
                             acts.append(("sing", card.name, tuple(s.uid for s in singers), t, e))
-            if p.ink_free() >= card.cost:
+            if p.ink_free() >= effects.action_cost(g, p, card):
                 for t in tgts:
                     for e in extras:
                         acts.append(("cast", card.name, t, e))
@@ -447,6 +453,16 @@ class Policy:
             c = self.ink_choice(g, p)
             if c is not None and g.can_ink(p, c):
                 g.do_ink(p, c)
+        self.main_phase(g, p)
+        if g.winner is not None:
+            return
+        self.reckless_challenges(g, p)
+        self.quests(g, p)
+        if self.cfg.get("post_quest_pass") and g.winner is None:
+            # クエストで引いたカード・得たドロップ・コスト軽減を同じターンに使う
+            self.main_phase(g, p)
+
+    def main_phase(self, g, p):
         for _ in range(25):
             if g.winner is not None:
                 return
@@ -464,10 +480,6 @@ class Policy:
             if best is None:
                 break
             apply(g, p, best)
-        if g.winner is not None:
-            return
-        self.reckless_challenges(g, p)
-        self.quests(g, p)
 
     def lethal(self, g, p):
         ready = [x for x in p.chars() if not x.exerted and not x.dry and not x.card.reckless]
@@ -494,6 +506,7 @@ class Policy:
                 return
             if x not in p.perms or x.exerted:
                 continue
+            effects.before_quest(g, p, x)
             if must or x.card.adventurous:
                 g.quest(p, x)
                 continue
