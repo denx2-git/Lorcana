@@ -5734,5 +5734,113 @@
   "ink": [
    "sapphire"
   ]
+ },
+ "Prince John - Gold Lover": {
+  "jp": "プリンス・ジョン - お金大好き",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 4,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain",
+   "Prince"
+  ],
+  "text": "BEAUTIFUL, LOVELY TAXES {E} — Play an item from your hand or discard with cost 5 or less for free, exerted.",
+  "set": "5",
+  "num": "147",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Merlin's Carpetbag": {
+  "jp": "マーリンのカーペットバッグ",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "HOCKETY POCKETY {E}, 1 {I} — Return an item card from your discard to your hand.",
+  "set": "5",
+  "num": "167",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Darkwing Duck - Dashing Gadgeteer": {
+  "jp": "ダークウィング・ダック - 華麗なるガジェットマスター",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Super",
+   "Hero",
+   "Detective"
+  ],
+  "text": "MODERN MARVEL Whenever this character quests, you may put an item card from your discard on the bottom of your deck. If you do, you may play an item with cost 5 or less from your discard for free.",
+  "set": "11",
+  "num": "150",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Gadget Hackwrench - Resourceful Mechanic": {
+  "jp": "ガジェット・ハックレンチ - 工夫上手なメカニック",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Ally",
+   "Inventor"
+  ],
+  "text": "TIME TO TINKER When you play this character, you may play an item with cost 3 or less for free. / WELL SUPPLIED Your characters with Support get +1 {L}.",
+  "set": "12",
+  "num": "145",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Salvage Operation": {
+  "jp": "サルベージ大作戦",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Return an item card from your discard to your hand. If you have a character with 4 {W} or more in play, gain 1 lore.",
+  "set": "12",
+  "num": "165",
+  "ink": [
+   "sapphire"
+  ]
  }
 }

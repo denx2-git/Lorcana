@@ -174,6 +174,36 @@ def return_item(g, p):
     return True
 
 
+def best_item(g, p, cards):
+    """コストなしで出すアイテムを選ぶ：出すと引けるもの・場にない名前のもの・ケミボールを優先。"""
+    if not cards:
+        return None
+    names = {it.card.name for it in p.items()}
+    draw = {"Pawpsicle", "Inkrunner", "Hidden Inkcaster", "Leaning Tower of Cheese-a"}
+
+    def score(c):
+        v = p.policy.card_value(g, p, c) + c.cost * 0.2
+        if c.name not in names:
+            v += 1.0
+        if c.name in draw:
+            v += 0.8
+        if c.name in ("Prototype Chem Ball", "Blinding Chem Ball"):
+            v += 0.5
+        return v
+    return max(cards, key=score)
+
+
+def play_item_free(g, p, c, from_discard=False, exerted=False):
+    if from_discard:
+        p.discard.remove(c)
+    else:
+        p.hand.remove(c)
+    p.hand.append(c)
+    x = g.play_card(p, c, mode="free")
+    if x is not None and exerted:
+        x.exerted = True
+
+
 def action_cost(g, p, card):
     return max(0, card.cost - p.t.get("belle_disc", 0) - p.t.get("buzz_arm", 0))
 
@@ -740,6 +770,9 @@ def resolve_spell(g, p, card, target, extra):
         while sac_item(g, p):  # 退場させて得なアイテム（ケミボールなど）だけ
             k += 1
         g.draw(p, k)
+    elif n == "Salvage Operation":
+        if return_item(g, p) and any(y.card.wp >= 4 for y in p.chars()):
+            g.gain_lore(p, 1)
     elif n == "A Dark Age No More":
         if p.deck:
             p.deck.pop(0)
@@ -1045,6 +1078,11 @@ def on_play_char(g, p, x, target, extra):
             g.draw(p, 2)
     elif n == "Quackerjack - Loony Toymaker":
         quackerjack(g, p)
+    elif n == "Gadget Hackwrench - Resourceful Mechanic":
+        if not p.item_locked:
+            c = best_item(g, p, [c for c in p.hand if c.kind == "item" and c.cost <= 3])
+            if c:
+                play_item_free(g, p, c)
     elif n == "Dug - Good Boy":
         if p.items():
             g.draw(p)
@@ -1272,6 +1310,11 @@ def activations(g, p):
             for y in p.chars():
                 if any(c.kind == "char" and c.cost <= y.card.cost + 2 and c.cost > y.card.cost for c in p.hand):
                     out.append((x.uid, 0, y.uid))
+        elif n == "Prince John - Gold Lover" and not x.exerted and not x.dry and not p.item_locked and any(
+                c.kind == "item" and c.cost <= 5 for c in p.hand + p.discard):
+            out.append((x.uid, 0, None))
+        elif n == "Merlin's Carpetbag" and not x.exerted and free >= 1 and any(c.kind == "item" for c in p.discard):
+            out.append((x.uid, 0, None))
         elif n == "Upgraded Chem Purse" and not x.exerted and free >= 1 and p.deck and any(
                 it is not x and it.card.name in SAC_PREF for it in p.items()):
             out.append((x.uid, 0, None))
@@ -1359,6 +1402,17 @@ def activate(g, p, uid, idx, target):
         x.exerted = True
         p.pay(2)
         g.banish(x)
+    elif n == "Prince John - Gold Lover":
+        x.exerted = True
+        hand = [c for c in p.hand if c.kind == "item" and c.cost <= 5]
+        disc = [c for c in p.discard if c.kind == "item" and c.cost <= 5]
+        c = best_item(g, p, disc + hand)
+        if c:
+            play_item_free(g, p, c, from_discard=c in disc and c not in hand, exerted=True)
+    elif n == "Merlin's Carpetbag":
+        x.exerted = True
+        p.pay(1)
+        return_item(g, p)
     elif n == "Buzz's Arm":
         x.exerted = True
         p.t["buzz_arm"] = 1
@@ -1588,6 +1642,17 @@ def on_quest(g, p, x):
             g.draw(p, 2)
     elif n == "Quackerjack - Loony Toymaker":
         quackerjack(g, p)
+    elif n == "Darkwing Duck - Dashing Gadgeteer":
+        its = [c for c in p.discard if c.kind == "item"]
+        if len(its) >= 2 and not p.item_locked:
+            # 1枚を山札の下へ、もう1枚（コスト5以下）を捨て札からコストなしで出す
+            play = best_item(g, p, [c for c in its if c.cost <= 5])
+            rest = [c for c in its if c is not play]
+            if play and rest:
+                bottom = min(rest, key=lambda c: p.policy.card_value(g, p, c))
+                p.discard.remove(bottom)
+                p.deck.append(bottom)
+                play_item_free(g, p, play, from_discard=True)
     elif n == "Monsieur D'Arque - Despicable Proprietor":
         if sac_item(g, p):
             g.draw(p)

@@ -577,6 +577,134 @@ DECKS["azumaya_items"] = {"name": "青緑アイテム（秋葉原あずまやシ
 4 Stegmutt - Clumsy Dinosaur
 """}
 
+DECKS["nt_shiny"] = {"name": "青緑アイテム（ニシオカ型・タマトア抜き：タマトア（シャイニー！）5枚）", "pair": "emerald,sapphire", "source": "自作（タマトア・ゴージャス！の代わり）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+5 Tamatoa - So Shiny!
+"""}
+DECKS["nt_pj"] = {"name": "青緑アイテム（ニシオカ型・タマトア抜き：プリンス・ジョン（お金大好き））", "pair": "emerald,sapphire", "source": "自作（タマトア・ゴージャス！の代わり）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+1 Tamatoa - So Shiny!
+4 Prince John - Gold Lover
+"""}
+DECKS["nt_dw"] = {"name": "青緑アイテム（ニシオカ型・タマトア抜き：ダークウィング・ダック（華麗なるガジェットマスター））", "pair": "emerald,sapphire", "source": "自作（タマトア・ゴージャス！の代わり）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+1 Tamatoa - So Shiny!
+4 Darkwing Duck - Dashing Gadgeteer
+"""}
+DECKS["nt_gadget"] = {"name": "青緑アイテム（ニシオカ型・タマトア抜き：ガジェット（工夫上手なメカニック））", "pair": "emerald,sapphire", "source": "自作（タマトア・ゴージャス！の代わり）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+1 Tamatoa - So Shiny!
+4 Gadget Hackwrench - Resourceful Mechanic
+"""}
+DECKS["nt_pj_salv"] = {"name": "青緑アイテム（ニシオカ型・タマトア抜き：プリンス・ジョン2＋サルベージ大作戦2）", "pair": "emerald,sapphire", "source": "自作（タマトア・ゴージャス！の代わり）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+1 Tamatoa - So Shiny!
+2 Prince John - Gold Lover
+2 Salvage Operation
+"""}
+DECKS["nt_pj_dw"] = {"name": "青緑アイテム（ニシオカ型・タマトア抜き：プリンス・ジョン2＋ダークウィング2）", "pair": "emerald,sapphire", "source": "自作（タマトア・ゴージャス！の代わり）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+1 Tamatoa - So Shiny!
+2 Prince John - Gold Lover
+2 Darkwing Duck - Dashing Gadgeteer
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -802,6 +930,13 @@ CONFIG["azumaya_items"] = {
     "ink_cap": 8,
     "post_quest_pass": True,
 }
+
+CONFIG["nt_shiny"] = CONFIG["es_items14"]
+CONFIG["nt_pj"] = CONFIG["es_items14"]
+CONFIG["nt_dw"] = CONFIG["es_items14"]
+CONFIG["nt_gadget"] = CONFIG["es_items14"]
+CONFIG["nt_pj_salv"] = CONFIG["es_items14"]
+CONFIG["nt_pj_dw"] = CONFIG["es_items14"]
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
