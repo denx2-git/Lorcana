@@ -180,6 +180,27 @@ DECKS["bs_storm"] = {"name": "黄青ハリケーン（Shadawx氏）", "pair": "a
                      "list_text": _BS_STORM + "1 The Black Cauldron\n2 Ohana Means Family\n3 The Horseman Strikes!\n"}
 DECKS["bs_storm_alice"] = {"name": "黄青ハリケーン＋アリス4（-Ohana2 -騎士1 -大釜1）", "pair": "amber,sapphire", "source": "自作",
                            "list_text": _BS_STORM + "4 Alice - Savvy Sailor\n2 The Horseman Strikes!\n"}
+DECKS["bs_storm_alice_v2"] = {"name": "黄青ハリケーン＋アリス4（完成版・嵐2）", "pair": "amber,sapphire",
+                              "source": "自作（自動改良の傾向を1枚差しなしで清書・環境勝率 34.4%→40.9%）", "list_text": """
+4 Aurora - Holding Court
+4 Hamm - Piggy Bank
+4 Grandmother Willow - Ancient Advisor
+4 Alice - Savvy Sailor
+4 Belle - Snowfield Strategist
+4 Cinderella - Dream Come True
+4 Moana - Curious Explorer
+4 Stitch - Carefree Surfer
+4 Cinderella - Unintentional Icon
+4 Hades - Infernal Schemer
+4 Minnie Mouse - Urban Visionary
+4 Besties, Assemble!
+4 Develop Your Brain
+2 Nani - Stage Manager
+2 Cinderella - Ballroom Sensation
+2 Raging Storm
+1 The Horseman Strikes!
+1 Let It Go
+"""}
 
 # スクショで共有されたデッキ・黄緑ドッグの比較用（2026/10/14 追加）
 DECKS["ae_nokida"] = {"name": "黄緑ドッグ（キーダなし・わいけー選手）", "pair": "amber,emerald", "source": "わいけー選手（セットチャンピオンシップ優勝）", "list_text": """
@@ -703,6 +724,7 @@ CONFIG["bs_storm"] = {
     "post_quest_pass": True,
 }
 CONFIG["bs_storm_alice"] = CONFIG["bs_storm"]
+CONFIG["bs_storm_alice_v2"] = CONFIG["bs_storm"]
 
 WIPES = {"Be Prepared": 1.0, "Raging Storm": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,

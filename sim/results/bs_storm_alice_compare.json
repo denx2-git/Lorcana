@@ -120,33 +120,123 @@
   "list": "4 Alice - Savvy Sailor\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Grandmother Willow - Ancient Advisor\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n3 Aurora - Holding Court\n3 Raging Storm\n2 Let It Go\n2 Nani - Stage Manager\n2 The Horseman Strikes!"
  },
  "自動改良の結果": {
-  "score": 0.4202799627296546,
+  "score": 0.43042564917681075,
   "by_seed": [
-   0.3988341817290457,
-   0.4030198385503505,
-   0.44288832538845546,
-   0.4363775052507667
+   0.4318308183838473,
+   0.38597491330819217,
+   0.40674211419819917,
+   0.49715475081700433
+  ],
+  "detail": {
+   "ae-mike": 0.22083333333333333,
+   "ae-queen": 0.27439024390243905,
+   "as-std": 0.5384615384615384,
+   "as_song14": 0.48333333333333334,
+   "as-naveen": 0.6363636363636364,
+   "as-lilo-aggro": 0.09090909090909091,
+   "stitch14": 0.21875,
+   "rs-basil": 0.5955882352941176,
+   "rs-inkrunner": 0.5568181818181819,
+   "es-fergus": 0.3666666666666667,
+   "es-location": 0.75,
+   "emerald_lock": 0.3125,
+   "esa-mickey": 0.6477272727272727,
+   "ar-sugar": 0.6,
+   "amr-evasive": 0.23333333333333334,
+   "ams-hades": 0.65625,
+   "er-leviathan": 0.6875,
+   "blue_lock": 0.6875
+  },
+  "list": "4 Alice - Savvy Sailor\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n3 Aurora - Holding Court\n3 Grandmother Willow - Ancient Advisor\n2 Raging Storm\n2 The Horseman Strikes!\n1 Ariel - Collector of Oddities\n1 Baymax - Amped Up\n1 Cinderella - Ballroom Sensation\n1 Kida - Atlantean\n1 Let It Go\n1 Nani - Stage Manager"
+ },
+ "清書A（嵐2 騎士2 ナニ2 舞踏会シンデレラ2）": {
+  "score": 0.4065917890296612,
+  "by_seed": [
+   0.3933345981739913,
+   0.3956804836674894,
+   0.39501916977552753,
+   0.44233290450163654
+  ],
+  "detail": {
+   "ae-mike": 0.25,
+   "ae-queen": 0.21341463414634146,
+   "as-std": 0.5288461538461539,
+   "as_song14": 0.3833333333333333,
+   "as-naveen": 0.6136363636363636,
+   "as-lilo-aggro": 0.20454545454545453,
+   "stitch14": 0.21875,
+   "rs-basil": 0.5661764705882353,
+   "rs-inkrunner": 0.5454545454545454,
+   "es-fergus": 0.4,
+   "es-location": 0.6944444444444444,
+   "emerald_lock": 0.28125,
+   "esa-mickey": 0.6136363636363636,
+   "ar-sugar": 0.5666666666666667,
+   "amr-evasive": 0.15,
+   "ams-hades": 0.46875,
+   "er-leviathan": 0.625,
+   "blue_lock": 0.625
+  },
+  "list": "4 Alice - Savvy Sailor\n4 Aurora - Holding Court\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Grandmother Willow - Ancient Advisor\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n2 Cinderella - Ballroom Sensation\n2 Nani - Stage Manager\n2 Raging Storm\n2 The Horseman Strikes!"
+ },
+ "清書B（嵐2 騎士1 LetItGo1 ナニ2 舞踏会シンデレラ2）": {
+  "score": 0.40940231559874596,
+  "by_seed": [
+   0.39903776227472904,
+   0.41220402920657906,
+   0.3892859880913791,
+   0.43708148282229653
+  ],
+  "detail": {
+   "ae-mike": 0.2708333333333333,
+   "ae-queen": 0.1951219512195122,
+   "as-std": 0.5192307692307692,
+   "as_song14": 0.45,
+   "as-naveen": 0.5909090909090908,
+   "as-lilo-aggro": 0.18181818181818182,
+   "stitch14": 0.1875,
+   "rs-basil": 0.5514705882352942,
+   "rs-inkrunner": 0.5340909090909091,
+   "es-fergus": 0.36666666666666664,
+   "es-location": 0.7222222222222222,
+   "emerald_lock": 0.21875,
+   "esa-mickey": 0.6363636363636364,
+   "ar-sugar": 0.6166666666666667,
+   "amr-evasive": 0.13333333333333333,
+   "ams-hades": 0.53125,
+   "er-leviathan": 0.59375,
+   "blue_lock": 0.6875
+  },
+  "list": "4 Alice - Savvy Sailor\n4 Aurora - Holding Court\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Grandmother Willow - Ancient Advisor\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n2 Cinderella - Ballroom Sensation\n2 Nani - Stage Manager\n2 Raging Storm\n1 Let It Go\n1 The Horseman Strikes!"
+ },
+ "清書C（嵐3 騎士1 ナニ2 舞踏会シンデレラ2）": {
+  "score": 0.3842171980704254,
+  "by_seed": [
+   0.38212788525602137,
+   0.3814199378014693,
+   0.36740692768673533,
+   0.4059140415374758
   ],
   "detail": {
    "ae-mike": 0.19166666666666665,
    "ae-queen": 0.22560975609756098,
-   "as-std": 0.5192307692307692,
-   "as_song14": 0.4666666666666667,
-   "as-naveen": 0.6590909090909091,
-   "as-lilo-aggro": 0.11363636363636363,
+   "as-std": 0.46153846153846156,
+   "as_song14": 0.45833333333333337,
+   "as-naveen": 0.5454545454545454,
+   "as-lilo-aggro": 0.06818181818181818,
    "stitch14": 0.125,
-   "rs-basil": 0.5808823529411764,
-   "rs-inkrunner": 0.6136363636363636,
-   "es-fergus": 0.4166666666666667,
-   "es-location": 0.4722222222222222,
-   "emerald_lock": 0.40625,
-   "esa-mickey": 0.6477272727272727,
-   "ar-sugar": 0.6833333333333333,
-   "amr-evasive": 0.3666666666666667,
-   "ams-hades": 0.53125,
-   "er-leviathan": 0.5625,
-   "blue_lock": 0.5625
+   "rs-basil": 0.5441176470588236,
+   "rs-inkrunner": 0.4772727272727273,
+   "es-fergus": 0.325,
+   "es-location": 0.5833333333333334,
+   "emerald_lock": 0.3125,
+   "esa-mickey": 0.6590909090909091,
+   "ar-sugar": 0.6,
+   "amr-evasive": 0.21666666666666667,
+   "ams-hades": 0.5625,
+   "er-leviathan": 0.53125,
+   "blue_lock": 0.6875
   },
-  "list": "4 Alice - Savvy Sailor\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n3 Aurora - Holding Court\n3 Grandmother Willow - Ancient Advisor\n2 Raging Storm\n2 The Horseman Strikes!\n1 Ariel - Collector of Oddities\n1 Baymax - Amped Up\n1 Cinderella - Ballroom Sensation\n1 Kida - Atlantean\n1 Let It Go\n1 Nani - Stage Manager"
+  "list": "4 Alice - Savvy Sailor\n4 Aurora - Holding Court\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Grandmother Willow - Ancient Advisor\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n3 Raging Storm\n2 Cinderella - Ballroom Sensation\n2 Nani - Stage Manager\n1 The Horseman Strikes!"
  }
 }
