@@ -27,10 +27,8 @@ for c in catalog_src:
     if k in seen:
         continue
     seen[k] = len(cards)
-    row = [c["name"], c.get("ink"), c.get("cost")]
-    if c.get("ink2"):
-        row.append(c["ink2"])
-    cards.append(row)
+    # [名前, インク, コスト, 2色目のインク, 番号（"弾-番号" の一覧）]
+    cards.append([c["name"], c.get("ink"), c.get("cost"), c.get("ink2"), c.get("codes") or []])
 
 
 def to_official(name):

@@ -100,18 +100,23 @@ def fansite_cards():
 def main():
     lc = lorcast_cards()
     fan = fansite_cards()
-    out, seen, nomatch = [], set(), 0
+    out, by_name, nomatch = [], {}, 0
     order = lambda c: (c["set"] is None, (c["set"] or "").startswith("P"), int(re.sub(r"\D", "", c["set"] or "0") or 0), c["num"] or 0)
     for c in sorted(fan, key=order):
         info = lc.get((c["set"], c["num"])) if c["set"] else None
         if info is None:
             nomatch += 1
             info = {}
-        if c["name"] in seen:
-            continue
-        seen.add(c["name"])
-        out.append({"name": c["name"], "ink": info.get("ink"), "ink2": info.get("ink2"), "cost": info.get("cost"),
-                    "set": c["set"], "num": c["num"], "source": "disneylorcana.jp"})
+        code = f"{c['set']}-{c['num']}" if c["set"] else None
+        # 再録・エンチャンテッド版は同じ名前の1件にまとめ、番号（弾-番号）はすべて残す
+        e = by_name.get(c["name"])
+        if e is None:
+            e = by_name[c["name"]] = {"name": c["name"], "ink": None, "ink2": None, "cost": None, "codes": [], "source": "disneylorcana.jp"}
+            out.append(e)
+        if code and code not in e["codes"]:
+            e["codes"].append(code)
+        if e["cost"] is None and info.get("cost") is not None:
+            e.update(ink=info.get("ink"), ink2=info.get("ink2"), cost=info.get("cost"))
     path = os.path.join(ROOT, "data/card_catalog_ja.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=0)
