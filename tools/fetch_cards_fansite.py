@@ -35,16 +35,16 @@ def get(url):
 
 
 def lorcast_cards():
-    """(弾番号, カード番号) -> {cost, ink, ink2}。数字の弾（本編）だけ使う。"""
+    """(弾コード, カード番号) -> {cost, ink, ink2}。弾コードは "1"〜 の本編と "P1"〜 のプロモ。"""
     out = {}
     for s in json.loads(get(LORCAST + "sets"))["results"]:
-        if not s["code"].isdigit():
+        if not re.fullmatch(r"\d+|P\d+", s["code"]):
             continue
         for c in json.loads(get(f"{LORCAST}sets/{s['code']}/cards")):
             inks = c.get("inks") or ([c["ink"]] if c.get("ink") else [])
             num = re.sub(r"\D", "", str(c.get("collector_number") or ""))
             if num:
-                out[(int(s["code"]), int(num))] = {"cost": c.get("cost"), "ink": inks[0] if inks else None,
+                out[(s["code"], int(num))] = {"cost": c.get("cost"), "ink": inks[0] if inks else None,
                                                    "ink2": inks[1] if len(inks) > 1 else None, "en": c.get("name")}
         time.sleep(0.2)
     print(f"Lorcast: {len(out)} cards", flush=True)
@@ -52,7 +52,23 @@ def lorcast_cards():
 
 
 ITEM = re.compile(r'<article class="card-item.*?href="(https://disneylorcana\.jp/cardlist/[^"]+/(\d+)/)".*?src="[^"]*/([^"/]+)"[^>]*alt="([^"]*)"', re.S)
-FILE = re.compile(r"^(\d+)_DLCS(\d+)_")
+# 画像ファイル名から弾コードとカード番号を読む。形式が2通りある
+#   216_DLCS1_TinkerBell_GiantFairy_JA（Sは本編、Pはプロモ）
+#   azurite-sea_ja_222（第3〜6弾）
+FILE = re.compile(r"^(\d+)_DLC([SP])(\d+)_")
+FILE_SLUG = re.compile(r"^([a-z-]+)_ja_(\d+)")
+SLUG_SET = {"the-first-chapter": "1", "rise-of-the-floodborn": "2", "into-the-inklands": "3", "ursulas-return": "4",
+            "shimmering-skies": "5", "azurite-sea": "6"}
+
+
+def set_and_number(img):
+    m = FILE.match(img)
+    if m:
+        return ("" if m.group(2) == "S" else "P") + m.group(3), int(m.group(1))
+    m = FILE_SLUG.match(img)
+    if m and m.group(1) in SLUG_SET:
+        return SLUG_SET[m.group(1)], int(m.group(2))
+    return None, None
 
 
 def fansite_cards():
@@ -71,9 +87,8 @@ def fansite_cards():
                 last = max(nums) if nums else 1
             items = ITEM.findall(text)
             for url, pid, img, alt in items:
-                m = FILE.match(img)
-                cards[pid] = {"name": html.unescape(alt).strip(), "url": url,
-                              "set": int(m.group(2)) if m else None, "num": int(m.group(1)) if m else None}
+                code, num = set_and_number(img)
+                cards[pid] = {"name": html.unescape(alt).strip(), "url": url, "set": code, "num": num}
             print(f"{slug} {page}/{last}: {len(cards)}", flush=True)
             if page >= last or not items:
                 break
@@ -86,7 +101,8 @@ def main():
     lc = lorcast_cards()
     fan = fansite_cards()
     out, seen, nomatch = [], set(), 0
-    for c in sorted(fan, key=lambda c: (c["set"] or 99, c["num"] or 9999)):
+    order = lambda c: (c["set"] is None, (c["set"] or "").startswith("P"), int(re.sub(r"\D", "", c["set"] or "0") or 0), c["num"] or 0)
+    for c in sorted(fan, key=order):
         info = lc.get((c["set"], c["num"])) if c["set"] else None
         if info is None:
             nomatch += 1
