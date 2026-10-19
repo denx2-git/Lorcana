@@ -1,0 +1,112 @@
+{
+ "deck": "bs_storm_alice",
+ "name": "黄青ハリケーン＋アリス4（-Ohana2 -騎士1 -大釜1）",
+ "start": 0.3486862421333619,
+ "end": 0.5046773809346196,
+ "tries": 354,
+ "verify_before": 0.3904624602776262,
+ "verify_after": 0.4141163073160188,
+ "verify_detail": {
+  "ae-mike": 0.2,
+  "ae-queen": 0.2682926829268293,
+  "as-std": 0.5576923076923077,
+  "as_song14": 0.5333333333333333,
+  "as-naveen": 0.7727272727272727,
+  "as-lilo-aggro": 0.0,
+  "stitch14": 0.26666666666666666,
+  "rs-basil": 0.4925373134328358,
+  "rs-inkrunner": 0.7111111111111111,
+  "es-fergus": 0.31666666666666665,
+  "es-location": 0.3157894736842105,
+  "emerald_lock": 0.4666666666666667,
+  "esa-mickey": 0.7111111111111111,
+  "ar-sugar": 0.5666666666666667,
+  "amr-evasive": 0.2,
+  "ams-hades": 0.4666666666666667,
+  "er-leviathan": 0.5333333333333333,
+  "blue_lock": 0.5
+ },
+ "swaps": [
+  {
+   "out": "Aurora - Holding Court",
+   "in": "Bellwether - Highly Qualified",
+   "before": 0.3486862421333619,
+   "after": 0.40756232490459865,
+   "check": [
+    0.33646702784160876,
+    0.39077618510718176
+   ]
+  },
+  {
+   "out": "Let It Go",
+   "in": "Baymax - Amped Up",
+   "before": 0.40756232490459865,
+   "after": 0.43036173417154827,
+   "check": [
+    0.3641673169865794,
+    0.38010302204145546
+   ]
+  },
+  {
+   "out": "Raging Storm",
+   "in": "Nani - Stage Manager",
+   "before": 0.43036173417154827,
+   "after": 0.45080018021194496,
+   "check": [
+    0.3550746926546987,
+    0.3871495973294205
+   ]
+  },
+  {
+   "out": "Grandmother Willow - Ancient Advisor",
+   "in": "Cinderella - Ballroom Sensation",
+   "before": 0.45080018021194496,
+   "after": 0.4667040568899758,
+   "check": [
+    0.3458026886249989,
+    0.35268941157389805
+   ]
+  },
+  {
+   "out": "Bellwether - Highly Qualified",
+   "in": "Kida - Atlantean",
+   "before": 0.4667040568899758,
+   "after": 0.48837193488214525,
+   "check": [
+    0.3904616566000291,
+    0.417583412219194
+   ]
+  },
+  {
+   "out": "Raging Storm",
+   "in": "Ariel - Collector of Oddities",
+   "before": 0.48837193488214525,
+   "after": 0.5046773809346196,
+   "check": [
+    0.3692029599984492,
+    0.3864816073898671
+   ]
+  }
+ ],
+ "list": "4 Alice - Savvy Sailor\n4 Belle - Snowfield Strategist\n4 Besties, Assemble!\n4 Cinderella - Dream Come True\n4 Cinderella - Unintentional Icon\n4 Develop Your Brain\n4 Hades - Infernal Schemer\n4 Hamm - Piggy Bank\n4 Minnie Mouse - Urban Visionary\n4 Moana - Curious Explorer\n4 Stitch - Carefree Surfer\n3 Aurora - Holding Court\n3 Grandmother Willow - Ancient Advisor\n2 Raging Storm\n2 The Horseman Strikes!\n1 Ariel - Collector of Oddities\n1 Baymax - Amped Up\n1 Cinderella - Ballroom Sensation\n1 Kida - Atlantean\n1 Let It Go\n1 Nani - Stage Manager",
+ "detail": {
+  "ae-mike": 0.26666666666666666,
+  "ae-queen": 0.19047619047619047,
+  "as-std": 0.5384615384615384,
+  "as_song14": 0.7333333333333333,
+  "as-naveen": 0.8333333333333334,
+  "as-lilo-aggro": 0.16666666666666666,
+  "stitch14": 0.5,
+  "rs-basil": 0.7647058823529411,
+  "rs-inkrunner": 0.36363636363636365,
+  "es-fergus": 0.7333333333333333,
+  "es-location": 0.4,
+  "emerald_lock": 0.25,
+  "esa-mickey": 0.5454545454545454,
+  "ar-sugar": 0.75,
+  "amr-evasive": 0.625,
+  "ams-hades": 0.75,
+  "er-leviathan": 0.75,
+  "blue_lock": 0.5
+ }
+}
