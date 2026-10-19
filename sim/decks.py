@@ -414,6 +414,71 @@ DECKS["stam_drop_v1"] = {"name": "鋼紫インク・ドロップ（アグロ対�
 2 Flash - Efficient Clerk
 """}
 
+DECKS["ae_hl"] = {"name": "黄緑ドッグ＋ハニー・レモン（自作）", "pair": "amber,emerald", "source": "自作（黄緑ドッグ第14弾入りにハニー・レモンとピザの斜塔）", "list_text": """
+4 Under the Sea
+4 Ursula - Deceiver
+4 Elinor - Renowned Diplomat
+4 Aurora - Holding Court
+4 Kida - Protector of Atlantis
+4 Tramp - Enterprising Dog
+4 Tramp - Street-Smart Dog
+4 Nani - Stage Manager
+4 Meilin Lee - Lead Vocalist
+4 Lilo - Escape Artist
+4 Lady - Decisive Dog
+4 Grandmother Willow - Ancient Advisor
+2 Lady - Relaxed and Rested
+2 Lady - Miss Park Avenue
+4 Honey Lemon - Testing the Limits
+4 Leaning Tower of Cheese-a
+"""}
+DECKS["es_hl"] = {"name": "緑鋼ロック＋ハニー・レモン（自作）", "pair": "emerald,steel", "source": "自作（緑鋼ロックにハニー・レモンとピザの斜塔）", "list_text": """
+4 Diablo - Devoted Herald
+4 Elinor - Renowned Diplomat
+4 Keep the Ancient Ways
+4 Let the Storm Rage On
+4 Pete - Games Referee
+4 Sudden Chill
+4 Toulouse - Rough and Tumble
+4 Ursula - Deceiver
+3 Diablo - Stone Servant
+3 Don Karnage - Debonair Pirate
+3 Strength of a Raging Fire
+2 Diablo - Maleficent's Spy
+2 Don Karnage - Khan's Courier
+1 Cinderella - Stouthearted
+1 Flash - Efficient Clerk
+1 Fred - Big Stomper
+1 Lilo - Bundled Up
+1 Malicious, Mean, and Scary
+1 Prince John - Greediest of All
+1 Shere Khan - Opportunistic Tycoon
+4 Honey Lemon - Testing the Limits
+4 Leaning Tower of Cheese-a
+"""}
+
+DECKS["es_items14_hl"] = {"name": "青緑アイテム（ニシオカ選手のリストを自動改良・ハニー・レモン固定）", "pair": "emerald,sapphire", "source": "自作（自動改良・最終確認 54.3%→56.5%）", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Tamatoa - Happy as a Clam
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+1 Go Go Tomago - Darting Dynamo
+1 Hiram Flaversham - Toymaker
+1 Mushu - Stealthy Dragon
+1 Tamatoa - So Shiny!
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -600,6 +665,11 @@ CONFIG["bmx_official"] = {
 }
 for _k in ("bmx_v1", "bmx_v1_belle", "bmx_v2", "bmx_v2_belle"):
     CONFIG[_k] = CONFIG["bmx_official"]
+
+CONFIG["ae_hl"] = dict(CONFIG["ae_dog14"], keep=CONFIG["ae_dog14"]["keep"] | {"Honey Lemon - Testing the Limits", "Leaning Tower of Cheese-a"})
+CONFIG["es_hl"] = dict(CONFIG["emerald_lock"], keep=CONFIG["emerald_lock"]["keep"] | {"Honey Lemon - Testing the Limits"})
+
+CONFIG["es_items14_hl"] = CONFIG["es_items14"]
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
