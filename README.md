@@ -8,4 +8,6 @@
 - `data/cardtext.json` — 採用カードの英語名・コスト・能力（Lorcast API）
 - `tools/guide_data.py` — 型の分類と解説、相性データ、出典
 - `tools/build.py` + `tools/template.html` — `python3 tools/build.py` で `index.html` を生成
-- `inventory.html` — 2人で共有するカード在庫帳（所持枚数・デッキで使用中の枚数・残り）。`python3 tools/build_inventory.py` で `tools/inventory_template.html` にカード候補とレシピを埋め込んで生成。保存は claude.ai Artifact の共有DBを使う
+- `inventory.html` — 2人で共有するカード在庫帳（持ち主ごとの所持枚数・デッキで使用中の枚数・残り）。保存は claude.ai Artifact の共有DBを使う
+- `data/official_cards.json` — タカラトミー公式カードリストの全カード（`python3 tools/fetch_official_cards.py` で取得。連続取得すると一時的に403になるのでゆっくり取る）
+- `tools/build_inventory.py` + `tools/inventory_template.html` — `python3 tools/build_inventory.py` で公式カード名と環境レシピを埋め込んで `inventory.html` を生成
