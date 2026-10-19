@@ -9,5 +9,5 @@
 - `tools/guide_data.py` — 型の分類と解説、相性データ、出典
 - `tools/build.py` + `tools/template.html` — `python3 tools/build.py` で `index.html` を生成
 - `inventory.html` — 2人で共有するカード在庫帳（持ち主ごとの所持枚数・デッキで使用中の枚数・残り）。保存は claude.ai Artifact の共有DBを使う
-- `data/official_cards.json` — タカラトミー公式カードリストの全カード（`python3 tools/fetch_official_cards.py` で取得。連続取得すると一時的に403になるのでゆっくり取る）
-- `tools/build_inventory.py` + `tools/inventory_template.html` — `python3 tools/build_inventory.py` で公式カード名と環境レシピを埋め込んで `inventory.html` を生成
+- `data/card_catalog_ja.json` — 日本語のカード名一覧（全2,494種類、再録の番号つき）。`python3 tools/fetch_cards_fansite.py` で disneylorcana.jp の日本語名と Lorcast のコスト・インクから作る。`tools/fetch_official_cards.py`（タカラトミー公式）も同じ形式で作れるが、続けて取ると一時的に403になる
+- `tools/build_inventory.py` + `tools/inventory_template.html` — `python3 tools/build_inventory.py` でカード名一覧と環境レシピを埋め込んで `inventory.html` を生成
