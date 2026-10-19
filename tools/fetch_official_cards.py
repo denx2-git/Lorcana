@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""タカラトミー公式カードリストの検索APIから全カードを取得し data/official_cards.json に保存する。
+"""タカラトミー公式カードリストの検索APIから全カードを取得し data/card_catalog_ja.json に保存する。
 
 使い方: python3 tools/fetch_official_cards.py
 （新弾が出たら実行し直して tools/build_inventory.py で在庫帳を作り直す）
@@ -57,13 +57,22 @@ def main():
         page += 1
         time.sleep(DELAY)
 
-    keep = ["id", "card_name", "version", "rubi", "ink_color", "ink_color2", "card_type", "ink_cost", "inkwell",
-            "rarity", "sets", "sets_order", "collector_number", "card_group", "release_date"]
-    out = [{k: c.get(k) for k in keep} for c in cards]
-    path = os.path.join(ROOT, "data/official_cards.json")
+    ink_en = {"アンバー": "Amber", "アメジスト": "Amethyst", "エメラルド": "Emerald",
+              "ルビー": "Ruby", "サファイア": "Sapphire", "スティール": "Steel"}
+    cards.sort(key=lambda c: (c.get("release_date") or 0, c.get("sets_order") or 0, c.get("collector_number") or 0))
+    out, seen = [], set()
+    for c in cards:
+        # 再録・エンチャンテッド版は同じカードとして1つにまとめる
+        name = c["card_name"].strip() + (" — " + c["version"].strip() if c.get("version") else "")
+        if name in seen:
+            continue
+        seen.add(name)
+        out.append({"name": name, "ink": ink_en.get(c.get("ink_color") or ""), "ink2": ink_en.get(c.get("ink_color2") or ""),
+                    "cost": c.get("ink_cost"), "set": c.get("sets"), "num": c.get("collector_number"), "source": "takaratomy.co.jp"})
+    path = os.path.join(ROOT, "data/card_catalog_ja.json")
     with open(path, "w", encoding="utf-8") as f:
         json.dump(out, f, ensure_ascii=False, indent=0)
-    print(f"{path}: {len(out)} cards")
+    print(f"{path}: {len(out)} 種類")
 
 
 if __name__ == "__main__":

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-"""公式カードリスト（data/official_cards.json）と環境デッキレシピを埋め込んで inventory.html（2人用の在庫帳）を生成する。
+"""日本語カード名一覧（data/card_catalog_ja.json）と環境デッキレシピを埋め込んで inventory.html（2人用の在庫帳）を生成する。
 
 使い方: python3 tools/build_inventory.py
-（カードリストの更新は先に python3 tools/fetch_official_cards.py）
+（カード名一覧の更新は先に python3 tools/fetch_official_cards.py か tools/fetch_cards_fansite.py）
 """
 import json
 import os
@@ -10,13 +10,10 @@ import re
 import time
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OFFICIAL = os.path.join(ROOT, "data/official_cards.json")
+CATALOG = os.path.join(ROOT, "data/card_catalog_ja.json")
 
-official = json.load(open(OFFICIAL, encoding="utf-8"))
+catalog_src = json.load(open(CATALOG, encoding="utf-8"))
 decks_by_pair = json.load(open(os.path.join(ROOT, "data/vine_decklists.json"), encoding="utf-8"))
-
-INK_EN = {"アンバー": "Amber", "アメジスト": "Amethyst", "エメラルド": "Emerald",
-          "ルビー": "Ruby", "サファイア": "Sapphire", "スティール": "Steel"}
 
 
 def norm(s):
@@ -24,20 +21,15 @@ def norm(s):
     return re.sub(r"[\s・–—\-‐~〜《》『』「」、。,.!！?？'\"()（）]", "", s)
 
 
-# 再録・エンチャンテッド版は同じカードとして1つにまとめる（最初に出た版の情報を使う）
 cards, seen = [], {}
-for c in sorted(official, key=lambda c: (c.get("release_date") or 0, c.get("sets_order") or 0, c.get("collector_number") or 0)):
-    name = c["card_name"].strip()
-    if c.get("version"):
-        name += " — " + c["version"].strip()
-    k = norm(name)
+for c in catalog_src:
+    k = norm(c["name"])
     if k in seen:
         continue
     seen[k] = len(cards)
-    ink2 = INK_EN.get(c.get("ink_color2") or "")
-    row = [name, INK_EN.get(c.get("ink_color") or ""), c.get("ink_cost")]
-    if ink2:
-        row.append(ink2)
+    row = [c["name"], c.get("ink"), c.get("cost")]
+    if c.get("ink2"):
+        row.append(c["ink2"])
     cards.append(row)
 
 
@@ -61,13 +53,14 @@ for pair, ds in decks_by_pair.items():
             lst.append([o, k])
         recipes.append([d["title"], d.get("archetype") or "", pair, lst])
 
-fetched = time.strftime("%Y-%m-%d", time.localtime(os.path.getmtime(OFFICIAL)))
-catalog = json.dumps({"cards": cards, "recipes": recipes, "fetched": fetched}, ensure_ascii=False, separators=(",", ":"))
+fetched = time.strftime("%Y-%m-%d", time.localtime(os.path.getmtime(CATALOG)))
+source = catalog_src[0].get("source", "") if catalog_src else ""
+catalog = json.dumps({"cards": cards, "recipes": recipes, "fetched": fetched, "source": source}, ensure_ascii=False, separators=(",", ":"))
 catalog = catalog.replace("</", "<\\/")
 
 tpl = open(os.path.join(ROOT, "tools/inventory_template.html"), encoding="utf-8").read()
 out = tpl.replace("/*__CATALOG__*/{}", catalog)
 open(os.path.join(ROOT, "inventory.html"), "w", encoding="utf-8").write(out)
-print(f"inventory.html: {len(cards)} cards (公式 {len(official)} 件から重複を除外), {len(recipes)} recipes")
+print(f"inventory.html: {len(cards)} cards ({source}), {len(recipes)} recipes")
 if unmatched:
     print("公式リストと名前が一致しなかったレシピのカード:", *sorted(unmatched), sep="\n  ")
