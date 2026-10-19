@@ -207,7 +207,7 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
   <section class="panel" id="p-inv">
     <form class="bar" id="add-form" autocomplete="off">
       <span class="seg" id="add-owner" role="group" aria-label="だれのカードとして追加するか"></span>
-      <input class="field grow" id="add-name" list="catalog-names" placeholder="カード名を入れて追加（公式カードリストの候補から選べます）" aria-label="カード名">
+      <input class="field grow" id="add-name" list="catalog-names" placeholder="カード名か番号を入れて追加（候補から選べます）" aria-label="カード名">
       <input class="field" id="add-n" type="number" min="1" max="99" value="1" aria-label="枚数">
       <button class="btn primary" type="submit">追加</button>
     </form>
@@ -250,7 +250,7 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
     </div>
     <div id="deck-editor" class="editor" hidden></div>
   </section>
-  <p class="small muted">カード候補はタカラトミー公式カードリストの全<span class="num" id="cat-n"></span>種類（<span id="cat-date"></span>時点）です。</p>
+  <p class="small muted" id="cat-note"></p>
 </div>
 
 <datalist id="catalog-names"></datalist>
@@ -555,7 +555,7 @@ function renderInventory(){
   if (!rows.some(r => owns(r) || isShort(r))){
     const who = state.view === "all" ? "" : `${ownerName(state.view)}の`;
     el.innerHTML = `<div class="empty"><h3>${esc(who)}カードはまだ登録されていません</h3>
-      <p class="muted">上の欄でだれのカードかを選び、カード名を入れて「追加」を押すと在庫に入ります。候補にはタカラトミー公式カードリストの全カードが出ます。</p>
+      <p class="muted">上の欄でだれのカードかを選び、カード名を入れて「追加」を押すと在庫に入ります。候補には発売済みの全カードが出ます。カード番号や写真からも追加できます。</p>
       <p class="muted">デッキタブでデッキを作ると、使っている枚数と残りの枚数がここに出ます。</p></div>`;
     return;
   }
@@ -882,8 +882,9 @@ $("recipe").addEventListener("change", e => {
   createDeck(r[0], r[3].map(([name, n]) => ({name, n})), false);
   toast("レシピからデッキを作りました（組んでいない状態）");
 });
-$("cat-n").textContent = CAT.cards.length.toLocaleString();
-$("cat-date").textContent = CAT.fetched;
+$("cat-note").textContent = `カード候補は全${CAT.cards.length.toLocaleString()}種類（${CAT.fetched}時点）。` +
+  (CAT.source === "takaratomy.co.jp" ? "タカラトミー公式カードリストから作っています。"
+    : "日本語名は disneylorcana.jp、コストとインクは Lorcast のカードデータから作っています。");
 
 // ---------- 写真から追加 ----------
 let sampleFn = null, photoCtl = null, photoRows = [];
