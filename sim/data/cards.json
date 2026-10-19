@@ -5634,5 +5634,73 @@
   "ink": [
    "emerald"
   ]
+ },
+ "Monterey Jack - Hypnotized by Cheese": {
+  "jp": "モンタリー・ジャック - チーズにメロメロ",
+  "cost": 2,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 3,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "BREAK THE TRANCE This character can't quest unless you have a character with 4 {W} or more in play.",
+  "set": "12",
+  "num": "12",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Pocahontas - Finding the Way": {
+  "jp": "ポカホンタス - 道を探す者",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 5,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "DISCOVERY AWAITS When you play this character, chosen character gets +1 {L} this turn.",
+  "set": "11",
+  "num": "8",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Megavolt - Electrical Menace": {
+  "jp": "メガボルト - 脅威！ビリビリ怪人！",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 4,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Villain"
+  ],
+  "text": "FORCE FIELD While you have no cards in your hand, this character gains Resist +2. (Damage dealt to them is reduced by 2.)",
+  "set": "13",
+  "num": "186",
+  "ink": [
+   "steel"
+  ]
  }
 }
