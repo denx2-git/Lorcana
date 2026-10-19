@@ -1,0 +1,40 @@
+{
+ "azumaya_items": {
+  "ae_dog14": 0.25,
+  "ae-mike": 0.28,
+  "ae_nokida": 0.27,
+  "stitch14": 0.15,
+  "as-lilo-aggro": 0.16,
+  "est_aggro14": 0.23,
+  "as_song14": 0.44,
+  "as-std": 0.49,
+  "rs-basil": 0.46,
+  "rs-inkrunner": 0.52,
+  "emerald_lock": 0.35,
+  "es-fergus": 0.35,
+  "esa_priscilla": 0.36,
+  "er-leviathan": 0.59,
+  "ar-sugar": 0.57,
+  "amr-evasive": 0.37,
+  "ams-hades": 0.39
+ },
+ "es_items14_hl": {
+  "ae_dog14": 0.42,
+  "ae-mike": 0.46,
+  "ae_nokida": 0.41,
+  "stitch14": 0.36,
+  "as-lilo-aggro": 0.25,
+  "est_aggro14": 0.22,
+  "as_song14": 0.63,
+  "as-std": 0.62,
+  "rs-basil": 0.74,
+  "rs-inkrunner": 0.68,
+  "emerald_lock": 0.33,
+  "es-fergus": 0.38,
+  "esa_priscilla": 0.52,
+  "er-leviathan": 0.67,
+  "ar-sugar": 0.54,
+  "amr-evasive": 0.71,
+  "ams-hades": 0.53
+ }
+}

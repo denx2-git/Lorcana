@@ -559,6 +559,24 @@ DECKS["es_items14_quill"] = {"name": "青緑アイテム（ニシオカ型自動
 4 Fishbone Quill
 """}
 
+DECKS["azumaya_items"] = {"name": "青緑アイテム（秋葉原あずまやショップ大会優勝・クアッカージャック型）", "pair": "emerald,sapphire", "source": "秋葉原あずまや @azumayamtg の投稿写真（ユーザー共有）", "list_text": """
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+4 Pawpsicle
+4 Leaning Tower of Cheese-a
+4 Inkrunner
+4 Buzz's Arm
+4 Signed Contract
+4 Prince John's Mirror
+4 Retro Evolution Device
+4 Honey Lemon - Testing the Limits
+4 Belle - Apprentice Inventor
+4 Ariel - Collector of Oddities
+4 Quackerjack - Loony Toymaker
+4 Milo Thatch - Getting His Hands Dirty
+4 Stegmutt - Clumsy Dinosaur
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -774,6 +792,16 @@ CONFIG["sa_quill_hl"] = {
 CONFIG["sa_quill_hl_b"] = CONFIG["sa_quill_hl"]
 
 CONFIG["es_items14_quill"] = CONFIG["es_items14"]
+
+CONFIG["azumaya_items"] = {
+    "keep": {"Pawpsicle", "Prototype Chem Ball", "Blinding Chem Ball", "Inkrunner", "Leaning Tower of Cheese-a",
+             "Honey Lemon - Testing the Limits", "Belle - Apprentice Inventor", "Buzz's Arm"},
+    "ship": {"Stegmutt - Clumsy Dinosaur", "Milo Thatch - Getting His Hands Dirty"},
+    "never_ink": {"Honey Lemon - Testing the Limits", "Ariel - Collector of Oddities", "Quackerjack - Loony Toymaker"},
+    "key": {"Ariel - Collector of Oddities": 0.5, "Honey Lemon - Testing the Limits": 0.5, "Retro Evolution Device": 0.3},
+    "ink_cap": 8,
+    "post_quest_pass": True,
+}
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,

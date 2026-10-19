@@ -175,7 +175,7 @@ def return_item(g, p):
 
 
 def action_cost(g, p, card):
-    return max(0, card.cost - p.t.get("belle_disc", 0))
+    return max(0, card.cost - p.t.get("belle_disc", 0) - p.t.get("buzz_arm", 0))
 
 
 def belle_exerted(g, p, x):
@@ -367,6 +367,8 @@ def cost_for(g, p, card):
             c -= p.t.get("aurora_disc", 0)
     elif card.kind == "location":
         c -= p.t.get("elsa_loc", 0)
+    elif card.kind == "item":
+        c -= p.t.get("buzz_arm", 0)
     return max(0, c)
 
 
@@ -757,6 +759,10 @@ def resolve_spell(g, p, card, target, extra):
 
 def after_spell(g, p, card, singers):
     o = g.opp(p)
+    if card.is_song:
+        for it in o.items():
+            if it.card.name == "Signed Contract":
+                g.draw(o)
     if card.kind == "action":
         k = sum(1 for c in p.t.get("spells", []) if c.kind == "action")
         if k == 3:
@@ -1037,6 +1043,8 @@ def on_play_char(g, p, x, target, extra):
     elif n == "Hiram Flaversham - Toymaker":
         if sac_item(g, p):
             g.draw(p, 2)
+    elif n == "Quackerjack - Loony Toymaker":
+        quackerjack(g, p)
     elif n == "Dug - Good Boy":
         if p.items():
             g.draw(p)
@@ -1115,6 +1123,21 @@ def honey_lemon(g, p):
         return
     g.draw(p)
     gain_drop(g, p, 1)
+
+
+def quackerjack(g, p):
+    """クアッカージャック：山札の上4枚を捨て札に置き、その中のアイテム1枚につき、選んだキャラ1体に1ダメージ。"""
+    k = sum(1 for c in p.deck[:4] if c.kind == "item")
+    mill(g, p, 4)
+    if k <= 0:
+        return
+    o = g.opp(p)
+    cs = [y for y in o.chars() if not y.card.ward]
+    if not cs:
+        return
+    killable = [y for y in cs if y.left() <= k]
+    t = max(killable or cs, key=lambda y: threat(g, y))
+    g.deal(t, k)
 
 
 def after_char_played(g, p, x):
@@ -1242,6 +1265,13 @@ def activations(g, p):
                 out.append((x.uid, 0, None))
         elif n in ("Prototype Chem Ball", "Blinding Chem Ball") and not x.exerted and free >= 2:
             out.append((x.uid, 0, None))
+        elif n == "Buzz's Arm" and not x.exerted and not p.t.get("buzz_arm") and any(
+                c.kind in ("item", "action") for c in p.hand):
+            out.append((x.uid, 0, None))
+        elif n == "Retro Evolution Device" and not x.exerted and free >= 1:
+            for y in p.chars():
+                if any(c.kind == "char" and c.cost <= y.card.cost + 2 and c.cost > y.card.cost for c in p.hand):
+                    out.append((x.uid, 0, y.uid))
         elif n == "Upgraded Chem Purse" and not x.exerted and free >= 1 and p.deck and any(
                 it is not x and it.card.name in SAC_PREF for it in p.items()):
             out.append((x.uid, 0, None))
@@ -1329,6 +1359,20 @@ def activate(g, p, uid, idx, target):
         x.exerted = True
         p.pay(2)
         g.banish(x)
+    elif n == "Buzz's Arm":
+        x.exerted = True
+        p.t["buzz_arm"] = 1
+    elif n == "Retro Evolution Device":
+        x.exerted = True
+        p.pay(1)
+        if t is None or t not in p.perms:
+            return
+        cap = t.card.cost + 2
+        g.banish(t)
+        cs = [c for c in p.hand if c.kind == "char" and c.cost <= cap]
+        if cs:
+            c = max(cs, key=lambda c: (c.cost, p.policy.card_value(g, p, c)))
+            g.play_card(p, c, mode="free", target=auto_target(g, p, c))
     elif n == "Upgraded Chem Purse":
         x.exerted = True
         p.pay(1)
@@ -1542,6 +1586,8 @@ def on_quest(g, p, x):
     elif n == "Hiram Flaversham - Toymaker":
         if sac_item(g, p):
             g.draw(p, 2)
+    elif n == "Quackerjack - Loony Toymaker":
+        quackerjack(g, p)
     elif n == "Monsieur D'Arque - Despicable Proprietor":
         if sac_item(g, p):
             g.draw(p)
@@ -1622,6 +1668,8 @@ def start_of_turn_post(g, p):
 
 def end_of_turn(g, p):
     o = g.opp(p)
+    if any(it.card.name == "Prince John's Mirror" for it in o.items()) and len(p.hand) > 3:
+        choose_discard(g, p, len(p.hand) - 3)
     # インクキャスターのスケート：このターンにキャラがクエストしていればインク・ドロップ（簡略化：ターン終了時に起動）
     if any(x.exerted and x.card.kind == "char" for x in p.chars()) and p.t.get("quested"):
         for it in p.items():
