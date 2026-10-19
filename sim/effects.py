@@ -16,6 +16,11 @@ def has_class(p, cls, exclude=None):
     return any(cls in x.card.classes for x in p.chars() if x is not exclude)
 
 
+def has_ward(x):
+    """魔除（カード自身の魔除か、アリス（頼れる船乗り）などで一時的に得た魔除）。"""
+    return x.card.ward or bool(x.flags.get("ward_tmp"))
+
+
 def song_in_discard(p):
     return any(c.is_song for c in p.discard)
 
@@ -27,7 +32,7 @@ def threat(g, x):
 
 def best_opp(g, p, pred=lambda x: True, ward_ok=False):
     o = g.opp(p)
-    cs = [x for x in o.chars() if pred(x) and (ward_ok or not x.card.ward)]
+    cs = [x for x in o.chars() if pred(x) and (ward_ok or not has_ward(x))]
     return max(cs, key=lambda x: threat(g, x)) if cs else None
 
 
@@ -451,7 +456,7 @@ def move_cost(g, p, x, loc):
 def _opp_chars(pred=lambda g, x: True, ward_ok=False):
     def f(g, p):
         o = g.opp(p)
-        return [x.uid for x in o.chars() if (ward_ok or not x.card.ward) and pred(g, x)]
+        return [x.uid for x in o.chars() if (ward_ok or not has_ward(x)) and pred(g, x)]
     return f
 
 
@@ -468,7 +473,7 @@ def _opp_items_locs(g, p):
 
 def _opp_chars_locs(g, p):
     o = g.opp(p)
-    return [x.uid for x in o.perms if (x.card.kind == "char" and not x.card.ward) or x.card.kind == "location"]
+    return [x.uid for x in o.perms if (x.card.kind == "char" and not has_ward(x)) or x.card.kind == "location"]
 
 
 def _all_items(g, p):
@@ -506,7 +511,7 @@ TARGETS = {
     "Berlioz - Tiny Rascal": _opp_chars(),
     "Priya Mangal - Immovable Fan": _opp_chars(),
     "Jousting Match": _opp_chars(),
-    "Firefly Swarm": lambda g, p: [x.uid for x in g.opp(p).chars() if not x.card.ward and (
+    "Firefly Swarm": lambda g, p: [x.uid for x in g.opp(p).chars() if not has_ward(x) and (
         g.char_str(x) <= 2 or p.t.get("discarded", 0) >= 2)],
     "Heffalumps and Woozles": _opp_chars(),
     "Look What You've Done": _opp_chars(),
@@ -519,6 +524,8 @@ TARGETS = {
     "Shere Khan - Khan Industries CEO": _own_chars(lambda g, x: not x.exerted),
     "Shere Khan - Ruthless Entrepreneur": _opp_chars(lambda g, x: g.char_str(x) <= 3),
     "Above the Crowd": _opp_chars(lambda g, x: g.char_str(x) <= 3),
+    "Ohana Means Family": _own_chars(lambda g, x: x.damage > 0),
+    "The Horseman Strikes!": _opp_chars(lambda g, x: x.card.evasive or gains_evasive(g, x)),
 }
 OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cloudkicker - Tough Guy",
             "Milo Thatch - Getting His Hands Dirty", "Wildcat - Unconventional Mechanic",
@@ -526,7 +533,7 @@ OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cl
             "Belle - Accomplished Mystic", "Tramp - Enterprising Dog", "Elsa - The Fifth Spirit",
             "Sisu - Daring Visitor", "Berlioz - Tiny Rascal", "Priya Mangal - Immovable Fan",
             "Jaq - Connoisseur of Climbing", "Rhino - One-Sixteenth Wolf", "Stegmutt - Clumsy Dinosaur",
-            "Rapunzel - Tower Defender"}
+            "Rapunzel - Tower Defender", "The Horseman Strikes!"}
 
 
 def target_options(g, p, card):
@@ -743,6 +750,28 @@ def resolve_spell(g, p, card, target, extra):
             p.deck.pop(0)
             g.put_card_in_inkwell(p, None)
         gain_drop(g, p, 1)
+    elif n == "Raging Storm":
+        # 退場は同時なので、雪原の策略家ベルは自分も含めて全員分誘発する：ベルを最後に退場させ、最後の1体は手動で処理
+        for q in g.players:
+            cs = sorted(q.chars(), key=lambda y: y.card.name == "Belle - Snowfield Strategist")
+            had_belle = any(y.card.name == "Belle - Snowfield Strategist" for y in cs)
+            for y in cs:
+                g.banish(y)
+            if had_belle and cs and cs[-1].card.name == "Belle - Snowfield Strategist":
+                belle_stockpile(g, q, cs[-1].card)
+    elif n == "Besties, Assemble!":
+        look_take(g, p, 4, lambda c: c.kind == "char")
+    elif n == "Develop Your Brain":
+        look_take(g, p, 2, lambda c: True)
+    elif n == "Ohana Means Family":
+        if t:
+            k = t.damage
+            t.damage = 0
+            g.draw(p, k)
+    elif n == "The Horseman Strikes!":
+        g.draw(p)
+        if t:
+            g.banish(t)
     elif n == "Jousting Match":
         dmg = 2
         if p.drops > 0 and p.ink_used > 0:
@@ -975,7 +1004,7 @@ def on_play_char(g, p, x, target, extra):
             budget = 10
             for y in sorted(o.chars(), key=lambda y: -threat(g, y)):
                 s = g.char_str(y)
-                if not y.card.ward and s <= budget:
+                if not has_ward(y) and s <= budget:
                     budget -= s
                     g.banish(y)
     elif n == "The Queen - Devious Disguise":
@@ -1102,6 +1131,9 @@ def on_play_char(g, p, x, target, extra):
     elif n == "Shere Khan - Khan Industries CEO":
         if t:
             t.flags["challenge_ready"] = True
+    elif n == "Stitch - Carefree Surfer":
+        if len([y for y in p.chars() if y is not x]) >= 2:
+            g.draw(p, 2)
     elif n == "Pocahontas - Guiding the Tribe":
         ones = [c for c in p.hand if c.kind == "char" and c.cost == 1]
         if ones:
@@ -1118,6 +1150,8 @@ def honey_lemon(g, p):
 
 
 def after_char_played(g, p, x):
+    if "Princess" in x.card.classes:
+        p.t["princess_played"] = True
     if x.card.cost <= 2 and x in p.perms and not x.exerted:
         stars = sum(1 for y in p.chars() if y.card.name == "Stitch - Rock Star" and y is not x)
         if stars:
@@ -1229,11 +1263,11 @@ def activations(g, p):
                 out.append((x.uid, 1, None))
         if n == "Elsa - Fierce Protector" and free >= 1 and p.hand:
             for c in o.chars():
-                if not c.exerted and not c.card.ward:
+                if not c.exerted and not has_ward(c):
                     out.append((x.uid, 0, c.uid))
         elif n == "Chief Bogo - Police Commissioner" and free >= 6:
             for c in o.chars():
-                if not c.card.ward and c.flags.get("cant_challenge_until") is None:
+                if not has_ward(c) and c.flags.get("cant_challenge_until") is None:
                     out.append((x.uid, 0, c.uid))
         elif n == "Carl's House - Flying High" and not p.t.get("carlhouse_" + str(x.uid)):
             here = [c for c in p.chars() if c.loc == x.uid]
@@ -1252,8 +1286,14 @@ def activations(g, p):
             out.append((x.uid, 0, None))
         elif n == "The Torn Corner" and not x.exerted and free >= 1 and len(p.discard) >= 10:
             out.append((x.uid, 0, None))
-        elif n == "Pluto - Friendly Pooch" and not x.exerted and not x.dry and any(c.kind == "char" for c in p.hand):
+        elif n in ("Pluto - Friendly Pooch", "Hamm - Piggy Bank") and not x.exerted and not x.dry and any(c.kind == "char" for c in p.hand):
             out.append((x.uid, 0, None))
+        elif n == "The Black Cauldron" and not x.exerted and free >= 1:
+            if any(c.kind == "char" for c in p.discard):
+                out.append((x.uid, 0, None))
+            under = x.flags.get("cauldron", ())
+            if any(free >= 1 + cost_for(g, p, c) for c in under):
+                out.append((x.uid, 1, None))
         elif n == "Rapunzel - Escaping the Tower" and p.hand and not p.t.get("rapunzel_" + str(x.uid)) and not x.exerted:
             out.append((x.uid, 0, None))
         elif n == "Sugar Rush Speedway - Starting Line" and not p.t.get("srstart"):
@@ -1302,6 +1342,24 @@ def activate(g, p, uid, idx, target):
         g.banish(x)
         if t:
             t.flags["rush"] = True
+    elif n == "The Black Cauldron":
+        x.exerted = True
+        p.pay(1)
+        if idx == 0:
+            cs = [c for c in p.discard if c.kind == "char"]
+            c = max(cs, key=lambda c: c.cost)
+            p.discard.remove(c)
+            x.flags["cauldron"] = x.flags.get("cauldron", ()) + (c,)
+        else:
+            # 簡略化：このターンに下から出せるのを、起動した直後に1体だけ出すことにする
+            under = list(x.flags.get("cauldron", ()))
+            ok = [c for c in under if p.ink_free() >= cost_for(g, p, c)]
+            if ok:
+                c = max(ok, key=lambda c: c.cost)
+                under.remove(c)
+                x.flags["cauldron"] = tuple(under)
+                p.hand.append(c)
+                g.play_card(p, c, target=auto_target(g, p, c))
     elif idx == 1:  # ダンボの能力
         x.exerted = True
         p.pay(1)
@@ -1349,7 +1407,7 @@ def activate(g, p, uid, idx, target):
         x.exerted = True
         p.pay(1)
         g.draw(p)
-    elif n == "Pluto - Friendly Pooch":
+    elif n in ("Pluto - Friendly Pooch", "Hamm - Piggy Bank"):
         x.exerted = True
         p.t["akood"] = p.t.get("akood", 0) + 1
     elif n == "Rapunzel - Escaping the Tower":
@@ -1425,6 +1483,8 @@ def on_banished(g, x, by_challenge):
         t = best_opp(g, p)
         if t:
             g.leave_play(t, "hand")
+    if x.card.kind == "char" and any(y.card.name == "Belle - Snowfield Strategist" for y in p.chars()):
+        belle_stockpile(g, p, x.card)
     if n == "Diablo - Obedient Raven":
         g.draw(p)
     elif n == "Archimedes - Messenger Owl" and by_challenge:
@@ -1442,6 +1502,21 @@ def on_banished(g, x, by_challenge):
             if own:
                 y = max(own, key=lambda y: threat(g, y))
                 y.flags["resist_tmp"] = 1
+
+
+def belle_stockpile(g, p, card):
+    """ベル（雪原の策略家）：自分のキャラが退場したら、そのカードを捨て札からインクウェルへ（エグザート）。"""
+    if card in p.discard:
+        p.discard.remove(card)
+        g.put_card_in_inkwell(p, card)
+
+
+def discard_ink_choice(g, p):
+    """モアナ（好奇心旺盛な冒険家）：捨て札からインクに置けるカード（インク可能なもの）。"""
+    if not any(x.card.name == "Moana - Curious Explorer" for x in p.chars()):
+        return None
+    cs = [c for c in p.discard if c.inkable]
+    return max(cs, key=lambda c: c.cost) if cs else None
 
 
 def on_challenge(g, p, att, tgt):
@@ -1522,6 +1597,14 @@ def on_quest(g, p, x):
             g.gain_lore(p, 1)
     elif n == "Aurora - Holding Court":
         p.t["aurora_disc"] = p.t.get("aurora_disc", 0) + 1
+    elif n == "Alice - Savvy Sailor":
+        others = [y for y in p.chars() if y is not x]
+        if others:
+            # これからクエストするキャラにロア+1、いなければ一番価値の高いキャラに魔除だけ
+            will = [y for y in others if not y.exerted and not y.dry and not y.card.reckless]
+            y = max(will, key=lambda y: g.char_lore(y)) if will else max(others, key=lambda y: threat(g, y))
+            y.tmp_lore += 1
+            y.flags["ward_tmp"] = True
     elif n == "Mufasa - Ruler of Pride Rock":
         p.ink_used = 0
     elif n == "Tamatoa - Happy as a Clam":
@@ -1671,6 +1754,16 @@ def end_of_turn(g, p):
                 g.gain_lore(p, 5)
             elif top >= 5:
                 g.gain_lore(p, 2)
+        elif n == "Cinderella - Dream Come True":
+            if p.t.get("princess_played") and p.hand:
+                to_inkwell_from_hand(g, p)
+                g.draw(p)
+        elif n == "Minnie Mouse - Urban Visionary":
+            # 簡略化：インクのカードは記録していないので、インクが8以上なら1枚減らして山札の下のカードを手札に
+            if x.exerted and p.ink >= 8 and p.deck:
+                p.ink -= 1
+                p.ink_used = min(p.ink_used, p.ink)
+                p.hand.append(p.deck.pop())
         elif n == "Nick Wilde - Toy Drive Officer":
             if p.t.get("chars_played", 0) >= 2:
                 g.draw(p)

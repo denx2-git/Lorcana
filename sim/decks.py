@@ -159,6 +159,28 @@ DECKS["esa_priscilla"] = {"name": "緑青ミキミニ・プリシラ型（第14�
 """}
 
 
+# Shadawx氏の黄青ハリケーン（X・2026/10）と、魔除けのアリス（頼れる船乗り）入り
+_BS_STORM = """
+4 Aurora - Holding Court
+4 Hamm - Piggy Bank
+4 Grandmother Willow - Ancient Advisor
+4 Belle - Snowfield Strategist
+4 Cinderella - Dream Come True
+4 Moana - Curious Explorer
+4 Stitch - Carefree Surfer
+4 Cinderella - Unintentional Icon
+4 Hades - Infernal Schemer
+4 Minnie Mouse - Urban Visionary
+4 Besties, Assemble!
+4 Develop Your Brain
+4 Raging Storm
+2 Let It Go
+"""
+DECKS["bs_storm"] = {"name": "黄青ハリケーン（Shadawx氏）", "pair": "amber,sapphire", "source": "Shadawx氏（X）",
+                     "list_text": _BS_STORM + "1 The Black Cauldron\n2 Ohana Means Family\n3 The Horseman Strikes!\n"}
+DECKS["bs_storm_alice"] = {"name": "黄青ハリケーン＋アリス4（-Ohana2 -騎士1 -大釜1）", "pair": "amber,sapphire", "source": "自作",
+                           "list_text": _BS_STORM + "4 Alice - Savvy Sailor\n2 The Horseman Strikes!\n"}
+
 # スクショで共有されたデッキ・黄緑ドッグの比較用（2026/10/14 追加）
 DECKS["ae_nokida"] = {"name": "黄緑ドッグ（キーダなし・わいけー選手）", "pair": "amber,emerald", "source": "わいけー選手（セットチャンピオンシップ優勝）", "list_text": """
 4 Ursula - Deceiver
@@ -671,7 +693,18 @@ CONFIG["es_hl"] = dict(CONFIG["emerald_lock"], keep=CONFIG["emerald_lock"]["keep
 
 CONFIG["es_items14_hl"] = CONFIG["es_items14"]
 
-WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
+CONFIG["bs_storm"] = {
+    "keep": {"Aurora - Holding Court", "Hamm - Piggy Bank", "Grandmother Willow - Ancient Advisor", "Besties, Assemble!",
+             "Develop Your Brain", "Belle - Snowfield Strategist", "Cinderella - Dream Come True", "Alice - Savvy Sailor"},
+    "ship": {"Raging Storm", "Minnie Mouse - Urban Visionary", "Hades - Infernal Schemer"},
+    "never_ink": {"Moana - Curious Explorer", "Stitch - Carefree Surfer"},
+    "key": {"Raging Storm": 0.8, "Let It Go": 0.4, "Stitch - Carefree Surfer": 0.3},
+    "ink_cap": 11,
+    "post_quest_pass": True,
+}
+CONFIG["bs_storm_alice"] = CONFIG["bs_storm"]
+
+WIPES = {"Be Prepared": 1.0, "Raging Storm": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
          "Don Karnage - Debonair Pirate": 0.4, "A Whole New World": 0.0}
 

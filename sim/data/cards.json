@@ -5634,5 +5634,256 @@
   "ink": [
    "emerald"
   ]
+ },
+ "Hamm - Piggy Bank": {
+  "jp": "ハム - ブタの貯金箱",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally",
+   "Toy"
+  ],
+  "text": "LOOSE CHANGE {E} — You pay 1 {I} less for the next character you play this turn.",
+  "set": "12",
+  "num": "11",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Belle - Snowfield Strategist": {
+  "jp": "ベル - 雪原の策略家",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "WINTER STOCKPILE Whenever one of your characters is banished, you may put that card from your discard into your inkwell facedown and exerted.",
+  "set": "11",
+  "num": "158",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Cinderella - Dream Come True": {
+  "jp": "シンデレラ - 叶った夢",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "WHATEVER YOU WISH FOR At the end of your turn, if you played a Princess character this turn, you may put a card from your hand into your inkwell facedown to draw a card.",
+  "set": "10",
+  "num": "155",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Moana - Curious Explorer": {
+  "jp": "モアナ - 好奇心旺盛な冒険家",
+  "cost": 5,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "ANCESTRAL LEGACY You can ink cards from your discard.",
+  "set": "11",
+  "num": "155",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Stitch - Carefree Surfer": {
+  "jp": "スティッチ - 気ままなサーファー",
+  "cost": 7,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 4,
+  "wp": 8,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero",
+   "Alien"
+  ],
+  "text": "OHANA When you play this character, if you have 2 or more other characters in play, you may draw 2 cards.",
+  "set": "9",
+  "num": "24",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Besties, Assemble!": {
+  "jp": "Besties, Assemble!",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Look at the top 4 cards of your deck. You may reveal a character card and put it into your hand. Put the rest on the bottom of your deck in any order.",
+  "set": "13",
+  "num": "34",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Develop Your Brain": {
+  "jp": "Develop Your Brain",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Look at the top 2 cards of your deck. Put one into your hand and the other on the bottom of your deck.",
+  "set": "9",
+  "num": "163",
+  "ink": [
+   "sapphire"
+  ]
+ },
+ "Ohana Means Family": {
+  "jp": "Ohana Means Family",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Remove all damage from chosen character of yours. Draw a card for each 1 damage removed this way.",
+  "set": "11",
+  "num": "32",
+  "ink": [
+   "amber"
+  ]
+ },
+ "The Horseman Strikes!": {
+  "jp": "The Horseman Strikes!",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Draw a card. You may banish chosen character with Evasive.",
+  "set": "10",
+  "num": "29",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Raging Storm": {
+  "jp": "Raging Storm",
+  "cost": 8,
+  "inkable": false,
+  "types": [
+   "Action"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "Banish all characters.",
+  "set": "11",
+  "num": "28",
+  "ink": [
+   "amber"
+  ]
+ },
+ "The Black Cauldron": {
+  "jp": "ブラック・コルドロン",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "THE CAULDRON CALLS {E}, 1 {I} — Put a character card from your discard under this item faceup. / RISE AND JOIN ME! {E}, 1 {I} – This turn, you may play characters from under this item.",
+  "set": "10",
+  "num": "32",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Alice - Savvy Sailor": {
+  "jp": "アリス - 頼れる船乗り",
+  "cost": 3,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "Ward (Opponents can't choose this character except to challenge.) / AHOY! Whenever this character quests, another chosen character of yours gets +1 {L} and gains Ward until the start of your next turn.",
+  "set": "6",
+  "num": "161",
+  "ink": [
+   "sapphire"
+  ]
  }
 }

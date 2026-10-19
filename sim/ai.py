@@ -54,6 +54,9 @@ def threat(g, x):
     """キャラ・アイテム・ロケーションの価値（持ち主から見た価値＝相手から見た脅威）。"""
     c = x.card
     if c.kind == "item":
+        if c.name == "The Black Cauldron":
+            # 下に置いたキャラは後で出せる手札のようなもの
+            return 0.6 + 0.9 * len(x.flags.get("cauldron", ()))
         return ITEM_VALUE.get(c.name, 1.0)
     if c.kind == "location":
         owner = g.players[x.owner]
@@ -237,6 +240,7 @@ def apply(g, p, act):
 
 
 LOOKAHEAD_KINDS = ("move", "act")
+QUEST_FIRST = {"Alice - Savvy Sailor"}
 LOCK_CARDS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
 
 
@@ -450,9 +454,16 @@ class Policy:
     def play_turn(self, g, p):
         # インク
         if self.cfg.get("ink_cap", 9) > p.ink:
-            c = self.ink_choice(g, p)
-            if c is not None and g.can_ink(p, c):
-                g.do_ink(p, c)
+            d = effects.discard_ink_choice(g, p)
+            if d is not None and g.can_ink(p, d):
+                # モアナ（好奇心旺盛な冒険家）：手札を減らさずに捨て札からインクへ
+                p.discard.remove(d)
+                p.hand.append(d)
+                g.do_ink(p, d)
+            else:
+                c = self.ink_choice(g, p)
+                if c is not None and g.can_ink(p, c):
+                    g.do_ink(p, c)
         self.main_phase(g, p)
         if g.winner is not None:
             return
@@ -501,7 +512,8 @@ class Policy:
         cands = [x for x in p.chars() if not x.exerted and not x.dry and not x.card.reckless
                  and x.flags.get("no_quest") != g.turn and not effects.cant_act(g, x)]
         must = self.lethal(g, p)
-        for x in sorted(cands, key=lambda x: -g.char_lore(x)):
+        # アリス（頼れる船乗り）は先にクエストして、後からクエストするキャラにロア+1を渡す
+        for x in sorted(cands, key=lambda x: (x.card.name not in QUEST_FIRST, -g.char_lore(x))):
             if g.winner is not None:
                 return
             if x not in p.perms or x.exerted:

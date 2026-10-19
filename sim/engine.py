@@ -306,7 +306,7 @@ class Game:
             x.dry = False
             x.tmp_str = 0
             x.tmp_lore = 0
-            for k in ("rush", "alert", "challenger", "challenge_ready", "evasive_tmp", "resist_tmp"):
+            for k in ("rush", "alert", "challenger", "challenge_ready", "evasive_tmp", "resist_tmp", "ward_tmp"):
                 x.flags.pop(k, None)
         if self.turn != 1:
             self.draw(p)
