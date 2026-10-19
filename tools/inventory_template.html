@@ -363,7 +363,11 @@ function setOwned(name, owner, n){
   const key = norm(base.name), id = hashId(key) + "-" + owner;
   n = Math.max(0, Math.min(999, n));
   const rec = {key, owner, name: base.name, ink: base.ink ?? null, ink2: base.ink2 ?? null, cost: base.cost ?? null, n};
-  if (n === 0 && !state.stock.has(id)) return;
+  // 0枚になったら在庫から消す（リストにも出さない）
+  if (n === 0){
+    if (state.stock.delete(id) && db) save(stockRef(id), null, 0);
+    return;
+  }
   state.stock.set(id, rec);
   if (db) save(stockRef(id), {name: rec.name, owner, ink: rec.ink, ink2: rec.ink2, cost: rec.cost, n});
 }
@@ -457,15 +461,18 @@ function inventoryRows(){
     return r;
   });
 }
-function rowVisible(r){ return shownOwners().some(o => r.per[o].owned > 0 || r.per[o].used > 0); }
+const owns = r => shownOwners().some(o => r.per[o].owned > 0);
+const isShort = r => shownOwners().some(o => r.per[o].left < 0);
+// 持っていないカードは「足りない」で絞り込んだときだけ出す
+function rowVisible(r){ return owns(r) || (state.filter === "short" && isShort(r)); }
 
 function renderTotals(rows){
   const os = shownOwners();
-  const vis = rows.filter(rowVisible);
-  $("t-kinds").textContent = vis.filter(r => os.some(o => r.per[o].owned > 0)).length;
+  const vis = rows.filter(owns);
+  $("t-kinds").textContent = vis.length;
   $("t-owned").textContent = vis.reduce((s, r) => s + os.reduce((t, o) => t + r.per[o].owned, 0), 0);
   $("t-used").textContent = vis.reduce((s, r) => s + os.reduce((t, o) => t + Math.min(r.per[o].used, r.per[o].owned), 0), 0);
-  const short = vis.filter(r => os.some(o => r.per[o].left < 0)).length;
+  const short = rows.filter(isShort).length;
   $("t-short").textContent = short;
   $("t-short-box").classList.toggle("is-bad", short > 0);
   $("c-inv").textContent = vis.length;
@@ -474,8 +481,8 @@ function renderTotals(rows){
 
 function renderChips(rows){
   const os = shownOwners();
-  const vis = rows.filter(rowVisible);
-  const present = new Set(vis.map(r => r.c.ink || ""));
+  const vis = rows.filter(owns);
+  const present = new Set(rows.filter(rowVisible).map(r => r.c.ink || ""));
   const inks = [["", "すべて"], ...INKS.filter(i => present.has(i)).map(i => [i, INK_JA[i]])];
   if (present.has("")) inks.push(["none", "その他"]);
   $("ink-chips").innerHTML = inks.map(([k, l]) =>
@@ -488,7 +495,7 @@ function renderChips(rows){
   };
   const st = [["all", "すべて"], ["free", "空きあり"], ["used", "デッキで使用中"], ["short", "足りない"]];
   $("state-chips").innerHTML = st.map(([k, l]) =>
-    `<button class="chip" type="button" data-filter="${k}" aria-pressed="${state.filter === k}">${l}<span class="num">${vis.filter(test[k]).length}</span></button>`).join("");
+    `<button class="chip" type="button" data-filter="${k}" aria-pressed="${state.filter === k}">${l}<span class="num">${(k === "short" ? rows : vis).filter(test[k]).length}</span></button>`).join("");
   return test[state.filter] || test.all;
 }
 
@@ -516,7 +523,7 @@ function renderInventory(){
 
   const el = $("inv-list");
   el.style.setProperty("--oc", os.length);
-  if (!rows.some(rowVisible)){
+  if (!rows.some(r => owns(r) || isShort(r))){
     const who = state.view === "all" ? "" : `${ownerName(state.view)}の`;
     el.innerHTML = `<div class="empty"><h3>${esc(who)}カードはまだ登録されていません</h3>
       <p class="muted">上の欄でだれのカードかを選び、カード名を入れて「追加」を押すと在庫に入ります。候補にはタカラトミー公式カードリストの全カードが出ます。</p>
@@ -547,7 +554,7 @@ function renderInventory(){
       detail = `<div class="detail">${uses}${del}</div>`;
     }
     return `<div class="row"><span>${costBadge(r.c)}</span>
-      <button class="nm" type="button" data-act="toggle" data-key="${esc(r.key)}" aria-expanded="${open}">${nameBlock(r.c.name, r.reg ? "" : `<span class="unreg">未登録</span>`)}</button>
+      <button class="nm" type="button" data-act="toggle" data-key="${esc(r.key)}" aria-expanded="${open}">${nameBlock(r.c.name, r.reg ? "" : `<span class="unreg">持っていない</span>`)}</button>
       ${cells}${detail}</div>`;
   }).join("");
 }
@@ -661,7 +668,7 @@ function renderEditor(){
       const reg = [...state.stock.values()].some(x => x.key === norm(c.name));
       const lackTxt = lack ? `<span class="pill bad">あと${lack}枚</span>${partnerFree ? `<br><span class="small muted">${esc(ownerName(other))}に空き${partnerFree}枚</span>` : ""}` : `<span class="pill okk">OK</span>`;
       return `<div class="row drow"><span>${costBadge(c)}</span>
-        <span class="nm">${nameBlock(c.name, reg ? "" : `<span class="unreg">未登録</span>`)}</span>
+        <span class="nm">${nameBlock(c.name, reg ? "" : `<span class="unreg">持っていない</span>`)}</span>
         <span class="stp"><button type="button" data-act="dn" data-i="${i}" aria-label="1枚減らす">−</button><output class="num">${e.n}</output><button type="button" data-act="up" data-i="${i}" aria-label="1枚増やす">＋</button></span>
         <span class="need"><span class="small muted num">所持${mine}${others ? `・他で${others}` : ""}</span><br>${lackTxt}</span></div>`;
     }).join("");
