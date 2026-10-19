@@ -5635,6 +5635,106 @@
    "emerald"
   ]
  },
+ "Signed Contract": {
+  "jp": "サインされた契約書",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "FINE PRINT Whenever an opponent plays a song, you may draw a card.",
+  "set": "4",
+  "num": "99",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Prince John's Mirror": {
+  "jp": "プリンス・ジョンの鏡",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "YOU LOOK REGAL If you have a character named Prince John in play, you pay 1 {I} less to play this item. / A FEELING OF POWER At the end of each opponent's turn, if they have more than 3 cards in their hand, they discard until they have 3 cards in their hand.",
+  "set": "5",
+  "num": "98",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Retro Evolution Device": {
+  "jp": "レトロ進化装置",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "TURN INTO DINOSAUR {E}, 1 {I}, Banish chosen character of yours — Play a character with cost up to 2 more than the banished character for free.",
+  "set": "11",
+  "num": "100",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Buzz's Arm": {
+  "jp": "バズの腕",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "MISSING PIECE If a character named Buzz Lightyear was banished this turn, you may play this item for free. / SOME ASSEMBLY REQUIRED {E} — You pay 1 {I} less for the next action or item you play this turn.",
+  "set": "12",
+  "num": "98",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Quackerjack - Loony Toymaker": {
+  "jp": "クアッカージャック - おかしなおもちゃ職人",
+  "cost": 5,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 4,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Super",
+   "Villain",
+   "Inventor"
+  ],
+  "text": "EVIL DESIGN When you play this character and whenever he quests, put the top 4 cards of your deck into your discard. You may deal 1 damage to chosen character for each item card put into your discard this way.",
+  "set": "13",
+  "num": "147",
+  "ink": [
+   "sapphire"
+  ]
+ },
  "Monterey Jack - Hypnotized by Cheese": {
   "jp": "モンタリー・ジャック - チーズにメロメロ",
   "cost": 2,

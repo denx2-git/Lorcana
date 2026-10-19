@@ -390,6 +390,8 @@ class Game:
         if card.kind in ("item", "location"):
             if mode not in ("free",):
                 p.pay(self.char_cost(p, card))
+                if card.kind == "item":
+                    p.t["buzz_arm"] = 0
             x = self.new_perm(card, p.pid)
             p.perms.append(x)
             self.log(f"  プレイ: {card.jp}")
@@ -407,6 +409,7 @@ class Game:
             p.pay(cost)
             self.log(f"  {card.jp}（{cost}インク）")
         p.t["belle_disc"] = 0
+        p.t["buzz_arm"] = 0
         effects.resolve_spell(self, p, card, target, extra)
         if card in p.hand:
             pass
