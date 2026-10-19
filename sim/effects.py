@@ -356,6 +356,8 @@ def cost_for(g, p, card):
             c -= 1
         if n == "Tramp - Street-Smart Dog":
             c -= len(p.chars())
+        if n == "Chernabog - Evildoer":
+            c -= sum(1 for d in p.discard if d.kind == "char")
         if n == "Stegmutt - Clumsy Dinosaur":
             c -= sum(1 for d in p.discard if d.kind == "item")
         willows = sum(1 for x in p.chars() if x.card.name == "Grandmother Willow - Ancient Advisor")
@@ -513,6 +515,7 @@ TARGETS = {
     "Rhino - One-Sixteenth Wolf": _opp_chars(),
     "Stegmutt - Clumsy Dinosaur": _opp_chars(),
     "Tia Victoria - Disapproving Ancestor": _opp_chars(),
+    "Rapunzel - Tower Defender": _opp_chars(),
     "Shere Khan - Khan Industries CEO": _own_chars(lambda g, x: not x.exerted),
     "Shere Khan - Ruthless Entrepreneur": _opp_chars(lambda g, x: g.char_str(x) <= 3),
     "Above the Crowd": _opp_chars(lambda g, x: g.char_str(x) <= 3),
@@ -522,7 +525,8 @@ OPTIONAL = {"Bellwether - Highly Qualified", "Hades - Infernal Schemer", "Kit Cl
             "Clarabelle - Out for a Stroll", "Clarabelle - Clumsy Guest", "Fred - Big Stomper",
             "Belle - Accomplished Mystic", "Tramp - Enterprising Dog", "Elsa - The Fifth Spirit",
             "Sisu - Daring Visitor", "Berlioz - Tiny Rascal", "Priya Mangal - Immovable Fan",
-            "Jaq - Connoisseur of Climbing", "Rhino - One-Sixteenth Wolf", "Stegmutt - Clumsy Dinosaur"}
+            "Jaq - Connoisseur of Climbing", "Rhino - One-Sixteenth Wolf", "Stegmutt - Clumsy Dinosaur",
+            "Rapunzel - Tower Defender"}
 
 
 def target_options(g, p, card):
@@ -1068,6 +1072,16 @@ def on_play_char(g, p, x, target, extra):
                 p.discard.remove(c)
                 p.deck.append(c)
             g.deal(t, 3)
+    elif n == "Chernabog - Evildoer":
+        back = [c for c in p.discard if c.kind == "char"]
+        for c in back:
+            p.discard.remove(c)
+        p.deck += back
+        g.rng.shuffle(p.deck)
+    elif n == "Rapunzel - Tower Defender":
+        if t and p.hand:
+            choose_discard(g, p, 1)
+            g.leave_play(t, "hand")
     elif n == "Arthur - Novice Blacksmith":
         if p.ink - p.ink_used >= 1:
             p.pay(1)
