@@ -92,9 +92,9 @@ details.more summary{cursor:pointer;font-weight:700;font-size:14px}
 details.more[open]{display:flex;flex-direction:column;gap:8px}
 textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13px}
 
-/* inventory rows: card | one cell per owner shown */
+/* inventory rows: cost | card | 所持・使用・残り */
 .list{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
-.row{display:grid;grid-template-columns:30px minmax(0,1fr) repeat(var(--oc,1),minmax(196px,auto));align-items:center;gap:10px 16px;padding:8px 12px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:30px minmax(0,1fr) minmax(196px,auto);align-items:center;gap:10px 16px;padding:8px 12px;border-top:1px solid var(--line)}
 .row:first-child{border-top:0}
 .row.head{background:var(--surface-2);font-size:12px;color:var(--ink-3);letter-spacing:.06em;padding-block:6px}
 .row.head .oh{display:flex;justify-content:space-between;gap:8px}
@@ -112,7 +112,6 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
 .stp button:hover{background:var(--line)}
 .stp output{min-width:36px;text-align:center;font-family:var(--mono);font-variant-numeric:tabular-nums}
 .oc{display:flex;align-items:center;gap:8px;justify-content:flex-end;min-width:0}
-.oc .who{display:none;font-size:12px;font-weight:700;color:var(--ink-2);margin-right:auto}
 .oc .used{font-size:12px;color:var(--ink-3);white-space:nowrap;font-family:var(--mono)}
 .left{font-family:var(--mono);font-variant-numeric:tabular-nums;min-width:52px;text-align:center;border-radius:999px;padding:1px 8px;font-size:13px;white-space:nowrap}
 .left.ok{background:var(--ok-bg);color:var(--ok)}
@@ -127,7 +126,6 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
   .row{grid-template-columns:30px minmax(0,1fr);row-gap:6px}
   .row.head{display:none}
   .row .oc{grid-column:2}
-  .oc .who{display:inline}
 }
 .photo{border:1px solid var(--line-strong);background:var(--surface);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:10px}
 .photo h3{font-size:16px}
@@ -176,20 +174,18 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
   <header class="top">
     <div class="eyebrow">LORCANA COLLECTION</div>
     <h1>ロルカナ在庫帳</h1>
-    <p class="muted">2人それぞれが持っているカードの枚数と、組んでいるデッキで何枚使っているかを共有します。</p>
+    <p class="muted">2人で共有しているカードの枚数と、それぞれが組んでいるデッキで何枚使っているかをまとめて管理します。</p>
     <p class="sync"><span id="sync">読み込み中…</span> ・ <button class="btn ghost small" type="button" id="names-btn" style="padding:0">名前を変える</button></p>
   </header>
 
   <form class="names" id="names-form" hidden autocomplete="off">
-    <span class="small">2人の名前</span>
+    <span class="small">2人の名前（デッキの「使う人」に出ます）</span>
     <label>1人目 <input class="field" id="name-a" maxlength="12"></label>
     <label>2人目 <input class="field" id="name-b" maxlength="12"></label>
     <button class="btn primary" type="submit">保存</button>
   </form>
 
   <div class="banner" id="banner" hidden></div>
-
-  <div class="bar"><span class="small muted">表示</span><span class="seg" id="view-seg" role="group" aria-label="だれの在庫を表示するか"></span></div>
 
   <div class="totals" aria-label="合計">
     <div><b id="t-kinds">0</b><span>持っているカード（種類）</span></div>
@@ -206,7 +202,6 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
   <!-- 在庫 -->
   <section class="panel" id="p-inv">
     <form class="bar" id="add-form" autocomplete="off">
-      <span class="seg" id="add-owner" role="group" aria-label="だれのカードとして追加するか"></span>
       <input class="field grow" id="add-name" list="catalog-names" placeholder="カード名か番号を入れて追加（候補から選べます）" aria-label="カード名">
       <input class="field" id="add-n" type="number" min="1" max="99" value="1" aria-label="枚数">
       <button class="btn primary" type="submit">追加</button>
@@ -220,7 +215,7 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
     <div class="photo" id="photo-panel" hidden></div>
     <details class="more" id="bulk">
       <summary>まとめて追加</summary>
-      <p class="small muted">1行に1種類、「4 カード名」「カード名 x4」「4 1-216」の形で貼り付けます。上で選んでいる人のカードとして足されます。</p>
+      <p class="small muted">1行に1種類、「4 カード名」「カード名 x4」「4 1-216」の形で貼り付けます。登録済みのカードは枚数が足されます。</p>
       <textarea class="field" id="bulk-text" placeholder="4 ウッディ — おもちゃのリーダー&#10;2 アンダー・ザ・シー"></textarea>
       <div class="bar"><button class="btn" type="button" id="bulk-go">在庫に足す</button><span class="small muted" id="bulk-msg"></span></div>
     </details>
@@ -245,7 +240,8 @@ textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13p
         <button class="btn primary" type="button" id="new-deck">新しいデッキ</button>
         <select class="field grow" id="recipe" aria-label="レシピから作る"><option value="">環境のデッキレシピから作る…</option></select>
       </div>
-      <p class="small muted">デッキはだれか1人の持ち物として組みます。「組んでいる」デッキに入れたカードが、その人の在庫の「使用」に数えられます。崩したデッキは「組んでいない」にすると枚数が在庫に戻ります。</p>
+      <div class="bar"><span class="small muted">表示</span><span class="seg" id="deck-filter" role="group" aria-label="だれのデッキを表示するか"></span></div>
+      <p class="small muted">カードは2人共通の在庫から使います。「組んでいる」デッキに入れたカードが在庫の「使用」に数えられ、崩したデッキを「組んでいない」にすると枚数が在庫に戻ります。</p>
       <div class="decks" id="deck-list"></div>
     </div>
     <div id="deck-editor" class="editor" hidden></div>
@@ -306,17 +302,16 @@ function hashId(s){
 }
 
 // ---------- state ----------
-// stock: 1枚の種類 × 1人 = 1ドキュメント（2人が同時に数を変えても上書きし合わない）
+// stock: カード1種類 = 1ドキュメント（2人共通の在庫）。decks の owner は「だれが使うデッキか」
 const state = {
-  stock: new Map(),   // docId -> {key, owner, name, ink, ink2, cost, n}
+  stock: new Map(),   // docId -> {key, name, ink, ink2, cost, n}
   decks: new Map(),   // id -> {name, owner, active, cards:[{name,n}], updatedAt}
   names: {a: "わたし", b: "みこ"}, namesSet: false,
-  view: "all", addOwner: "a",
+  deckFilter: "all",
   tab: "inv", ink: "", filter: "all", openRow: null, editing: null, confirmDel: null,
 };
 let db = null, readOnly = false, loaded = {stock: false, decks: false, meta: false};
 const ownerName = o => state.names[o] || (o === "a" ? "1人目" : "2人目");
-const shownOwners = () => state.view === "all" ? OWNERS : [state.view];
 
 function cardBase(name){
   const byCode = codeLookup(name);
@@ -326,8 +321,8 @@ function cardBase(name){
   const cat = byCode || catalogLookup(name);
   return cat ? {name: cat[0], ink: cat[1], cost: cat[2], ink2: cat[3] || null} : {name, ink: null, ink2: null, cost: null};
 }
-function ownedOf(name, owner){
-  const s = state.stock.get(hashId(norm(cardBase(name).name)) + "-" + owner);
+function ownedOf(name){
+  const s = state.stock.get(hashId(norm(cardBase(name).name)));
   return s ? s.n : 0;
 }
 // norm(name) -> [{deckId, n, active, owner}]
@@ -341,7 +336,7 @@ function usageMap(){
   }
   return m;
 }
-const usedBy = (list, owner, exceptDeck) => (list || []).reduce((s, u) => s + (u.active && u.owner === owner && u.deckId !== exceptDeck ? u.n : 0), 0);
+const usedBy = (list, exceptDeck) => (list || []).reduce((s, u) => s + (u.active && u.deckId !== exceptDeck ? u.n : 0), 0);
 
 // ---------- writes ----------
 const pending = new Map(); // path -> {ref, body, timer, inflight, dirty}
@@ -385,30 +380,27 @@ function onWriteError(e){
 const stockRef = id => db.collection("stock").doc(id);
 const deckRef = id => db.collection("decks").doc(id);
 
-function setOwned(name, owner, n){
+function setOwned(name, n){
   const base = cardBase(name);
-  const key = norm(base.name), id = hashId(key) + "-" + owner;
+  const key = norm(base.name), id = hashId(key);
   n = Math.max(0, Math.min(999, n));
-  const rec = {key, owner, name: base.name, ink: base.ink ?? null, ink2: base.ink2 ?? null, cost: base.cost ?? null, n};
   // 0枚になったら在庫から消す（リストにも出さない）
   if (n === 0){
     if (state.stock.delete(id) && db) save(stockRef(id), null, 0);
     return;
   }
+  const rec = {key, name: base.name, ink: base.ink ?? null, ink2: base.ink2 ?? null, cost: base.cost ?? null, n};
   state.stock.set(id, rec);
-  if (db) save(stockRef(id), {name: rec.name, owner, ink: rec.ink, ink2: rec.ink2, cost: rec.cost, n});
+  if (db) save(stockRef(id), {name: rec.name, ink: rec.ink, ink2: rec.ink2, cost: rec.cost, n});
 }
-function addOwned(name, owner, n){
+function addOwned(name, n){
   name = String(name || "").trim(); if (!name) return null;
-  setOwned(name, owner, ownedOf(name, owner) + n);
+  setOwned(name, ownedOf(name) + n);
   return cardBase(name).name;
 }
 function deleteCard(name){
-  const key = norm(name);
-  for (const o of OWNERS){
-    const id = hashId(key) + "-" + o;
-    if (state.stock.delete(id) && db) save(stockRef(id), null, 0);
-  }
+  const id = hashId(norm(name));
+  if (state.stock.delete(id) && db) save(stockRef(id), null, 0);
   state.openRow = null;
 }
 function saveDeck(id){
@@ -420,7 +412,7 @@ function saveDeck(id){
 function newDeckId(){ return db ? db.collection("decks").doc().id : "d" + Date.now().toString(36); }
 function createDeck(name, cards, active){
   const id = newDeckId();
-  state.decks.set(id, {name, owner: state.view === "all" ? state.addOwner : state.view, active, cards, updatedAt: Date.now()});
+  state.decks.set(id, {name, owner: state.deckFilter === "all" ? "a" : state.deckFilter, active, cards, updatedAt: Date.now()});
   saveDeck(id);
   openDeck(id);
 }
@@ -463,53 +455,47 @@ function nameBlock(name, extra = ""){
 }
 const inkOrder = ink => { const i = INKS.indexOf(ink); return i < 0 ? 9 : i; };
 
-function renderOwnerControls(){
+function renderDeckFilter(){
   const seg = [["all", "2人とも"], ...OWNERS.map(o => [o, ownerName(o)])];
-  $("view-seg").innerHTML = seg.map(([k, l]) => `<button type="button" data-view="${k}" aria-pressed="${state.view === k}">${esc(l)}</button>`).join("");
-  $("add-owner").innerHTML = OWNERS.map(o => `<button type="button" data-addowner="${o}" aria-pressed="${state.addOwner === o}">${esc(ownerName(o))}</button>`).join("");
+  $("deck-filter").innerHTML = seg.map(([k, l]) => `<button type="button" data-dfilter="${k}" aria-pressed="${state.deckFilter === k}">${esc(l)}</button>`).join("");
 }
 
 function inventoryRows(){
   const use = usageMap();
   const rows = new Map();
-  for (const s of state.stock.values()){
-    if (!rows.has(s.key)) rows.set(s.key, {key: s.key, c: s, owned: {a: 0, b: 0}, reg: true});
-    rows.get(s.key).owned[s.owner] = s.n;
-  }
-  // デッキで使っているのに在庫に登録されていないカード
+  for (const s of state.stock.values()) rows.set(s.key, {key: s.key, c: s, owned: s.n, reg: true});
+  // デッキで使っているのに在庫にないカード
   for (const [k, u] of use){
     if (rows.has(k) || !u.some(x => x.active)) continue;
     const d = state.decks.get(u[0].deckId);
     const e = d.cards.find(x => norm(cardBase(x.name).name) === k);
-    rows.set(k, {key: k, c: cardBase(e.name), owned: {a: 0, b: 0}, reg: false});
+    rows.set(k, {key: k, c: cardBase(e.name), owned: 0, reg: false});
   }
   return [...rows.values()].map(r => {
     r.uses = use.get(r.key) || [];
-    r.per = {};
-    for (const o of OWNERS){ const used = usedBy(r.uses, o); r.per[o] = {owned: r.owned[o], used, left: r.owned[o] - used}; }
+    r.used = usedBy(r.uses);
+    r.left = r.owned - r.used;
     return r;
   });
 }
-const owns = r => shownOwners().some(o => r.per[o].owned > 0);
-const isShort = r => shownOwners().some(o => r.per[o].left < 0);
+const owns = r => r.owned > 0;
+const isShort = r => r.left < 0;
 // 持っていないカードは「足りない」で絞り込んだときだけ出す
 function rowVisible(r){ return owns(r) || (state.filter === "short" && isShort(r)); }
 
 function renderTotals(rows){
-  const os = shownOwners();
   const vis = rows.filter(owns);
   $("t-kinds").textContent = vis.length;
-  $("t-owned").textContent = vis.reduce((s, r) => s + os.reduce((t, o) => t + r.per[o].owned, 0), 0);
-  $("t-used").textContent = vis.reduce((s, r) => s + os.reduce((t, o) => t + Math.min(r.per[o].used, r.per[o].owned), 0), 0);
+  $("t-owned").textContent = vis.reduce((s, r) => s + r.owned, 0);
+  $("t-used").textContent = vis.reduce((s, r) => s + Math.min(r.used, r.owned), 0);
   const short = rows.filter(isShort).length;
   $("t-short").textContent = short;
   $("t-short-box").classList.toggle("is-bad", short > 0);
   $("c-inv").textContent = vis.length;
-  $("c-deck").textContent = [...state.decks.values()].filter(d => os.includes(d.owner)).length;
+  $("c-deck").textContent = state.decks.size;
 }
 
 function renderChips(rows){
-  const os = shownOwners();
   const vis = rows.filter(owns);
   const present = new Set(rows.filter(rowVisible).map(r => r.c.ink || ""));
   const inks = [["", "すべて"], ...INKS.filter(i => present.has(i)).map(i => [i, INK_JA[i]])];
@@ -518,9 +504,9 @@ function renderChips(rows){
     `<button class="chip" type="button" data-ink="${k}" aria-pressed="${state.ink === k}">${k && k !== "none" ? inkDot(k) : ""}${esc(l)}</button>`).join("");
   const test = {
     all: () => true,
-    free: r => os.some(o => r.per[o].left > 0),
-    used: r => os.some(o => r.per[o].used > 0),
-    short: r => os.some(o => r.per[o].left < 0),
+    free: r => r.left > 0,
+    used: r => r.used > 0,
+    short: isShort,
   };
   const st = [["all", "すべて"], ["free", "空きあり"], ["used", "デッキで使用中"], ["short", "足りない"]];
   $("state-chips").innerHTML = st.map(([k, l]) =>
@@ -529,13 +515,10 @@ function renderChips(rows){
 }
 
 function renderInventory(){
-  renderOwnerControls();
   const rows = inventoryRows();
   renderTotals(rows);
   const pass = renderChips(rows);
-  const os = shownOwners();
   const q = norm($("q").value);
-  const sumO = (r, f) => os.reduce((s, o) => s + r.per[o][f], 0);
   let list = rows.filter(r => {
     if (!rowVisible(r)) return false;
     if (q && !norm(r.c.name).includes(q)) return false;
@@ -546,29 +529,25 @@ function renderInventory(){
   const nameCmp = (a, b) => splitName(a.c.name).main.localeCompare(splitName(b.c.name).main, "ja") || a.c.name.localeCompare(b.c.name, "ja");
   list.sort((a, b) =>
     by === "name" ? nameCmp(a, b) :
-    by === "left" ? (sumO(b, "left") - sumO(a, "left")) || nameCmp(a, b) :
-    by === "used" ? (sumO(b, "used") - sumO(a, "used")) || nameCmp(a, b) :
+    by === "left" ? (b.left - a.left) || nameCmp(a, b) :
+    by === "used" ? (b.used - a.used) || nameCmp(a, b) :
     (inkOrder(a.c.ink) - inkOrder(b.c.ink)) || ((a.c.cost ?? 99) - (b.c.cost ?? 99)) || nameCmp(a, b));
 
   const el = $("inv-list");
-  el.style.setProperty("--oc", os.length);
   if (!rows.some(r => owns(r) || isShort(r))){
-    const who = state.view === "all" ? "" : `${ownerName(state.view)}の`;
-    el.innerHTML = `<div class="empty"><h3>${esc(who)}カードはまだ登録されていません</h3>
-      <p class="muted">上の欄でだれのカードかを選び、カード名を入れて「追加」を押すと在庫に入ります。候補には発売済みの全カードが出ます。カード番号や写真からも追加できます。</p>
+    el.innerHTML = `<div class="empty"><h3>カードはまだ登録されていません</h3>
+      <p class="muted">上の欄にカード名を入れて「追加」を押すと在庫に入ります。候補には発売済みの全カードが出ます。カード番号や写真からも追加できます。</p>
       <p class="muted">デッキタブでデッキを作ると、使っている枚数と残りの枚数がここに出ます。</p></div>`;
     return;
   }
   if (!list.length){ el.innerHTML = `<div class="empty"><p class="muted">条件に合うカードはありません。</p></div>`; return; }
-  const head = `<div class="row head"><span></span><span>カード</span>${os.map(o => `<span class="oh"><b>${esc(ownerName(o))}</b><span>所持 ・ 使用 ・ 残り</span></span>`).join("")}</div>`;
+  const head = `<div class="row head"><span></span><span>カード</span><span class="oh"><span>所持</span><span>使用 ・ 残り</span></span></div>`;
   el.innerHTML = head + list.map(r => {
     const open = state.openRow === r.key;
-    const cells = os.map(o => {
-      const p = r.per[o], cls = p.left < 0 ? "bad" : p.left === 0 ? "zero" : "ok";
-      return `<span class="oc"><span class="who">${esc(ownerName(o))}</span>
-        <span class="stp"><button type="button" data-act="dec" data-key="${esc(r.key)}" data-owner="${o}" aria-label="${esc(ownerName(o))}の枚数を1減らす">−</button><output class="num">${p.owned}</output><button type="button" data-act="inc" data-key="${esc(r.key)}" data-owner="${o}" aria-label="${esc(ownerName(o))}の枚数を1増やす">＋</button></span>
-        <span class="used">使用${p.used}</span><span class="left ${cls}" title="所持 − 使用">残り${p.left}</span></span>`;
-    }).join("");
+    const cls = r.left < 0 ? "bad" : r.left === 0 ? "zero" : "ok";
+    const cell = `<span class="oc">
+        <span class="stp"><button type="button" data-act="dec" data-key="${esc(r.key)}" aria-label="1枚減らす">−</button><output class="num">${r.owned}</output><button type="button" data-act="inc" data-key="${esc(r.key)}" aria-label="1枚増やす">＋</button></span>
+        <span class="used">使用${r.used}</span><span class="left ${cls}" title="所持 − 使用">残り${r.left}</span></span>`;
     let detail = "";
     if (open){
       const uses = r.uses.map(u => {
@@ -578,41 +557,40 @@ function renderInventory(){
       const del = !r.reg ? "" : r.uses.length
         ? `<span class="small">デッキから外すと削除できます</span>`
         : state.confirmDel === r.key
-          ? `<button class="btn danger" type="button" data-act="del" data-key="${esc(r.key)}">本当に削除（2人分）</button><button class="btn ghost" type="button" data-act="nodel">やめる</button>`
+          ? `<button class="btn danger" type="button" data-act="del" data-key="${esc(r.key)}">本当に削除</button><button class="btn ghost" type="button" data-act="nodel">やめる</button>`
           : `<button class="btn ghost" type="button" data-act="askdel" data-key="${esc(r.key)}">在庫から削除</button>`;
       detail = `<div class="detail">${uses}${del}</div>`;
     }
     return `<div class="row"><span>${costBadge(r.c)}</span>
       <button class="nm" type="button" data-act="toggle" data-key="${esc(r.key)}" aria-expanded="${open}">${nameBlock(r.c.name, r.reg ? "" : `<span class="unreg">持っていない</span>`)}</button>
-      ${cells}${detail}</div>`;
+      ${cell}${detail}</div>`;
   }).join("");
 }
 
 function deckLines(id){
-  const d = state.decks.get(id), use = usageMap(), other = d.owner === "a" ? "b" : "a";
+  const d = state.decks.get(id), use = usageMap();
   return (d.cards || []).map((e, i) => {
     const c = cardBase(e.name), u = use.get(norm(c.name));
-    const mine = ownedOf(c.name, d.owner), others = usedBy(u, d.owner, id);
-    const avail = Math.max(0, mine - others), lack = Math.max(0, e.n - avail);
-    const partnerFree = Math.max(0, ownedOf(c.name, other) - usedBy(u, other));
-    return {e, i, c, mine, others, lack, partnerFree, other};
+    const mine = ownedOf(c.name), others = usedBy(u, id);
+    const lack = Math.max(0, e.n - Math.max(0, mine - others));
+    return {e, i, c, mine, others, lack};
   });
 }
 function deckSummary(id){
   const lines = deckLines(id), inks = new Set();
-  let total = 0, short = 0, borrow = 0;
-  for (const l of lines){ total += l.e.n; short += l.lack; borrow += Math.min(l.lack, l.partnerFree); if (l.c.ink) inks.add(l.c.ink); if (l.c.ink2) inks.add(l.c.ink2); }
-  return {total, short, borrow, inks: INKS.filter(i => inks.has(i))};
+  let total = 0, short = 0;
+  for (const l of lines){ total += l.e.n; short += l.lack; if (l.c.ink) inks.add(l.c.ink); if (l.c.ink2) inks.add(l.c.ink2); }
+  return {total, short, inks: INKS.filter(i => inks.has(i))};
 }
-function shortPill(s, d){
+function shortPill(s){
   if (!s.short) return s.total ? `<span class="pill okk">手持ちで組める</span>` : "";
-  const other = d.owner === "a" ? "b" : "a";
-  return `<span class="pill bad">あと${s.short}枚足りない</span>` + (s.borrow ? ` <span class="small muted">うち${s.borrow}枚は${esc(ownerName(other))}に空きあり</span>` : "");
+  return `<span class="pill bad">あと${s.short}枚足りない</span>`;
 }
 
 function renderDeckHome(){
-  const el = $("deck-list"), os = shownOwners();
-  const ids = [...state.decks.keys()].filter(id => os.includes(state.decks.get(id).owner)).sort((a, b) => {
+  renderDeckFilter();
+  const el = $("deck-list");
+  const ids = [...state.decks.keys()].filter(id => state.deckFilter === "all" || state.decks.get(id).owner === state.deckFilter).sort((a, b) => {
     const A = state.decks.get(a), B = state.decks.get(b);
     return (B.active - A.active) || ((B.updatedAt || 0) - (A.updatedAt || 0));
   });
@@ -627,7 +605,7 @@ function renderDeckHome(){
       <h3>${esc(d.name || "名前なし")}</h3>
       <div class="meta"><span class="pill ${d.active ? "on" : "off"}">${d.active ? "組んでいる" : "組んでいない"}</span>
         <span>${esc(ownerName(d.owner))}のデッキ</span><span class="inks">${s.inks.map(inkDot).join("")}</span></div>
-      <div class="meta"><span class="num">${s.total} / 60枚</span>${shortPill(s, d)}</div>
+      <div class="meta"><span class="num">${s.total} / 60枚</span>${shortPill(s)}</div>
     </button>`;
   }).join("");
 }
@@ -647,7 +625,7 @@ function renderEditorHead(){
     <div class="ed-head">
       <input class="field name" id="ed-name" value="${esc(d.name)}" placeholder="デッキ名" aria-label="デッキ名">
       <div class="bar">
-        <span class="seg" role="group" aria-label="だれのデッキか" id="ed-owner"></span>
+        <span class="small muted">使う人</span><span class="seg" role="group" aria-label="だれのデッキか" id="ed-owner"></span>
         <span class="seg" role="group" aria-label="状態">
           <button type="button" data-act="active" data-v="1" id="ed-on">組んでいる</button>
           <button type="button" data-act="active" data-v="0" id="ed-off">組んでいない</button>
@@ -684,18 +662,18 @@ function renderEditor(){
   $("ed-off").setAttribute("aria-pressed", !d.active);
   const s = deckSummary(id);
   $("ed-total").textContent = `${s.total} / 60枚`;
-  $("ed-short").innerHTML = shortPill(s, d);
+  $("ed-short").innerHTML = shortPill(s);
   $("ed-hint").textContent = d.active
-    ? `このデッキのカードは${ownerName(d.owner)}の在庫の「使用」に数えられています。`
-    : `組んでいないので在庫の「使用」には数えません。足りない枚数は「${ownerName(d.owner)}が組んだ場合」で表示しています。`;
+    ? "このデッキのカードは在庫の「使用」に数えられています。"
+    : "組んでいないので在庫の「使用」には数えません。足りない枚数は「組んだ場合」で表示しています。";
   const lines = deckLines(id);
   lines.sort((a, b) => (inkOrder(a.c.ink) - inkOrder(b.c.ink)) || ((a.c.cost ?? 99) - (b.c.cost ?? 99)) || a.c.name.localeCompare(b.c.name, "ja"));
   const el = $("ed-list");
   if (!lines.length){ el.innerHTML = `<div class="empty"><p class="muted">上の欄からカードを入れてください。</p></div>`; }
-  else el.innerHTML = `<div class="row drow head"><span></span><span>カード</span><span>デッキ枚数</span><span style="text-align:right">${esc(ownerName(d.owner))}の手持ち</span></div>` +
-    lines.map(({e, i, c, mine, others, lack, partnerFree, other}) => {
+  else el.innerHTML = `<div class="row drow head"><span></span><span>カード</span><span>デッキ枚数</span><span style="text-align:right">手持ち</span></div>` +
+    lines.map(({e, i, c, mine, others, lack}) => {
       const reg = [...state.stock.values()].some(x => x.key === norm(c.name));
-      const lackTxt = lack ? `<span class="pill bad">あと${lack}枚</span>${partnerFree ? `<br><span class="small muted">${esc(ownerName(other))}に空き${partnerFree}枚</span>` : ""}` : `<span class="pill okk">OK</span>`;
+      const lackTxt = lack ? `<span class="pill bad">あと${lack}枚</span>` : `<span class="pill okk">OK</span>`;
       return `<div class="row drow"><span>${costBadge(c)}</span>
         <span class="nm">${nameBlock(c.name, reg ? "" : `<span class="unreg">持っていない</span>`)}</span>
         <span class="stp"><button type="button" data-act="dn" data-i="${i}" aria-label="1枚減らす">−</button><output class="num">${e.n}</output><button type="button" data-act="up" data-i="${i}" aria-label="1枚増やす">＋</button></span>
@@ -736,12 +714,6 @@ function setTab(t){
   $("p-inv").hidden = t !== "inv"; $("p-deck").hidden = t !== "deck";
   try { localStorage.setItem("lorcana-inv-tab", t); } catch (e) {}
 }
-function setView(v){
-  state.view = v;
-  if (v !== "all") state.addOwner = v;
-  try { localStorage.setItem("lorcana-inv-view", v); } catch (e) {}
-  render();
-}
 
 // ---------- events ----------
 document.querySelector(".tabs").addEventListener("click", e => {
@@ -749,17 +721,16 @@ document.querySelector(".tabs").addEventListener("click", e => {
   setTab(b.dataset.tab);
   if (b.dataset.tab === "deck" && state.editing) closeDeck();
 });
-$("view-seg").addEventListener("click", e => { const b = e.target.closest("[data-view]"); if (b) setView(b.dataset.view); });
-$("add-owner").addEventListener("click", e => { const b = e.target.closest("[data-addowner]"); if (!b) return; state.addOwner = b.dataset.addowner; renderOwnerControls(); });
+$("deck-filter").addEventListener("click", e => { const b = e.target.closest("[data-dfilter]"); if (!b) return; state.deckFilter = b.dataset.dfilter; renderDeckHome(); });
 $("add-form").addEventListener("submit", e => {
   e.preventDefault();
   const name = $("add-name").value.trim(); if (!name) return;
   const n = Math.max(1, +$("add-n").value || 1);
   const known = codeLookup(name) || cardBase(name).cost != null || catalogLookup(name);
-  const real = addOwned(name, state.addOwner, n);
+  const real = addOwned(name, n);
   $("add-name").value = ""; $("add-n").value = 1;
   $("add-name").dispatchEvent(new Event("input"));
-  toast(`${ownerName(state.addOwner)}の ${splitName(real).main} を ${n}枚 追加しました${known ? "" : "（候補にない名前として登録）"}`);
+  toast(`${splitName(real).main} を ${n}枚 追加しました${known ? "" : "（候補にない名前として登録）"}`);
   render(); renderDatalist();
 });
 $("add-name").addEventListener("input", () => {
@@ -772,9 +743,9 @@ $("add-name").addEventListener("input", () => {
 $("bulk-go").addEventListener("click", () => {
   const {out, bad} = parseList($("bulk-text").value);
   if (!out.length){ $("bulk-msg").textContent = "読み取れる行がありませんでした。"; return; }
-  out.forEach(x => addOwned(x.name, state.addOwner, x.n));
+  out.forEach(x => addOwned(x.name, x.n));
   const unknown = out.filter(x => !x.known).length;
-  $("bulk-msg").textContent = `${ownerName(state.addOwner)}のカードとして ${out.length}種類 ${out.reduce((s, x) => s + x.n, 0)}枚を足しました。` + (unknown ? ` 候補にない名前 ${unknown}件はそのまま登録しました。` : "") + (bad.length ? ` 読めなかった行 ${bad.length}件。` : "");
+  $("bulk-msg").textContent = `${out.length}種類 ${out.reduce((s, x) => s + x.n, 0)}枚を足しました。` + (unknown ? ` 候補にない名前 ${unknown}件はそのまま登録しました。` : "") + (bad.length ? ` 読めなかった行 ${bad.length}件。` : "");
   $("bulk-text").value = "";
   render(); renderDatalist();
 });
@@ -805,7 +776,7 @@ document.addEventListener("click", e => {
   switch (act){
     case "inc": case "dec": {
       const name = rowName(b.dataset.key); if (!name) break;
-      setOwned(name, b.dataset.owner, ownedOf(name, b.dataset.owner) + (act === "inc" ? 1 : -1));
+      setOwned(name, ownedOf(name) + (act === "inc" ? 1 : -1));
       render(); renderDatalist();
     } break;
     case "toggle": state.openRow = state.openRow === b.dataset.key ? null : b.dataset.key; state.confirmDel = null; renderInventory(); break;
@@ -929,7 +900,7 @@ function renderPhotoRows(){
         <input class="field" type="number" min="1" max="99" data-pi="${i}" data-pf="n" value="${r.n}" aria-label="枚数">
       </div>`;
     }).join("")}
-    <div class="bar"><button class="btn primary" type="button" data-act="photo-add" ${ok ? "" : "disabled"}>${esc(ownerName(state.addOwner))}の在庫に ${ok}種類を追加</button>
+    <div class="bar"><button class="btn primary" type="button" data-act="photo-add" ${ok ? "" : "disabled"}>在庫に ${ok}種類を追加</button>
       <button class="btn ghost" type="button" data-act="photo-close">やめる</button></div>`;
 }
 $("photo-in").addEventListener("change", async e => {
@@ -978,8 +949,8 @@ $("photo-panel").addEventListener("click", e => {
   else if (b.dataset.act === "photo-close"){ $("photo-panel").hidden = true; photoRows = []; }
   else if (b.dataset.act === "photo-add"){
     const add = photoRows.filter(r => r.on && r.name.trim());
-    add.forEach(r => addOwned(r.name, state.addOwner, r.n));
-    toast(`${ownerName(state.addOwner)}の在庫に ${add.length}種類 ${add.reduce((s, r) => s + r.n, 0)}枚を追加しました`);
+    add.forEach(r => addOwned(r.name, r.n));
+    toast(`在庫に ${add.length}種類 ${add.reduce((s, r) => s + r.n, 0)}枚を追加しました`);
     $("photo-panel").hidden = true; photoRows = [];
     render(); renderDatalist();
   }
@@ -995,7 +966,6 @@ $("photo-panel").addEventListener("click", e => {
 
 // ---------- boot ----------
 try { const t = localStorage.getItem("lorcana-inv-tab"); if (t === "deck") setTab("deck"); } catch (e) {}
-try { const v = localStorage.getItem("lorcana-inv-view"); if (v === "all" || OWNERS.includes(v)){ state.view = v; if (v !== "all") state.addOwner = v; } } catch (e) {}
 renderDatalist(); render();
 
 function applySnapshot(kind, snap){
@@ -1007,8 +977,8 @@ function applySnapshot(kind, snap){
     if (keep.has(doc.id)) continue;
     const v = doc.data() || {};
     if (kind === "stock"){
-      const owner = OWNERS.includes(v.owner) ? v.owner : null; if (!owner || !v.name) continue;
-      map.set(doc.id, {key: norm(v.name), owner, name: String(v.name), ink: v.ink || null, ink2: v.ink2 || null, cost: v.cost ?? null, n: Math.max(0, +v.n || 0)});
+      if (!v.name) continue;
+      map.set(doc.id, {key: norm(v.name), name: String(v.name), ink: v.ink || null, ink2: v.ink2 || null, cost: v.cost ?? null, n: Math.max(0, +v.n || 0)});
     } else map.set(doc.id, {name: String(v.name || ""), owner: OWNERS.includes(v.owner) ? v.owner : "a", active: !!v.active,
       cards: Array.isArray(v.cards) ? v.cards.filter(x => x && x.name).map(x => ({name: String(x.name), n: Math.max(0, +x.n || 0)})) : [], updatedAt: +v.updatedAt || 0});
   }
