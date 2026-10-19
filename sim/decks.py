@@ -479,6 +479,26 @@ DECKS["es_items14_hl"] = {"name": "青緑アイテム（ニシオカ選手のリ
 1 Tamatoa - So Shiny!
 """}
 
+DECKS["es_hl_low"] = {"name": "緑青ハニー・レモン・ローカーブ（自作）", "pair": "emerald,sapphire", "source": "自作（軽量化・序盤の対処重視）", "list_text": """
+4 Honey Lemon - Testing the Limits
+4 Prototype Chem Ball
+4 Blinding Chem Ball
+4 Pawpsicle
+3 Hidden Inkcaster
+4 Scram!
+4 Kit Cloudkicker - Tough Guy
+4 Go Go Tomago - Darting Dynamo
+4 Belle - Apprentice Inventor
+4 Gosalyn Mallard - Curious Child
+3 Pacha - Emperor's Guide
+4 Baymax - Lab Assistant
+3 Under the Sea
+3 Hiram Flaversham - Toymaker
+2 Tamatoa - Happy as a Clam
+2 Bellwether - Highly Qualified
+4 Minnie Mouse - Busy Go-Getter
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -670,6 +690,17 @@ CONFIG["ae_hl"] = dict(CONFIG["ae_dog14"], keep=CONFIG["ae_dog14"]["keep"] | {"H
 CONFIG["es_hl"] = dict(CONFIG["emerald_lock"], keep=CONFIG["emerald_lock"]["keep"] | {"Honey Lemon - Testing the Limits"})
 
 CONFIG["es_items14_hl"] = CONFIG["es_items14"]
+
+CONFIG["es_hl_low"] = {
+    "keep": {"Honey Lemon - Testing the Limits", "Prototype Chem Ball", "Blinding Chem Ball", "Pawpsicle", "Scram!",
+             "Go Go Tomago - Darting Dynamo", "Minnie Mouse - Busy Go-Getter", "Belle - Apprentice Inventor",
+             "Kit Cloudkicker - Tough Guy", "Gosalyn Mallard - Curious Child"},
+    "ship": {"Tamatoa - Happy as a Clam", "Under the Sea"},
+    "never_ink": {"Honey Lemon - Testing the Limits", "Scram!"},
+    "key": {"Under the Sea": 0.6, "Scram!": 0.3, "Honey Lemon - Testing the Limits": 0.4},
+    "ink_cap": 6,
+    "post_quest_pass": True,
+}
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
