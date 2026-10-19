@@ -5589,5 +5589,50 @@
   "ink": [
    "amethyst"
   ]
+ },
+ "Chernabog - Evildoer": {
+  "jp": "チェルナボーグ - 邪悪の化身",
+  "cost": 10,
+  "inkable": false,
+  "types": [
+   "Character"
+  ],
+  "str": 9,
+  "wp": 9,
+  "lore": 3,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Villain"
+  ],
+  "text": "THE POWER OF EVIL For each character card in your discard, you pay 1 {I} less to play this character. / SUMMON THE SPIRITS When you play this character, shuffle all character cards from your discard into your deck.",
+  "set": "3",
+  "num": "3",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Rapunzel - Tower Defender": {
+  "jp": "ラプンツェル - 塔の番人",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "THE FATES' DESIGN When you play this character, you may choose and discard a card. If you do, return chosen character to their player's hand.",
+  "set": "13",
+  "num": "80",
+  "ink": [
+   "emerald"
+  ]
  }
 }
