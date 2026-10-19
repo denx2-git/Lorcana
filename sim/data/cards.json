@@ -5659,7 +5659,7 @@
   ]
  },
  "Belle - Snowfield Strategist": {
-  "jp": "ベル - 雪原の策略家",
+  "jp": "ベル - 雪原の戦略家",
   "cost": 4,
   "inkable": true,
   "types": [
@@ -5682,7 +5682,7 @@
   ]
  },
  "Cinderella - Dream Come True": {
-  "jp": "シンデレラ - 叶った夢",
+  "jp": "シンデレラ - 夢をかなえたプリンセス",
   "cost": 4,
   "inkable": false,
   "types": [
@@ -5705,7 +5705,7 @@
   ]
  },
  "Moana - Curious Explorer": {
-  "jp": "モアナ - 好奇心旺盛な冒険家",
+  "jp": "モアナ - 好奇心旺盛な探検家",
   "cost": 5,
   "inkable": true,
   "types": [
@@ -5728,7 +5728,7 @@
   ]
  },
  "Stitch - Carefree Surfer": {
-  "jp": "スティッチ - 気ままなサーファー",
+  "jp": "スティッチ - お気楽サーファー",
   "cost": 7,
   "inkable": true,
   "types": [
@@ -5751,7 +5751,7 @@
   ]
  },
  "Besties, Assemble!": {
-  "jp": "Besties, Assemble!",
+  "jp": "親友たち、アッセンブル！",
   "cost": 1,
   "inkable": true,
   "types": [
@@ -5770,7 +5770,7 @@
   ]
  },
  "Develop Your Brain": {
-  "jp": "Develop Your Brain",
+  "jp": "本を読みたまえ",
   "cost": 1,
   "inkable": true,
   "types": [
@@ -5808,7 +5808,7 @@
   ]
  },
  "The Horseman Strikes!": {
-  "jp": "The Horseman Strikes!",
+  "jp": "首無し騎士の剛速球！",
   "cost": 3,
   "inkable": true,
   "types": [
@@ -5827,7 +5827,7 @@
   ]
  },
  "Raging Storm": {
-  "jp": "Raging Storm",
+  "jp": "荒れ狂う嵐",
   "cost": 8,
   "inkable": false,
   "types": [
@@ -5865,7 +5865,7 @@
   ]
  },
  "Alice - Savvy Sailor": {
-  "jp": "アリス - 頼れる船乗り",
+  "jp": "アリス - ビン腕な船乗り",
   "cost": 3,
   "inkable": false,
   "types": [
