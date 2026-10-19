@@ -499,6 +499,66 @@ DECKS["es_hl_low"] = {"name": "緑青ハニー・レモン・ローカーブ（�
 4 Minnie Mouse - Busy Go-Getter
 """}
 
+DECKS["sa_quill_hl"] = {"name": "青緑アイテム（魚の骨ペン型＋ハニー・レモン・序盤対処）", "pair": "emerald,sapphire", "source": "自作（赤青アイテムズの青部分＋緑）", "list_text": """
+4 Pawpsicle
+4 Sail the Azurite Sea
+4 Sapphire Coil
+4 Scrooge Mcduck - Resourceful Miser
+4 Tamatoa - Happy as a Clam
+3 Tamatoa - So Shiny!
+3 Basil's Magnifying Glass
+4 Maurice's Workshop
+1 Lucky Dime
+1 Hide Away
+4 Fishbone Quill
+4 Honey Lemon - Testing the Limits
+4 Under the Sea
+4 Blinding Chem Ball
+2 Prototype Chem Ball
+2 Hidden Inkcaster
+4 Kit Cloudkicker - Tough Guy
+4 Milo Thatch - Getting His Hands Dirty
+"""}
+DECKS["sa_quill_hl_b"] = {"name": "青緑アイテム（魚の骨ペン型＋ハニー・レモン・ステグマット）", "pair": "emerald,sapphire", "source": "自作（赤青アイテムズの青部分＋緑）", "list_text": """
+4 Pawpsicle
+4 Sail the Azurite Sea
+4 Sapphire Coil
+4 Scrooge Mcduck - Resourceful Miser
+4 Tamatoa - Happy as a Clam
+3 Tamatoa - So Shiny!
+3 Basil's Magnifying Glass
+4 Maurice's Workshop
+1 Lucky Dime
+1 Hide Away
+4 Fishbone Quill
+4 Honey Lemon - Testing the Limits
+4 Under the Sea
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+4 Stegmutt - Clumsy Dinosaur
+2 Hades - Infernal Schemer
+2 Milo Thatch - Getting His Hands Dirty
+"""}
+
+DECKS["es_items14_quill"] = {"name": "青緑アイテム（ニシオカ型自動改良版＋魚の骨ペン）", "pair": "emerald,sapphire", "source": "自作", "list_text": """
+4 Ariel - Collector of Oddities
+4 Baymax - Lab Assistant
+4 Blinding Chem Ball
+4 Hidden Inkcaster
+4 Honey Lemon - Testing the Limits
+4 Milo Thatch - Getting His Hands Dirty
+4 Pawpsicle
+4 Prototype Chem Ball
+4 Sail the Azurite Sea
+4 Stegmutt - Clumsy Dinosaur
+4 Tamatoa - Happy as a Clam
+4 Under the Sea
+3 Belle - Apprentice Inventor
+3 Inkrunner
+2 Hades - Infernal Schemer
+4 Fishbone Quill
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -701,6 +761,19 @@ CONFIG["es_hl_low"] = {
     "ink_cap": 6,
     "post_quest_pass": True,
 }
+
+CONFIG["sa_quill_hl"] = {
+    "keep": {"Pawpsicle", "Sail the Azurite Sea", "Fishbone Quill", "Basil's Magnifying Glass", "Honey Lemon - Testing the Limits",
+             "Prototype Chem Ball", "Blinding Chem Ball", "Sapphire Coil", "Kit Cloudkicker - Tough Guy"},
+    "ship": {"Tamatoa - So Shiny!", "Lucky Dime"},
+    "never_ink": {"Honey Lemon - Testing the Limits", "Maurice's Workshop", "Under the Sea"},
+    "key": {"Under the Sea": 0.8, "Honey Lemon - Testing the Limits": 0.5},
+    "ink_cap": 9,
+    "post_quest_pass": True,
+}
+CONFIG["sa_quill_hl_b"] = CONFIG["sa_quill_hl"]
+
+CONFIG["es_items14_quill"] = CONFIG["es_items14"]
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
