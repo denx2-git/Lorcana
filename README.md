@@ -8,3 +8,4 @@
 - `data/cardtext.json` — 採用カードの英語名・コスト・能力（Lorcast API）
 - `tools/guide_data.py` — 型の分類と解説、相性データ、出典
 - `tools/build.py` + `tools/template.html` — `python3 tools/build.py` で `index.html` を生成
+- `inventory.html` — 2人で共有するカード在庫帳（所持枚数・デッキで使用中の枚数・残り）。`python3 tools/build_inventory.py` で `tools/inventory_template.html` にカード候補とレシピを埋め込んで生成。保存は claude.ai Artifact の共有DBを使う

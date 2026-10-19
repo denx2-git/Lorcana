@@ -1,0 +1,812 @@
+<title>ロルカナ在庫帳</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column ledger — totals strip, then tabs for 在庫 and デッキ; rows are binder lines tinted by ink */
+:root{
+  --bg:#EEF1F6; --surface:#FFFFFF; --surface-2:#F5F7FB; --line:#D5DBE6; --line-strong:#AEB8C9;
+  --ink:#18203A; --ink-2:#48536E; --ink-3:#6F7A93;
+  --gold:#9A6C0E; --gold-soft:#F3E6C4;
+  --ok:#1E7A68; --ok-bg:#D7EFE8; --warn:#9A6C0E; --warn-bg:#F6EBCD; --bad:#B0482F; --bad-bg:#F6DDD5;
+  --amber:#E0A10F; --amethyst:#7B4FA0; --emerald:#2E8B57; --ruby:#C2283B; --sapphire:#1F6FB5; --steel:#8A94A3; --noink:#B9C0CC;
+  --focus:#1F5FA0;
+  --display:"Shippori Mincho B1","Hiragino Mincho ProN","Yu Mincho",serif;
+  --body:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11152A; --surface:#181D36; --surface-2:#1E2440; --line:#2C3456; --line-strong:#46507A;
+    --ink:#E8ECF6; --ink-2:#B3BBD2; --ink-3:#8791AE;
+    --gold:#E2B24C; --gold-soft:#3A3120;
+    --ok:#5CC7AE; --ok-bg:#173A36; --warn:#E2B24C; --warn-bg:#3A3120; --bad:#EE8A70; --bad-bg:#43262A;
+    --steel:#A9B2C0; --noink:#5A6380; --focus:#86B6E8;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11152A; --surface:#181D36; --surface-2:#1E2440; --line:#2C3456; --line-strong:#46507A;
+  --ink:#E8ECF6; --ink-2:#B3BBD2; --ink-3:#8791AE;
+  --gold:#E2B24C; --gold-soft:#3A3120;
+  --ok:#5CC7AE; --ok-bg:#173A36; --warn:#E2B24C; --warn-bg:#3A3120; --bad:#EE8A70; --bad-bg:#43262A;
+  --steel:#A9B2C0; --noink:#5A6380; --focus:#86B6E8;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.6;margin:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 80px}
+.wrap{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:22px}
+h1,h2,h3{font-family:var(--display);margin:0;line-height:1.3;text-wrap:balance}
+p{margin:0}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.muted{color:var(--ink-2)}
+.small{font-size:13px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+
+header.top{padding-top:32px;display:flex;flex-direction:column;gap:6px}
+.eyebrow{font-size:12px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+header.top h1{font-size:clamp(28px,5vw,40px);font-weight:800}
+.sync{font-size:12px;color:var(--ink-3)}
+
+.totals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.totals div{padding:12px 14px;display:flex;flex-direction:column;gap:2px;border-left:1px solid var(--line)}
+.totals div:first-child{border-left:0}
+.totals b{font-family:var(--mono);font-size:24px;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2}
+.totals span{font-size:12px;color:var(--ink-2);letter-spacing:.04em}
+.totals .is-bad b{color:var(--bad)}
+@media (max-width:560px){.totals{grid-template-columns:repeat(2,minmax(0,1fr))}.totals div:nth-child(3){border-left:0}.totals div:nth-child(n+3){border-top:1px solid var(--line)}}
+
+.banner{border:1px solid var(--line-strong);background:var(--surface-2);border-radius:8px;padding:10px 14px;font-size:13px}
+.banner.bad{border-color:var(--bad);background:var(--bad-bg)}
+
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line-strong)}
+.tabs button{border:0;background:none;padding:10px 16px;font-weight:700;color:var(--ink-2);border-bottom:3px solid transparent;margin-bottom:-1px}
+.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--gold)}
+.tabs .cnt{font-family:var(--mono);font-weight:500;font-size:12px;color:var(--ink-3);margin-left:6px}
+
+.panel{display:flex;flex-direction:column;gap:14px}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.field{border:1px solid var(--line-strong);background:var(--surface);border-radius:6px;padding:7px 10px;min-width:0}
+input.field[type=number]{width:72px;font-family:var(--mono)}
+.grow{flex:1 1 220px}
+.btn{border:1px solid var(--line-strong);background:var(--surface);border-radius:6px;padding:7px 14px;font-weight:700;white-space:nowrap}
+.btn:hover{border-color:var(--ink-3)}
+.btn.primary{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn.ghost{border-color:transparent;background:none;color:var(--ink-2);padding-inline:8px}
+.btn:disabled{opacity:.45;cursor:default}
+
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:3px 11px;font-size:13px;display:inline-flex;align-items:center;gap:6px;color:var(--ink-2)}
+.chip[aria-pressed="true"]{border-color:var(--ink);color:var(--ink);background:var(--surface-2);font-weight:700}
+
+.dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block;background:var(--noink)}
+
+details.more{border:1px dashed var(--line-strong);border-radius:8px;padding:8px 12px;background:var(--surface-2)}
+details.more summary{cursor:pointer;font-weight:700;font-size:14px}
+details.more[open]{display:flex;flex-direction:column;gap:8px}
+textarea.field{width:100%;min-height:120px;font-family:var(--mono);font-size:13px}
+
+/* inventory rows */
+.list{border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.row{display:grid;grid-template-columns:30px minmax(0,1fr) 128px 64px 64px;align-items:center;gap:10px;padding:8px 12px;border-top:1px solid var(--line)}
+.row:first-child{border-top:0}
+.row.head{background:var(--surface-2);font-size:12px;color:var(--ink-3);letter-spacing:.06em;padding-block:6px}
+.row.head .r{text-align:right}
+.cost{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font-family:var(--mono);font-size:13px;color:#fff;background:var(--noink)}
+.i-Amber{background:var(--amber)}.i-Amethyst{background:var(--amethyst)}.i-Emerald{background:var(--emerald)}
+.i-Ruby{background:var(--ruby)}.i-Sapphire{background:var(--sapphire)}.i-Steel{background:var(--steel)}
+.cost.i-Amber{color:#3a2a00}
+.nm{min-width:0;display:flex;flex-direction:column;cursor:pointer;background:none;border:0;padding:0;text-align:left}
+.nm b{font-weight:700;overflow-wrap:anywhere}
+.nm small{color:var(--ink-2);font-size:12px;overflow-wrap:anywhere}
+.stp{display:inline-flex;align-items:center;border:1px solid var(--line-strong);border-radius:6px;overflow:hidden;background:var(--surface)}
+.stp button{border:0;background:var(--surface-2);width:32px;height:30px;font-size:16px;line-height:1}
+.stp button:hover{background:var(--line)}
+.stp output{min-width:40px;text-align:center;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.stat{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.left{justify-self:end;font-family:var(--mono);font-variant-numeric:tabular-nums;min-width:44px;text-align:center;border-radius:999px;padding:1px 8px;font-size:14px}
+.left.ok{background:var(--ok-bg);color:var(--ok)}
+.left.zero{background:var(--surface-2);color:var(--ink-3)}
+.left.bad{background:var(--bad-bg);color:var(--bad);font-weight:700}
+.detail{grid-column:2 / -1;font-size:13px;color:var(--ink-2);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center}
+.detail .use{display:inline-flex;gap:6px;align-items:center}
+.tag{font-size:11px;border-radius:4px;padding:0 6px;border:1px solid var(--line-strong);color:var(--ink-2)}
+.tag.on{border-color:var(--ok);color:var(--ok)}
+.unreg{font-size:11px;color:var(--warn);background:var(--warn-bg);border-radius:4px;padding:0 6px;margin-left:6px;font-weight:700}
+@media (max-width:600px){
+  .row{grid-template-columns:30px minmax(0,1fr) auto;row-gap:6px}
+  .row.head{display:none}
+  .row .stp{grid-column:2}
+  .row .stat{grid-column:3;grid-row:1;align-self:start}
+  .row .left{grid-column:3;grid-row:2}
+  .stat::before{content:"使用 ";font-family:var(--body);font-size:11px;color:var(--ink-3)}
+}
+
+.empty{padding:28px 20px;display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+.empty h3{font-size:18px}
+
+/* decks */
+.decks{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.deck{border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px;display:flex;flex-direction:column;gap:8px;text-align:left}
+.deck:hover{border-color:var(--line-strong)}
+.deck h3{font-size:17px;overflow-wrap:anywhere}
+.deck .meta{display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;font-size:13px;color:var(--ink-2)}
+.pill{font-size:12px;font-weight:700;border-radius:999px;padding:1px 9px}
+.pill.on{background:var(--ok-bg);color:var(--ok)}
+.pill.off{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
+.pill.bad{background:var(--bad-bg);color:var(--bad)}
+.pill.okk{background:var(--surface-2);color:var(--ok)}
+.inks{display:inline-flex;gap:3px}
+
+.editor{display:flex;flex-direction:column;gap:14px}
+.ed-head{display:flex;flex-direction:column;gap:10px;border:1px solid var(--line);background:var(--surface);border-radius:10px;padding:14px}
+.ed-head .name{font-family:var(--display);font-size:22px;font-weight:800;width:100%}
+.seg{display:inline-flex;border:1px solid var(--line-strong);border-radius:6px;overflow:hidden}
+.seg button{border:0;background:var(--surface);padding:6px 12px;font-size:13px;font-weight:700;color:var(--ink-2)}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.drow{grid-template-columns:30px minmax(0,1fr) 128px 120px}
+.need{justify-self:end;font-size:13px;text-align:right}
+.need .pill{display:inline-block}
+@media (max-width:600px){
+  .drow{grid-template-columns:30px minmax(0,1fr) auto}
+  .drow .need{grid-column:3;grid-row:1}
+}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(20px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:14px;max-width:calc(100% - 32px);z-index:20}
+@media (prefers-reduced-motion:no-preference){.toast{animation:up .18s ease-out}@keyframes up{from{transform:translate(-50%,8px);opacity:0}}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="eyebrow">LORCANA COLLECTION</div>
+    <h1>ロルカナ在庫帳</h1>
+    <p class="muted">持っているカードの枚数と、組んでいるデッキで何枚使っているかを2人で共有します。</p>
+    <p class="sync" id="sync">読み込み中…</p>
+  </header>
+
+  <div class="banner" id="banner" hidden></div>
+
+  <div class="totals" aria-label="合計">
+    <div><b id="t-kinds">0</b><span>登録カード（種類）</span></div>
+    <div><b id="t-owned">0</b><span>所持枚数</span></div>
+    <div><b id="t-used">0</b><span>デッキで使用中</span></div>
+    <div id="t-short-box"><b id="t-short">0</b><span>足りないカード（種類）</span></div>
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" id="tab-inv" aria-selected="true" data-tab="inv">在庫<span class="cnt" id="c-inv">0</span></button>
+    <button role="tab" id="tab-deck" aria-selected="false" data-tab="deck">デッキ<span class="cnt" id="c-deck">0</span></button>
+  </div>
+
+  <!-- 在庫 -->
+  <section class="panel" id="p-inv">
+    <form class="bar" id="add-form" autocomplete="off">
+      <input class="field grow" id="add-name" list="catalog-names" placeholder="カード名を入力して追加（候補から選べます）" aria-label="カード名">
+      <input class="field" id="add-n" type="number" min="1" max="99" value="1" aria-label="枚数">
+      <button class="btn primary" type="submit">追加</button>
+    </form>
+    <details class="more" id="bulk">
+      <summary>まとめて追加</summary>
+      <p class="small muted">1行に1種類、「4 カード名」や「カード名 x4」の形で貼り付けます。登録済みのカードは枚数が足されます。</p>
+      <textarea class="field" id="bulk-text" placeholder="4 ウッディ — おもちゃのリーダー&#10;2 アンダー・ザ・シー"></textarea>
+      <div class="bar"><button class="btn" type="button" id="bulk-go">在庫に足す</button><span class="small muted" id="bulk-msg"></span></div>
+    </details>
+    <div class="bar">
+      <input class="field grow" id="q" type="search" placeholder="名前で絞り込み" aria-label="名前で絞り込み">
+      <select class="field" id="sort" aria-label="並び順">
+        <option value="ink">インク・コスト順</option>
+        <option value="name">名前順</option>
+        <option value="left">残りが多い順</option>
+        <option value="used">使用中が多い順</option>
+      </select>
+    </div>
+    <div class="chips" id="ink-chips"></div>
+    <div class="chips" id="state-chips"></div>
+    <div class="list" id="inv-list"></div>
+  </section>
+
+  <!-- デッキ -->
+  <section class="panel" id="p-deck" hidden>
+    <div id="deck-home" class="panel">
+      <div class="bar">
+        <button class="btn primary" type="button" id="new-deck">新しいデッキ</button>
+        <select class="field grow" id="recipe" aria-label="公式レシピから作る"><option value="">公式レシピから作る…</option></select>
+      </div>
+      <p class="small muted">「組んでいる」デッキに入れたカードが在庫の「使用」に数えられます。崩したデッキは「組んでいない」にすると枚数が在庫に戻ります。</p>
+      <div class="decks" id="deck-list"></div>
+    </div>
+    <div id="deck-editor" class="editor" hidden></div>
+  </section>
+</div>
+
+<datalist id="catalog-names"></datalist>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script type="application/json" id="catalog">/*__CATALOG__*/{}</script>
+<script>
+(() => {
+const CAT = JSON.parse(document.getElementById("catalog").textContent);
+const INKS = ["Amber","Amethyst","Emerald","Ruby","Sapphire","Steel"];
+const INK_JA = {Amber:"アンバー",Amethyst:"アメジスト",Emerald:"エメラルド",Ruby:"ルビー",Sapphire:"サファイア",Steel:"スティール"};
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+const norm = s => String(s || "").normalize("NFKC").toLowerCase().replace(/[’']/g, "'")
+  .replace(/[\s・·–—\-‐~〜《》『』「」、。,.!！?？'"()（）]/g, "");
+// "日本語 — English" の英語部分は表示しない
+function splitName(name){
+  const parts = String(name).split(/\s+[—–]\s+/);
+  if (parts.length > 1 && /^[\x00-\x7F’]+$/.test(parts[parts.length - 1])) parts.pop();
+  return {main: parts[0], sub: parts.slice(1).join(" — ")};
+}
+const catIndex = new Map();
+CAT.cards.forEach((c, i) => {
+  catIndex.set(norm(c[0]), i);
+  const jp = splitName(c[0]);
+  const key = norm(jp.sub ? jp.main + jp.sub : jp.main);
+  if (!catIndex.has(key)) catIndex.set(key, i);
+});
+function catalogLookup(name){
+  const k = norm(name);
+  if (catIndex.has(k)) return CAT.cards[catIndex.get(k)];
+  return null;
+}
+function hashId(s){
+  let h1 = 0x811c9dc5, h2 = 0x01000193;
+  for (const ch of s){ const c = ch.codePointAt(0); h1 = Math.imul(h1 ^ c, 16777619) >>> 0; h2 = Math.imul(h2 ^ c, 2246822519) >>> 0; }
+  return "c" + h1.toString(16).padStart(8, "0") + h2.toString(16).padStart(8, "0");
+}
+
+// ---------- state ----------
+const state = {
+  cards: new Map(),   // id -> {name, ink, cost, owned}
+  decks: new Map(),   // id -> {name, by, active, cards:[{name,n}], updatedAt}
+  tab: "inv", ink: "", filter: "all", openRow: null, editing: null, confirmDel: null,
+};
+let db = null, readOnly = false, loaded = {cards: false, decks: false};
+
+function cardKey(name){
+  const k = norm(name);
+  for (const [id, c] of state.cards) if (norm(c.name) === k) return id;
+  return null;
+}
+function cardInfo(name){
+  const id = cardKey(name);
+  if (id) return state.cards.get(id);
+  const cat = catalogLookup(name);
+  return {name: cat ? cat[0] : name, ink: cat ? cat[1] : null, cost: cat ? cat[2] : null, owned: 0};
+}
+// norm(name) -> [{deckId, n}] across all decks
+function usageMap(){
+  const m = new Map();
+  for (const [id, d] of state.decks) for (const e of d.cards || []){
+    if (!(e.n > 0)) continue;
+    const k = norm(e.name);
+    if (!m.has(k)) m.set(k, []);
+    m.get(k).push({deckId: id, n: e.n, active: !!d.active});
+  }
+  return m;
+}
+const usedActive = list => (list || []).reduce((s, u) => s + (u.active ? u.n : 0), 0);
+
+// ---------- writes ----------
+const pending = new Map(); // path -> {ref, body, timer, inflight, dirty}
+function save(ref, body, delay = 400){
+  if (!db) return;
+  if (readOnly){ toast("閲覧のみの権限なので、この変更は保存されません"); return; }
+  let p = pending.get(ref.path);
+  if (!p){ p = {ref}; pending.set(ref.path, p); }
+  p.body = body; p.dirty = true;
+  clearTimeout(p.timer);
+  p.timer = setTimeout(() => flush(p), delay);
+  setSync("保存中…");
+}
+async function flush(p, retried){
+  if (p.inflight || !p.dirty) return;
+  p.inflight = true; p.dirty = false;
+  const body = p.body;
+  try { body === null ? await p.ref.delete() : await p.ref.set(body); }
+  catch (e){
+    if (e && e.code === "unavailable" && !retried){ p.dirty = true; p.inflight = false; setTimeout(() => flush(p, true), 800 + Math.random() * 800); return; }
+    onWriteError(e);
+  }
+  p.inflight = false;
+  if (p.dirty) flush(p);
+  else { pending.delete(p.ref.path); if (!pending.size) setSync("保存しました"); }
+}
+function onWriteError(e){
+  const code = e && e.code;
+  if (code === "invalid_argument"){
+    readOnly = true;
+    showBanner("このアカウントには編集の権限がないため、変更は保存されません。持ち主に「編集者」で共有してもらってください。", true);
+  } else if (code === "quota_exceeded"){
+    toast("保存できる量の上限に達しました。使わないデッキやカードを消してください。");
+  } else if (code === "resource_exhausted"){
+    toast("操作が速すぎました。少し待ってからもう一度どうぞ。");
+  } else {
+    toast("保存に失敗しました。通信状態を確かめてください。");
+  }
+  setSync("保存できませんでした");
+}
+const cardRef = id => db.collection("cards").doc(id);
+const deckRef = id => db.collection("decks").doc(id);
+
+function setOwned(id, owned){
+  const c = state.cards.get(id); if (!c) return;
+  c.owned = Math.max(0, Math.min(999, owned));
+  if (db) save(cardRef(id), {name: c.name, ink: c.ink ?? null, cost: c.cost ?? null, owned: c.owned});
+  render();
+}
+function addOwned(name, n){
+  name = String(name || "").trim(); if (!name) return null;
+  let id = cardKey(name);
+  if (!id){
+    const cat = catalogLookup(name);
+    const real = cat ? cat[0] : name;
+    id = hashId(norm(real));
+    state.cards.set(id, {name: real, ink: cat ? cat[1] : null, cost: cat ? cat[2] : null, owned: 0});
+  }
+  setOwned(id, state.cards.get(id).owned + n);
+  return id;
+}
+function deleteCard(id){
+  state.cards.delete(id);
+  if (db) save(cardRef(id), null, 0);
+  state.openRow = null; render();
+}
+function saveDeck(id){
+  const d = state.decks.get(id); if (!d) return;
+  d.updatedAt = Date.now();
+  d.cards = (d.cards || []).filter(e => e.n > 0);
+  if (db) save(deckRef(id), {name: d.name, by: d.by || "", active: !!d.active, cards: d.cards, updatedAt: d.updatedAt});
+}
+function newDeckId(){ return db ? db.collection("decks").doc().id : "d" + Date.now().toString(36); }
+function createDeck(name, cards, active){
+  const id = newDeckId();
+  state.decks.set(id, {name, by: "", active, cards, updatedAt: Date.now()});
+  saveDeck(id);
+  openDeck(id);
+}
+
+// ---------- parsing pasted lists ----------
+function parseList(text){
+  const out = [], bad = [];
+  for (let line of String(text).split(/\r?\n/)){
+    line = line.trim(); if (!line) continue;
+    let m = line.match(/^(\d{1,2})\s*[x×枚]?\s+(.+)$/i) || null, n, name;
+    if (m){ n = +m[1]; name = m[2]; }
+    else if ((m = line.match(/^(.+?)\s*[x×]\s*(\d{1,2})\s*枚?$/i))){ n = +m[2]; name = m[1]; }
+    else if ((m = line.match(/^(.+?)\s+(\d{1,2})\s*枚?$/))){ n = +m[2]; name = m[1]; }
+    else { n = 1; name = line; }
+    name = name.trim();
+    if (!name || !(n > 0)){ bad.push(line); continue; }
+    const id = cardKey(name);
+    const cat = catalogLookup(name);
+    out.push({name: id ? state.cards.get(id).name : (cat ? cat[0] : name), n, known: !!(id || cat)});
+  }
+  return {out, bad};
+}
+
+// ---------- render ----------
+function setSync(t){ $("sync").textContent = t; }
+function showBanner(t, bad){ const b = $("banner"); b.textContent = t; b.classList.toggle("bad", !!bad); b.hidden = false; }
+let toastTimer;
+function toast(t){ const el = $("toast"); el.textContent = t; el.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => el.hidden = true, 3200); }
+
+function inkDot(ink){ return `<span class="dot ${ink ? "i-" + esc(ink) : ""}" title="${esc(INK_JA[ink] || "インク不明")}"></span>`; }
+function costBadge(c){ return `<span class="cost ${c.ink ? "i-" + esc(c.ink) : ""}" title="${esc(INK_JA[c.ink] || "")}">${c.cost ?? "–"}</span>`; }
+function nameBlock(name, extra = ""){
+  const s = splitName(name);
+  return `<b>${esc(s.main)}${extra}</b>${s.sub ? `<small>${esc(s.sub)}</small>` : ""}`;
+}
+const inkOrder = ink => { const i = INKS.indexOf(ink); return i < 0 ? 9 : i; };
+
+function inventoryRows(){
+  const use = usageMap();
+  const rows = [];
+  for (const [id, c] of state.cards){
+    const u = use.get(norm(c.name)) || [];
+    rows.push({id, c, uses: u, used: usedActive(u), unreg: false});
+  }
+  // デッキで使っているのに在庫に登録されていないカード
+  const seen = new Set(rows.map(r => norm(r.c.name)));
+  for (const [k, u] of use){
+    if (seen.has(k)) continue;
+    const used = usedActive(u); if (!used) continue;
+    const d = state.decks.get(u[0].deckId);
+    const e = d.cards.find(x => norm(x.name) === k);
+    rows.push({id: null, c: cardInfo(e.name), uses: u, used, unreg: true});
+  }
+  for (const r of rows) r.left = (r.c.owned || 0) - r.used;
+  return rows;
+}
+
+function renderTotals(rows){
+  const reg = rows.filter(r => !r.unreg);
+  $("t-kinds").textContent = reg.length;
+  $("t-owned").textContent = reg.reduce((s, r) => s + (r.c.owned || 0), 0);
+  $("t-used").textContent = rows.reduce((s, r) => s + Math.min(r.used, r.c.owned || 0), 0);
+  const short = rows.filter(r => r.left < 0).length;
+  $("t-short").textContent = short;
+  $("t-short-box").classList.toggle("is-bad", short > 0);
+  $("c-inv").textContent = reg.length;
+  $("c-deck").textContent = state.decks.size;
+}
+
+function renderChips(rows){
+  const present = new Set(rows.map(r => r.c.ink || ""));
+  const inks = [["", "すべて"], ...INKS.filter(i => present.has(i)).map(i => [i, INK_JA[i]])];
+  if (present.has("")) inks.push(["none", "その他"]);
+  $("ink-chips").innerHTML = inks.map(([k, l]) =>
+    `<button class="chip" type="button" data-ink="${k}" aria-pressed="${state.ink === k}">${k && k !== "none" ? inkDot(k) : ""}${esc(l)}</button>`).join("");
+  const counts = {
+    all: rows.length,
+    free: rows.filter(r => r.left > 0).length,
+    used: rows.filter(r => r.used > 0).length,
+    short: rows.filter(r => r.left < 0).length,
+  };
+  const st = [["all", "すべて"], ["free", "空きあり"], ["used", "デッキで使用中"], ["short", "足りない"]];
+  $("state-chips").innerHTML = st.map(([k, l]) =>
+    `<button class="chip" type="button" data-filter="${k}" aria-pressed="${state.filter === k}">${l}<span class="num">${counts[k]}</span></button>`).join("");
+}
+
+function renderInventory(){
+  const rows = inventoryRows();
+  renderTotals(rows);
+  renderChips(rows);
+  const q = norm($("q").value);
+  let list = rows.filter(r => {
+    if (q && !norm(r.c.name).includes(q)) return false;
+    if (state.ink === "none" ? r.c.ink : state.ink && r.c.ink !== state.ink) return false;
+    if (state.filter === "free" && !(r.left > 0)) return false;
+    if (state.filter === "used" && !(r.used > 0)) return false;
+    if (state.filter === "short" && !(r.left < 0)) return false;
+    return true;
+  });
+  const by = $("sort").value;
+  const nameCmp = (a, b) => splitName(a.c.name).main.localeCompare(splitName(b.c.name).main, "ja") || a.c.name.localeCompare(b.c.name, "ja");
+  list.sort((a, b) =>
+    by === "name" ? nameCmp(a, b) :
+    by === "left" ? (b.left - a.left) || nameCmp(a, b) :
+    by === "used" ? (b.used - a.used) || nameCmp(a, b) :
+    (inkOrder(a.c.ink) - inkOrder(b.c.ink)) || ((a.c.cost ?? 99) - (b.c.cost ?? 99)) || nameCmp(a, b));
+
+  const el = $("inv-list");
+  if (!rows.length){
+    el.innerHTML = `<div class="empty"><h3>まだカードが登録されていません</h3>
+      <p class="muted">上の欄にカード名を入れて「追加」を押すと在庫に入ります。候補には今の環境で使われている約280種が出ます。候補にないカードも名前をそのまま入れれば登録できます。</p>
+      <p class="muted">デッキタブでデッキを作ると、使っている枚数と残りの枚数がここに出ます。</p></div>`;
+    return;
+  }
+  if (!list.length){ el.innerHTML = `<div class="empty"><p class="muted">条件に合うカードはありません。</p></div>`; return; }
+  const head = `<div class="row head"><span></span><span>カード</span><span>所持</span><span class="r">使用</span><span class="r">残り</span></div>`;
+  el.innerHTML = head + list.map(r => {
+    const key = r.id || "u:" + norm(r.c.name);
+    const open = state.openRow === key;
+    const leftCls = r.left < 0 ? "bad" : r.left === 0 ? "zero" : "ok";
+    const stepper = r.id
+      ? `<span class="stp"><button type="button" data-act="dec" data-id="${r.id}" aria-label="1枚減らす">−</button><output class="num">${r.c.owned}</output><button type="button" data-act="inc" data-id="${r.id}" aria-label="1枚増やす">＋</button></span>`
+      : `<span class="stp"><button type="button" data-act="reg" data-name="${esc(r.c.name)}" aria-label="在庫に登録">＋</button><output class="num">0</output></span>`;
+    let detail = "";
+    if (open){
+      const uses = r.uses.map(u => {
+        const d = state.decks.get(u.deckId);
+        return `<span class="use"><button class="btn ghost" type="button" data-act="open-deck" data-id="${u.deckId}">${esc(d.name || "名前なし")}</button><span class="num">${u.n}枚</span><span class="tag ${u.active ? "on" : ""}">${u.active ? "組んでいる" : "組んでいない"}</span></span>`;
+      }).join("") || `<span>どのデッキにも入っていません</span>`;
+      const del = r.id ? (r.uses.length
+        ? `<span class="small">デッキから外すと削除できます</span>`
+        : state.confirmDel === r.id
+          ? `<button class="btn danger" type="button" data-act="del" data-id="${r.id}">本当に削除</button><button class="btn ghost" type="button" data-act="nodel">やめる</button>`
+          : `<button class="btn ghost" type="button" data-act="askdel" data-id="${r.id}">在庫から削除</button>`) : "";
+      detail = `<div class="detail">${uses}${del}</div>`;
+    }
+    return `<div class="row"><span>${costBadge(r.c)}</span>
+      <button class="nm" type="button" data-act="toggle" data-key="${esc(key)}" aria-expanded="${open}">${nameBlock(r.c.name, r.unreg ? `<span class="unreg">未登録</span>` : "")}</button>
+      ${stepper}<span class="stat">${r.used}</span><span class="left ${leftCls}" title="所持 − 使用">${r.left}</span>${detail}</div>`;
+  }).join("");
+}
+
+function deckSummary(id){
+  const d = state.decks.get(id);
+  const use = usageMap();
+  let total = 0, short = 0; const inks = new Set();
+  for (const e of d.cards || []){
+    total += e.n;
+    const c = cardInfo(e.name);
+    if (c.ink) inks.add(c.ink);
+    const others = (use.get(norm(e.name)) || []).filter(u => u.deckId !== id && u.active).reduce((s, u) => s + u.n, 0);
+    short += Math.max(0, e.n - Math.max(0, (c.owned || 0) - others));
+  }
+  return {total, short, inks: INKS.filter(i => inks.has(i))};
+}
+
+function renderDeckHome(){
+  const el = $("deck-list");
+  const ids = [...state.decks.keys()].sort((a, b) => {
+    const A = state.decks.get(a), B = state.decks.get(b);
+    return (B.active - A.active) || ((B.updatedAt || 0) - (A.updatedAt || 0));
+  });
+  if (!ids.length){
+    el.innerHTML = `<div class="list empty" style="grid-column:1/-1"><h3>デッキはまだありません</h3>
+      <p class="muted">「新しいデッキ」で空のデッキを作るか、公式レシピを選ぶと中身入りで作れます。足りないカードはデッキ画面に「あと◯枚」で出ます。</p></div>`;
+    return;
+  }
+  el.innerHTML = ids.map(id => {
+    const d = state.decks.get(id), s = deckSummary(id);
+    return `<button class="deck" type="button" data-act="open-deck" data-id="${id}">
+      <h3>${esc(d.name || "名前なし")}</h3>
+      <div class="meta"><span class="pill ${d.active ? "on" : "off"}">${d.active ? "組んでいる" : "組んでいない"}</span>
+        ${d.by ? `<span>${esc(d.by)}</span>` : ""}<span class="inks">${s.inks.map(inkDot).join("")}</span></div>
+      <div class="meta"><span class="num">${s.total} / 60枚</span>${s.short ? `<span class="pill bad">あと${s.short}枚足りない</span>` : s.total ? `<span class="pill okk">手持ちで組める</span>` : ""}</div>
+    </button>`;
+  }).join("");
+}
+
+function openDeck(id){
+  state.editing = id; state.confirmDel = null; setTab("deck");
+  renderEditorHead(); render();
+  window.scrollTo({top: $("p-deck").offsetTop - 20});
+}
+function closeDeck(){ state.editing = null; render(); }
+
+function renderEditorHead(){
+  const id = state.editing, d = state.decks.get(id), el = $("deck-editor");
+  if (!d){ el.innerHTML = ""; return; }
+  const byNames = [...new Set(["みこ", ...[...state.decks.values()].map(x => x.by).filter(Boolean)])];
+  el.innerHTML = `
+    <div class="bar"><button class="btn ghost" type="button" data-act="back">← デッキ一覧</button></div>
+    <div class="ed-head">
+      <input class="field name" id="ed-name" value="${esc(d.name)}" placeholder="デッキ名" aria-label="デッキ名">
+      <div class="bar">
+        <input class="field" id="ed-by" list="by-names" value="${esc(d.by || "")}" placeholder="使う人（例: みこ）" aria-label="使う人" style="width:180px">
+        <datalist id="by-names">${byNames.map(n => `<option value="${esc(n)}"></option>`).join("")}</datalist>
+        <span class="seg" role="group" aria-label="状態">
+          <button type="button" data-act="active" data-v="1" id="ed-on">組んでいる</button>
+          <button type="button" data-act="active" data-v="0" id="ed-off">組んでいない</button>
+        </span>
+        <span class="num muted" id="ed-total"></span>
+        <span id="ed-short"></span>
+      </div>
+      <p class="small muted" id="ed-hint"></p>
+    </div>
+    <form class="bar" id="ed-add" autocomplete="off">
+      <input class="field grow" id="ed-add-name" list="catalog-names" placeholder="カード名を入れてデッキに追加" aria-label="追加するカード名">
+      <input class="field" id="ed-add-n" type="number" min="1" max="99" value="4" aria-label="枚数">
+      <button class="btn primary" type="submit">デッキに入れる</button>
+    </form>
+    <details class="more"><summary>リストを貼り付けて追加</summary>
+      <p class="small muted">「4 カード名」の形で1行ずつ。同じカードは枚数が足されます。</p>
+      <textarea class="field" id="ed-paste"></textarea>
+      <div class="bar"><button class="btn" type="button" data-act="paste">デッキに足す</button><span class="small muted" id="ed-paste-msg"></span></div>
+    </details>
+    <div class="list" id="ed-list"></div>
+    <div class="bar">
+      <button class="btn" type="button" data-act="copy">リストをコピー</button>
+      <span id="ed-del"></span>
+    </div>
+    <textarea class="field" id="ed-copybox" hidden readonly aria-label="デッキリスト"></textarea>`;
+}
+
+function renderEditor(){
+  const id = state.editing, d = state.decks.get(id);
+  if (!d){ state.editing = null; return; }
+  if (document.activeElement !== $("ed-name") && $("ed-name").value !== d.name) $("ed-name").value = d.name;
+  if (document.activeElement !== $("ed-by") && $("ed-by").value !== (d.by || "")) $("ed-by").value = d.by || "";
+  $("ed-on").setAttribute("aria-pressed", !!d.active);
+  $("ed-off").setAttribute("aria-pressed", !d.active);
+  const s = deckSummary(id);
+  $("ed-total").textContent = `${s.total} / 60枚`;
+  $("ed-short").innerHTML = s.short ? `<span class="pill bad">あと${s.short}枚足りない</span>` : s.total ? `<span class="pill okk">手持ちで組める</span>` : "";
+  $("ed-hint").textContent = d.active
+    ? "このデッキのカードは在庫の「使用」に数えられています。"
+    : "組んでいないので在庫の「使用」には数えません。足りない枚数は「組んだ場合」で表示しています。";
+  const use = usageMap();
+  const cards = [...(d.cards || [])].map((e, i) => ({e, i, c: cardInfo(e.name)}));
+  cards.sort((a, b) => (inkOrder(a.c.ink) - inkOrder(b.c.ink)) || ((a.c.cost ?? 99) - (b.c.cost ?? 99)) || a.c.name.localeCompare(b.c.name, "ja"));
+  const el = $("ed-list");
+  if (!cards.length){ el.innerHTML = `<div class="empty"><p class="muted">上の欄からカードを入れてください。</p></div>`; }
+  else el.innerHTML = `<div class="row drow head"><span></span><span>カード</span><span>デッキ枚数</span><span class="r">手持ち</span></div>` +
+    cards.map(({e, i, c}) => {
+      const others = (use.get(norm(e.name)) || []).filter(u => u.deckId !== id && u.active).reduce((s, u) => s + u.n, 0);
+      const avail = Math.max(0, (c.owned || 0) - others);
+      const lack = Math.max(0, e.n - avail);
+      const reg = !!cardKey(e.name);
+      return `<div class="row drow"><span>${costBadge(c)}</span>
+        <span class="nm">${nameBlock(c.name, reg ? "" : `<span class="unreg">未登録</span>`)}</span>
+        <span class="stp"><button type="button" data-act="dn" data-i="${i}" aria-label="1枚減らす">−</button><output class="num">${e.n}</output><button type="button" data-act="up" data-i="${i}" aria-label="1枚増やす">＋</button></span>
+        <span class="need"><span class="small muted num">所持${c.owned || 0}${others ? `・他で${others}` : ""}</span><br>${lack ? `<span class="pill bad">あと${lack}枚</span>` : `<span class="pill okk">OK</span>`}</span></div>`;
+    }).join("");
+  $("ed-del").innerHTML = state.confirmDel === id
+    ? `<button class="btn danger" type="button" data-act="del-deck">本当にデッキを削除</button> <button class="btn ghost" type="button" data-act="nodel">やめる</button>`
+    : `<button class="btn ghost" type="button" data-act="askdel-deck">デッキを削除</button>`;
+}
+
+function renderDatalist(){
+  const have = new Set([...state.cards.values()].map(c => norm(c.name)));
+  const opts = CAT.cards.filter(c => !have.has(norm(c[0]))).map(c => c[0]);
+  const mine = [...state.cards.values()].map(c => c.name);
+  $("catalog-names").innerHTML = [...mine, ...opts].map(n => `<option value="${esc(n)}"></option>`).join("");
+}
+
+function render(){
+  renderInventory();
+  if (state.editing && state.decks.has(state.editing)){
+    $("deck-home").hidden = true; $("deck-editor").hidden = false;
+    if (!$("ed-list")) renderEditorHead();
+    renderEditor();
+  } else {
+    state.editing = null;
+    $("deck-home").hidden = false; $("deck-editor").hidden = true;
+    renderDeckHome();
+  }
+}
+function setTab(t){
+  state.tab = t;
+  $("tab-inv").setAttribute("aria-selected", t === "inv");
+  $("tab-deck").setAttribute("aria-selected", t === "deck");
+  $("p-inv").hidden = t !== "inv"; $("p-deck").hidden = t !== "deck";
+  try { localStorage.setItem("lorcana-inv-tab", t); } catch (e) {}
+}
+
+// ---------- events ----------
+document.querySelector(".tabs").addEventListener("click", e => {
+  const b = e.target.closest("[data-tab]"); if (!b) return;
+  setTab(b.dataset.tab);
+  if (b.dataset.tab === "deck" && state.editing) closeDeck();
+});
+$("add-form").addEventListener("submit", e => {
+  e.preventDefault();
+  const name = $("add-name").value.trim(); if (!name) return;
+  const n = Math.max(1, +$("add-n").value || 1);
+  const known = cardKey(name) || catalogLookup(name);
+  const id = addOwned(name, n);
+  $("add-name").value = ""; $("add-n").value = 1;
+  toast(`${splitName(state.cards.get(id).name).main} を ${n}枚 追加しました${known ? "" : "（候補にない名前として登録）"}`);
+  renderDatalist();
+});
+$("bulk-go").addEventListener("click", () => {
+  const {out, bad} = parseList($("bulk-text").value);
+  if (!out.length){ $("bulk-msg").textContent = "読み取れる行がありませんでした。"; return; }
+  out.forEach(x => addOwned(x.name, x.n));
+  const unknown = out.filter(x => !x.known).length;
+  $("bulk-msg").textContent = `${out.length}種類 ${out.reduce((s, x) => s + x.n, 0)}枚を足しました。` + (unknown ? ` 候補にない名前 ${unknown}件はそのまま登録しました。` : "") + (bad.length ? ` 読めなかった行 ${bad.length}件。` : "");
+  $("bulk-text").value = "";
+  renderDatalist();
+});
+$("q").addEventListener("input", renderInventory);
+$("sort").addEventListener("change", renderInventory);
+$("ink-chips").addEventListener("click", e => { const b = e.target.closest("[data-ink]"); if (!b) return; state.ink = b.dataset.ink; renderInventory(); });
+$("state-chips").addEventListener("click", e => { const b = e.target.closest("[data-filter]"); if (!b) return; state.filter = b.dataset.filter; renderInventory(); });
+
+document.addEventListener("click", e => {
+  const b = e.target.closest("[data-act]"); if (!b) return;
+  const act = b.dataset.act, id = b.dataset.id;
+  const d = state.editing && state.decks.get(state.editing);
+  switch (act){
+    case "inc": setOwned(id, state.cards.get(id).owned + 1); break;
+    case "dec": setOwned(id, state.cards.get(id).owned - 1); break;
+    case "reg": addOwned(b.dataset.name, 1); renderDatalist(); break;
+    case "toggle": state.openRow = state.openRow === b.dataset.key ? null : b.dataset.key; state.confirmDel = null; renderInventory(); break;
+    case "askdel": state.confirmDel = id; renderInventory(); break;
+    case "nodel": state.confirmDel = null; render(); break;
+    case "del": deleteCard(id); state.confirmDel = null; renderDatalist(); toast("在庫から削除しました"); break;
+    case "open-deck": openDeck(id); break;
+    case "back": closeDeck(); break;
+    case "active": if (d){ d.active = b.dataset.v === "1"; saveDeck(state.editing); render(); } break;
+    case "up": case "dn": if (d){
+      const ent = d.cards[+b.dataset.i]; if (!ent) break;
+      ent.n = Math.max(0, Math.min(99, ent.n + (act === "up" ? 1 : -1)));
+      saveDeck(state.editing); render();
+    } break;
+    case "paste": if (d){
+      const {out, bad} = parseList($("ed-paste").value);
+      out.forEach(x => addToDeck(d, x.name, x.n));
+      saveDeck(state.editing); render();
+      $("ed-paste").value = "";
+      $("ed-paste-msg").textContent = out.length ? `${out.length}種類を足しました。` + (bad.length ? ` 読めなかった行 ${bad.length}件。` : "") : "読み取れる行がありませんでした。";
+    } break;
+    case "copy": if (d){
+      const text = d.cards.map(x => `${x.n} ${x.name}`).join("\n");
+      const box = $("ed-copybox");
+      const fallback = () => { box.hidden = false; box.value = text; box.focus(); box.select(); toast("選択したリストをコピーしてください"); };
+      try { navigator.clipboard.writeText(text).then(() => toast("デッキリストをコピーしました"), fallback); } catch (err){ fallback(); }
+    } break;
+    case "askdel-deck": state.confirmDel = state.editing; renderEditor(); break;
+    case "del-deck": {
+      const did = state.editing;
+      state.decks.delete(did);
+      if (db) save(deckRef(did), null, 0);
+      state.confirmDel = null; state.editing = null; render(); toast("デッキを削除しました");
+    } break;
+  }
+});
+function addToDeck(d, name, n){
+  const k = norm(name);
+  const ent = d.cards.find(x => norm(x.name) === k);
+  if (ent) ent.n = Math.min(99, ent.n + n);
+  else d.cards.push({name: cardInfo(name).name, n});
+}
+document.addEventListener("submit", e => {
+  if (e.target.id !== "ed-add") return;
+  e.preventDefault();
+  const d = state.decks.get(state.editing); if (!d) return;
+  const name = $("ed-add-name").value.trim(); if (!name) return;
+  addToDeck(d, name, Math.max(1, +$("ed-add-n").value || 1));
+  $("ed-add-name").value = ""; $("ed-add-n").value = 4;
+  saveDeck(state.editing); render();
+});
+let nameTimer;
+document.addEventListener("input", e => {
+  if (e.target.id !== "ed-name" && e.target.id !== "ed-by") return;
+  const d = state.decks.get(state.editing); if (!d) return;
+  if (e.target.id === "ed-name") d.name = e.target.value; else d.by = e.target.value;
+  clearTimeout(nameTimer);
+  nameTimer = setTimeout(() => { saveDeck(state.editing); renderDeckHome(); }, 500);
+});
+$("new-deck").addEventListener("click", () => createDeck("新しいデッキ", [], true));
+(() => {
+  const groups = new Map();
+  CAT.recipes.forEach((r, i) => {
+    const label = r[2].split(",").map(x => INK_JA[x[0].toUpperCase() + x.slice(1)] || x).join("・");
+    if (!groups.has(label)) groups.set(label, []);
+    groups.get(label).push(`<option value="${i}">${esc(r[0])}${r[1] ? `（${esc(r[1])}）` : ""}</option>`);
+  });
+  $("recipe").insertAdjacentHTML("beforeend", [...groups].map(([l, o]) => `<optgroup label="${esc(l)}">${o.join("")}</optgroup>`).join(""));
+})();
+$("recipe").addEventListener("change", e => {
+  const r = CAT.recipes[+e.target.value]; e.target.value = ""; if (!r) return;
+  // レシピは「組んでいない」で作る。足りない枚数を確かめてから組む想定
+  createDeck(r[0], r[3].map(([idx, n]) => ({name: CAT.cards[idx][0], n})), false);
+  toast("レシピからデッキを作りました（組んでいない状態）");
+});
+
+// ---------- boot ----------
+try { const t = localStorage.getItem("lorcana-inv-tab"); if (t === "deck") setTab("deck"); } catch (e) {}
+renderDatalist(); render();
+
+function applySnapshot(kind, snap){
+  const map = kind === "cards" ? state.cards : state.decks;
+  const col = kind;
+  const keep = new Map();
+  for (const [id, v] of map) if (pending.has(col + "/" + id)) keep.set(id, v);
+  map.clear();
+  for (const doc of snap.docs){
+    if (keep.has(doc.id)) continue;
+    const v = doc.data() || {};
+    if (kind === "cards") map.set(doc.id, {name: String(v.name || ""), ink: v.ink || null, cost: v.cost ?? null, owned: Math.max(0, +v.owned || 0)});
+    else map.set(doc.id, {name: String(v.name || ""), by: String(v.by || ""), active: !!v.active,
+      cards: Array.isArray(v.cards) ? v.cards.filter(x => x && x.name).map(x => ({name: String(x.name), n: Math.max(0, +x.n || 0)})) : [], updatedAt: +v.updatedAt || 0});
+  }
+  for (const [id, v] of keep) if (pending.get(col + "/" + id).body !== null) map.set(id, v);
+  loaded[kind] = true;
+  if (loaded.cards && loaded.decks && !pending.size) setSync("2人で共有中 ・ 変更は自動で保存されます");
+  if (kind === "cards") renderDatalist();
+  render();
+}
+function onSnapErr(e){
+  if (e && e.code === "revoked") showBanner("この表示では保存データを読めなくなりました。ページを開き直してください。", true);
+  else showBanner("保存データの読み込みに失敗しました。ページを開き直してください。", true);
+}
+
+(async () => {
+  try { db = window.claude && window.claude.use ? await window.claude.use("db") : null; } catch (e) { db = null; }
+  if (!db){
+    setSync("保存なしで表示中");
+    showBanner("この表示では保存機能が使えません。claude.ai にサインインしてこのページを開くと、2人の在庫とデッキが共有・保存されます。");
+    return;
+  }
+  try {
+    const user = await window.claude.use("user");
+    const can = user && user.can ? await user.can("data.write") : null;
+    if (can === false){ readOnly = true; showBanner("閲覧のみの権限で開いています。カードやデッキを変えるには、持ち主に「編集者」で共有してもらってください。"); }
+  } catch (e) {}
+  db.collection("cards").onSnapshot(s => applySnapshot("cards", s), onSnapErr);
+  db.collection("decks").onSnapshot(s => applySnapshot("decks", s), onSnapErr);
+})();
+})();
+</script>
