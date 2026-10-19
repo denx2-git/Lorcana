@@ -75,6 +75,13 @@ def cant_act(g, x):
     return False
 
 
+def cant_quest(g, x):
+    """モンタリー・ジャック（チーズにメロメロ）：意志力4以上のキャラがいないとクエストできない。"""
+    if x.card.name == "Monterey Jack - Hypnotized by Cheese":
+        return not any(y.card.wp >= 4 for y in g.players[x.owner].chars())
+    return cant_act(g, x)
+
+
 def check_mim(g, p):
     """マダム・ミム（やりくり上手なトリックスター）：各ターン1回、インク・ドロップを取り除いたら1枚引く。"""
     if p.t.get("drop_removed", 0) > p.t.get("mim_seen", 0):
@@ -363,6 +370,8 @@ def no_damage_from_challenge(g, att):
 def modify_damage(g, x, n, src, ignore_resist):
     if not ignore_resist:
         n -= x.card.resist + x.flags.get("resist", 0) + x.flags.get("resist_tmp", 0)
+    if x.card.name == "Megavolt - Electrical Menace" and not g.players[x.owner].hand:
+        n -= 2
     if x.card.name == "Minnie Mouse - Busy Go-Getter" and g.active != x.owner:
         n -= 2
     if x.card.name == "Lilo - Bundled Up" and g.active != x.owner and not x.flags.get("layer_used"):
@@ -548,6 +557,7 @@ TARGETS = {
     "Stegmutt - Clumsy Dinosaur": _opp_chars(),
     "Tia Victoria - Disapproving Ancestor": _opp_chars(),
     "Rapunzel - Tower Defender": _opp_chars(),
+    "Pocahontas - Finding the Way": _own_chars(lambda g, x: not x.exerted),
     "Shere Khan - Khan Industries CEO": _own_chars(lambda g, x: not x.exerted),
     "Shere Khan - Ruthless Entrepreneur": _opp_chars(lambda g, x: g.char_str(x) <= 3),
     "Above the Crowd": _opp_chars(lambda g, x: g.char_str(x) <= 3),
@@ -1118,6 +1128,9 @@ def on_play_char(g, p, x, target, extra):
                 p.discard.remove(c)
                 p.deck.append(c)
             g.deal(t, 3)
+    elif n == "Pocahontas - Finding the Way":
+        if t:
+            t.tmp_lore += 1
     elif n == "Chernabog - Evildoer":
         back = [c for c in p.discard if c.kind == "char"]
         for c in back:

@@ -499,7 +499,7 @@ class Policy:
 
     def quests(self, g, p):
         cands = [x for x in p.chars() if not x.exerted and not x.dry and not x.card.reckless
-                 and x.flags.get("no_quest") != g.turn and not effects.cant_act(g, x)]
+                 and x.flags.get("no_quest") != g.turn and not effects.cant_quest(g, x)]
         must = self.lethal(g, p)
         for x in sorted(cands, key=lambda x: -g.char_lore(x)):
             if g.winner is not None:
