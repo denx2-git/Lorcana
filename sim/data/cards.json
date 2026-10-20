@@ -6018,5 +6018,27 @@
   "ink": [
    "amber"
   ]
+ },
+ "Meilin Lee - Ecstatic Fan": {
+  "jp": "メイ・リー - めろめろファン",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Singer 5 (This character counts as cost 5 to sing songs.) / I'M SO EXCITED! Once during your turn, whenever you play a song, gain 1 ink drop. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "123",
+  "ink": [
+   "ruby"
+  ]
  }
 }

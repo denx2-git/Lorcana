@@ -809,6 +809,10 @@ def resolve_spell(g, p, card, target, extra):
 
 
 def after_spell(g, p, card, singers):
+    if card.is_song and g.active == p.pid and not p.t.get("meilin_fan") and any(
+            x.card.name == "Meilin Lee - Ecstatic Fan" for x in p.chars()):
+        p.t["meilin_fan"] = True
+        gain_drop(g, p, 1)
     o = g.opp(p)
     if card.is_song:
         for it in o.items():
