@@ -36,7 +36,8 @@ ITEM_VALUE = {
 
 
 LOC_BONUS = {"Sugar Rush Speedway - Finish Line": 2.5, "Carl's House - Flying High": 1.5,
-             "Sugar Rush Speedway - Starting Line": 1.0}
+             "Sugar Rush Speedway - Starting Line": 1.0,
+             "Port Authority - Center Hub": 1.2}
 
 
 def combo_ready(g, x):

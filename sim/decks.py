@@ -970,3 +970,116 @@ def make_policy(key, opp_key, list_override=None, opp_list_override=None):
         counts[c.name] = counts.get(c.name, 0) + 1
     cfg["_opp_counts"] = counts
     return Policy(cfg)
+
+
+# ---- ユーザー登録の5デッキ（Duels.ink スクショ） ----
+DECKS["my_sugar"] = {"name": "赤黄シュガーラッシュ・ロケーション（しゅがら）", "pair": "amber,ruby", "source": "ユーザー（スクショ）", "list_text": """
+4 Taffyta Muttonfudge - Crowd Favorite
+2 Sugar Rush Speedway - Starting Line
+4 Judy Hopps - Helpful Officer
+2 The Bare Necessities
+2 Fix-It Felix, Jr. - Delighted Sightseer
+4 Sugar Rush Speedway - Finish Line
+4 Angel - Siren Singer
+4 Beast - Snowfield Troublemaker
+1 Jebidiah Farnsworth - Cookie
+4 Carl's House - Flying High
+3 Heihei - At the Crosswalk
+4 Minnie Mouse - Pirate Lookout
+4 The Islands I Pulled From the Sea
+4 Or Rewrite History
+4 Elsa - Concerned Sister
+4 Taffyta Muttonfudge - Sour Speedster
+2 Minnie Mouse - Daring Defender
+2 Port Authority - Center Hub
+2 Be Prepared
+"""}
+CONFIG["my_sugar"] = dict(CONFIG["ar-sugar"], keep=CONFIG["ar-sugar"]["keep"] | {"Port Authority - Center Hub"}, never_ink=CONFIG["ar-sugar"]["never_ink"] | {"Heihei - At the Crosswalk"})
+DECKS["my_dog"] = {"name": "黄緑ドッグ（第14弾・hakumai型）", "pair": "amber,emerald", "source": "ユーザー（スクショ）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+4 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+2 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+2 Emerald Chromicon
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+3 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+"""}
+CONFIG["my_dog"] = CONFIG["ae_dog14"]
+DECKS["my_inkdrop"] = {"name": "鋼紫インクマシマシ（ナマーリ入り）", "pair": "amethyst,steel", "source": "ユーザー（スクショ）", "list_text": """
+4 Arthur - Novice Blacksmith
+4 Baloo - Delivery Pilot
+4 Madam Mim - Bauble Chaser
+4 Merlin - Bauble Expert
+4 Merlin - Profoundly Curious
+4 Pete - Games Referee
+4 Sir Pellinore - Tougher Than He Looks
+3 Jousting Match
+3 Khan Transport Delivery
+3 Merlin - Ink Drop Tinkerer
+3 Sir Kay - Determined to Win
+2 Archimedes - Messenger Owl
+2 Arthur - Jousting Knight
+2 Higitus Figitus
+2 Ink Explosion
+2 Madam Mim - Resourceful Trickster
+1 Namaari - Single-Minded Rival
+3 Calhoun - Marine Sergeant
+2 Grab Your Sword
+2 Let the Storm Rage On
+2 Flash - Efficient Clerk
+"""}
+CONFIG["my_inkdrop"] = CONFIG["stam_drop_v1"]
+DECKS["my_items"] = {"name": "青緑アイテム（みこ型）", "pair": "emerald,sapphire", "source": "ユーザー（スクショ）", "list_text": """
+4 Pawpsicle
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+4 Hidden Inkcaster
+1 Go Go Tomago - Darting Dynamo
+4 Sail the Azurite Sea
+3 Inkrunner
+3 Belle - Apprentice Inventor
+1 Mushu - Stealthy Dragon
+4 Honey Lemon - Testing the Limits
+1 Hiram Flaversham - Toymaker
+4 Baymax - Lab Assistant
+4 Ariel - Collector of Oddities
+4 Tamatoa - Happy as a Clam
+2 Hades - Infernal Schemer
+4 Milo Thatch - Getting His Hands Dirty
+1 Tamatoa - So Shiny!
+4 Under the Sea
+4 Stegmutt - Clumsy Dinosaur
+"""}
+CONFIG["my_items"] = CONFIG["es_items14"]
+DECKS["my_aggro"] = {"name": "黄鋼アグロ（最終版）", "pair": "amber,steel", "source": "ユーザー（スクショ）", "list_text": """
+4 Daisy Duck - Donald's Date
+4 Stitch - Protector of Frogs
+4 Mickey Mouse - Best in Town
+3 Lilo - Bundled Up
+3 Rex - Protective Dinosaur
+2 Monterey Jack - Hypnotized by Cheese
+2 Pocahontas - Guiding the Tribe
+4 Mike Wazowski - Heroic Climber
+4 Grandmother Willow - Ancient Advisor
+2 Keep the Ancient Ways
+3 Flash - Efficient Clerk
+4 Toulouse - Rough and Tumble
+3 Strength of a Raging Fire
+4 Pete - Games Referee
+2 Pocahontas - Finding the Way
+2 Woolter & Jesse - Bellwether's Henchmen
+3 Megavolt - Electrical Menace
+3 The Horned King - Merciless Master
+4 Lilo & Stitch - Fun-Loving Friends
+"""}
+CONFIG["my_aggro"] = CONFIG.get("as-lilo-aggro", {})

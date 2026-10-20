@@ -250,6 +250,8 @@ def strength(g, x):
         s += 2
     elif n == "Namaari - Single-Minded Rival":
         s += len(p.discard)
+    elif n == "Minnie Mouse - Daring Defender":
+        s += x.damage
     for kind, _pid in g.global_mods:
         if kind == "kida":
             s -= 3
@@ -748,6 +750,12 @@ def resolve_spell(g, p, card, target, extra):
             x.loc = loc.uid
             on_move(g, p, x, loc, prev)
             g.draw(p, loc_lore(g, loc))
+    elif n == "Or Rewrite History":
+        cs = [c for c in p.discard if c.kind == "char"]
+        if cs:
+            c = max(cs, key=lambda c: (c.cost <= p.ink + 1, c.cost))
+            p.discard.remove(c)
+            p.hand.append(c)
     elif n == "Under the Sea":
         for x in list(o.chars()):
             if g.char_str(x) <= 2:
@@ -990,6 +998,11 @@ def on_play_char(g, p, x, target, extra):
         if others:
             y = min(others, key=lambda y: threat(g, y))
             g.leave_play(y, "inkwell")
+    elif n == "Judy Hopps - Helpful Officer":
+        own = [y for y in p.chars() if y.damage > 0]
+        if own:
+            y = max(own, key=lambda y: (y.damage, y.card.cost))
+            y.damage = max(0, y.damage - 2)
     elif n == "Rapunzel - Gifted with Healing":
         own = [y for y in p.chars() if y.damage > 0]
         if own:
@@ -1260,6 +1273,11 @@ def on_move(g, p, x, loc, prev):
     if n == "Taffyta Muttonfudge - Sour Speedster" and not p.t.get("taffyta_" + str(x.uid)):
         p.t["taffyta_" + str(x.uid)] = True
         g.gain_lore(p, 2)
+    if loc.card.name == "Port Authority - Center Hub" and g.active == p.pid and not p.t.get("portauth_" + str(loc.uid)):
+        p.t["portauth_" + str(loc.uid)] = True
+        for q in (p, g.opp(p)):
+            gain_drop(g, q, 1)
+            g.gain_lore(q, 1)
     if loc.card.name == "Sugar Rush Speedway - Finish Line" and prev is not None:
         g.banish(loc)
         g.gain_lore(p, 3)
@@ -1342,6 +1360,9 @@ def activations(g, p):
             out.append((x.uid, 0, None))
         elif n == "Rapunzel - Escaping the Tower" and p.hand and not p.t.get("rapunzel_" + str(x.uid)) and not x.exerted:
             out.append((x.uid, 0, None))
+        elif n == "Heihei - At the Crosswalk" and x.loc is not None and not p.t.get("heihei_" + str(x.uid)):
+            if any(l.uid != x.loc for l in p.locs()):
+                out.append((x.uid, 0, None))
         elif n == "Sugar Rush Speedway - Starting Line" and not p.t.get("srstart"):
             here = [c for c in p.chars() if c.loc == x.uid and not c.exerted and c.left() > 1]
             others = [l for l in p.locs() if l is not x]
@@ -1402,6 +1423,14 @@ def activate(g, p, uid, idx, target):
         p.pay(6)
         if t:
             t.flags["cant_challenge_until"] = p.pid
+    elif n == "Heihei - At the Crosswalk":
+        p.t["heihei_" + str(x.uid)] = True
+        others = [l for l in p.locs() if l.uid != x.loc]
+        dest = max(others, key=lambda l: (l.card.name == "Sugar Rush Speedway - Finish Line", l.card.lore))
+        prev = x.loc
+        x.loc = dest.uid
+        g.gain_lore(p, 1)
+        on_move(g, p, x, dest, prev)
     elif n == "Carl's House - Flying High":
         p.t["carlhouse_" + str(x.uid)] = True
         here = [c for c in p.chars() if c.loc == x.uid]
