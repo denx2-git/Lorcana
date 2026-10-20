@@ -1083,3 +1083,24 @@ DECKS["my_aggro"] = {"name": "黄鋼アグロ（最終版）", "pair": "amber,st
 4 Lilo & Stitch - Fun-Loving Friends
 """}
 CONFIG["my_aggro"] = CONFIG.get("as-lilo-aggro", {})
+DECKS["my_sugar_m4"] = {"name": "赤黄しゅがら（ミッキー名物店主4枚・ヘイヘイ4枚）", "pair": "amber,ruby", "source": "ユーザー案（環境45.0%→50.4%）", "list_text": """
+4 Taffyta Muttonfudge - Crowd Favorite
+2 Sugar Rush Speedway - Starting Line
+3 Judy Hopps - Helpful Officer
+2 The Bare Necessities
+4 Sugar Rush Speedway - Finish Line
+4 Angel - Siren Singer
+4 Beast - Snowfield Troublemaker
+4 Carl's House - Flying High
+4 Heihei - At the Crosswalk
+4 Minnie Mouse - Pirate Lookout
+4 The Islands I Pulled From the Sea
+4 Or Rewrite History
+4 Elsa - Concerned Sister
+4 Taffyta Muttonfudge - Sour Speedster
+2 Port Authority - Center Hub
+2 Be Prepared
+1 Cinderella - Ballroom Sensation
+4 Mickey Mouse - Best in Town
+"""}
+CONFIG["my_sugar_m4"] = dict(CONFIG["my_sugar"], keep=CONFIG["my_sugar"]["keep"] | {"Mickey Mouse - Best in Town"})
