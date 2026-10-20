@@ -6,6 +6,7 @@ from engine import WIN_LORE
 import effects
 
 W_LORE = 1.6
+WIPE_K = float(__import__("os").environ.get("WIPE_K", "0.6"))
 W_HAND = 0.85
 W_INK_EARLY = 1.4
 W_INK_LATE = 0.25
@@ -394,14 +395,45 @@ class Policy:
         return {"action": sum(acts[:2]), "item": 0.2 + sum(items[:2])}
 
     def overextend_penalty(self, g, p):
+        """全体除去を受けたときに失う盤面の期待値（実戦ログの学習：準備をしておけを想定して出しすぎない）。"""
         o = g.opp(p)
-        wipe = self.cfg.get("_opp_wipe", 0)
-        if not wipe:
+        if not self.cfg.get("_opp_wipe", 0) or not o.hand:
             return 0.0
-        n = len(p.chars())
-        if n <= 4:
+        chars = p.chars()
+        if len(chars) <= 2:
             return 0.0
-        return (n - 4) * 0.5 * wipe * (1.0 if o.ink >= 5 else 0.3)
+        from decks import WIPES
+        from cards import db
+        counts = self.cfg.get("_opp_counts", {})
+        unknown = len(o.deck) + len(o.hand)
+        h = len(o.hand)
+        avail = o.ink + o.drops + 1  # 次のターンのインク置きを含む
+        total = 0.0
+        for name, wv in WIPES.items():
+            left = counts.get(name, 0) - sum(1 for c in o.discard if c.name == name)
+            if left <= 0 or not wv:
+                continue
+            c = db().get(name)
+            if c is None or (c.kind == "action" and o.action_locked):
+                continue
+            reach = 1.0 if avail >= c.cost else (0.2 if avail >= c.cost - 1 else 0.0)
+            if not reach:
+                continue
+            # 相手の手札にある確率（超幾何）
+            miss = 1.0
+            for i in range(h):
+                miss *= max(0.0, (unknown - left - i) / max(1, unknown - i))
+            prob = (1 - miss) * reach * wv
+            if name == "Under the Sea":
+                hit = [x for x in chars if g.char_str(x) <= 2]
+            elif name == "Grab Your Sword":
+                hit = [x for x in chars if x.left() <= 2]
+            else:
+                hit = chars
+            # 価値の高い順に2体までは「出しておくべき盤面」として除外
+            vals = sorted((threat(g, x) for x in hit), reverse=True)[2:]
+            total += prob * sum(vals)
+        return WIPE_K * total
 
     # ----- 選択 -----
     def discard_choice(self, g, p):
