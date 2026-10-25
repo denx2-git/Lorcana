@@ -1104,3 +1104,23 @@ DECKS["my_sugar_m4"] = {"name": "赤黄しゅがら（ミッキー名物店主4�
 4 Mickey Mouse - Best in Town
 """}
 CONFIG["my_sugar_m4"] = dict(CONFIG["my_sugar"], keep=CONFIG["my_sugar"]["keep"] | {"Mickey Mouse - Best in Town"})
+DECKS["my_dog_fin"] = {"name": "黄緑ドッグ（hakumai型・フィニック2枚）", "pair": "amber,emerald", "source": "ユーザー案（クロミコン2→フィニック2、環境63.7%→65.0%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+4 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+2 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+3 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+2 Finnick - Tiny Terror
+"""}
+CONFIG["my_dog_fin"] = CONFIG["my_dog"]

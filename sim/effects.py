@@ -945,6 +945,12 @@ def on_play_char(g, p, x, target, extra):
         for c in cs:
             p.discard.remove(c)
             p.hand.append(c)
+    elif n == "Finnick - Tiny Terror":
+        if p.ink_free() >= 2:
+            t2 = best_opp(g, p, lambda y: g.char_str(y) <= 2)
+            if t2 is not None and (t2.card.cost >= 2 or threat(g, t2) >= 2.0):
+                p.pay(2)
+                g.leave_play(t2, "hand")
     elif n == "Lenny - Toy Binoculars":
         opp_discard_choice(g, p, o, lambda c: c.kind == "action")
     elif n == "Madam Mim - Fox":

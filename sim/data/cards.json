@@ -6040,5 +6040,27 @@
   "ink": [
    "ruby"
   ]
+ },
+ "Finnick - Tiny Terror": {
+  "jp": "フィニック - 恐怖のおチビちゃん",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "YOU BETTER RUN When you play this character, you may pay 2 {I} to return chosen opposing character with 2 {S} or less to their player's hand.",
+  "set": "10",
+  "num": "74",
+  "ink": [
+   "emerald"
+  ]
  }
 }
