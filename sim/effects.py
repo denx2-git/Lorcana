@@ -1785,6 +1785,10 @@ def start_of_turn_post(g, p):
 
 def end_of_turn(g, p):
     o = g.opp(p)
+    if p.t.get("chars_played", 0) >= 2:
+        for x in p.chars():
+            if x.card.name == "Nick Wilde - Toy Drive Officer":
+                g.draw(p)
     if any(it.card.name == "Prince John's Mirror" for it in o.items()) and len(p.hand) > 3:
         choose_discard(g, p, len(p.hand) - 3)
     # インクキャスターのスケート：このターンにキャラがクエストしていればインク・ドロップ（簡略化：ターン終了時に起動）
