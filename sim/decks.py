@@ -1124,3 +1124,45 @@ DECKS["my_dog_fin"] = {"name": "黄緑ドッグ（hakumai型・フィニック2�
 2 Finnick - Tiny Terror
 """}
 CONFIG["my_dog_fin"] = CONFIG["my_dog"]
+DECKS["my_aggro_calhoun"] = {"name": "黄鋼アグロ（デイジー4→カルホーン4）", "pair": "amber,steel", "source": "ユーザー案（環境64.3%→69.8%）", "list_text": """
+4 Stitch - Protector of Frogs
+4 Mickey Mouse - Best in Town
+3 Lilo - Bundled Up
+3 Rex - Protective Dinosaur
+2 Monterey Jack - Hypnotized by Cheese
+2 Pocahontas - Guiding the Tribe
+4 Mike Wazowski - Heroic Climber
+4 Grandmother Willow - Ancient Advisor
+2 Keep the Ancient Ways
+3 Flash - Efficient Clerk
+4 Toulouse - Rough and Tumble
+3 Strength of a Raging Fire
+4 Pete - Games Referee
+2 Pocahontas - Finding the Way
+2 Woolter & Jesse - Bellwether's Henchmen
+3 Megavolt - Electrical Menace
+3 The Horned King - Merciless Master
+4 Lilo & Stitch - Fun-Loving Friends
+4 Calhoun - Marine Sergeant
+"""}
+CONFIG["my_aggro_calhoun"] = CONFIG["my_aggro"]
+DECKS["my_dog_b2"] = {"name": "黄緑ドッグ（フィニック2・ボビー2）", "pair": "amber,emerald", "source": "ユーザー手持ちに合わせた型（環境66.4%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+2 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+3 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+4 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+2 Finnick - Tiny Terror
+"""}
+CONFIG["my_dog_b2"] = CONFIG["my_dog"]
