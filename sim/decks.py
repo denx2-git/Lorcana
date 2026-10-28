@@ -1209,3 +1209,24 @@ DECKS["my_dog_best"] = {"name": "黄緑ドッグ（ニック2・チェルナボ�
 2 Nick Wilde - Toy Drive Officer
 """}
 CONFIG["my_dog_best"] = CONFIG["my_dog"]
+DECKS["my_dog_b3"] = {"name": "黄緑ドッグ（ボビー3・ニック1・チェルナボーグ2）", "pair": "amber,emerald", "source": "ユーザー手持ちに合わせた型（環境71.3%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+3 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+4 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+2 Under the Sea
+2 Finnick - Tiny Terror
+2 Chernabog - Evildoer
+1 Nick Wilde - Toy Drive Officer
+"""}
+CONFIG["my_dog_b3"] = CONFIG["my_dog"]
