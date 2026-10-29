@@ -482,7 +482,13 @@ class Policy:
     # ----- ターン -----
     def play_turn(self, g, p):
         # インク
-        if self.cfg.get("ink_cap", 9) > p.ink:
+        cap = self.cfg.get("ink_cap", 9)
+        # 重いキーカード（アンダー・ザ・シーなど）を持っているときは、撃てるインクまで置き続ける（実戦ログの学習）
+        for c in p.hand:
+            hold = self.cfg.get("ink_cap_hold", {}).get(c.name)
+            if hold:
+                cap = max(cap, hold)
+        if cap > p.ink:
             c = self.ink_choice(g, p)
             if c is not None and g.can_ink(p, c):
                 g.do_ink(p, c)

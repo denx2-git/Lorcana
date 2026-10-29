@@ -1230,3 +1230,8 @@ DECKS["my_dog_b3"] = {"name": "黄緑ドッグ（ボビー3・ニック1・チ�
 1 Nick Wilde - Toy Drive Officer
 """}
 CONFIG["my_dog_b3"] = CONFIG["my_dog"]
+
+# アンダー・ザ・シーを持っているドッグは8インクまで置く
+for _k in [k for k in CONFIG if k.startswith(("ae", "my_dog"))]:
+    if isinstance(CONFIG[_k], dict) and CONFIG[_k].get("ink_cap", 9) < 8:
+        CONFIG[_k] = dict(CONFIG[_k], ink_cap_hold={"Under the Sea": 8})
