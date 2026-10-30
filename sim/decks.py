@@ -1289,3 +1289,26 @@ DECKS["as_song_ccq"] = {"name": "黄鋼歌ミッドレンジ（べべ選手・�
 3 Beyond the Horizon
 """}
 CONFIG["as_song_ccq"] = dict(CONFIG["as_song14"], keep=CONFIG["as_song14"]["keep"] | {"Speaker Stack", "Akood et Emuti"})
+
+DECKS["wife_song"] = {"name": "黄鋼ソング（妻のデッキ）", "pair": "amber,steel", "source": "ユーザーの奥様（公式デッキビルダー）", "list_text": """
+4 Cinderella - Ballroom Sensation
+4 Miguel Rivera - Street Musician
+3 Ursula - Vanessa
+3 The Troubadour - Musical Narrator
+2 Angel - Siren Singer
+4 Ariel - Spectacular Singer
+2 Meilin Lee - Losing Control
+4 Aurora - Delightful Musician
+4 Pete - Games Referee
+4 Akood et Emuti
+4 Strength of a Raging Fire
+4 Let the Storm Rage On
+4 Rapunzel - Gifted with Healing
+4 And Then Along Came Zeus
+2 Grab Your Sword
+2 Powerline - Megastar
+2 Ariel - Sonic Warrior
+2 Cinderella - Stouthearted
+2 Beyond the Horizon
+"""}
+CONFIG["wife_song"] = CONFIG["as_song14"]

@@ -811,6 +811,13 @@ def resolve_spell(g, p, card, target, extra):
 
 
 def after_spell(g, p, card, singers):
+    if card.is_song:
+        for x in [y for y in p.chars() if y.card.name == "Ariel - Sonic Warrior"]:
+            if p.ink_free() >= 2:
+                t = best_opp(g, p, lambda y: y.left() <= 3) or best_opp(g, p)
+                if t is not None and (t.left() <= 3 or threat(g, t) >= 4):
+                    p.pay(2)
+                    g.deal(t, 3)
     if card.is_song and g.active == p.pid and not p.t.get("meilin_fan") and any(
             x.card.name == "Meilin Lee - Ecstatic Fan" for x in p.chars()):
         p.t["meilin_fan"] = True
