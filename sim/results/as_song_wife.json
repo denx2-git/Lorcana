@@ -1,0 +1,42 @@
+{
+ "as_song_wife": {
+  "ae_dog14": 0.495,
+  "ae-mike": 0.405,
+  "ae_nokida": 0.415,
+  "stitch14": 0.23,
+  "as-lilo-aggro": 0.22,
+  "est_aggro14": 0.28,
+  "as_song14": 0.575,
+  "as-std": 0.455,
+  "rs-basil": 0.365,
+  "rs-inkrunner": 0.305,
+  "emerald_lock": 0.4,
+  "es-fergus": 0.475,
+  "esa_priscilla": 0.655,
+  "er-leviathan": 0.665,
+  "ar-sugar": 0.745,
+  "amr-evasive": 0.245,
+  "ams-hades": 0.39,
+  "nt_pj": 0.405
+ },
+ "as_song14": {
+  "ae_dog14": 0.35,
+  "ae-mike": 0.35,
+  "ae_nokida": 0.33,
+  "stitch14": 0.175,
+  "as-lilo-aggro": 0.175,
+  "est_aggro14": 0.255,
+  "as_song14": 0.5,
+  "as-std": 0.45,
+  "rs-basil": 0.38,
+  "rs-inkrunner": 0.325,
+  "emerald_lock": 0.36,
+  "es-fergus": 0.445,
+  "esa_priscilla": 0.655,
+  "er-leviathan": 0.75,
+  "ar-sugar": 0.73,
+  "amr-evasive": 0.21,
+  "ams-hades": 0.43,
+  "nt_pj": 0.39
+ }
+}

@@ -826,6 +826,12 @@ def after_spell(g, p, card, singers):
     if not card.is_song:
         return
     for x in p.chars():
+        if x.card.name == "Ariel - Sonic Warrior" and p.ink_free() >= 2:
+            t = best_opp(g, p, lambda y: y.left() <= 3) or best_opp(g, p)
+            if t:
+                p.pay(2)
+                g.deal(t, 3)
+    for x in p.chars():
         n = x.card.name
         if n == "The Muses - Proclaimers of Heroes":
             t = best_opp(g, p, lambda y: g.char_str(y) <= 2)

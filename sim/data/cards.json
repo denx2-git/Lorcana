@@ -5910,5 +5910,28 @@
   "ink": [
    "sapphire"
   ]
+ },
+ "Ariel - Sonic Warrior": {
+  "jp": "アリエル - 音響の戦士",
+  "cost": 6,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 8,
+  "lore": 2,
+  "move": null,
+  "classes": [
+   "Floodborn",
+   "Hero",
+   "Princess"
+  ],
+  "text": "Shift 4 (You may pay 4 {I} to play this on top of one of your characters named Ariel.) / AMPLIFIED VOICE Whenever you play a song, you may pay 2 {I} to deal 3 damage to chosen character.",
+  "set": "4",
+  "num": "175",
+  "ink": [
+   "steel"
+  ]
  }
 }
