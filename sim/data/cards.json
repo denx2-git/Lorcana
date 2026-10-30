@@ -4521,7 +4521,7 @@
   ]
  },
  "Nick Wilde - Toy Drive Officer": {
-  "jp": "ニック・ワイルド - おもちゃの寄付の受付担当",
+  "jp": "ニック・ワイルド - おもちゃ寄付の警官",
   "cost": 4,
   "inkable": false,
   "types": [
@@ -4536,7 +4536,7 @@
    "Ally",
    "Detective"
   ],
-  "text": "Support (Whenever this character quests, you may add their {S} to another chosen character's {S} this turn.)\r / COMMUNITY OUTREACH At the end of your turn, if you played 2 or more characters this turn, draw a card.",
+  "text": "Support (Whenever this character quests, you may add their {S} to another chosen character's {S} this turn.) / COMMUNITY OUTREACH At the end of your turn, if you played 2 or more characters this turn, draw a card.",
   "set": "14",
   "num": "14",
   "ink": [
