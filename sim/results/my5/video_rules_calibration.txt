@@ -1,0 +1,4 @@
+OLD my_dog_b3>as-std:71 my_dog_b3>as_song14:79 my_dog_b3>ae-mike:74 my_dog_b3>es-fergus:61 my_aggro_calhoun>as-std:88 my_aggro_calhoun>as_song14:87 as-std>ae-mike:49 as-std>rs-basil:36
+NEW my_dog_b3>as-std:68 my_dog_b3>as_song14:75 my_dog_b3>ae-mike:73 my_dog_b3>es-fergus:61 my_aggro_calhoun>as-std:86 my_aggro_calhoun>as_song14:82 as-std>ae-mike:54 as-std>rs-basil:37
+DOGONLY my_dog_b3>as-std:72 my_dog_b3>as_song14:80 my_dog_b3>ae-mike:73 my_dog_b3>es-fergus:61 my_aggro_calhoun>as-std:87 my_aggro_calhoun>as_song14:85 as-std>ae-mike:51 as-std>rs-basil:36
+SONGONLY my_dog_b3>as-std:67 my_dog_b3>as_song14:75 my_dog_b3>ae-mike:74 my_dog_b3>es-fergus:61 my_aggro_calhoun>as-std:86 my_aggro_calhoun>as_song14:86 as-std>ae-mike:52 as-std>rs-basil:37
