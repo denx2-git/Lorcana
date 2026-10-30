@@ -5911,6 +5911,177 @@
    "sapphire"
   ]
  },
+ "Judy Hopps - Helpful Officer": {
+  "jp": "ジュディ・ホップス - お助け警官",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 2,
+  "wp": 1,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Hero",
+   "Detective"
+  ],
+  "text": "TO THE RESCUE When you play this character, remove up to 2 damage from chosen character.",
+  "set": "14",
+  "num": "9",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Heihei - At the Crosswalk": {
+  "jp": "ヘイヘイ - 横断歩道渡り鶏",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "AIMLESS WANDERING Once during your turn, if this character is at a location, you may move him to another location for free. If you do, gain 1 lore.",
+  "set": "14",
+  "num": "103",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Minnie Mouse - Daring Defender": {
+  "jp": "ミニーマウス - 勇敢な守り手",
+  "cost": 4,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 0,
+  "wp": 8,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Dreamborn",
+   "Hero"
+  ],
+  "text": "Bodyguard (This character may enter play exerted. An opposing character who challenges one of your characters must choose one with Bodyguard if able.) / TRUE VALOR This character gets +1 {S} for each 1 damage on her.",
+  "set": "8",
+  "num": "6",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Port Authority - Center Hub": {
+  "jp": "港務局 - 中央ハブ",
+  "cost": 4,
+  "inkable": false,
+  "types": [
+   "Location"
+  ],
+  "str": null,
+  "wp": 8,
+  "lore": 2,
+  "move": 1,
+  "classes": [
+   "Hyperia City"
+  ],
+  "text": "WELCOME TO TOWN Once during your turn, whenever a character moves here, each player gets 1 ink drop and gains 1 lore. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "34",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Or Rewrite History": {
+  "jp": "なぞなぞさ！",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Action",
+   "Song"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "(A character with cost 3 or more can {E} to sing this song for free.) / Return a character card from your discard to your hand.",
+  "set": "10",
+  "num": "27",
+  "ink": [
+   "amber"
+  ]
+ },
+ "Meilin Lee - Ecstatic Fan": {
+  "jp": "メイ・リー - めろめろファン",
+  "cost": 3,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 3,
+  "wp": 3,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "Singer 5 (This character counts as cost 5 to sing songs.) / I'M SO EXCITED! Once during your turn, whenever you play a song, gain 1 ink drop. (Each ink drop may be removed to pay 1 {I}.)",
+  "set": "14",
+  "num": "123",
+  "ink": [
+   "ruby"
+  ]
+ },
+ "Finnick - Tiny Terror": {
+  "jp": "フィニック - 恐怖のおチビちゃん",
+  "cost": 1,
+  "inkable": true,
+  "types": [
+   "Character"
+  ],
+  "str": 1,
+  "wp": 2,
+  "lore": 1,
+  "move": null,
+  "classes": [
+   "Storyborn",
+   "Ally"
+  ],
+  "text": "YOU BETTER RUN When you play this character, you may pay 2 {I} to return chosen opposing character with 2 {S} or less to their player's hand.",
+  "set": "10",
+  "num": "74",
+  "ink": [
+   "emerald"
+  ]
+ },
+ "Speaker Stack": {
+  "jp": "爆アゲスピーカー",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "MAX VOLUME Your characters with Singer get +1 {S} and +1 {W}.",
+  "set": "14",
+  "num": "32",
+  "ink": [
+   "amber"
+  ]
+ },
  "Ariel - Sonic Warrior": {
   "jp": "アリエル - 音響の戦士",
   "cost": 6,

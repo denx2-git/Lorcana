@@ -6,6 +6,8 @@ from engine import WIN_LORE
 import effects
 
 W_LORE = 1.6
+WIPE_K = float(__import__("os").environ.get("WIPE_K", "0.6"))
+HOLD_ALWAYS = __import__("os").environ.get("HOLD_ALWAYS") == "1"
 W_HAND = 0.85
 W_INK_EARLY = 1.4
 W_INK_LATE = 0.25
@@ -18,7 +20,7 @@ ENGINE_BONUS = {
     "Beast - Tragic Hero": 1.5, "Priscilla - Efficient Clerk": 1.5, "Maui - Half-Shark": 2.0,
     "Prince John - Greediest of All": 1.5, "Gaetan Moliere - Clever Burrower": 1.0,
     "Ursula - Deceiver of All": 1.5, "Lady - Decisive Dog": 0.8, "Grandmother Willow - Ancient Advisor": 1.0,
-    "Mike Wazowski - Heroic Climber": 0.8, "Mickey Mouse & Minnie Mouse - Adventuring Duo": 3.0,
+    "Mike Wazowski - Heroic Climber": float(__import__("os").environ.get("MIKE_B", "1.5")), "Mickey Mouse & Minnie Mouse - Adventuring Duo": 3.0,
     "Dumbo - Ninth Wonder of the Universe": 2.0, "Minnie Mouse - Pirate Lookout": 1.5,
     "Taffyta Muttonfudge - Sour Speedster": 1.5, "Namaari - Single-Minded Rival": 1.0,
     "Cinderella - Stouthearted": 1.5, "The Muses - Proclaimers of Heroes": 1.5,
@@ -36,7 +38,8 @@ ITEM_VALUE = {
 
 
 LOC_BONUS = {"Sugar Rush Speedway - Finish Line": 2.5, "Carl's House - Flying High": 1.5,
-             "Sugar Rush Speedway - Starting Line": 1.0}
+             "Sugar Rush Speedway - Starting Line": 1.0,
+             "Port Authority - Center Hub": 1.2}
 
 
 def combo_ready(g, x):
@@ -240,7 +243,47 @@ LOOKAHEAD_KINDS = ("move", "act")
 LOCK_CARDS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
 
 
+ZEUS_PRIORITY = {"Elinor - Renowned Diplomat", "Lilo & Stitch - Fun-Loving Friends", "Chernabog - Evildoer",
+                 "Kida - Protector of Atlantis", "Tramp - Street-Smart Dog", "Mike Wazowski - Heroic Climber",
+                 "Nick Wilde - Toy Drive Officer", "Lady - Miss Park Avenue", "Powerline - Megastar",
+                 "Cinderella - Stouthearted", "The Horned King - Merciless Master", "Diablo - Devoted Herald"}
+
+
+def song_adjust(g, p, act):
+    """ソング使いの戦術（実戦ログ・動画から）：ゼウスの的と時機、アークーデ→オーロラの順番、ビヨンドの時機。"""
+    if not p.policy.cfg.get("song_ai") or act[0] not in ("sing", "cast", "play"):
+        return 0.0
+    name = act[1]
+    o = g.opp(p)
+    adj = 0.0
+    if name == "And Then Along Came Zeus" and act[0] in ("sing", "cast"):
+        t = g.find(act[3] if act[0] == "sing" else act[2])
+        if t is not None:
+            tv = threat(g, t)
+            if t.card.name in ZEUS_PRIORITY:
+                adj += 1.0
+            elif tv < 3.0 and o.lore < 14 and sum(1 for c in p.hand if c.name == name) < 2:
+                adj -= 1.5  # 安い的には撃たず、エリノアやリロ＆スティッチのために取っておく
+    elif name == "Beyond the Horizon" and act[0] in ("sing", "cast"):
+        e = act[4] if act[0] == "sing" else act[3]
+        hits_opp = e is not None and (1 - p.pid) in e
+        mine = len(p.hand) - 1
+        if hits_opp:
+            adj += 0.35 * (len(o.hand) - 3)
+        if mine >= 3 and (not hits_opp or len(o.hand) <= 3):
+            adj -= 1.0  # 自分の手札が残っているうちは撃たない
+    elif name == "Aurora - Delightful Musician" and act[0] == "play":
+        played = any(c.is_song and c.cost <= 3 for c in p.t.get("spells", []))
+        castable = any(c.is_song and c.cost <= 3 and c.name != name and not p.action_locked and
+                       (g.singers_for(p, c) or p.ink_free() >= effects.action_cost(g, p, c) + g.char_cost(p, c) * 0)
+                       for c in p.hand if c.kind == "action")
+        if not played and castable:
+            adj -= 1.2  # 先に歌ってからオーロラで回収する
+    return adj
+
+
 def try_action(g, p, act, depth=0):
+    adj = song_adjust(g, p, act) if depth == 0 else 0.0
     h = g.clone()
     hp = h.players[p.pid]
     try:
@@ -249,14 +292,15 @@ def try_action(g, p, act, depth=0):
         return -1e9
     v = evaluate(h, p.pid)
     # 移動・ロケーション・起動能力は「次の一手」とセットで価値が出るので、もう1手だけ先を読む
-    combo = act[0] in LOOKAHEAD_KINDS or (act[0] == "play" and _is_location(hp, act[1]))
+    akood = act[0] in ("sing", "cast") and act[1] == "Akood et Emuti"
+    combo = act[0] in LOOKAHEAD_KINDS or (act[0] == "play" and _is_location(hp, act[1])) or akood
     if combo and depth == 0 and h.winner is None:
         for a2 in legal_actions(h, hp):
-            if a2[0] in ("move", "act"):
+            if a2[0] in ("move", "act") or (akood and a2[0] == "play" and card_in_hand(hp, a2[1]).kind == "char"):
                 v2 = try_action(h, hp, a2, depth=1)
                 if v2 > v:
                     v = v2 - 0.05
-    return v
+    return v + adj
 
 
 def _is_location(p, name):
@@ -393,14 +437,45 @@ class Policy:
         return {"action": sum(acts[:2]), "item": 0.2 + sum(items[:2])}
 
     def overextend_penalty(self, g, p):
+        """全体除去を受けたときに失う盤面の期待値（実戦ログの学習：準備をしておけを想定して出しすぎない）。"""
         o = g.opp(p)
-        wipe = self.cfg.get("_opp_wipe", 0)
-        if not wipe:
+        if not self.cfg.get("_opp_wipe", 0) or not o.hand:
             return 0.0
-        n = len(p.chars())
-        if n <= 4:
+        chars = p.chars()
+        if len(chars) <= 2:
             return 0.0
-        return (n - 4) * 0.5 * wipe * (1.0 if o.ink >= 5 else 0.3)
+        from decks import WIPES
+        from cards import db
+        counts = self.cfg.get("_opp_counts", {})
+        unknown = len(o.deck) + len(o.hand)
+        h = len(o.hand)
+        avail = o.ink + o.drops + 1  # 次のターンのインク置きを含む
+        total = 0.0
+        for name, wv in WIPES.items():
+            left = counts.get(name, 0) - sum(1 for c in o.discard if c.name == name)
+            if left <= 0 or not wv:
+                continue
+            c = db().get(name)
+            if c is None or (c.kind == "action" and o.action_locked):
+                continue
+            reach = 1.0 if avail >= c.cost else (0.2 if avail >= c.cost - 1 else 0.0)
+            if not reach:
+                continue
+            # 相手の手札にある確率（超幾何）
+            miss = 1.0
+            for i in range(h):
+                miss *= max(0.0, (unknown - left - i) / max(1, unknown - i))
+            prob = (1 - miss) * reach * wv
+            if name == "Under the Sea":
+                hit = [x for x in chars if g.char_str(x) <= 2]
+            elif name == "Grab Your Sword":
+                hit = [x for x in chars if x.left() <= 2]
+            else:
+                hit = chars
+            # 価値の高い順に2体までは「出しておくべき盤面」として除外
+            vals = sorted((threat(g, x) for x in hit), reverse=True)[2:]
+            total += prob * sum(vals)
+        return WIPE_K * total
 
     # ----- 選択 -----
     def discard_choice(self, g, p):
@@ -449,7 +524,16 @@ class Policy:
     # ----- ターン -----
     def play_turn(self, g, p):
         # インク
-        if self.cfg.get("ink_cap", 9) > p.ink:
+        cap = self.cfg.get("ink_cap", 9)
+        # 重いキーカード（アンダー・ザ・シーなど）を持っているときは、撃てるインクまで置き続ける（実戦ログの学習）
+        o = g.opp(p)
+        small = sum(1 for x in o.chars() if g.char_str(x) <= 2)
+        for c in p.hand:
+            hold = self.cfg.get("ink_cap_hold", {}).get(c.name)
+            # 後攻（カウンター型）か、相手の場に力2以下が3体以上並んだときだけ溜める（先攻は走り切る）
+            if hold and (g.first != p.pid or small >= 3 or HOLD_ALWAYS):
+                cap = max(cap, hold)
+        if cap > p.ink:
             c = self.ink_choice(g, p)
             if c is not None and g.can_ink(p, c):
                 g.do_ink(p, c)

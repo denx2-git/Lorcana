@@ -994,3 +994,322 @@ def make_policy(key, opp_key, list_override=None, opp_list_override=None):
         counts[c.name] = counts.get(c.name, 0) + 1
     cfg["_opp_counts"] = counts
     return Policy(cfg)
+
+
+# ---- ユーザー登録の5デッキ（Duels.ink スクショ） ----
+DECKS["my_sugar"] = {"name": "赤黄シュガーラッシュ・ロケーション（しゅがら）", "pair": "amber,ruby", "source": "ユーザー（スクショ）", "list_text": """
+4 Taffyta Muttonfudge - Crowd Favorite
+2 Sugar Rush Speedway - Starting Line
+4 Judy Hopps - Helpful Officer
+2 The Bare Necessities
+2 Fix-It Felix, Jr. - Delighted Sightseer
+4 Sugar Rush Speedway - Finish Line
+4 Angel - Siren Singer
+4 Beast - Snowfield Troublemaker
+1 Jebidiah Farnsworth - Cookie
+4 Carl's House - Flying High
+3 Heihei - At the Crosswalk
+4 Minnie Mouse - Pirate Lookout
+4 The Islands I Pulled From the Sea
+4 Or Rewrite History
+4 Elsa - Concerned Sister
+4 Taffyta Muttonfudge - Sour Speedster
+2 Minnie Mouse - Daring Defender
+2 Port Authority - Center Hub
+2 Be Prepared
+"""}
+CONFIG["my_sugar"] = dict(CONFIG["ar-sugar"], keep=CONFIG["ar-sugar"]["keep"] | {"Port Authority - Center Hub"}, never_ink=CONFIG["ar-sugar"]["never_ink"] | {"Heihei - At the Crosswalk"})
+DECKS["my_dog"] = {"name": "黄緑ドッグ（第14弾・hakumai型）", "pair": "amber,emerald", "source": "ユーザー（スクショ）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+4 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+2 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+2 Emerald Chromicon
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+3 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+"""}
+CONFIG["my_dog"] = CONFIG["ae_dog14"]
+DECKS["my_inkdrop"] = {"name": "鋼紫インクマシマシ（ナマーリ入り）", "pair": "amethyst,steel", "source": "ユーザー（スクショ）", "list_text": """
+4 Arthur - Novice Blacksmith
+4 Baloo - Delivery Pilot
+4 Madam Mim - Bauble Chaser
+4 Merlin - Bauble Expert
+4 Merlin - Profoundly Curious
+4 Pete - Games Referee
+4 Sir Pellinore - Tougher Than He Looks
+3 Jousting Match
+3 Khan Transport Delivery
+3 Merlin - Ink Drop Tinkerer
+3 Sir Kay - Determined to Win
+2 Archimedes - Messenger Owl
+2 Arthur - Jousting Knight
+2 Higitus Figitus
+2 Ink Explosion
+2 Madam Mim - Resourceful Trickster
+1 Namaari - Single-Minded Rival
+3 Calhoun - Marine Sergeant
+2 Grab Your Sword
+2 Let the Storm Rage On
+2 Flash - Efficient Clerk
+"""}
+CONFIG["my_inkdrop"] = CONFIG["stam_drop_v1"]
+DECKS["my_items"] = {"name": "青緑アイテム（みこ型）", "pair": "emerald,sapphire", "source": "ユーザー（スクショ）", "list_text": """
+4 Pawpsicle
+4 Blinding Chem Ball
+4 Prototype Chem Ball
+4 Hidden Inkcaster
+1 Go Go Tomago - Darting Dynamo
+4 Sail the Azurite Sea
+3 Inkrunner
+3 Belle - Apprentice Inventor
+1 Mushu - Stealthy Dragon
+4 Honey Lemon - Testing the Limits
+1 Hiram Flaversham - Toymaker
+4 Baymax - Lab Assistant
+4 Ariel - Collector of Oddities
+4 Tamatoa - Happy as a Clam
+2 Hades - Infernal Schemer
+4 Milo Thatch - Getting His Hands Dirty
+1 Tamatoa - So Shiny!
+4 Under the Sea
+4 Stegmutt - Clumsy Dinosaur
+"""}
+CONFIG["my_items"] = CONFIG["es_items14"]
+DECKS["my_aggro"] = {"name": "黄鋼アグロ（最終版）", "pair": "amber,steel", "source": "ユーザー（スクショ）", "list_text": """
+4 Daisy Duck - Donald's Date
+4 Stitch - Protector of Frogs
+4 Mickey Mouse - Best in Town
+3 Lilo - Bundled Up
+3 Rex - Protective Dinosaur
+2 Monterey Jack - Hypnotized by Cheese
+2 Pocahontas - Guiding the Tribe
+4 Mike Wazowski - Heroic Climber
+4 Grandmother Willow - Ancient Advisor
+2 Keep the Ancient Ways
+3 Flash - Efficient Clerk
+4 Toulouse - Rough and Tumble
+3 Strength of a Raging Fire
+4 Pete - Games Referee
+2 Pocahontas - Finding the Way
+2 Woolter & Jesse - Bellwether's Henchmen
+3 Megavolt - Electrical Menace
+3 The Horned King - Merciless Master
+4 Lilo & Stitch - Fun-Loving Friends
+"""}
+CONFIG["my_aggro"] = CONFIG.get("as-lilo-aggro", {})
+DECKS["my_sugar_m4"] = {"name": "赤黄しゅがら（ミッキー名物店主4枚・ヘイヘイ4枚）", "pair": "amber,ruby", "source": "ユーザー案（環境45.0%→50.4%）", "list_text": """
+4 Taffyta Muttonfudge - Crowd Favorite
+2 Sugar Rush Speedway - Starting Line
+3 Judy Hopps - Helpful Officer
+2 The Bare Necessities
+4 Sugar Rush Speedway - Finish Line
+4 Angel - Siren Singer
+4 Beast - Snowfield Troublemaker
+4 Carl's House - Flying High
+4 Heihei - At the Crosswalk
+4 Minnie Mouse - Pirate Lookout
+4 The Islands I Pulled From the Sea
+4 Or Rewrite History
+4 Elsa - Concerned Sister
+4 Taffyta Muttonfudge - Sour Speedster
+2 Port Authority - Center Hub
+2 Be Prepared
+1 Cinderella - Ballroom Sensation
+4 Mickey Mouse - Best in Town
+"""}
+CONFIG["my_sugar_m4"] = dict(CONFIG["my_sugar"], keep=CONFIG["my_sugar"]["keep"] | {"Mickey Mouse - Best in Town"})
+DECKS["my_dog_fin"] = {"name": "黄緑ドッグ（hakumai型・フィニック2枚）", "pair": "amber,emerald", "source": "ユーザー案（クロミコン2→フィニック2、環境63.7%→65.0%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+4 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+2 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+3 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+2 Finnick - Tiny Terror
+"""}
+CONFIG["my_dog_fin"] = CONFIG["my_dog"]
+DECKS["my_aggro_calhoun"] = {"name": "黄鋼アグロ（デイジー4→カルホーン4）", "pair": "amber,steel", "source": "ユーザー案（環境64.3%→69.8%）", "list_text": """
+4 Stitch - Protector of Frogs
+4 Mickey Mouse - Best in Town
+3 Lilo - Bundled Up
+3 Rex - Protective Dinosaur
+2 Monterey Jack - Hypnotized by Cheese
+2 Pocahontas - Guiding the Tribe
+4 Mike Wazowski - Heroic Climber
+4 Grandmother Willow - Ancient Advisor
+2 Keep the Ancient Ways
+3 Flash - Efficient Clerk
+4 Toulouse - Rough and Tumble
+3 Strength of a Raging Fire
+4 Pete - Games Referee
+2 Pocahontas - Finding the Way
+2 Woolter & Jesse - Bellwether's Henchmen
+3 Megavolt - Electrical Menace
+3 The Horned King - Merciless Master
+4 Lilo & Stitch - Fun-Loving Friends
+4 Calhoun - Marine Sergeant
+"""}
+CONFIG["my_aggro_calhoun"] = CONFIG["my_aggro"]
+DECKS["my_dog_b2"] = {"name": "黄緑ドッグ（フィニック2・ボビー2）", "pair": "amber,emerald", "source": "ユーザー手持ちに合わせた型（環境66.4%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+2 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+3 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+4 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+2 Finnick - Tiny Terror
+"""}
+CONFIG["my_dog_b2"] = CONFIG["my_dog"]
+DECKS["my_dog_cn"] = {"name": "黄緑ドッグ（フィニック2・ボビー2・チェルナボーグ1・ニック2）", "pair": "amber,emerald", "source": "ユーザー案（環境64.6%→69.6%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+2 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+1 Lilo - Escape Artist
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+4 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+2 Under the Sea
+2 Finnick - Tiny Terror
+1 Chernabog - Evildoer
+2 Nick Wilde - Toy Drive Officer
+"""}
+CONFIG["my_dog_cn"] = CONFIG["my_dog"]
+DECKS["my_dog_best"] = {"name": "黄緑ドッグ（ニック2・チェルナボーグ2）", "pair": "amber,emerald", "source": "ユーザー案の改良（環境70.7%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+2 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+4 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+2 Under the Sea
+2 Finnick - Tiny Terror
+2 Chernabog - Evildoer
+2 Nick Wilde - Toy Drive Officer
+"""}
+CONFIG["my_dog_best"] = CONFIG["my_dog"]
+DECKS["my_dog_b3"] = {"name": "黄緑ドッグ（ボビー3・ニック1・チェルナボーグ2）", "pair": "amber,emerald", "source": "ユーザー手持ちに合わせた型（環境71.3%）", "list_text": """
+4 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+3 Bobby Zimuruski - Spray Cheese Kid
+4 Mickey Mouse - Best in Town
+2 Lady - Relaxed and Rested
+4 Ursula - Deceiver
+4 Tramp - Enterprising Dog
+4 Grandmother Willow - Ancient Advisor
+4 Nani - Stage Manager
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+4 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+2 Under the Sea
+2 Finnick - Tiny Terror
+2 Chernabog - Evildoer
+1 Nick Wilde - Toy Drive Officer
+"""}
+CONFIG["my_dog_b3"] = CONFIG["my_dog"]
+
+# アンダー・ザ・シーを持っているドッグは8インクまで置く
+for _k in [k for k in CONFIG if k.startswith(("ae", "my_dog"))]:
+    if isinstance(CONFIG[_k], dict) and CONFIG[_k].get("ink_cap", 9) < 8:
+        CONFIG[_k] = dict(CONFIG[_k], ink_cap_hold={"Under the Sea": 8})
+
+# 動画の構築解説：ビヨンド型ソングは基本5〜6インクで止める
+SONG_CAP = int(__import__("os").environ.get("SONG_CAP", "6"))
+for _k in ("as-std", "as_song14"):
+    CONFIG[_k] = dict(CONFIG[_k], ink_cap=SONG_CAP)
+
+# ソング使いの戦術（ゼウスの的・アークーデ→オーロラ・ビヨンドの時機）
+SONG_AI = __import__("os").environ.get("SONG_AI", "1") == "1"
+for _k in ("as-std", "as_song14", "as-naveen"):
+    CONFIG[_k] = dict(CONFIG[_k], song_ai=SONG_AI)
+
+DECKS["ae_royal_ccq"] = {"name": "黄緑ロイヤルドッグ（わいけー選手・セットチャンピオンシップ）", "pair": "amber,emerald", "source": "タカラトミー 最新デッキ情報局 Vol.37", "list_text": """
+3 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+4 Bobby Zimuruski - Spray Cheese Kid
+1 Finnick - Tiny Terror
+2 Lady - Relaxed and Rested
+4 Grandmother Willow - Ancient Advisor
+4 Mike Wazowski - Heroic Climber
+4 Ursula - Deceiver
+4 Tramp - Enterprising Dog
+2 Hiro Hamada - Versatile Inventor
+4 Nani - Stage Manager
+1 Kit Cloudkicker - Tough Guy
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+3 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+1 Chernabog - Evildoer
+"""}
+CONFIG["ae_royal_ccq"] = CONFIG["my_dog"]
+DECKS["as_song_ccq"] = {"name": "黄鋼歌ミッドレンジ（べべ選手・セットチャンピオンシップ）", "pair": "amber,steel", "source": "タカラトミー 最新デッキ情報局 Vol.37", "list_text": """
+4 Cinderella - Ballroom Sensation
+3 Miguel Rivera - Street Musician
+2 Ursula - Vanessa
+4 The Troubadour - Musical Narrator
+2 Angel - Siren Singer
+2 Speaker Stack
+4 Ariel - Spectacular Singer
+4 Meilin Lee - Losing Control
+4 Aurora - Delightful Musician
+4 Akood et Emuti
+4 Strength of a Raging Fire
+4 Let the Storm Rage On
+2 I Find 'Em, I Flatten 'Em
+3 And Then Along Came Zeus
+4 Beast - Tragic Hero
+4 Powerline - Megastar
+3 Cinderella - Stouthearted
+3 Beyond the Horizon
+"""}
+CONFIG["as_song_ccq"] = dict(CONFIG["as_song14"], keep=CONFIG["as_song14"]["keep"] | {"Speaker Stack", "Akood et Emuti"})

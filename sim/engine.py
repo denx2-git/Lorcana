@@ -45,7 +45,7 @@ class Perm:
         return self.card.kind
 
     def left(self):
-        return self.card.wp - self.damage
+        return self.card.wp + self.flags.get("wp_bonus", 0) - self.damage
 
 
 class Player:
@@ -244,7 +244,7 @@ class Game:
         x.damage += n
         if x.card.kind == "char" and x.owner != self.active:
             self.players[self.active].t["opp_damaged"] = True
-        if x.damage >= x.card.wp:
+        if x.damage >= x.card.wp + x.flags.get("wp_bonus", 0):
             self.banish(x, by_challenge=src == "challenge")
             return True
         return False
