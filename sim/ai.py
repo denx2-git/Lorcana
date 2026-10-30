@@ -243,7 +243,47 @@ LOOKAHEAD_KINDS = ("move", "act")
 LOCK_CARDS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
 
 
+ZEUS_PRIORITY = {"Elinor - Renowned Diplomat", "Lilo & Stitch - Fun-Loving Friends", "Chernabog - Evildoer",
+                 "Kida - Protector of Atlantis", "Tramp - Street-Smart Dog", "Mike Wazowski - Heroic Climber",
+                 "Nick Wilde - Toy Drive Officer", "Lady - Miss Park Avenue", "Powerline - Megastar",
+                 "Cinderella - Stouthearted", "The Horned King - Merciless Master", "Diablo - Devoted Herald"}
+
+
+def song_adjust(g, p, act):
+    """ソング使いの戦術（実戦ログ・動画から）：ゼウスの的と時機、アークーデ→オーロラの順番、ビヨンドの時機。"""
+    if not p.policy.cfg.get("song_ai") or act[0] not in ("sing", "cast", "play"):
+        return 0.0
+    name = act[1]
+    o = g.opp(p)
+    adj = 0.0
+    if name == "And Then Along Came Zeus" and act[0] in ("sing", "cast"):
+        t = g.find(act[3] if act[0] == "sing" else act[2])
+        if t is not None:
+            tv = threat(g, t)
+            if t.card.name in ZEUS_PRIORITY:
+                adj += 1.0
+            elif tv < 3.0 and o.lore < 14 and sum(1 for c in p.hand if c.name == name) < 2:
+                adj -= 1.5  # 安い的には撃たず、エリノアやリロ＆スティッチのために取っておく
+    elif name == "Beyond the Horizon" and act[0] in ("sing", "cast"):
+        e = act[4] if act[0] == "sing" else act[3]
+        hits_opp = e is not None and (1 - p.pid) in e
+        mine = len(p.hand) - 1
+        if hits_opp:
+            adj += 0.35 * (len(o.hand) - 3)
+        if mine >= 3 and (not hits_opp or len(o.hand) <= 3):
+            adj -= 1.0  # 自分の手札が残っているうちは撃たない
+    elif name == "Aurora - Delightful Musician" and act[0] == "play":
+        played = any(c.is_song and c.cost <= 3 for c in p.t.get("spells", []))
+        castable = any(c.is_song and c.cost <= 3 and c.name != name and not p.action_locked and
+                       (g.singers_for(p, c) or p.ink_free() >= effects.action_cost(g, p, c) + g.char_cost(p, c) * 0)
+                       for c in p.hand if c.kind == "action")
+        if not played and castable:
+            adj -= 1.2  # 先に歌ってからオーロラで回収する
+    return adj
+
+
 def try_action(g, p, act, depth=0):
+    adj = song_adjust(g, p, act) if depth == 0 else 0.0
     h = g.clone()
     hp = h.players[p.pid]
     try:
@@ -252,14 +292,15 @@ def try_action(g, p, act, depth=0):
         return -1e9
     v = evaluate(h, p.pid)
     # 移動・ロケーション・起動能力は「次の一手」とセットで価値が出るので、もう1手だけ先を読む
-    combo = act[0] in LOOKAHEAD_KINDS or (act[0] == "play" and _is_location(hp, act[1]))
+    akood = act[0] in ("sing", "cast") and act[1] == "Akood et Emuti"
+    combo = act[0] in LOOKAHEAD_KINDS or (act[0] == "play" and _is_location(hp, act[1])) or akood
     if combo and depth == 0 and h.winner is None:
         for a2 in legal_actions(h, hp):
-            if a2[0] in ("move", "act"):
+            if a2[0] in ("move", "act") or (akood and a2[0] == "play" and card_in_hand(hp, a2[1]).kind == "char"):
                 v2 = try_action(h, hp, a2, depth=1)
                 if v2 > v:
                     v = v2 - 0.05
-    return v
+    return v + adj
 
 
 def _is_location(p, name):

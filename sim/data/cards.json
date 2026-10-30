@@ -6062,5 +6062,24 @@
   "ink": [
    "emerald"
   ]
+ },
+ "Speaker Stack": {
+  "jp": "爆アゲスピーカー",
+  "cost": 2,
+  "inkable": true,
+  "types": [
+   "Item"
+  ],
+  "str": null,
+  "wp": null,
+  "lore": null,
+  "move": null,
+  "classes": [],
+  "text": "MAX VOLUME Your characters with Singer get +1 {S} and +1 {W}.",
+  "set": "14",
+  "num": "32",
+  "ink": [
+   "amber"
+  ]
  }
 }

@@ -252,6 +252,8 @@ def strength(g, x):
         s += len(p.discard)
     elif n == "Minnie Mouse - Daring Defender":
         s += x.damage
+    if c.singer:
+        s += sum(1 for it in p.items() if it.card.name == "Speaker Stack")
     for kind, _pid in g.global_mods:
         if kind == "kida":
             s -= 3
@@ -874,6 +876,8 @@ def auto_target(g, p, card):
 
 
 def on_play_char(g, p, x, target, extra):
+    if x.card.singer:
+        x.flags["wp_bonus"] = x.flags.get("wp_bonus", 0) + sum(1 for it in p.items() if it.card.name == "Speaker Stack")
     o = g.opp(p)
     n = x.card.name
     t = g.find(target) if target is not None else None
@@ -1243,6 +1247,10 @@ def mike_reveal(g, p):
 
 
 def on_play_perm(g, p, x, target, extra):
+    if x.card.name == "Speaker Stack":
+        for y in p.chars():
+            if y.card.singer:
+                y.flags["wp_bonus"] = y.flags.get("wp_bonus", 0) + 1
     n = x.card.name
     if n == "Pawpsicle" or n == "Inkrunner" or n == "Hidden Inkcaster":
         g.draw(p)

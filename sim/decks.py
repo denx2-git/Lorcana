@@ -1240,3 +1240,52 @@ for _k in [k for k in CONFIG if k.startswith(("ae", "my_dog"))]:
 SONG_CAP = int(__import__("os").environ.get("SONG_CAP", "6"))
 for _k in ("as-std", "as_song14"):
     CONFIG[_k] = dict(CONFIG[_k], ink_cap=SONG_CAP)
+
+# ソング使いの戦術（ゼウスの的・アークーデ→オーロラ・ビヨンドの時機）
+SONG_AI = __import__("os").environ.get("SONG_AI", "1") == "1"
+for _k in ("as-std", "as_song14", "as-naveen"):
+    CONFIG[_k] = dict(CONFIG[_k], song_ai=SONG_AI)
+
+DECKS["ae_royal_ccq"] = {"name": "黄緑ロイヤルドッグ（わいけー選手・セットチャンピオンシップ）", "pair": "amber,emerald", "source": "タカラトミー 最新デッキ情報局 Vol.37", "list_text": """
+3 Kida - Atlantean
+4 Aurora - Holding Court
+4 Lady - Decisive Dog
+4 Bobby Zimuruski - Spray Cheese Kid
+1 Finnick - Tiny Terror
+2 Lady - Relaxed and Rested
+4 Grandmother Willow - Ancient Advisor
+4 Mike Wazowski - Heroic Climber
+4 Ursula - Deceiver
+4 Tramp - Enterprising Dog
+2 Hiro Hamada - Versatile Inventor
+4 Nani - Stage Manager
+1 Kit Cloudkicker - Tough Guy
+4 Elinor - Renowned Diplomat
+4 Kida - Protector of Atlantis
+3 Lady - Miss Park Avenue
+4 Tramp - Street-Smart Dog
+3 Under the Sea
+1 Chernabog - Evildoer
+"""}
+CONFIG["ae_royal_ccq"] = CONFIG["my_dog"]
+DECKS["as_song_ccq"] = {"name": "黄鋼歌ミッドレンジ（べべ選手・セットチャンピオンシップ）", "pair": "amber,steel", "source": "タカラトミー 最新デッキ情報局 Vol.37", "list_text": """
+4 Cinderella - Ballroom Sensation
+3 Miguel Rivera - Street Musician
+2 Ursula - Vanessa
+4 The Troubadour - Musical Narrator
+2 Angel - Siren Singer
+2 Speaker Stack
+4 Ariel - Spectacular Singer
+4 Meilin Lee - Losing Control
+4 Aurora - Delightful Musician
+4 Akood et Emuti
+4 Strength of a Raging Fire
+4 Let the Storm Rage On
+2 I Find 'Em, I Flatten 'Em
+3 And Then Along Came Zeus
+4 Beast - Tragic Hero
+4 Powerline - Megastar
+3 Cinderella - Stouthearted
+3 Beyond the Horizon
+"""}
+CONFIG["as_song_ccq"] = dict(CONFIG["as_song14"], keep=CONFIG["as_song14"]["keep"] | {"Speaker Stack", "Akood et Emuti"})
