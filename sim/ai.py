@@ -7,6 +7,7 @@ import effects
 
 W_LORE = 1.6
 WIPE_K = float(__import__("os").environ.get("WIPE_K", "0.6"))
+HOLD_ALWAYS = __import__("os").environ.get("HOLD_ALWAYS") == "1"
 W_HAND = 0.85
 W_INK_EARLY = 1.4
 W_INK_LATE = 0.25
@@ -19,7 +20,7 @@ ENGINE_BONUS = {
     "Beast - Tragic Hero": 1.5, "Priscilla - Efficient Clerk": 1.5, "Maui - Half-Shark": 2.0,
     "Prince John - Greediest of All": 1.5, "Gaetan Moliere - Clever Burrower": 1.0,
     "Ursula - Deceiver of All": 1.5, "Lady - Decisive Dog": 0.8, "Grandmother Willow - Ancient Advisor": 1.0,
-    "Mike Wazowski - Heroic Climber": 0.8, "Mickey Mouse & Minnie Mouse - Adventuring Duo": 3.0,
+    "Mike Wazowski - Heroic Climber": float(__import__("os").environ.get("MIKE_B", "1.5")), "Mickey Mouse & Minnie Mouse - Adventuring Duo": 3.0,
     "Dumbo - Ninth Wonder of the Universe": 2.0, "Minnie Mouse - Pirate Lookout": 1.5,
     "Taffyta Muttonfudge - Sour Speedster": 1.5, "Namaari - Single-Minded Rival": 1.0,
     "Cinderella - Stouthearted": 1.5, "The Muses - Proclaimers of Heroes": 1.5,
@@ -484,9 +485,12 @@ class Policy:
         # インク
         cap = self.cfg.get("ink_cap", 9)
         # 重いキーカード（アンダー・ザ・シーなど）を持っているときは、撃てるインクまで置き続ける（実戦ログの学習）
+        o = g.opp(p)
+        small = sum(1 for x in o.chars() if g.char_str(x) <= 2)
         for c in p.hand:
             hold = self.cfg.get("ink_cap_hold", {}).get(c.name)
-            if hold:
+            # 後攻（カウンター型）か、相手の場に力2以下が3体以上並んだときだけ溜める（先攻は走り切る）
+            if hold and (g.first != p.pid or small >= 3 or HOLD_ALWAYS):
                 cap = max(cap, hold)
         if cap > p.ink:
             c = self.ink_choice(g, p)

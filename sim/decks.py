@@ -1235,3 +1235,8 @@ CONFIG["my_dog_b3"] = CONFIG["my_dog"]
 for _k in [k for k in CONFIG if k.startswith(("ae", "my_dog"))]:
     if isinstance(CONFIG[_k], dict) and CONFIG[_k].get("ink_cap", 9) < 8:
         CONFIG[_k] = dict(CONFIG[_k], ink_cap_hold={"Under the Sea": 8})
+
+# 動画の構築解説：ビヨンド型ソングは基本5〜6インクで止める
+SONG_CAP = int(__import__("os").environ.get("SONG_CAP", "6"))
+for _k in ("as-std", "as_song14"):
+    CONFIG[_k] = dict(CONFIG[_k], ink_cap=SONG_CAP)
