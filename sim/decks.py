@@ -705,6 +705,28 @@ DECKS["nt_pj_dw"] = {"name": "青緑アイテム（ニシオカ型・タマト�
 2 Darkwing Duck - Dashing Gadgeteer
 """}
 
+DECKS["as_song_wife"] = {"name": "黄鋼ソング（ユーザーの奥さんのリスト）", "pair": "amber,steel", "source": "公式デッキ編成URL（ユーザー共有）", "list_text": """
+4 Cinderella - Ballroom Sensation
+4 Miguel Rivera - Street Musician
+3 Ursula - Vanessa
+3 The Troubadour - Musical Narrator
+2 Angel - Siren Singer
+4 Ariel - Spectacular Singer
+2 Meilin Lee - Losing Control
+4 Aurora - Delightful Musician
+4 Pete - Games Referee
+4 Akood et Emuti
+4 Strength of a Raging Fire
+4 Let the Storm Rage On
+4 Rapunzel - Gifted with Healing
+4 And Then Along Came Zeus
+2 Grab Your Sword
+2 Powerline - Megastar
+2 Ariel - Sonic Warrior
+2 Cinderella - Stouthearted
+2 Beyond the Horizon
+"""}
+
 NAMES_JP = {k: v["name"] for k, v in DECKS.items()}
 
 LOCKS = {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Keep the Ancient Ways"}
@@ -937,6 +959,8 @@ CONFIG["nt_dw"] = CONFIG["es_items14"]
 CONFIG["nt_gadget"] = CONFIG["es_items14"]
 CONFIG["nt_pj_salv"] = CONFIG["es_items14"]
 CONFIG["nt_pj_dw"] = CONFIG["es_items14"]
+
+CONFIG["as_song_wife"] = dict(CONFIG["as_song14"], keep=CONFIG["as_song14"]["keep"] | {"Rapunzel - Gifted with Healing"})
 
 WIPES = {"Be Prepared": 1.0, "Under the Sea": 0.8, "Grab Your Sword": 0.6, "Sisu - Empowered Sibling": 0.7,
          "The Leviathan - Guardian of Atlantis": 0.7, "Malicious, Mean, and Scary": 0.3,
