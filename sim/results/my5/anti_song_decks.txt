@@ -1,0 +1,5 @@
+ES1.txt wife_song:59 as_song_ccq:67 as-std:64 my_dog_b3:42 ae_royal_ccq:57 ae-mike:63 rs-basil:65 amr-evasive:56
+ES2.txt wife_song:66 as_song_ccq:65 as-std:70 my_dog_b3:41 ae_royal_ccq:50 ae-mike:59 rs-basil:68 amr-evasive:63
+AS1.txt wife_song:69 as_song_ccq:70 as-std:72 my_dog_b3:37 ae_royal_ccq:43 ae-mike:51 rs-basil:64 amr-evasive:57
+base
+AS0.txt wife_song:70 as_song_ccq:71 as-std:76 my_dog_b3:34 ae_royal_ccq:44 ae-mike:56 rs-basil:66 amr-evasive:59

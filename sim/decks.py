@@ -1336,3 +1336,53 @@ DECKS["wife_song"] = {"name": "黄鋼ソング（妻のデッキ）", "pair": "a
 2 Beyond the Horizon
 """}
 CONFIG["wife_song"] = CONFIG["as_song14"]
+
+# 歌デッキ対策（妻のソング想定）：アクション封じ＋ハンデス＋耐性キャラ
+CONFIG["anti_song"] = {
+    "keep": {"Pete - Games Referee", "Toulouse - Rough and Tumble", "Ursula - Deceiver", "Calhoun - Marine Sergeant",
+             "Flash - Efficient Clerk", "Lady - Relaxed and Rested", "Minnie Mouse - Busy Go-Getter", "Lilo - Bundled Up"},
+    "key": {"Keep the Ancient Ways": 0.4, "Pete - Games Referee": 0.3},
+    "ink_cap": 7,
+}
+DECKS["es_antisong1"] = {"name": "緑鋼ソング対策（ロック＋ハンデス＋耐性）", "pair": "emerald,steel", "source": "自作（妻のソング対策）", "list_text": """
+4 Pete - Games Referee
+4 Toulouse - Rough and Tumble
+3 Keep the Ancient Ways
+4 Ursula - Deceiver
+2 Lenny - Toy Binoculars
+2 Sudden Chill
+4 Lady - Relaxed and Rested
+4 Minnie Mouse - Busy Go-Getter
+4 Calhoun - Marine Sergeant
+4 Flash - Efficient Clerk
+4 Lilo - Bundled Up
+3 Megavolt - Electrical Menace
+3 Scrooge McDuck - S.H.U.S.H. Agent
+2 Signed Contract
+3 Strength of a Raging Fire
+4 Stitch - Protector of Frogs
+3 Mr. Smee - Bumbling Mate
+3 Shere Khan - Opportunistic Tycoon
+"""}
+CONFIG["es_antisong1"] = CONFIG["anti_song"]
+DECKS["es_antisong2"] = {"name": "緑鋼ソング対策（エリノア・ガエタン入り）", "pair": "emerald,steel", "source": "自作（妻のソング対策）", "list_text": """
+4 Pete - Games Referee
+4 Toulouse - Rough and Tumble
+3 Keep the Ancient Ways
+4 Ursula - Deceiver
+2 Lenny - Toy Binoculars
+2 Sudden Chill
+4 Lady - Relaxed and Rested
+4 Minnie Mouse - Busy Go-Getter
+4 Calhoun - Marine Sergeant
+4 Flash - Efficient Clerk
+4 Lilo - Bundled Up
+3 Megavolt - Electrical Menace
+3 Scrooge McDuck - S.H.U.S.H. Agent
+2 Signed Contract
+3 Strength of a Raging Fire
+4 Elinor - Renowned Diplomat
+3 Gaetan Moliere - Clever Burrower
+3 Shere Khan - Opportunistic Tycoon
+"""}
+CONFIG["es_antisong2"] = CONFIG["anti_song"]
